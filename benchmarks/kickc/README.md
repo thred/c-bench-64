@@ -22,9 +22,3 @@ Download the latest release from: https://theweb.dk/KickAssembler/Main.html#fron
 
 Unpack the archive to this folder, in order that this `kickc` folder contains a `KickAssembler` folder with
 the contents of the archive.
-
-## Build
-
-```
-make
-```

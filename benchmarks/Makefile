@@ -1,6 +1,6 @@
 CURDIR := $(shell pwd)
 
-INCLUDE = CC65P,CC65S,KICKC
+INCLUDE = CC65P,CC65S,KICKC,SDCC
 
 export SRCDIR = $(CURDIR)/src
 
@@ -109,6 +109,10 @@ build:
 		$(MAKE) -C kickc build; \
 	fi
 
+	if echo "$(INCLUDE)" | grep -q "SDCC" && ! echo "$(EXCLUDE)" | grep -q "SDCC" ; then \
+		$(MAKE) -C sdcc build; \
+	fi
+
 
 clean:
 	if echo "$(INCLUDE)" | grep -q "CC65" && ! echo "$(EXCLUDE)" | grep -q "CC65" ; then \
@@ -117,6 +121,10 @@ clean:
 
 	if echo "$(INCLUDE)" | grep -q "KICKC" && ! echo "$(EXCLUDE)" | grep -q "KICKC" ; then \
 		$(MAKE) -C kickc clean; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "SDCC" && ! echo "$(EXCLUDE)" | grep -q "SDCC" ; then \
+		$(MAKE) -C sdcc clean; \
 	fi
 
 exec:
@@ -130,4 +138,8 @@ exec:
 
 	if echo "$(INCLUDE)" | grep -q "KICKC" && ! echo "$(EXCLUDE)" | grep -q "KICKC" ; then \
 		$(MAKE) -C kickc exec; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "SDCC" && ! echo "$(EXCLUDE)" | grep -q "SDCC" ; then \
+		$(MAKE) -C sdcc exec; \
 	fi

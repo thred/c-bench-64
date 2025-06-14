@@ -6,9 +6,3 @@ Homepage: https://cc65.github.io/
 
 Follow the instructions on https://cc65.github.io/getting-started.html to install CC65 for
 your OS.
-
-## Build
-
-```
-make
-```
