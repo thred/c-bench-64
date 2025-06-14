@@ -1,7 +1,4 @@
 KickAssembler/*
 KickC/*
 !.gitkeep
-*.asm
-*.log
-*.prg
-*.sym
+bin/
