@@ -1,12 +1,42 @@
 CURDIR := $(shell pwd)
 
-INCLUDE = CC65P,CC65S,KICKC,SDCC
+INCLUDE = CC65P,CC65S,KICKC,LLVM,SDCC
 
 export SRCDIR = $(CURDIR)/src
 
 export LIBS = "$(SRCDIR)/cia_timer.c" "$(SRCDIR)/main.c"
 
 export VICEEXEC = flatpak run net.sf.VICE -config "$(SRCDIR)/vice.ini" -warp
+
+all:
+	$(MAKE) build-all
+	$(MAKE) exec-all
+
+build-all:	
+	$(MAKE) build-aes256
+	$(MAKE) build-crc16
+	$(MAKE) build-crc32			
+	$(MAKE) build-crc8
+	$(MAKE) build-dhrystone
+	$(MAKE) build-fact
+	$(MAKE) build-pi
+	$(MAKE) build-pow
+	$(MAKE) build-puff2
+	$(MAKE) build-sieve
+	$(MAKE) build-sieve-bit
+
+exec-all:
+	$(MAKE) exec-aes256
+	$(MAKE) exec-crc16
+	$(MAKE) exec-crc32
+	$(MAKE) exec-crc8
+	$(MAKE) exec-dhrystone
+	$(MAKE) exec-fact
+	$(MAKE) exec-pi
+	$(MAKE) exec-pow
+	$(MAKE) exec-puff2
+	$(MAKE) exec-sieve
+	$(MAKE) exec-sieve-bit
 
 aes256:
 	$(MAKE) build-aes256
@@ -109,6 +139,10 @@ build:
 		$(MAKE) -C kickc build; \
 	fi
 
+	if echo "$(INCLUDE)" | grep -q "LLVM" && ! echo "$(EXCLUDE)" | grep -q "LLVM" ; then \
+		$(MAKE) -C llvm-mos build; \
+	fi
+
 	if echo "$(INCLUDE)" | grep -q "SDCC" && ! echo "$(EXCLUDE)" | grep -q "SDCC" ; then \
 		$(MAKE) -C sdcc build; \
 	fi
@@ -121,6 +155,10 @@ clean:
 
 	if echo "$(INCLUDE)" | grep -q "KICKC" && ! echo "$(EXCLUDE)" | grep -q "KICKC" ; then \
 		$(MAKE) -C kickc clean; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "LLVM" && ! echo "$(EXCLUDE)" | grep -q "LLVM" ; then \
+		$(MAKE) -C llvm-mos clean; \
 	fi
 
 	if echo "$(INCLUDE)" | grep -q "SDCC" && ! echo "$(EXCLUDE)" | grep -q "SDCC" ; then \
@@ -138,6 +176,10 @@ exec:
 
 	if echo "$(INCLUDE)" | grep -q "KICKC" && ! echo "$(EXCLUDE)" | grep -q "KICKC" ; then \
 		$(MAKE) -C kickc exec; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "LLVM" && ! echo "$(EXCLUDE)" | grep -q "LLVM" ; then \
+		$(MAKE) -C llvm-mos exec; \
 	fi
 
 	if echo "$(INCLUDE)" | grep -q "SDCC" && ! echo "$(EXCLUDE)" | grep -q "SDCC" ; then \
