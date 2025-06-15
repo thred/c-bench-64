@@ -2,28 +2,40 @@ CURDIR := $(shell pwd)
 BINDIR := $(CURDIR)/bin
 
 CLANG = "$(CURDIR)/llvm-mos/bin/mos-c64-clang"
-#CLANGTARGET = --config /mnt/media/build/llvm-mos-sdk/build/commodore/64.cfg
 CLANGTARGET = 
-CLANGOPTS = -Os
+CLANGPERFOPTS = -Os
+CLANGSIZEOPTS = -Os -flto
+
+build-perf:
+	$(MAKE) CLANGOPTS="$(CLANGPERFOPTS)" SUFFIX=llvmp build
+
+build-size:
+	$(MAKE) CLANGOPTS="$(CLANGSIZEOPTS)" SUFFIX=llvms build
 
 build:
 	mkdir -p "$(BINDIR)"
 	
-	$(CLANG) $(CLANGTARGET) $(CLANGOPTS) "$(SRCDIR)/$(PRG).c" $(LIBS) $(EXTRA) -o "$(BINDIR)/$(PRG)-llvm.prg"
+	$(CLANG) $(CLANGTARGET) $(CLANGOPTS) "$(SRCDIR)/$(PRG).c" $(LIBS) $(EXTRA) -o "$(BINDIR)/$(PRG)-$(SUFFIX).prg"
 
 clean:
 	rm -rf "$(BINDIR)"
 
-exec:
-	rm -f "$(BINDIR)/$(PRG)-llvm.log"
+exec-perf:
+	$(MAKE) SUFFIX=llvmp exec
 
-	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-llvm.prg" \
+exec-size:
+	$(MAKE) SUFFIX=llvms exec
+
+exec:
+	rm -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
+
+	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
 		-initbreak 0xc000 \
 		-moncommands "$(SRCDIR)/vice.mon" \
 		-monlog \
-		-monlogname "$(BINDIR)/$(PRG)-llvm.log"
+		-monlogname "$(BINDIR)/$(PRG)-$(SUFFIX).log"
 
-	cat "$(BINDIR)/$(PRG)-llvm.log" 
+	cat "$(BINDIR)/$(PRG)-$(SUFFIX).log" 
 
 
 

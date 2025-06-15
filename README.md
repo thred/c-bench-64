@@ -24,3 +24,4 @@ https://flathub.org/apps/net.sf.VICE
 ### Benchmarks
 
 The benchmark for each compiler contains specific instructions to prepare the build for the tested compiler.
+The compilers are usually installed into a subfolder to avoid problems with existing local installations.

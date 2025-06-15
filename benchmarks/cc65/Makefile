@@ -1,7 +1,8 @@
 CURDIR := $(shell pwd)
 BINDIR := $(CURDIR)/bin
 
-CC65 = cl65
+CC65DIR := $(CURDIR)/cc65
+CC65 = $(CC65DIR)/bin/cl65
 CC65TARGET = -t c64
 CC65PERFOPTS = -Oisr --static-locals
 CC65SIZEOPTS = -O --static-locals

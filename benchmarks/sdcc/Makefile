@@ -2,39 +2,54 @@ CURDIR := $(shell pwd)
 BINDIR := $(CURDIR)/bin
 
 SDCCDIR := $(CURDIR)/sdcc
+SDAS = $(SDCCDIR)/bin/sdas6500
 SDCC = $(SDCCDIR)/bin/sdcc
+MAKEBIN = $(SDCCDIR)/bin/makebin
 SDCCTARGET = -mmos6502 --fverbose-asm --i-code-in-asm
-SDCCOPTS = --max-allocs-per-node 250000 --opt-code-speed
+SDCCPERFOPTS = --max-allocs-per-node 250000 --opt-code-speed
+SDCCSIZEOPTS = --max-allocs-per-node 250000
+
+build-perf:
+	$(MAKE) SDCCOPTS="$(SDCCPERFOPTS)" SUFFIX=sdccp build
+
+build-size:
+	$(MAKE) SDCCOPTS="$(SDCCSIZEOPTS)" SUFFIX=sdccs build
 
 build:
-	mkdir -p "$(BINDIR)"
+	mkdir -p "$(BINDIR)/$(SUFFIX)"
 
-	$(SDCCDIR)/bin/sdas6500 -og "$(BINDIR)/c64_crt.rel" "$(SRCDIR)/c64_crt.s"
+	$(SDAS) -og "$(BINDIR)/$(SUFFIX)/c64_crt.rel" "$(SRCDIR)/c64_crt.s"
 
-	$(SDCC) $(SDCCTARGET) -c "$(SRCDIR)/c64lib.c" -o "$(BINDIR)/" 
+	$(SDCC) $(SDCCTARGET) -c "$(SRCDIR)/c64lib.c" -o "$(BINDIR)/$(SUFFIX)/" 
 
-	$(foreach LIB,$(LIBS),$(SDCC) $(SDCCTARGET) -c "$(LIB)" -o "$(BINDIR)/";)
+	$(foreach LIB,$(LIBS),$(SDCC) $(SDCCTARGET) -c "$(LIB)" -o "$(BINDIR)/$(SUFFIX)/";)
 
-	$(SDCC) $(SDCCTARGET) $(SDCCOPTS) -c "$(SRCDIR)/$(PRG).c" -o "$(BINDIR)/"
+	$(SDCC) $(SDCCTARGET) $(SDCCOPTS) -c "$(SRCDIR)/$(PRG).c" -o "$(BINDIR)/$(SUFFIX)/"
 
-	$(SDCC) $(SDCCTARGET) --no-std-crt0 --code-loc 0x7ff -mmos6502 "$(BINDIR)/c64_crt.rel" "$(BINDIR)/c64lib.rel" \
-		"$(BINDIR)/cia_timer.rel" "$(BINDIR)/main.rel" "$(BINDIR)/$(PRG).rel" -o "$(BINDIR)/$(PRG).ihx"
+	$(SDCC) $(SDCCTARGET) --no-std-crt0 --code-loc 0x7ff -mmos6502 "$(BINDIR)/$(SUFFIX)/c64_crt.rel" "$(BINDIR)/$(SUFFIX)/c64lib.rel" \
+		"$(BINDIR)/$(SUFFIX)/cia_timer.rel" "$(BINDIR)/$(SUFFIX)/main.rel" "$(BINDIR)/$(SUFFIX)/$(PRG).rel" -o "$(BINDIR)/$(SUFFIX)/$(PRG).ihx"
 
-	$(SDCCDIR)/bin/makebin -o 2047 -p "$(BINDIR)/$(PRG).ihx"  > "$(BINDIR)/$(PRG)-sdcc.prg"
+	$(MAKEBIN) -o 2047 -p "$(BINDIR)/$(SUFFIX)/$(PRG).ihx" > "$(BINDIR)/$(PRG)-$(SUFFIX).prg"
 
 clean:
 	rm -rf "$(BINDIR)"
 
-exec:
-	rm -f "$(BINDIR)/$(PRG)-sdcc.log"
+exec-perf:
+	$(MAKE) SUFFIX=sdccp exec
 
-	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-sdcc.prg" \
+exec-size:
+	$(MAKE) SUFFIX=sdccs exec
+	
+exec:
+	rm -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
+
+	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
 		-initbreak 0xc000 \
 		-moncommands "$(SRCDIR)/vice.mon" \
 		-monlog \
-		-monlogname "$(BINDIR)/$(PRG)-sdcc.log"
+		-monlogname "$(BINDIR)/$(PRG)-$(SUFFIX).log"
 
-	cat "$(BINDIR)/$(PRG)-sdcc.log" 
+	cat "$(BINDIR)/$(PRG)-$(SUFFIX).log" 
 
 
 

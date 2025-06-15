@@ -1,6 +1,12 @@
 CURDIR := $(shell pwd)
 
-INCLUDE = cc65p,cc65s,kickc,llvm,o64p,o64s,sdcc,vbccp,vbccs
+# Currently kickc is mostly incompatible and does not even recognize #ifdef.
+# It is not included in the default build.
+
+# Removed sdcc, because it currently generates invalid code. Maybe it's my fault, but documentation is sparse.
+# INCLUDE = cc65p,cc65s,kickc,llvmp,llvms,o64p,o64s,sdccp,sdccs,vbccp,vbccs
+
+INCLUDE = cc65p,cc65s,llvmp,llvms,o64p,o64s,vbccp,vbccs
 
 export SRCDIR = $(CURDIR)/src
 
@@ -139,8 +145,12 @@ build:
 		$(MAKE) -C kickc build; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
-		$(MAKE) -C llvm-mos build; \
+	if echo "$(INCLUDE)" | grep -q "llvmp" && ! echo "$(EXCLUDE)" | grep -q "llvmp" ; then \
+		$(MAKE) -C llvm-mos build-perf; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "llvms" && ! echo "$(EXCLUDE)" | grep -q "llvms" ; then \
+		$(MAKE) -C llvm-mos build-size; \
 	fi
 
 	if echo "$(INCLUDE)" | grep -q "o64p" && ! echo "$(EXCLUDE)" | grep -q "o64p" ; then \
@@ -151,8 +161,12 @@ build:
 		$(MAKE) -C oscar64 build-size; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "sdcc" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
-		$(MAKE) -C sdcc build; \
+	if echo "$(INCLUDE)" | grep -q "sdccp" && ! echo "$(EXCLUDE)" | grep -q "sdccp" ; then \
+		$(MAKE) -C sdcc build-perf; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "sdccs" && ! echo "$(EXCLUDE)" | grep -q "sdccs" ; then \
+		$(MAKE) -C sdcc build-size; \
 	fi
 
 	if echo "$(INCLUDE)" | grep -q "vbccp" && ! echo "$(EXCLUDE)" | grep -q "vbccp" ; then \
@@ -202,8 +216,12 @@ exec:
 		$(MAKE) -C kickc exec; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
-		$(MAKE) -C llvm-mos exec; \
+	if echo "$(INCLUDE)" | grep -q "llvmp" && ! echo "$(EXCLUDE)" | grep -q "llvmp" ; then \
+		$(MAKE) -C llvm-mos exec-perf; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "llvms" && ! echo "$(EXCLUDE)" | grep -q "llvms" ; then \
+		$(MAKE) -C llvm-mos exec-size; \
 	fi
 
 	if echo "$(INCLUDE)" | grep -q "o64p" && ! echo "$(EXCLUDE)" | grep -q "o64p" ; then \
@@ -214,14 +232,18 @@ exec:
 		$(MAKE) -C oscar64 exec-size; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "sdcc" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
-		$(MAKE) -C sdcc exec; \
+	if echo "$(INCLUDE)" | grep -q "sdccp" && ! echo "$(EXCLUDE)" | grep -q "sdccp" ; then \
+		$(MAKE) -C sdcc exec-perf; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "sdccs" && ! echo "$(EXCLUDE)" | grep -q "sdccs" ; then \
+		$(MAKE) -C sdcc exec-size; \
 	fi
 
 	if echo "$(INCLUDE)" | grep -q "vbccp" && ! echo "$(EXCLUDE)" | grep -q "vbccp" ; then \
 		$(MAKE) -C vbcc exec-perf; \
 	fi
-	
+
 	if echo "$(INCLUDE)" | grep -q "vbccs" && ! echo "$(EXCLUDE)" | grep -q "vbccs" ; then \
 		$(MAKE) -C vbcc exec-size; \
 	fi
