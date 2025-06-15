@@ -1,6 +1,6 @@
 CURDIR := $(shell pwd)
 
-INCLUDE = CC65P,CC65S,KICKC,LLVM,SDCC
+INCLUDE = cc65p,cc65s,kickc,llvm,o64p,o64s,sdcc
 
 export SRCDIR = $(CURDIR)/src
 
@@ -42,9 +42,9 @@ aes256:
 	$(MAKE) build-aes256
 	$(MAKE) exec-aes256
 build-aes256:
-	PRG=aes256 EXCLUDE=KICKC $(MAKE) build
+	PRG=aes256 EXCLUDE=kickc $(MAKE) build
 exec-aes256:
-	PRG=aes256 EXCLUDE=KICKC $(MAKE) exec
+	PRG=aes256 EXCLUDE=kickc $(MAKE) exec
 
 crc8:
 	$(MAKE) build-crc8
@@ -58,57 +58,57 @@ crc16:
 	$(MAKE) build-crc16
 	$(MAKE) exec-crc16
 build-crc16:
-	PRG=crc16 EXCLUDE=KICKC $(MAKE) build
+	PRG=crc16 EXCLUDE=kickc $(MAKE) build
 exec-crc16:
-	PRG=crc16 EXCLUDE=KICKC $(MAKE) exec
+	PRG=crc16 EXCLUDE=kickc $(MAKE) exec
 
 crc32:
 	$(MAKE) build-crc32
 	$(MAKE) exec-crc32
 build-crc32:
-	PRG=crc32 EXCLUDE=KICKC $(MAKE) build
+	PRG=crc32 EXCLUDE=kickc $(MAKE) build
 exec-crc32:
-	PRG=crc32 EXCLUDE=KICKC $(MAKE) exec
+	PRG=crc32 EXCLUDE=kickc $(MAKE) exec
 
 dhrystone:
 	$(MAKE) build-dhrystone
 	$(MAKE) exec-dhrystone
 build-dhrystone:
-	PRG=dhrystone EXCLUDE=KICKC $(MAKE) build
+	PRG=dhrystone EXCLUDE=kickc $(MAKE) build
 exec-dhrystone:
-	PRG=dhrystone EXCLUDE=KICKC $(MAKE) exec
+	PRG=dhrystone EXCLUDE=kickc $(MAKE) exec
 
 fact:
 	$(MAKE) build-fact
 	$(MAKE) exec-fact
 build-fact:
-	PRG=fact EXCLUDE=KICKC $(MAKE) build
+	PRG=fact EXCLUDE=kickc $(MAKE) build
 exec-fact:
-	PRG=fact EXCLUDE=KICKC $(MAKE) exec
+	PRG=fact EXCLUDE=kickc $(MAKE) exec
 
 pi:
 	$(MAKE) build-pi
 	$(MAKE) exec-pi
 build-pi:
-	PRG=pi EXCLUDE=KICKC $(MAKE) build
+	PRG=pi EXCLUDE=kickc $(MAKE) build
 exec-pi:
-	PRG=pi EXCLUDE=KICKC $(MAKE) exec
+	PRG=pi EXCLUDE=kickc $(MAKE) exec
 
 pow:
 	$(MAKE) build-pow
 	$(MAKE) exec-pow
 build-pow:
-	PRG=pow EXCLUDE="CC65S CC65P KICKC" $(MAKE) build
+	PRG=pow EXCLUDE="cc65s cc65p kickc" $(MAKE) build
 exec-pow:
-	PRG=pow EXCLUDE="CC65S CC65P KICKC" $(MAKE) exec
+	PRG=pow EXCLUDE="cc65s cc65p kickc" $(MAKE) exec
 
 puff2:
 	$(MAKE) build-puff2
 	$(MAKE) exec-puff2
 build-puff2:
-	PRG=puff2 EXCLUDE=KICKC $(MAKE) build
+	PRG=puff2 EXCLUDE=kickc $(MAKE) build
 exec-puff2:
-	PRG=puff2 EXCLUDE=KICKC $(MAKE) exec
+	PRG=puff2 EXCLUDE=kickc $(MAKE) exec
 
 sieve:
 	$(MAKE) build-sieve
@@ -127,23 +127,31 @@ exec-sieve-bit:
 	PRG=sieve_bit $(MAKE) exec
 
 build:
-	if echo "$(INCLUDE)" | grep -q "CC65P" && ! echo "$(EXCLUDE)" | grep -q "CC65P" ; then \
+	if echo "$(INCLUDE)" | grep -q "cc65p" && ! echo "$(EXCLUDE)" | grep -q "cc65p" ; then \
 		$(MAKE) -C cc65 build-perf; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "CC65S" && ! echo "$(EXCLUDE)" | grep -q "CC65S" ; then \
+	if echo "$(INCLUDE)" | grep -q "cc65s" && ! echo "$(EXCLUDE)" | grep -q "cc65s" ; then \
 		$(MAKE) -C cc65 build-size; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "KICKC" && ! echo "$(EXCLUDE)" | grep -q "KICKC" ; then \
+	if echo "$(INCLUDE)" | grep -q "kickc" && ! echo "$(EXCLUDE)" | grep -q "kickc" ; then \
 		$(MAKE) -C kickc build; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "LLVM" && ! echo "$(EXCLUDE)" | grep -q "LLVM" ; then \
+	if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
 		$(MAKE) -C llvm-mos build; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "SDCC" && ! echo "$(EXCLUDE)" | grep -q "SDCC" ; then \
+	if echo "$(INCLUDE)" | grep -q "o64p" && ! echo "$(EXCLUDE)" | grep -q "o64p" ; then \
+		$(MAKE) -C oscar64 build-perf; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "o64s" && ! echo "$(EXCLUDE)" | grep -q "o64s" ; then \
+		$(MAKE) -C oscar64 build-size; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "sdcc" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
 		$(MAKE) -C sdcc build; \
 	fi
 
@@ -153,35 +161,47 @@ clean:
 		$(MAKE) -C cc65 clean; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "KICKC" && ! echo "$(EXCLUDE)" | grep -q "KICKC" ; then \
+	if echo "$(INCLUDE)" | grep -q "kickc" && ! echo "$(EXCLUDE)" | grep -q "kickc" ; then \
 		$(MAKE) -C kickc clean; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "LLVM" && ! echo "$(EXCLUDE)" | grep -q "LLVM" ; then \
+	if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
 		$(MAKE) -C llvm-mos clean; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "SDCC" && ! echo "$(EXCLUDE)" | grep -q "SDCC" ; then \
+	if echo "$(INCLUDE)" | grep -q "o64" && ! echo "$(EXCLUDE)" | grep -q "o64" ; then \
+		$(MAKE) -C oscar64 clean; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "sdcc" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
 		$(MAKE) -C sdcc clean; \
 	fi
 
 exec:
-	if echo "$(INCLUDE)" | grep -q "CC65P" && ! echo "$(EXCLUDE)" | grep -q "CC65P" ; then \
+	if echo "$(INCLUDE)" | grep -q "cc65p" && ! echo "$(EXCLUDE)" | grep -q "cc65p" ; then \
 		$(MAKE) -C cc65 exec-perf; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "CC65S" && ! echo "$(EXCLUDE)" | grep -q "CC65S" ; then \
+	if echo "$(INCLUDE)" | grep -q "cc65s" && ! echo "$(EXCLUDE)" | grep -q "cc65s" ; then \
 		$(MAKE) -C cc65 exec-size; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "KICKC" && ! echo "$(EXCLUDE)" | grep -q "KICKC" ; then \
+	if echo "$(INCLUDE)" | grep -q "kickc" && ! echo "$(EXCLUDE)" | grep -q "kickc" ; then \
 		$(MAKE) -C kickc exec; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "LLVM" && ! echo "$(EXCLUDE)" | grep -q "LLVM" ; then \
+	if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
 		$(MAKE) -C llvm-mos exec; \
 	fi
 
-	if echo "$(INCLUDE)" | grep -q "SDCC" && ! echo "$(EXCLUDE)" | grep -q "SDCC" ; then \
+	if echo "$(INCLUDE)" | grep -q "o64p" && ! echo "$(EXCLUDE)" | grep -q "o64p" ; then \
+		$(MAKE) -C oscar64 exec-perf; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "o64s" && ! echo "$(EXCLUDE)" | grep -q "o64s" ; then \
+		$(MAKE) -C oscar64 exec-size; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "sdcc" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
 		$(MAKE) -C sdcc exec; \
 	fi
