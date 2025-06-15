@@ -1,0 +1,46 @@
+{
+    "aes256": {
+        "total_time": 218,
+        "prg_size": 9713
+    },
+    "crc8": {
+        "total_time": 3.3,
+        "prg_size": 3581
+    },
+    "crc16": {
+        "total_time": 5.6,
+        "prg_size": 3639
+    },
+    "crc32": {
+        "total_time": 40.3,
+        "prg_size": 4096
+    },
+    "dhrystone": {
+        "total_time": 9.6,
+        "prg_size": 5947
+    },
+    "fact": {
+        "total_time": 23.7,
+        "prg_size": 4101
+    },
+    "pi": {
+        "total_time": 104.9,
+        "prg_size": 4374
+    },
+    "pow": {
+        "total_time": null,
+        "prg_size": null
+    },
+    "puff2": {
+        "total_time": 53,
+        "prg_size": 12778
+    },
+    "sieve": {
+        "total_time": 21,
+        "prg_size": 3769
+    },
+    "sieve_bit": {
+        "total_time": 53.5,
+        "prg_size": 3957
+    }
+}

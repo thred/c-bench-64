@@ -8,10 +8,10 @@ CC65PERFOPTS = -Oisr --static-locals
 CC65SIZEOPTS = -O --static-locals
 
 build-perf:
-	CC65OPTS="$(CC65PERFOPTS)" SUFFIX=cc65-perf $(MAKE) build
+	CC65OPTS="$(CC65PERFOPTS)" SUFFIX=cc65p $(MAKE) build
 
 build-size:
-	CC65OPTS="$(CC65SIZEOPTS)" SUFFIX=cc65-size $(MAKE) build
+	CC65OPTS="$(CC65SIZEOPTS)" SUFFIX=cc65s $(MAKE) build
 
 build:
 	mkdir -p "$(BINDIR)"
@@ -25,10 +25,10 @@ clean:
 	rm -rf "${BINDIR}"
 
 exec-perf:
-	SUFFIX=cc65-perf $(MAKE) exec
+	SUFFIX=cc65p $(MAKE) exec
 
 exec-size:
-	SUFFIX=cc65-size $(MAKE) exec
+	SUFFIX=cc65s $(MAKE) exec
 
 exec:
 	rm -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"

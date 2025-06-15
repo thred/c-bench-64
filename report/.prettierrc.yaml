@@ -1,0 +1,11 @@
+# Global Options for all files:
+printWidth: 120
+tabWidth: 4
+
+# Overrides for certain file types:
+overrides:
+  - files:
+      - "*.yaml"
+      - "*.yml"
+    options:
+      tabWidth: 2
