@@ -1,6 +1,6 @@
 CURDIR := $(shell pwd)
 
-INCLUDE = cc65p,cc65s,kickc,llvm,o64p,o64s,sdcc
+INCLUDE = cc65p,cc65s,kickc,llvm,o64p,o64s,sdcc,vbccp,vbccs
 
 export SRCDIR = $(CURDIR)/src
 
@@ -155,6 +155,14 @@ build:
 		$(MAKE) -C sdcc build; \
 	fi
 
+	if echo "$(INCLUDE)" | grep -q "vbccp" && ! echo "$(EXCLUDE)" | grep -q "vbccp" ; then \
+		$(MAKE) -C vbcc build-perf; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "vbccs" && ! echo "$(EXCLUDE)" | grep -q "vbccs" ; then \
+		$(MAKE) -C vbcc build-size; \
+	fi
+
 
 clean:
 	if echo "$(INCLUDE)" | grep -q "CC65" && ! echo "$(EXCLUDE)" | grep -q "CC65" ; then \
@@ -175,6 +183,10 @@ clean:
 
 	if echo "$(INCLUDE)" | grep -q "sdcc" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
 		$(MAKE) -C sdcc clean; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "vbcc" && ! echo "$(EXCLUDE)" | grep -q "vbcc" ; then \
+		$(MAKE) -C vbcc clean; \
 	fi
 
 exec:
@@ -204,4 +216,12 @@ exec:
 
 	if echo "$(INCLUDE)" | grep -q "sdcc" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
 		$(MAKE) -C sdcc exec; \
+	fi
+
+	if echo "$(INCLUDE)" | grep -q "vbccp" && ! echo "$(EXCLUDE)" | grep -q "vbccp" ; then \
+		$(MAKE) -C vbcc exec-perf; \
+	fi
+	
+	if echo "$(INCLUDE)" | grep -q "vbccs" && ! echo "$(EXCLUDE)" | grep -q "vbccs" ; then \
+		$(MAKE) -C vbcc exec-size; \
 	fi
