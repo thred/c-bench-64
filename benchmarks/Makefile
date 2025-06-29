@@ -10,7 +10,7 @@ INCLUDE = cc65p,cc65s,llvmp,llvms,o64p,o64s,vbccp,vbccs
 
 export SRCDIR = $(CURDIR)/src
 
-export LIBS = "$(SRCDIR)/cia_timer.c" "$(SRCDIR)/main.c"
+export LIBS = "$(SRCDIR)/cia_timer.c" "$(SRCDIR)/out.c" "$(SRCDIR)/main.c"
 
 export VICEEXEC = flatpak run net.sf.VICE -config "$(SRCDIR)/vice.ini" -warp
 

@@ -11,6 +11,10 @@ KICKCOPTS = -Oliverangecallpath
 build:
 	mkdir -p "$(BINDIR)"
 
+	cd $(KICKCWORKDIR); $(KICKC) --version | grep KickC > "$(BINDIR)/$(PRG)-kickc.buildversion"
+
+	@date +"%Y-%m-%d %H:%M:%S" > "$(BINDIR)/$(PRG)-kicks.buildtime"
+
 	cd $(KICKCWORKDIR); \
 		$(KICKC) $(KICKCOPTS) $(KICKCTARGET) "$(SRCDIR)/$(PRG).c" $(LIBS) $(EXTRA) \
 			-odir "$(BINDIR)" -o $(PRG)-kickc.asm
@@ -18,10 +22,10 @@ build:
 	java -jar $(KICKASSEMBLER) "$(BINDIR)/$(PRG)-kickc.asm"
 
 clean:
-	rm -rf "$(BINDIR)"
+	$(RM) -rf "$(BINDIR)"
 
 exec:
-	rm -f "$(BINDIR)/$(PRG)-kickc.log"
+	$(RM) -f "$(BINDIR)/$(PRG)-kickc.log"
 
 	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-kickc.prg" \
 		-initbreak 0xc000 \

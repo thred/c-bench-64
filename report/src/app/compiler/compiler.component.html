@@ -1,0 +1,31 @@
+<h3>
+    {{ compiler().name }}
+</h3>
+
+<p>
+    <a [href]="compiler().homepage" target="_blank" rel="noopener noreferrer">
+        {{ compiler().homepage }}
+    </a>
+</p>
+
+@for (paragraph of compiler().description; track $index) {
+    <p>{{ paragraph }}</p>
+}
+
+@if (compiler().pros.length > 0) {
+    <h4>Pros</h4>
+    <ul>
+        @for (pro of compiler().pros; track $index) {
+            <li>{{ pro }}</li>
+        }
+    </ul>
+}
+
+@if (compiler().cons.length > 0) {
+    <h4>Cons</h4>
+    <ul>
+        @for (con of compiler().cons; track $index) {
+            <li>{{ con }}</li>
+        }
+    </ul>
+}

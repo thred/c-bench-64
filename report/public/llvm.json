@@ -1,0 +1,170 @@
+{
+  "key": "llvm",
+  "name": "LLVM-mos",
+  "description": [
+    "LLVM-mos is a open-source fork of LLVM that provides first-class support to the MOS 6502 and near compatibles. The compiler implements multiple novel approaches in order to optimize 6502 code size and speed, and it tends to outperform legacy 6502 compilers."
+  ],
+  "homepage": "https://llvm-mos.org",
+  "pros": [
+    "Excellent optimizations",
+    "Modular and extensible",
+    "Good support for modern C features",
+    "Active development and community"
+  ],
+  "cons": [
+    "Complex setup",
+    "No overlay support"
+  ],
+  "configurations": {
+    "llvmp": {
+      "name": "LLVM-mos - Best Performance",
+      "description": "-Os",
+      "optimization": "performance",
+      "color": "#75cec8"
+    },
+    "llvms": {
+      "name": "LLVM-mos - Smallest Size",
+      "description": "-Os -flto",
+      "optimization": "size",
+      "color": "#75cec8"
+    }
+  },
+  "results": {
+    "llvmp": {
+      "aes256": {
+        "prgSize": 7169,
+        "totalTime": 15.7,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc8": {
+        "prgSize": 1783,
+        "totalTime": 1.6,
+        "buildTime": "2025-06-29 21:09:48",
+        "buildVersion": "21.0.0git"
+      },
+      "crc16": {
+        "prgSize": 1817,
+        "totalTime": 2.8,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc32": {
+        "prgSize": 1896,
+        "totalTime": 4.5,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "dhrystone": {
+        "prgSize": 6216,
+        "totalTime": 2.6,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "fact": {
+        "prgSize": 6142,
+        "totalTime": 4.6,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "pi": {
+        "prgSize": 7036,
+        "totalTime": 63.8,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "pow": {
+        "prgSize": 21363,
+        "totalTime": 19.9,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "puff2": {
+        "prgSize": 18705,
+        "totalTime": 0.7,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "sieve": {
+        "prgSize": 5924,
+        "totalTime": 22.1,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "sieve_bit": {
+        "prgSize": 6000,
+        "totalTime": 23.8,
+        "buildTime": null,
+        "buildVersion": null
+      }
+    },
+    "llvms": {
+      "aes256": {
+        "prgSize": 7169,
+        "totalTime": 15.7,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc8": {
+        "prgSize": 1783,
+        "totalTime": 1.6,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc16": {
+        "prgSize": 1817,
+        "totalTime": 2.8,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc32": {
+        "prgSize": 1896,
+        "totalTime": 4.5,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "dhrystone": {
+        "prgSize": 6216,
+        "totalTime": 2.6,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "fact": {
+        "prgSize": 6142,
+        "totalTime": 4.6,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "pi": {
+        "prgSize": 7036,
+        "totalTime": 63.8,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "pow": {
+        "prgSize": 21363,
+        "totalTime": 19.9,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "puff2": {
+        "prgSize": 18705,
+        "totalTime": 0.7,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "sieve": {
+        "prgSize": 5924,
+        "totalTime": 22.1,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "sieve_bit": {
+        "prgSize": 6000,
+        "totalTime": 23.8,
+        "buildTime": null,
+        "buildVersion": null
+      }
+    }
+  }
+}

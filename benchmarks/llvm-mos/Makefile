@@ -14,11 +14,15 @@ build-size:
 
 build:
 	mkdir -p "$(BINDIR)"
+
+	$(CLANG) --version | grep "clang version" | awk '{print $$3}' > "$(BINDIR)/$(PRG)-$(SUFFIX).buildversion" 2>&1
+
+	@date +"%Y-%m-%d %H:%M:%S" > "$(BINDIR)/$(PRG)-$(SUFFIX).buildtime"
 	
 	$(CLANG) $(CLANGTARGET) $(CLANGOPTS) "$(SRCDIR)/$(PRG).c" $(LIBS) $(EXTRA) -o "$(BINDIR)/$(PRG)-$(SUFFIX).prg"
 
 clean:
-	rm -rf "$(BINDIR)"
+	$(RM) -rf "$(BINDIR)"
 
 exec-perf:
 	$(MAKE) SUFFIX=llvmp exec
@@ -27,7 +31,7 @@ exec-size:
 	$(MAKE) SUFFIX=llvms exec
 
 exec:
-	rm -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
+	$(RM) -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
 
 	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
 		-initbreak 0xc000 \

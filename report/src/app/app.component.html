@@ -1,0 +1,35 @@
+<h1>C-Compiler Benchmarks for MOS&nbsp;Technology&nbsp;6502 Cross Compilers</h1>
+
+<p>
+    This page is based on the
+    <a href="https://web.archive.org/web/20250124180056/https://gglabs.us/node/2293" target="_blank"
+        >original benchmarks by GG Labs</a
+    >. The page has been abadoned and was archived by GG on Sat, 03/12/2022 - 01:11. I try to rescue the code. The
+    compilers Oscar64 and LLVM-mos have been added since.
+</p>
+
+<p>GG, if you read this, please contact me to discuss attribution and licensing issues!</p>
+
+<p class="box">If you find any errors or you do have suggestions to optimize the benchmarks, please ...</p>
+
+<h2>Compilers</h2>
+
+@for (key of compilerKeys; track key) {
+    @if (compilers()[key]; as compiler) {
+        <app-compiler [compiler]="compiler"></app-compiler>
+    }
+}
+
+<h2>Benchmarks</h2>
+
+<p>
+    The benchmarks are based on the original GG Labs benchmarks and have only been slightly modified. All benchmarks
+    were executed on a VICE emulator. The duration is measured by the emulated code itself, so the speed of the host
+    system does not matter.
+</p>
+
+@for (key of benchmarkKeys; track key) {
+    @if (benchmarkWithResultsMap()[key]; as benchmark) {
+        <app-benchmark [key]="key"></app-benchmark>
+    }
+}

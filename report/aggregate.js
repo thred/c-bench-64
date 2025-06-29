@@ -19,10 +19,12 @@ const benchmarks = [
 ];
 
 const compilers = {
-    cc65: ["cc65p", "cc65s"],
-    "llvm-mos": ["llvmp", "llvms"],
-    oscar64: ["o64p", "o64s"],
-    vbcc: ["vbccp", "vbccs"],
+    cc65: "cc65.json",
+    kickc: "kickc.json",
+    "llvm-mos": "llvm.json",
+    oscar64: "o64.json",
+    sdcc: "sdcc.json",
+    vbcc: "vbcc.json",
 };
 
 const baseDir = path.resolve(__dirname, "../benchmarks");
@@ -42,16 +44,32 @@ function getPrgSize(prgPath) {
     return fs.statSync(prgPath).size;
 }
 
-function aggregateTarget(target, dir, ext) {
+function getBuildTime(buildTimePath) {
+    if (!fs.existsSync(buildTimePath)) return null;
+
+    return fs.readFileSync(buildTimePath, "utf8").trim();
+}
+
+function getBuildVersion(buildVersionPath) {
+    if (!fs.existsSync(buildVersionPath)) return null;
+
+    return fs.readFileSync(buildVersionPath, "utf8").trim();
+}
+
+function aggregateConfiugration(configuration, dir, ext) {
     const result = {};
 
     for (const bench of benchmarks) {
-        const log = path.join(baseDir, dir, "bin", `${bench}-${target}.log`);
-        const prg = path.join(baseDir, dir, "bin", `${bench}-${target}.prg`);
+        const log = path.join(baseDir, dir, "bin", `${bench}-${configuration}.log`);
+        const prg = path.join(baseDir, dir, "bin", `${bench}-${configuration}.prg`);
+        const buildTime = path.join(baseDir, dir, "bin", `${bench}-${configuration}.buildtime`);
+        const buildVersion = path.join(baseDir, dir, "bin", `${bench}-${configuration}.buildversion`);
 
         result[bench] = {
-            total_time: getLogTime(log),
-            prg_size: getPrgSize(prg),
+            prgSize: getPrgSize(prg),
+            totalTime: getLogTime(log),
+            buildTime: getBuildTime(buildTime),
+            buildVersion: getBuildVersion(buildVersion),
         };
     }
 
@@ -59,15 +77,30 @@ function aggregateTarget(target, dir, ext) {
 }
 
 function main() {
-    for (const [dir, targets] of Object.entries(compilers)) {
-        for (const target of targets) {
-            const data = aggregateTarget(target, dir, "prg");
-            const outPath = path.join(__dirname, `public/${target}.json`);
+    for (const [dir, compilerKey] of Object.entries(compilers)) {
+        const compilerPath = path.join(baseDir, dir, compilerKey);
 
-            fs.writeFileSync(outPath, JSON.stringify(data, null, 2));
-
-            console.log(`Wrote ${outPath}`);
+        if (!fs.existsSync(compilerPath)) {
+            console.warn(`Compiler config not found: ${compilerPath}`);
+            continue;
         }
+
+        const destJson = path.join(__dirname, "public", compilerKey);
+
+        // Read compiler config
+        const compiler = JSON.parse(fs.readFileSync(compilerPath, "utf8"));
+        const configurations = Object.keys(compiler.configurations);
+
+        // Aggregate results for each configuration
+        for (const configuration of configurations) {
+            const data = aggregateConfiugration(configuration, dir, "prg");
+
+            compiler.results = compiler.results || {};
+            compiler.results[configuration] = data;
+        }
+
+        fs.writeFileSync(destJson, JSON.stringify(compiler, null, 2));
+        console.log(`Wrote aggregated results to ${destJson}`);
     }
 }
 

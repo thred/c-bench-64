@@ -16,13 +16,17 @@ build-size:
 build:
 	mkdir -p "$(BINDIR)"
 
+	$(CC65) --version | awk '{print $$2}' > "$(BINDIR)/$(PRG)-$(SUFFIX).buildversion" 2>&1
+
+	@date +"%Y-%m-%d %H:%M:%S" > "$(BINDIR)/$(PRG)-$(SUFFIX).buildtime"
+
 	$(CC65) $(CC65OPTS) $(CC65TARGET) "$(SRCDIR)/$(PRG).c" $(LIBS) $(EXTRA) \
 		-o "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
 		-m "$(BINDIR)/$(PRG)-$(SUFFIX).map" \
 		-l "$(BINDIR)/$(PRG)-$(SUFFIX).lst"	
 
 clean:
-	rm -rf "${BINDIR}"
+	$(RM) -rf "${BINDIR}"
 
 exec-perf:
 	SUFFIX=cc65p $(MAKE) exec
@@ -31,7 +35,7 @@ exec-size:
 	SUFFIX=cc65s $(MAKE) exec
 
 exec:
-	rm -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
+	$(RM) -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
 
 	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
 		-initbreak 0xc000 \

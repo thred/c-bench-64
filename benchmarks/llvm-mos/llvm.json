@@ -1,0 +1,29 @@
+{
+    "key": "llvm",
+    "name": "LLVM-mos",
+    "description": [
+        "LLVM-mos is a open-source fork of LLVM that provides first-class support to the MOS 6502 and near compatibles. The compiler implements multiple novel approaches in order to optimize 6502 code size and speed, and it tends to outperform legacy 6502 compilers."
+    ],
+    "homepage": "https://llvm-mos.org",
+    "pros": [
+        "Excellent optimizations",
+        "Modular and extensible",
+        "Good support for modern C features",
+        "Active development and community"
+    ],
+    "cons": ["Complex setup", "No overlay support"],
+    "configurations": {
+        "llvmp": {
+            "name": "LLVM-mos - Best Performance",
+            "description": "-Os",
+            "optimization": "performance",
+            "color": "#75cec8"
+        },
+        "llvms": {
+            "name": "LLVM-mos - Smallest Size",
+            "description": "-Os -flto",
+            "optimization": "size",
+            "color": "#75cec8"
+        }
+    }
+}

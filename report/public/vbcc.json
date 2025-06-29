@@ -1,0 +1,165 @@
+{
+  "key": "vbcc",
+  "name": "VBCC",
+  "description": [
+    "vbcc is a highly optimizing portable and retargetable ISO C compiler.",
+    "It supports ISO C according to ISO/IEC 9899:1989 and most of ISO/IEC 9899:1999 (C99)."
+  ],
+  "homepage": "http://www.compilers.de/vbcc.html",
+  "pros": [],
+  "cons": [
+    "Free for private use only"
+  ],
+  "configurations": {
+    "vbccp": {
+      "name": "VBCC - Best Performance",
+      "description": "-O4 -speed",
+      "optimization": "performance",
+      "color": "#706deb"
+    },
+    "vbccs": {
+      "name": "VBCC - Smallest Size",
+      "description": "-O4 -size",
+      "optimization": "size",
+      "color": "#706deb"
+    }
+  },
+  "results": {
+    "vbccp": {
+      "aes256": {
+        "prgSize": 22370,
+        "totalTime": 38.6,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc8": {
+        "prgSize": 6257,
+        "totalTime": 1.2,
+        "buildTime": "2025-06-29 21:32:25",
+        "buildVersion": "build-2025-06-29"
+      },
+      "crc16": {
+        "prgSize": 6476,
+        "totalTime": 2.6,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc32": {
+        "prgSize": 6791,
+        "totalTime": 5,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "dhrystone": {
+        "prgSize": 9055,
+        "totalTime": 2.4,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "fact": {
+        "prgSize": 7991,
+        "totalTime": 18.7,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "pi": {
+        "prgSize": 14979,
+        "totalTime": 97.6,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "pow": {
+        "prgSize": 16413,
+        "totalTime": 23.6,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "puff2": {
+        "prgSize": 34235,
+        "totalTime": 19.5,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "sieve": {
+        "prgSize": 6822,
+        "totalTime": 13.3,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "sieve_bit": {
+        "prgSize": 7065,
+        "totalTime": 20.3,
+        "buildTime": null,
+        "buildVersion": null
+      }
+    },
+    "vbccs": {
+      "aes256": {
+        "prgSize": 16447,
+        "totalTime": 69.9,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc8": {
+        "prgSize": 3347,
+        "totalTime": 1.9,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc16": {
+        "prgSize": 3401,
+        "totalTime": 3.3,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc32": {
+        "prgSize": 3547,
+        "totalTime": 6.4,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "dhrystone": {
+        "prgSize": 5769,
+        "totalTime": 5.7,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "fact": {
+        "prgSize": 4556,
+        "totalTime": 19.6,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "pi": {
+        "prgSize": 12858,
+        "totalTime": 99.8,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "pow": {
+        "prgSize": 12700,
+        "totalTime": 24,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "puff2": {
+        "prgSize": 21377,
+        "totalTime": 22.2,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "sieve": {
+        "prgSize": 4352,
+        "totalTime": 16,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "sieve_bit": {
+        "prgSize": 4452,
+        "totalTime": 30.6,
+        "buildTime": null,
+        "buildVersion": null
+      }
+    }
+  }
+}

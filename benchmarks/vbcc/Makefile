@@ -16,10 +16,14 @@ build-size:
 build:
 	mkdir -p "$(BINDIR)"
 
+	@date +"build-%Y-%m-%d" > "$(BINDIR)/$(PRG)-$(SUFFIX).buildversion"
+
+	@date +"%Y-%m-%d %H:%M:%S" > "$(BINDIR)/$(PRG)-$(SUFFIX).buildtime"
+
 	PATH="$(VBCC)/bin:$(PATH)"; "$(VBCC)/bin/$(VC)" $(VBCCTARGET) $(VBCCOPTS) "$(SRCDIR)/$(PRG).c" $(LIBS) $(EXTRA) -o "$(BINDIR)/$(PRG)-$(SUFFIX).prg"
 
 clean:
-	rm -rf "$(BINDIR)"
+	$(RM) -rf "$(BINDIR)"
 
 exec-perf:
 	$(MAKE) exec SUFFIX=vbccp
@@ -28,7 +32,7 @@ exec-size:
 	$(MAKE) exec SUFFIX=vbccs
 
 exec:
-	rm -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
+	$(RM) -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
 
 	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
 		-initbreak 0xc000 \

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "cia_timer.h"
+#include "out.h"
 
 void benchmark(void);
 void benchmark_name(void);
@@ -20,10 +21,11 @@ MAIN
     unsigned int t;
     unsigned int f;
 
-    printf("Calibrating TOD frequency\n");
+    print("Calibrating frequency: ");
     tod_init(0);
     f = tod_freq();
-    printf("Detected %d Hz mains frequency\n\n", (int)f);
+    print_int((int)f);
+    print(" Hz\n\n");
 
     benchmark_name();
     tod_reset();
@@ -33,11 +35,11 @@ MAIN
     printf("\n");
     benchmark_check();
 
-#ifdef KICKC
-    printf("\nTotal time: %d s\n", (int)t);
-#else
-    printf("\nTotal time: %u.%u s\n", t / 10, t % 10);
-#endif
+    print("\nTotal time: ");
+    print_int(t / 10);
+    print(".");
+    print_int(t % 10);
+    print(" s\n");
 
     // allow the program to be stopped at a breakpoint to capture the output
 #ifdef OSCAR64

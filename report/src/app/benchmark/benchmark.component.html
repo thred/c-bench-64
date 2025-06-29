@@ -1,0 +1,11 @@
+<h3>{{ benchmark().name }}</h3>
+
+<div class="benchmark-description">{{ benchmark().description }}</div>
+
+<h4>Execution Times in Seconds <span class="hint">(shorter is better)</span></h4>
+
+<app-time-benchmark [results]="benchmark().results" />
+
+<h4>Binary Sizes in Kilobytes <span class="hint">(smaller is better)</span></h4>
+
+<app-size-benchmark [results]="benchmark().results" />

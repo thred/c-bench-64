@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include "cia_timer.h"
+#include "out.h"
 
 #ifndef SDCC
 #define __data
@@ -34,24 +33,28 @@ static unsigned char CRC8(const unsigned char *data, unsigned int length)
 #else
 static unsigned char CRC8(const unsigned char *data, unsigned int length)
 {
-  // CRC-8/GSM-A
-   unsigned char __data crc;
-   unsigned char __data tmp;
-   unsigned int __data i;
-   unsigned char __data j;
+    // CRC-8/GSM-A
+    unsigned char __data crc;
+    unsigned char __data tmp;
+    unsigned int __data i;
+    unsigned char __data j;
 
-   crc=0;
-   for(i=0;i<length;i++) {
-     tmp = *data;
-     crc^=tmp;
+    crc = 0;
+    for (i = 0; i < length; i++)
+    {
+        tmp = *data;
+        crc ^= tmp;
 
-     for (j = 8; j; j--)  {
-       if ((crc & 0x80) != 0) crc = ((crc << 1) ^ 0x1d);
-       else crc<<=1;
-     }
-      data++;
-   }
-   return crc;
+        for (j = 8; j; j--)
+        {
+            if ((crc & 0x80) != 0)
+                crc = ((crc << 1) ^ 0x1d);
+            else
+                crc <<= 1;
+        }
+        data++;
+    }
+    return crc;
 }
 #endif
 
@@ -59,26 +62,33 @@ static unsigned char crc;
 
 void benchmark(void)
 {
-  crc=CRC8((unsigned char *)0xe000,0x2000);
+    crc = CRC8((unsigned char *)0xe000, 0x2000);
 }
 
 void benchmark_name(void)
 {
-  printf("crc8.c\n");
-  printf("Calculates the CRC8 of the C64 Kernal\n");
+    print("crc8.c\n");
+    print("Calculates the CRC8 of the C64 Kernal\n");
 }
 
 #define CORRECT 0xa2
 
 unsigned char benchmark_check(void)
 {
-  printf("CRC8=%02x  ",crc);
+    print("CRC8=");
+    print_hex(crc);
 
-  if(crc==CORRECT) {
-    printf("OK\n");
-    return 0;
-  } else {
-    printf("FAIL - expected %02x\n",CORRECT);
-  }
-  return 1;
+    if (crc == CORRECT)
+    {
+        print(" [OK]");
+        return 0;
+    }
+    else
+    {
+        print(" [FAIL] - expected ");
+        print_hex(CORRECT);
+    }
+
+    print("\n");
+    return 1;
 }

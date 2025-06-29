@@ -1,6 +1,6 @@
 # LLVM-MOS
 
-Homepage: https://llvm-mos.org/wiki/Welcome
+Homepage: https://llvm-mos.org
 
 ## Prepare Build
 

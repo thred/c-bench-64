@@ -1,0 +1,96 @@
+{
+  "key": "kickc",
+  "name": "KickC",
+  "description": [
+    "KickC is a C-compiler for 6502-based platforms creating optimized and readable assembler code. The language is 95% standard C with a few limitations and a few extensions.",
+    "The compiler is written in Java. Unfortunately, it has compatibility issues with most benchmarks."
+  ],
+  "homepage": "https://gitlab.com/camelot/kickc",
+  "pros": [
+    "Generates human readable assembly code"
+  ],
+  "cons": [
+    "No floating point support",
+    "No overlay support",
+    "Severe limitations on the C language features",
+    "Slow compile times"
+  ],
+  "configurations": {
+    "kickc": {
+      "name": "KickC",
+      "description": "-Oliverangecallpath",
+      "optimization": "none",
+      "color": "#edf171"
+    }
+  },
+  "results": {
+    "kickc": {
+      "aes256": {
+        "prgSize": null,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc8": {
+        "prgSize": 2099,
+        "totalTime": 19,
+        "buildTime": null,
+        "buildVersion": "KickC 0.8.6 BETA"
+      },
+      "crc16": {
+        "prgSize": null,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc32": {
+        "prgSize": null,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "dhrystone": {
+        "prgSize": null,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "fact": {
+        "prgSize": null,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "pi": {
+        "prgSize": null,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "pow": {
+        "prgSize": null,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "puff2": {
+        "prgSize": null,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "sieve": {
+        "prgSize": null,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "sieve_bit": {
+        "prgSize": null,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      }
+    }
+  }
+}

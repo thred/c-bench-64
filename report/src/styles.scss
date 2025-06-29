@@ -1,1 +1,132 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap");
+
+* {
+    box-sizing: border-box;
+
+    // Commodore 64 Pepto color palette (https://www.pepto.de/projects/colorvic/)
+    --c64-black: #000000;
+    --c64-white: #ffffff;
+    --c64-red: #813338;
+    --c64-cyan: #75cec8;
+    --c64-purple: #8e3c97;
+    --c64-green: #56ac4d;
+    --c64-blue: #2e2c9b;
+    --c64-yellow: #edf171;
+    --c64-orange: #8e5029;
+    --c64-brown: #553800;
+    --c64-light-red: #c46c71;
+    --c64-dark-grey: #4a4a4a;
+    --c64-grey: #7b7b7b;
+    --c64-light-green: #a9ff9f;
+    --c64-light-blue: #706deb;
+    --c64-light-grey: #b2b2b2;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Oxanium", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 16pt;
+    background-color: var(--c64-blue);
+    color: var(--c64-light-blue);
+}
+
+.screen {
+    background-color: var(--c64-light-blue);
+    padding: 80px;
+    width: 100vw;
+    height: 100vh;
+
+    .content {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: var(--c64-blue);
+        padding: 0.25rem;
+    }
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--c64-white);
+}
+
+h2 {
+    border-top: 4px solid var(--c64-white);
+    border-bottom: 4px solid var(--c64-white);
+}
+
+h3 {
+    background-color: var(--c64-white);
+    color: var(--c64-blue);
+    padding: 0.25rem 0 0.125rem 0;
+}
+
+h4 {
+    border-bottom: 2px solid var(--c64-light-blue);
+}
+
+.box {
+    border: 4px solid var(--c64-yellow);
+    border-radius: 8px;
+    margin: 0 2rem;
+    padding: 0.5rem;
+    color: var(--c64-yellow);
+}
+
+a,
+a:visited,
+a:active {
+    color: var(--c64-cyan);
+}
+
+a:hover {
+    color: var(--c64-white);
+}
+
+.hint {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: var(--c64-light-blue);
+}
+
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--c64-blue);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--c64-light-blue);
+    border-radius: 8px;
+    border: 2px solid var(--c64-blue);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--c64-cyan);
+}
+
+/* Remove scrollbar arrows */
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--c64-blue);
+}
+
+/* Firefox scrollbar styles */
+* {
+    scrollbar-width: thick;
+    scrollbar-color: var(--c64-light-blue) var(--c64-blue);
+}

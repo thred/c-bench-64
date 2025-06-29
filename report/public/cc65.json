@@ -1,0 +1,172 @@
+{
+  "key": "cc65",
+  "name": "cc65",
+  "description": [
+    "cc65 is a complete cross-development package for 65(C)02 systems, including a powerful macro assembler, C compiler, linker, librarian, and several other tools.",
+    "The compiler was initially developed by Ullrich von Bassewitz. It is the oldest compiler in this comparison and is usually the first choice for C programming on 6502-based systems."
+  ],
+  "homepage": "https://cc65.github.io/cc65/",
+  "pros": [
+    "Excellent standard library and cross-platform API",
+    "Excellent compliance with the C standard",
+    "Good support for mixing C and assembly",
+    "Large community and good documentation",
+    "Support for overlays"
+  ],
+  "cons": [
+    "No floating-point support",
+    "Generated code is not very efficient"
+  ],
+  "configurations": {
+    "cc65p": {
+      "name": "cc65 - Best Performance",
+      "description": "-Oisr --static-locals",
+      "optimization": "performance",
+      "color": "#c46c71"
+    },
+    "cc65s": {
+      "name": "cc65 - Smallest Size",
+      "description": "-Os --static-locals",
+      "optimization": "size",
+      "color": "#c46c71"
+    }
+  },
+  "results": {
+    "cc65p": {
+      "aes256": {
+        "prgSize": 10734,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc8": {
+        "prgSize": 4235,
+        "totalTime": 3.2,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc16": {
+        "prgSize": 4282,
+        "totalTime": 4.4,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "crc32": {
+        "prgSize": 4679,
+        "totalTime": 40,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "dhrystone": {
+        "prgSize": 6705,
+        "totalTime": 8.4,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "fact": {
+        "prgSize": 4746,
+        "totalTime": 23.7,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "pi": {
+        "prgSize": 5069,
+        "totalTime": 104.4,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "pow": {
+        "prgSize": null,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "puff2": {
+        "prgSize": 14066,
+        "totalTime": 47.7,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "sieve": {
+        "prgSize": 4447,
+        "totalTime": 20.5,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "sieve_bit": {
+        "prgSize": 4646,
+        "totalTime": 51.3,
+        "buildTime": null,
+        "buildVersion": null
+      }
+    },
+    "cc65s": {
+      "aes256": {
+        "prgSize": 10324,
+        "totalTime": null,
+        "buildTime": "2025-06-29 21:02:47",
+        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+      },
+      "crc8": {
+        "prgSize": 4249,
+        "totalTime": 3.3,
+        "buildTime": "2025-06-29 21:02:47",
+        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+      },
+      "crc16": {
+        "prgSize": 4303,
+        "totalTime": 5.6,
+        "buildTime": "2025-06-29 21:02:47",
+        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+      },
+      "crc32": {
+        "prgSize": 4696,
+        "totalTime": 40.3,
+        "buildTime": "2025-06-29 21:02:47",
+        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+      },
+      "dhrystone": {
+        "prgSize": 6526,
+        "totalTime": 9.6,
+        "buildTime": "2025-06-29 21:02:47",
+        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+      },
+      "fact": {
+        "prgSize": 4762,
+        "totalTime": 23.7,
+        "buildTime": "2025-06-29 21:02:47",
+        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+      },
+      "pi": {
+        "prgSize": 5079,
+        "totalTime": 104.9,
+        "buildTime": "2025-06-29 21:02:47",
+        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+      },
+      "pow": {
+        "prgSize": null,
+        "totalTime": null,
+        "buildTime": null,
+        "buildVersion": null
+      },
+      "puff2": {
+        "prgSize": 13389,
+        "totalTime": 53,
+        "buildTime": "2025-06-29 21:02:47",
+        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+      },
+      "sieve": {
+        "prgSize": 4463,
+        "totalTime": 21,
+        "buildTime": "2025-06-29 21:02:48",
+        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+      },
+      "sieve_bit": {
+        "prgSize": 4651,
+        "totalTime": 53.5,
+        "buildTime": "2025-06-29 21:02:48",
+        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+      }
+    }
+  }
+}
