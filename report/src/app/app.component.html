@@ -10,9 +10,16 @@
 
 <p>GG, if you read this, please contact me to discuss attribution and licensing issues!</p>
 
-<p class="box">If you find any errors or you do have suggestions to optimize the benchmarks, please ...</p>
+<p class="box">
+    If you find any errors or have suggestions to optimize the benchmarks, please submit a
+    <a href="https://github.com/thred/c-bench-64/pulls" target="_blank">pull request</a> or create an
+    <a href="https://github.com/thred/c-bench-64/issues" target="_blank">issue</a>. The project is hosted on
+    <a href="https://github.com/thred/c-bench-64" target="_blank">GitHub</a>.
+</p>
 
 <h2>Compilers</h2>
+
+<p class="box">This section is a work in progress.</p>
 
 @for (key of compilerKeys; track key) {
     @if (compilers()[key]; as compiler) {
@@ -27,6 +34,8 @@
     were executed on a VICE emulator. The duration is measured by the emulated code itself, so the speed of the host
     system does not matter.
 </p>
+
+<p class="box">This section is a work in progress, too.</p>
 
 @for (key of benchmarkKeys; track key) {
     @if (benchmarkWithResultsMap()[key]; as benchmark) {
