@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from "@angular/core";
-import { MatCardModule } from "@angular/material/card";
+import { Component, computed, inject, input } from "@angular/core";
 import { AppService } from "../app.service";
 import { BenchmarkKey } from "../benchmarks";
 import { SizeBenchmarkComponent } from "../size-benchmark/size-benchmark.component";
@@ -7,10 +6,9 @@ import { TimeBenchmarkComponent } from "../time-benchmark/time-benchmark.compone
 
 @Component({
     selector: "app-benchmark",
-    imports: [MatCardModule, TimeBenchmarkComponent, SizeBenchmarkComponent],
+    imports: [TimeBenchmarkComponent, SizeBenchmarkComponent],
     templateUrl: "./benchmark.component.html",
     styleUrl: "./benchmark.component.scss",
-    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BenchmarkComponent {
     private readonly service = inject(AppService);
