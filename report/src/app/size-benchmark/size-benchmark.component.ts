@@ -14,7 +14,7 @@ export class SizeBenchmarkComponent {
 
     readonly results = input.required<BenchmarkResults>();
 
-    readonly options = computed(() => this.service.createChartOptions("Size (KB)"));
+    readonly options = computed(() => this.service.createChartOptions("x", "Size (KB)", 3, "KB"));
 
     readonly data = computed(() => {
         const results = this.results();

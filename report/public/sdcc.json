@@ -12,13 +12,13 @@
       "name": "SDCC - Best Performance",
       "description": "--max-allocs-per-node 250000 --opt-code-speed",
       "optimization": "performance",
-      "color": "#8e3c97"
+      "color": "#75cec8"
     },
     "sdccs": {
       "name": "SDCC - Smallest Size",
       "description": "--max-allocs-per-node 250000",
       "optimization": "size",
-      "color": "#8e3c97"
+      "color": "#75cec8"
     }
   },
   "results": {

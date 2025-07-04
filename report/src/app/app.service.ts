@@ -95,9 +95,9 @@ export class AppService {
         return compilers;
     }
 
-    createChartOptions(xAxisText: string): ChartOptions {
+    createChartOptions(indexAxis: "x" | "y", xAxisText: string, fractionDigits: number, unit: string): ChartOptions {
         return {
-            indexAxis: "y" as const,
+            indexAxis,
             aspectRatio: 3 / 1,
             scales: {
                 x: {
@@ -148,6 +148,14 @@ export class AppService {
                         font: {
                             family: "Oxanium",
                             size: 14,
+                        },
+                    },
+                },
+                tooltip: {
+                    callbacks: {
+                        label: (context: any) => {
+                            const value: number = context.parsed[context.chart.options.indexAxis === "y" ? "x" : "y"];
+                            return `${context.dataset.label ?? ""}: ${value.toFixed(fractionDigits)} ${unit}`;
                         },
                     },
                 },

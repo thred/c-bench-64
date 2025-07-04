@@ -45,7 +45,6 @@ body {
         height: 100%;
         overflow: auto;
         background-color: var(--c64-blue);
-        padding: 0.25rem;
     }
 }
 
@@ -54,6 +53,11 @@ h2,
 h3,
 h4 {
     color: var(--c64-white);
+    padding: 0.25rem 1rem 0.125rem 1rem;
+}
+
+h1 {
+    border-left: 1em solid var(--c64-yellow);
 }
 
 h2 {
@@ -64,19 +68,42 @@ h2 {
 h3 {
     background-color: var(--c64-white);
     color: var(--c64-blue);
-    padding: 0.25rem 0 0.125rem 0;
 }
 
 h4 {
     border-bottom: 2px solid var(--c64-light-blue);
 }
 
+p {
+    padding: 0.25rem 1rem;
+}
+
 .box {
     border: 4px solid var(--c64-yellow);
     border-radius: 8px;
-    margin: 0 2rem;
+    margin: 2rem;
     padding: 0.5rem;
     color: var(--c64-yellow);
+}
+
+.blinking-cursor {
+    display: inline-block;
+    width: 1ch;
+    height: 1em;
+    background-color: currentColor;
+    animation: blink 1s steps(1) infinite;
+    transform: translateY(0.1em);
+}
+
+@keyframes blink {
+    0%,
+    50% {
+        opacity: 1;
+    }
+    51%,
+    100% {
+        opacity: 0;
+    }
 }
 
 a,

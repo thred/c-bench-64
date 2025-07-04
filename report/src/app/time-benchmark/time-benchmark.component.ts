@@ -14,7 +14,7 @@ export class TimeBenchmarkComponent {
 
     readonly results = input.required<BenchmarkResults>();
 
-    readonly options = computed(() => this.service.createChartOptions("Time (s)"));
+    readonly options = computed(() => this.service.createChartOptions("y", "Time (s)", 1, "s"));
 
     readonly data = computed(() => {
         const results = this.results();

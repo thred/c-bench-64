@@ -20,13 +20,13 @@
       "name": "LLVM-mos - Best Performance",
       "description": "-Os",
       "optimization": "performance",
-      "color": "#75cec8"
+      "color": "#edf171"
     },
     "llvms": {
       "name": "LLVM-mos - Smallest Size",
       "description": "-Os -flto",
       "optimization": "size",
-      "color": "#75cec8"
+      "color": "#edf171"
     }
   },
   "results": {
