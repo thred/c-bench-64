@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, input } from "@angular/core";
+import { Component, computed, inject, input } from "@angular/core";
 import { BaseChartDirective } from "ng2-charts";
 import { AppService } from "../app.service";
 import { BenchmarkResults } from "../benchmarks";
@@ -8,7 +8,6 @@ import { BenchmarkResults } from "../benchmarks";
     imports: [BaseChartDirective],
     templateUrl: "./size-benchmark.component.html",
     styleUrl: "./size-benchmark.component.scss",
-    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SizeBenchmarkComponent {
     protected readonly service = inject(AppService);

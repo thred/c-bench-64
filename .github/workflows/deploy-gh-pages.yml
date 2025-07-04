@@ -36,7 +36,7 @@ jobs:
             - name: Build Angular app
               run: |
                   cd report
-                  npm run build -- --base-href="/c-bench-64/"
+                  npm run build:gh-pages
 
             - name: Setup Pages
               uses: actions/configure-pages@v4
@@ -44,7 +44,7 @@ jobs:
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: report/dist/cbench64
+                  path: report/dist/cbench64/browser
 
     deploy:
         environment:
