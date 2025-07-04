@@ -79,7 +79,7 @@ export class AppService {
         // Load each target's JSON file
         for (const compilerKey of compilerKeys) {
             try {
-                const compiler = await firstValueFrom(this.http.get<Compiler>(`/${compilerKey}.json`));
+                const compiler = await firstValueFrom(this.http.get<Compiler>(`${compilerKey}.json`));
 
                 if (!compiler) {
                     console.warn(`No data received for ${compilerKey}.json`);
