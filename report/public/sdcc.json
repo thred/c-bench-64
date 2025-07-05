@@ -7,6 +7,7 @@
   "homepage": "https://sdcc.sourceforge.net/",
   "pros": [],
   "cons": [],
+  "wip": true,
   "configurations": {
     "sdccp": {
       "name": "SDCC - Best Performance",

@@ -1,5 +1,5 @@
 import { HttpClient } from "@angular/common/http";
-import { computed, inject, Injectable, resource } from "@angular/core";
+import { computed, inject, Injectable, resource, signal } from "@angular/core";
 import { ChartOptions } from "chart.js";
 import { firstValueFrom } from "rxjs";
 import {
@@ -26,17 +26,24 @@ export class AppService {
 
     readonly compilers = computed<Compilers>(() => (this.compilersResource.value() as Compilers) ?? {});
 
+    readonly selectedCompilerKeys = signal<CompilerKey[]>([...compilerKeys]);
+
+    readonly selectedBenchmarkKeys = signal<BenchmarkKey[]>([...benchmarkKeys]);
+
     readonly benchmarkWithResultsMap = computed<BenchmarkWithResultsMap>(() => {
         const compilers = this.compilers();
         const map: Partial<BenchmarkWithResultsMap> = {};
 
-        for (const benchmarkKey of benchmarkKeys) {
+        for (const benchmarkKey of this.selectedBenchmarkKeys()) {
             const results = this.collectBenchmarkResults(compilers, benchmarkKey);
 
             map[benchmarkKey] = {
                 key: benchmarkKey,
                 name: benchmarks[benchmarkKey].name,
+                shortName: benchmarks[benchmarkKey].shortName,
                 description: benchmarks[benchmarkKey].description,
+                author: benchmarks[benchmarkKey].author,
+                url: benchmarks[benchmarkKey].url,
                 results,
             };
         }
@@ -44,10 +51,44 @@ export class AppService {
         return map as BenchmarkWithResultsMap;
     });
 
+    isCompilerSelected(compilerKey: CompilerKey): boolean {
+        return this.selectedCompilerKeys().includes(compilerKey);
+    }
+
+    toggleCompilerSelection(compilerKey: CompilerKey): void {
+        const selectedCompilers = [...this.selectedCompilerKeys()];
+        const index = selectedCompilers.indexOf(compilerKey);
+
+        if (index === -1) {
+            selectedCompilers.push(compilerKey);
+        } else {
+            selectedCompilers.splice(index, 1);
+        }
+
+        this.selectedCompilerKeys.set(selectedCompilers);
+    }
+
+    isBenchmarkSelected(benchmarkKey: BenchmarkKey): boolean {
+        return this.selectedBenchmarkKeys().includes(benchmarkKey);
+    }
+
+    toggleBenchmarkSelection(benchmarkKey: BenchmarkKey): void {
+        const selectedBenchmarks = [...this.selectedBenchmarkKeys()];
+        const index = selectedBenchmarks.indexOf(benchmarkKey);
+
+        if (index === -1) {
+            selectedBenchmarks.push(benchmarkKey);
+        } else {
+            selectedBenchmarks.splice(index, 1);
+        }
+
+        this.selectedBenchmarkKeys.set(selectedBenchmarks);
+    }
+
     private collectBenchmarkResults(compilers: Compilers, benchmarkKey: BenchmarkKey): BenchmarkResults {
         const benchmarkResults: Partial<BenchmarkResults> = {};
 
-        for (const compilerKey of Object.keys(compilers) as CompilerKey[]) {
+        for (const compilerKey of this.selectedCompilerKeys()) {
             const compiler = compilers[compilerKey]!;
 
             for (const configurationKey of Object.keys(compiler.configurations)) {
@@ -104,6 +145,7 @@ export class AppService {
                     beginAtZero: true,
                     grid: {
                         color: "#000000",
+                        lineWidth: 2,
                     },
                     title: {
                         display: true,
@@ -112,6 +154,7 @@ export class AppService {
                         font: {
                             family: "Oxanium",
                             size: 14,
+                            weight: "bold",
                         },
                     },
                     ticks: {
@@ -119,6 +162,7 @@ export class AppService {
                         font: {
                             family: "Oxanium",
                             size: 14,
+                            weight: "bold",
                         },
                     },
                     border: {
@@ -128,12 +172,14 @@ export class AppService {
                 y: {
                     grid: {
                         color: "#000000",
+                        lineWidth: 2,
                     },
                     ticks: {
                         color: "#706deb",
                         font: {
                             family: "Oxanium",
                             size: 14,
+                            weight: "bold",
                         },
                     },
                     border: {
@@ -148,6 +194,7 @@ export class AppService {
                         font: {
                             family: "Oxanium",
                             size: 14,
+                            weight: "bold",
                         },
                     },
                 },
@@ -158,6 +205,12 @@ export class AppService {
                             return `${context.dataset.label ?? ""}: ${value.toFixed(fractionDigits)} ${unit}`;
                         },
                     },
+                },
+            },
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
                 },
             },
         };

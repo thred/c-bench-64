@@ -1,44 +1,106 @@
-<h1>C-Compiler Benchmarks for MOS&nbsp;Technology&nbsp;6502 Cross Compilers</h1>
+<div class="toc">
+    <ul>
+        <li>
+            <h4><a href="#compilers">Compilers</a></h4>
 
-<p>
-    This page is based on the
-    <a href="https://web.archive.org/web/20250124180056/https://gglabs.us/node/2293" target="_blank"
-        >original benchmarks by GG Labs</a
-    >. The page has been abadoned and was archived by GG on Sat, 03/12/2022 - 01:11. I try to rescue the code. The
-    compilers Oscar64 and LLVM-mos have been added since.
-</p>
+            <ul>
+                @for (key of compilerKeys; track key) {
+                    @if (compilers()[key]; as compiler) {
+                        <li>
+                            <input
+                                type="checkbox"
+                                [checked]="service.isCompilerSelected(key)"
+                                (change)="service.toggleCompilerSelection(key)"
+                            />
 
-<p>GG, if you read this, please contact me to discuss attribution and licensing issues!</p>
+                            <a href="#compiler-{{ key }}" [class.inactive]="!service.isCompilerSelected(key)">
+                                {{ compiler.name }}
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+        </li>
 
-<p class="box">
-    If you find any errors or have suggestions to optimize the benchmarks, please submit a
-    <a href="https://github.com/thred/c-bench-64/pulls" target="_blank">pull request</a> or create an
-    <a href="https://github.com/thred/c-bench-64/issues" target="_blank">issue</a>. The project is hosted on
-    <a href="https://github.com/thred/c-bench-64" target="_blank">GitHub</a>.
-</p>
+        <li>
+            <h4><a href="#benchmarks">Benchmarks</a></h4>
 
-<h2>Compilers</h2>
+            <ul>
+                @for (key of benchmarkKeys; track key) {
+                    @if (benchmarks[key]; as benchmark) {
+                        <li>
+                            <input
+                                type="checkbox"
+                                [checked]="service.isBenchmarkSelected(key)"
+                                (change)="service.toggleBenchmarkSelection(key)"
+                            />
 
-<p class="box">This section is a work in progress.<span class="blinking-cursor"></span></p>
+                            <a href="#benchmark-{{ key }}" [class.inactive]="!service.isBenchmarkSelected(key)">
+                                {{ benchmark.shortName }}
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+        </li>
+    </ul>
+</div>
 
-@for (key of compilerKeys; track key) {
-    @if (compilers()[key]; as compiler) {
-        <app-compiler [compiler]="compiler"></app-compiler>
+<div class="content">
+    <h1>C-Compiler Benchmarks for MOS&nbsp;Technology&nbsp;6502 Cross Compilers</h1>
+
+    <p>
+        This page is based on the
+        <a href="https://web.archive.org/web/20250124180056/https://gglabs.us/node/2293" target="_blank"
+            >original benchmarks by GG Labs</a
+        >. The page has been abadoned and was archived by GG on Sat, 03/12/2022 - 01:11. I try to rescue the code. The
+        compilers Oscar64 and LLVM-mos have been added since.
+    </p>
+
+    <p>GG, if you read this, please contact me to discuss attribution and licensing issues!</p>
+
+    <p class="box">
+        If you find any errors or have suggestions to optimize the benchmarks, please submit a
+        <a href="https://github.com/thred/c-bench-64/pulls" target="_blank">pull request</a> or create an
+        <a href="https://github.com/thred/c-bench-64/issues" target="_blank">issue</a>. The project is hosted on
+        <a href="https://github.com/thred/c-bench-64" target="_blank">GitHub</a>.
+    </p>
+
+    <h2 id="compilers">Compilers</h2>
+
+    @for (key of service.selectedCompilerKeys(); track key) {
+        @if (compilers()[key]; as compiler) {
+            <app-compiler [compiler]="compiler"></app-compiler>
+        }
     }
-}
 
-<h2>Benchmarks</h2>
-
-<p>
-    The benchmarks are based on the original GG Labs benchmarks and have only been slightly modified. All benchmarks
-    were executed on a VICE emulator. The duration is measured by the emulated code itself, so the speed of the host
-    system does not matter.
-</p>
-
-<p class="box">This section is a work in progress, too.<span class="blinking-cursor"></span></p>
-
-@for (key of benchmarkKeys; track key) {
-    @if (benchmarkWithResultsMap()[key]; as benchmark) {
-        <app-benchmark [key]="key"></app-benchmark>
+    @if (service.selectedCompilerKeys().length === 0) {
+        <p class="box">
+            No compilers selected. Please select one or more compilers from the table of contents.<span
+                class="blinking-cursor"
+            ></span>
+        </p>
     }
-}
+
+    <h2 id="benchmarks">Benchmarks</h2>
+
+    <p>
+        The benchmarks are based on the original GG Labs benchmarks and have only been slightly modified. All benchmarks
+        were executed on a VICE emulator. The duration is measured by the emulated code itself, so the speed of the host
+        system does not matter.
+    </p>
+
+    @for (key of service.selectedBenchmarkKeys(); track key) {
+        @if (benchmarkWithResultsMap()[key]; as benchmark) {
+            <app-benchmark [key]="key"></app-benchmark>
+        }
+    }
+
+    @if (service.selectedBenchmarkKeys().length === 0) {
+        <p class="box">
+            No benchmarks selected. Please select one or more benchmarks from the table of contents.<span
+                class="blinking-cursor"
+            ></span>
+        </p>
+    }
+</div>

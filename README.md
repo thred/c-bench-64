@@ -1,6 +1,6 @@
 # Benchmarks for MOS6502 C-Compilers
 
-The source for the initial benchmarks is: https://web.archive.org/web/20250124180056/https://gglabs.us/node/2293  
+The source for the initial benchmarks comes from: https://web.archive.org/web/20250124180056/https://gglabs.us/node/2293  
 Submitted by GG on Sat, 03/12/2022 - 01:11
 
 > GG, please contact me to discuss licensing issues regarding your benchmarks!
@@ -10,33 +10,38 @@ Since the original web page is no longer accessible, I am attempting to preserve
 ## Included Compilers
 
 -   [CC65](https://cc65.github.io/)
--   [KickC](https://gitlab.com/camelot/kickc) - currently disabled because of serious compatibility issues
+-   [KickC](https://gitlab.com/camelot/kickc)
 -   [llvm-mos](https://llvm-mos.org)
 -   [Oscar64](https://github.com/drmortalwombat/oscar64)
--   [sdcc](https://sdcc.sourceforge.net/) - currently disabled because of build errors
+-   [sdcc](https://sdcc.sourceforge.net/)
 -   [vbcc](http://www.compilers.de/vbcc.html)
 
-## Prepare Build
+## Benchmarks
 
-### Linux (RedHat)
+Documentation for Windows is coming, soon.
 
-#### Install "make":
+### Prepare Your Envrionment
 
-```
+#### Linux (RedHat)
+
+##### Install "make":
+
+```sh
 sudo dnf install make
 ```
 
-#### Install "viceemu":
+##### Install "viceemu":
 
-https://flathub.org/apps/net.sf.VICE
+Follow the documentation on: https://flathub.org/apps/net.sf.VICE
 
-## Build and Execute Benchmarks
+### Building and Executing the Benchmarks
 
 The benchmark for each compiler contains specific instructions to prepare the build for the tested compiler.
+
 The compilers are usually installed into a subfolder to avoid problems with existing local installations.
 
 -   [README.md for CC65](benchmarks/cc65/README.md)
--   [README.md for KickC](benchmarks/kickc/README.md) - current disabled because of serious build problems
+-   [README.md for KickC](benchmarks/kickc/README.md)
 -   [README.md for llvm-mos](benchmarks/llvm-mos/README.md)
 -   [README.md for Oscar64](benchmarks/oscar64/README.md)
 -   [README.md for sdcc](benchmarks/sdcc/README.md)
@@ -44,36 +49,70 @@ The compilers are usually installed into a subfolder to avoid problems with exis
 
 Benchmarks can be built and executed using:
 
-```
+```sh
 make -C benchmarks all
 ```
 
 Run all benchmarks for a specific compiler:
 
-```
+```sh
 make -C benchmarks all INCLUDE=cc65p,cc65s
 ```
 
 The available keys are: `cc65p`, `cc65s`, `kickc`, `llvmp`, `llvms`, `o64p`, `o64s`, `sdccp`, `sdccs`, `vbccp`, `vbccs`.
 
+The postfix `p` stands for performance optimizations, the postfix `s` stands for speed optimizations.
+
 Run individual benchmarks by their name:
 
-```
+```sh
 make -C benchmarks crc8
 ```
 
 Available benchmarks are: `aes256`, `crc8`, `crc16`, `crc32`, `dhrystone`, `fact`, `pi`, `pow`, `puff2`, `sieve`, `sieve-bit`.
 
-## Build and Execute Reports
+## Reports
 
-### Prepare
+The reports consist of an interactive webpage built with [Angular](https://angular.dev).
+
+### Prepare Environment
+
+#### Linux (RedHat)
+
+##### Install "nodejs" and "npm":
 
 You need to install [NodeJS and NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
 
-In the directory `reports` execute `npm ci`.
+```sh
+sudo dnf install nodejs npm
+```
+
+### Building and Excecuting the Reports
+
+> **Warning:**  
+> Execute the following commands in the `reports` directory!
+
+Download and install all dependencies:
+
+```sh
+npm ci
+```
+
+Start the application using:
+
+```sh
+npm start
+```
 
 ### Updating Performance Reports
 
-Build and execute all benchmarks before aggregating the results!
+> **Warning:**  
+> Build and execute all benchmarks before aggregating the results!
 
-To collect the results from all benchmarks, execute `npm run aggregate`. It will update the `.json` files in the directory `reports/public`.
+To collect the results from all benchmarks, execute:
+
+```sh
+npm run aggregate
+```
+
+It will update the `.json` files in the `reports/public` directory.

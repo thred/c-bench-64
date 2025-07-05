@@ -1,6 +1,22 @@
-<h3>{{ benchmark().name }}</h3>
+<h3 id="benchmark-{{ benchmark().key }}">{{ benchmark().name }}</h3>
 
-<div class="benchmark-description">{{ benchmark().description }}</div>
+<p>{{ benchmark().description }}</p>
+
+@if (benchmark().url) {
+    <p class="no-gap">
+        <strong>Source: </strong>
+        <a href="https://github.com/thred/c-bench-64/blob/main/{{ benchmark().url }}" target="_blank">{{
+            benchmark().url
+        }}</a>
+    </p>
+}
+
+@if (benchmark().author) {
+    <p class="no-gap">
+        <strong>Author: </strong>
+        {{ benchmark().author }}
+    </p>
+}
 
 <h4>Execution Times in Seconds <span class="hint">(shorter is better)</span></h4>
 

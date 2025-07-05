@@ -10,6 +10,7 @@
   "cons": [
     "Free for private use only"
   ],
+  "wip": true,
   "configurations": {
     "vbccp": {
       "name": "VBCC - Best Performance",

@@ -8,6 +8,7 @@
     "homepage": "http://www.compilers.de/vbcc.html",
     "pros": [],
     "cons": ["Free for private use only"],
+    "wip": true,
     "configurations": {
         "vbccp": {
             "name": "VBCC - Best Performance",

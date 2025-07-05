@@ -15,6 +15,7 @@
     "Complex setup",
     "No overlay support"
   ],
+  "wip": true,
   "configurations": {
     "llvmp": {
       "name": "LLVM-mos - Best Performance",

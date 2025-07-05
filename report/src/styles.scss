@@ -20,58 +20,70 @@
     --c64-light-green: #a9ff9f;
     --c64-light-blue: #706deb;
     --c64-light-grey: #b2b2b2;
+
+    --background-color: var(--c64-blue);
+    --border-color: var(--c64-light-blue);
+    --text-color: var(--c64-light-blue);
+    --highlight-color: var(--c64-yellow);
+    --headline-color: var(--c64-white);
+    --link-color: var(--c64-cyan);
+    --hover-color: var(--c64-white);
+    --toc-width: 12rem;
 }
 
 html,
 body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
     font-family: "Oxanium", sans-serif;
     font-optical-sizing: auto;
     font-size: 16pt;
-    background-color: var(--c64-blue);
-    color: var(--c64-light-blue);
+    font-weight: 500;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: min(8vh, 80px) min(12vw, 120px) min(8vh, 80px) min(12vw, 120px);
+    background-color: var(--border-color);
 }
 
 .screen {
-    background-color: var(--c64-light-blue);
-    padding: 80px;
-    width: 100vw;
-    height: 100vh;
-
-    .content {
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: var(--c64-blue);
-    }
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: var(--background-color);
 }
 
 h1,
 h2,
 h3,
 h4 {
-    color: var(--c64-white);
+    color: var(--headline-color);
     padding: 0.25rem 1rem 0.125rem 1rem;
 }
 
 h1 {
-    border-left: 1em solid var(--c64-yellow);
+    border-left: 1em solid var(--highlight-color);
 }
 
 h2 {
-    border-top: 4px solid var(--c64-white);
-    border-bottom: 4px solid var(--c64-white);
+    border-top: 4px solid var(--headline-color);
+    border-bottom: 4px solid var(--headline-color);
 }
 
 h3 {
-    background-color: var(--c64-white);
-    color: var(--c64-blue);
+    background-color: var(--headline-color);
+    color: var(--background-color);
 }
 
 h4 {
-    border-bottom: 2px solid var(--c64-light-blue);
+    border-bottom: 2px solid var(--text-color);
 }
 
 p {
@@ -79,11 +91,16 @@ p {
 }
 
 .box {
-    border: 4px solid var(--c64-yellow);
+    border: 4px solid var(--highlight-color);
     border-radius: 8px;
     margin: 2rem;
     padding: 0.5rem;
-    color: var(--c64-yellow);
+    color: var(--highlight-color);
+}
+
+.no-gap {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
 }
 
 .blinking-cursor {
@@ -109,17 +126,58 @@ p {
 a,
 a:visited,
 a:active {
-    color: var(--c64-cyan);
+    color: var(--link-color);
 }
 
 a:hover {
-    color: var(--c64-white);
+    color: var(--hover-color);
 }
 
 .hint {
     font-size: 0.8em;
     font-weight: normal;
-    color: var(--c64-light-blue);
+    color: var(--text-color);
+}
+
+/* Commodore 64 style checkboxes */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0 0.5em 0 0;
+    border: 4px solid var(--text-color);
+    border-radius: 4px;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    vertical-align: text-top;
+    transition: border-color 0.2s;
+    box-shadow: none;
+    display: inline-block;
+}
+
+input[type="checkbox"]:hover,
+input[type="checkbox"]:focus {
+    border-color: var(--hover-color);
+}
+
+input[type="checkbox"]:checked {
+    background: none;
+}
+
+input[type="checkbox"]:checked::after {
+    content: "✕";
+    color: var(--hover-color);
+    font-size: 1.2em;
+    font-weight: bold;
+    position: absolute;
+    left: -0.04em;
+    top: -0.2em;
+    line-height: 1.3em;
+    pointer-events: none;
+    font-family: inherit;
 }
 
 /* Custom scrollbar styles */
@@ -129,18 +187,18 @@ a:hover {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--c64-blue);
+    background: var(--background-color);
     border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--c64-light-blue);
+    background: var(--text-color);
     border-radius: 8px;
-    border: 2px solid var(--c64-blue);
+    border: 2px solid var(--background-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--c64-cyan);
+    background: var(--hover-color);
 }
 
 /* Remove scrollbar arrows */
@@ -149,11 +207,11 @@ a:hover {
 }
 
 ::-webkit-scrollbar-corner {
-    background: var(--c64-blue);
+    background: var(--background-color);
 }
 
 /* Firefox scrollbar styles */
 * {
     scrollbar-width: thick;
-    scrollbar-color: var(--c64-light-blue) var(--c64-blue);
+    scrollbar-color: var(--text-color) var(--background-color);
 }

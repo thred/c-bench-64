@@ -15,6 +15,7 @@
     "Severe limitations on the C language features",
     "Slow compile times"
   ],
+  "wip": true,
   "configurations": {
     "kickc": {
       "name": "KickC",

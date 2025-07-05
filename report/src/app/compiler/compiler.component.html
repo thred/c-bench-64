@@ -1,16 +1,21 @@
-<h3>
+<h3 id="compiler-{{ compiler().key }}">
     {{ compiler().name }}
 </h3>
 
-<p>
-    <a [href]="compiler().homepage" target="_blank" rel="noopener noreferrer">
-        {{ compiler().homepage }}
-    </a>
-</p>
+@if (compiler().wip) {
+    <p class="box">This section is currently under development.<span class="blinking-cursor"></span></p>
+}
 
 @for (paragraph of compiler().description; track $index) {
     <p>{{ paragraph }}</p>
 }
+
+<p>
+    <strong>Homepage: </strong>
+    <a [href]="compiler().homepage" target="_blank" rel="noopener noreferrer">
+        {{ compiler().homepage }}
+    </a>
+</p>
 
 @if (compiler().pros.length > 0) {
     <h4>Pros</h4>
