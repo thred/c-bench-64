@@ -1,0 +1,25 @@
+:host {
+    display: flex;
+}
+
+.label {
+    display: inline-block;
+    width: 16em;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.yes::before {
+    content: "✓";
+    color: var(--success-color);
+}
+
+.no::before {
+    content: "✗";
+    color: var(--error-color);
+}
+
+.partial::before {
+    content: "±";
+    color: var(--warning-color);
+}

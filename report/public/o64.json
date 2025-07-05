@@ -6,6 +6,7 @@
     "The purpose of this compiler is to eliminate the need to write 6502 assembler code to achieve high code density and fast execution speed. It continues to improve with all the games, demos and tools written by it. It supports disk overlays and banked cartridges for larger projects."
   ],
   "homepage": "https://github.com/drmortalwombat/oscar64",
+  "license": "",
   "pros": [
     "Simple and easy to use",
     "Good support for modern C features",
@@ -17,6 +18,50 @@
     "Some incompatibility with the C standard",
     "No separated linker"
   ],
+  "features": {
+    "floatingPoint": "",
+    "inlineAssembly": "",
+    "overlays": "",
+    "fileIO": "",
+    "printf": "",
+    "recursiveFunctions": "",
+    "interruptSupport": "",
+    "maintained": ""
+  },
+  "libraries": {
+    "assert": "",
+    "complex": "",
+    "conio": "",
+    "ctype": "",
+    "errno": "",
+    "fenv": "",
+    "float": "",
+    "inttypes": "",
+    "iso646": "",
+    "limits": "",
+    "locale": "",
+    "math": "",
+    "setjmp": "",
+    "signal": "",
+    "stdalign": "",
+    "stdarg": "",
+    "stdatomic": "",
+    "stdbit": "",
+    "stdbool": "",
+    "stddef": "",
+    "stdint": "",
+    "stdio": "",
+    "stdlib": "",
+    "stdnoreturn": "",
+    "string": "",
+    "tgmath": "",
+    "threads": "",
+    "time": "",
+    "uchar": "",
+    "wchar": "",
+    "wctype": ""
+  },
+  "runtimeSupport": [],
   "configurations": {
     "o64p": {
       "name": "Oscar64 - Best Performance",

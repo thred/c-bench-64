@@ -2,6 +2,12 @@
     {{ compiler().name }}
 </h3>
 
+<p>
+    <a [href]="compiler().homepage" target="_blank" rel="noopener noreferrer">
+        {{ compiler().homepage }}
+    </a>
+</p>
+
 @if (compiler().wip) {
     <p class="box">This section is currently under development.<span class="blinking-cursor"></span></p>
 }
@@ -10,12 +16,18 @@
     <p>{{ paragraph }}</p>
 }
 
-<p>
-    <strong>Homepage: </strong>
-    <a [href]="compiler().homepage" target="_blank" rel="noopener noreferrer">
-        {{ compiler().homepage }}
-    </a>
-</p>
+<h4>Features</h4>
+<ul>
+    <li><app-supported [supported]="compiler().features['floatingPoint']">Floating point support</app-supported></li>
+    <li><app-supported [supported]="compiler().features['inlineAssembly']">Inline assembly</app-supported></li>
+    <li><app-supported [supported]="compiler().features['overlays']">Overlays</app-supported></li>
+    <li><app-supported [supported]="compiler().features['fileIO']">File I/O</app-supported></li>
+    <li><app-supported [supported]="compiler().features['printf']">printf</app-supported></li>
+    <li><app-supported [supported]="compiler().features['recursiveFunctions']">Recursive functions</app-supported></li>
+    <li><app-supported [supported]="compiler().features['interruptSupport']">Interrupt support</app-supported></li>
+    <li><app-supported [supported]="compiler().features['maintained']">Maintained</app-supported></li>
+    <li><app-supported [supported]="compiler().license">License</app-supported></li>
+</ul>
 
 @if (compiler().pros.length > 0) {
     <h4>Pros</h4>
@@ -31,6 +43,15 @@
     <ul>
         @for (con of compiler().cons; track $index) {
             <li>{{ con }}</li>
+        }
+    </ul>
+}
+
+@if (compiler().runtimeSupport.length) {
+    <h4>Runtime Support</h4>
+    <ul>
+        @for (runtimeSupport of compiler().runtimeSupport; track runtimeSupport) {
+            <li>{{ runtimeSupport }}</li>
         }
     </ul>
 }

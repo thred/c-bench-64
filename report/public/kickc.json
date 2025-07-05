@@ -3,19 +3,78 @@
   "name": "KickC",
   "description": [
     "KickC is a C-compiler for 6502-based platforms creating optimized and readable assembler code. The language is 95% standard C with a few limitations and a few extensions.",
-    "The compiler is written in Java. Unfortunately, it has compatibility issues with most benchmarks."
+    "The compiler is written in Java. Unfortunately, it has severe restrictions (no multiplication or division) and thus compatibility issues with most benchmarks.",
+    "The compiler does not support compiling each C-file individually and linking them later. Instead KickC insists on compiling all needed C-files in one go to be able to optimize better. It expects that there exists a `.c` file for each `.h` file. In fact, KickC does not need header files at all.",
+    "It is not affiliated with the KickAssembler project but creates assembler code that is compatible with it."
   ],
   "homepage": "https://gitlab.com/camelot/kickc",
+  "license": "MIT License",
   "pros": [
-    "Generates human readable assembly code"
+    "Creates readable assembler code",
+    "Great to add C based code parts to KickAssembler projects"
   ],
   "cons": [
-    "No floating point support",
+    "No multiplication or division (it provides a library for this)",
+    "No floating-point support",
+    "No unions, arrays of arrays, function pointers, variadic functions",
+    "No support for recursion",
+    "Poor support for standard libraries",
     "No overlay support",
-    "Severe limitations on the C language features",
     "Slow compile times"
   ],
-  "wip": true,
+  "features": {
+    "floatingPoint": "no",
+    "inlineAssembly": "yes",
+    "overlays": "no",
+    "fileIO": "no",
+    "printf": "partly",
+    "recursiveFunctions": "no",
+    "interruptSupport": "yes",
+    "maintained": "yes"
+  },
+  "libraries": {
+    "assert": "no",
+    "complex": "no",
+    "conio": "yes",
+    "ctype": "no",
+    "errno": "yes",
+    "fenv": "no",
+    "float": "no",
+    "inttypes": "no",
+    "iso646": "no",
+    "limits": "no",
+    "locale": "no",
+    "math": "no",
+    "setjmp": "no",
+    "signal": "no",
+    "stdalign": "no",
+    "stdarg": "no",
+    "stdatomic": "no",
+    "stdbit": "no",
+    "stdbool": "no",
+    "stddef": "no",
+    "stdint": "yes",
+    "stdio": "partly",
+    "stdlib": "partly",
+    "stdnoreturn": "no",
+    "string": "yes",
+    "tgmath": "no",
+    "threads": "no",
+    "time": "no",
+    "uchar": "no",
+    "wchar": "no",
+    "wctype": "no"
+  },
+  "runtimeSupport": [
+    "Commodore VIC 20",
+    "Commodore Plus/4 (Commodore 16, Commodore 116)",
+    "Commodore C64",
+    "Atari 2600",
+    "Atari XL/XE",
+    "Nintendo NES",
+    "MEGA65",
+    "Commander X16"
+  ],
   "configurations": {
     "kickc": {
       "name": "KickC",

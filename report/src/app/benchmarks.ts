@@ -147,13 +147,60 @@ export interface ConfigurationResult {
 
 export type ConfigurationResults = { [key in BenchmarkKey]: ConfigurationResult };
 
+export type Supported = "yes" | "no" | "partial" | string;
+
 export interface Compiler {
     key: CompilerKey;
     name: string;
     description: string[];
     homepage: string;
+    license: string;
+    features: {
+        floatingPoint: Supported;
+        inlineAssembly: Supported;
+        overlays: Supported;
+        fileIO: Supported;
+        printf: Supported;
+        recursiveFunctions: Supported;
+        interruptSupport: Supported;
+        maintained: Supported;
+    };
+    libaries: {
+        assert: Supported;
+        complex: Supported;
+        conio: Supported;
+        ctype: Supported;
+        errno: Supported;
+        fenv: Supported;
+        float: Supported;
+        inttypes: Supported;
+        iso646: Supported;
+        limits: Supported;
+        locale: Supported;
+        math: Supported;
+        setjmp: Supported;
+        signal: Supported;
+        stdalign: Supported;
+        stdarg: Supported;
+        stdatomic: Supported;
+        stdbit: Supported;
+        stdbool: Supported;
+        stddef: Supported;
+        stdint: Supported;
+        stdio: Supported;
+        stdlib: Supported;
+        stdnoreturn: Supported;
+        string: Supported;
+        tgmath: Supported;
+        threads: Supported;
+        time: Supported;
+        uchar: Supported;
+        wchar: Supported;
+        wctype: Supported;
+    };
     pros: string[];
     cons: string[];
+    runtimeSupport: string[];
     wip?: boolean;
     configurations: { [configurationkey: string]: Configuration };
     results: { [configurationKey: string]: ConfigurationResults };

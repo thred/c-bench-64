@@ -5,6 +5,7 @@
         "LLVM-mos is a open-source fork of LLVM that provides first-class support to the MOS 6502 and near compatibles. The compiler implements multiple novel approaches in order to optimize 6502 code size and speed, and it tends to outperform legacy 6502 compilers."
     ],
     "homepage": "https://llvm-mos.org",
+    "license": "",
     "pros": [
         "Excellent optimizations",
         "Modular and extensible",
@@ -12,6 +13,50 @@
         "Active development and community"
     ],
     "cons": ["Complex setup", "No overlay support"],
+    "features": {
+        "floatingPoint": "",
+        "inlineAssembly": "",
+        "overlays": "",
+        "fileIO": "",
+        "printf": "",
+        "recursiveFunctions": "",
+        "interruptSupport": "",
+        "maintained": ""
+    },
+    "libraries": {
+        "assert": "",
+        "complex": "",
+        "conio": "",
+        "ctype": "",
+        "errno": "",
+        "fenv": "",
+        "float": "",
+        "inttypes": "",
+        "iso646": "",
+        "limits": "",
+        "locale": "",
+        "math": "",
+        "setjmp": "",
+        "signal": "",
+        "stdalign": "",
+        "stdarg": "",
+        "stdatomic": "",
+        "stdbit": "",
+        "stdbool": "",
+        "stddef": "",
+        "stdint": "",
+        "stdio": "",
+        "stdlib": "",
+        "stdnoreturn": "",
+        "string": "",
+        "tgmath": "",
+        "threads": "",
+        "time": "",
+        "uchar": "",
+        "wchar": "",
+        "wctype": ""
+    },
+    "runtimeSupport": [],
     "wip": true,
     "configurations": {
         "llvmp": {
