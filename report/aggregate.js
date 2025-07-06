@@ -76,6 +76,12 @@ function main() {
         if (fs.existsSync(versionPath)) {
             version = fs.readFileSync(versionPath, "utf8").trim();
         }
+
+        const datePath = path.join(baseDir, dir, compilerKey + ".date");
+        let date = null;
+        if (fs.existsSync(datePath)) {
+            date = fs.readFileSync(datePath, "utf8").trim();
+        }
         
         console.log(`  Version: ${version || "unknown"}`);
 
@@ -90,6 +96,7 @@ function main() {
             const data = aggregateConfiugration(configuration, dir, "prg");
 
             compiler.version = version || "unknown";
+            compiler.date = date || "unknown";
             compiler.results = compiler.results || {};
             compiler.results[configuration] = data;
         }

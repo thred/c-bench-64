@@ -8,7 +8,9 @@ import { Supported } from "../benchmarks";
     styleUrl: "./supported.component.scss",
 })
 export class SupportedComponent {
-    readonly supported = input.required<Supported>();
+    readonly supported = input.required<Supported, Supported | null>({
+        transform: (value) => value ?? "unknown",
+    });
 
     readonly url = input<string | undefined>(undefined);
 

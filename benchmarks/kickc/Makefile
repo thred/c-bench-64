@@ -14,6 +14,8 @@ version:
 	@echo "----------------------------------------------------------------------"
 
 	cd $(KICKCWORKDIR); $(KICKC) --version | grep KickC > "../../kickc.version" 2>&1
+
+	@date +"%Y-%m-%d %H:%M:%S" > "kickc.date"
 	
 build:
 	@echo ""

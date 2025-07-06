@@ -12,6 +12,8 @@ version:
 	@echo "----------------------------------------------------------------------"
 
 	@$(OSCAR64) -v | grep "Starting oscar64" | awk '{print $$3}' > "o64.version" 2>&1
+
+	@date +"%Y-%m-%d %H:%M:%S" > "o64.date"
 	
 build-perf:	
 	$(MAKE) build OSCAR64OPTS="$(OSCAR64PERFOPTS)" SUFFIX=o64p

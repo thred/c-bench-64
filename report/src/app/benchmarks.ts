@@ -204,6 +204,7 @@ export interface Compiler {
     wip?: boolean;
     warning?: string;
     version: string;
+    date: Date;
     configurations: { [configurationkey: string]: Configuration };
     results: { [configurationKey: string]: ConfigurationResults };
 }

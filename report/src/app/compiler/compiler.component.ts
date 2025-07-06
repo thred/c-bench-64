@@ -1,3 +1,4 @@
+import { DatePipe } from "@angular/common";
 import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 import { Compiler } from "../benchmarks";
 import { SupportedComponent } from "../supported/supported.component";
@@ -7,7 +8,7 @@ import { SupportedComponent } from "../supported/supported.component";
     templateUrl: "./compiler.component.html",
     styleUrl: "./compiler.component.scss",
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [SupportedComponent],
+    imports: [SupportedComponent, DatePipe],
 })
 export class CompilerComponent {
     readonly compiler = input.required<Compiler>();

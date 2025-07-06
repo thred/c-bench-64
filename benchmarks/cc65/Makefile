@@ -15,6 +15,8 @@ version:
 	$(CC65) --version > "cc65.version" 2>&1
 	@echo "$$(cat cc65.version | awk '{print $$2}')" > "cc65.version"
 
+	@date +"%Y-%m-%d %H:%M:%S" > "cc65.date"
+
 build-perf:
 	CC65OPTS="$(CC65PERFOPTS)" SUFFIX=cc65p $(MAKE) build
 

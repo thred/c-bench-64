@@ -14,6 +14,8 @@ version:
 
 	@echo "Please, enter the version to the file vbcc.version manually!"
 	
+	@date +"%Y-%m-%d %H:%M:%S" > "vbcc.date"
+
 build-perf:
 	$(MAKE) build VBCCOPTS="$(VBCCPERFOPTS)" SUFFIX=vbccp
 

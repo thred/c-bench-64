@@ -18,6 +18,8 @@ version:
 	@echo "----------------------------------------------------------------------"
 
 	@$(SDCC) --version | grep "SDCC" | awk '{print $$5}' > "sdcc.version" 2>&1
+
+	@date +"%Y-%m-%d %H:%M:%S" > "sdcc.date"
 	
 build-perf:
 	$(MAKE) SDCCOPTS="$(SDCCPERFOPTS)" SUFFIX=sdccp build

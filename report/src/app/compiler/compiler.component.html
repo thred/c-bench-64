@@ -22,6 +22,10 @@
     @if (compiler().license; as license) {
         <li><app-supported [supported]="license">License</app-supported></li>
     }
+
+    @if (compiler().date; as date) {
+        <li><app-supported [supported]="date | date">Benchmark Execution</app-supported></li>
+    }
 </ul>
 
 @if (compiler().pros.length > 0) {

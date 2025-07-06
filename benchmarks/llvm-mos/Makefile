@@ -12,6 +12,8 @@ version:
 	@echo "----------------------------------------------------------------------"
 	
 	@$(CLANG) --version | grep "clang version" | awk '{print $$3}' > "llvm.version" 2>&1
+
+	@date +"%Y-%m-%d %H:%M:%S" > "llvm.date"
 	
 build-perf:
 	$(MAKE) CLANGOPTS="$(CLANGPERFOPTS)" SUFFIX=llvmp build
