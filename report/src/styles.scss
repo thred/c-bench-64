@@ -183,6 +183,30 @@ input[type="checkbox"]:checked::after {
     font-family: inherit;
 }
 
+.icon {
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    vertical-align: baseline;
+    background: currentColor;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+
+    &[shape="times"] {
+        mask-image: url("/times.svg");
+        -webkit-mask-image: url("/times.svg");
+    }
+
+    &[shape="check"] {
+        mask-image: url("/check.svg");
+        -webkit-mask-image: url("/check.svg");
+    }
+}
+
 /* Custom scrollbar styles */
 ::-webkit-scrollbar {
     width: 16px;

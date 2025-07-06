@@ -29,6 +29,8 @@ export type CompilerKey = "cc65" | "kickc" | "llvm" | "o64" | "sdcc" | "vbcc";
 
 export const compilerKeys: readonly CompilerKey[] = ["cc65", "kickc", "llvm", "o64", "sdcc", "vbcc"];
 
+export const activeCompilerKeys: readonly CompilerKey[] = ["cc65", "llvm", "o64", "sdcc", "vbcc"];
+
 export interface Benchmark {
     key: BenchmarkKey | "combined";
     name: string;
@@ -141,8 +143,6 @@ export interface Configuration {
 export interface ConfigurationResult {
     prgSize: number | null;
     totalTime: number | null;
-    buildTime: Date | null;
-    buildVersion: string | null;
 }
 
 export type ConfigurationResults = { [key in BenchmarkKey]: ConfigurationResult };
@@ -202,6 +202,8 @@ export interface Compiler {
     cons: string[];
     runtimeSupport: string[];
     wip?: boolean;
+    warning?: string;
+    version: string;
     configurations: { [configurationkey: string]: Configuration };
     results: { [configurationKey: string]: ConfigurationResults };
 }

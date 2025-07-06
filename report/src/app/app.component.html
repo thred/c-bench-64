@@ -68,9 +68,11 @@
 
     <h2 id="compilers">Compilers</h2>
 
-    @for (key of service.selectedCompilerKeys(); track key) {
-        @if (compilers()[key]; as compiler) {
-            <app-compiler [compiler]="compiler"></app-compiler>
+    @for (key of compilerKeys; track key) {
+        @if (service.isCompilerSelected(key)) {
+            @if (compilers()[key]; as compiler) {
+                <app-compiler [compiler]="compiler"></app-compiler>
+            }
         }
     }
 
@@ -90,9 +92,11 @@
         system does not matter.
     </p>
 
-    @for (key of service.selectedBenchmarkKeys(); track key) {
-        @if (benchmarkWithResultsMap()[key]; as benchmark) {
-            <app-benchmark [key]="key"></app-benchmark>
+    @for (key of benchmarkKeys; track key) {
+        @if (service.isBenchmarkSelected(key)) {
+            @if (benchmarks[key]; as benchmark) {
+                <app-benchmark [key]="key"></app-benchmark>
+            }
         }
     }
 

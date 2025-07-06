@@ -4,22 +4,14 @@
 
 .label {
     display: inline-block;
-    width: 16em;
-    font-weight: bold;
+    width: 14em;
     color: var(--text-color);
 }
 
-.yes::before {
-    content: "✓";
+.yes .icon {
     color: var(--success-color);
 }
 
-.no::before {
-    content: "✗";
+.no .icon {
     color: var(--error-color);
-}
-
-.partial::before {
-    content: "±";
-    color: var(--warning-color);
 }

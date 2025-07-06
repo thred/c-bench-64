@@ -6,7 +6,7 @@
         "The purpose of this compiler is to eliminate the need to write 6502 assembler code to achieve high code density and fast execution speed. It continues to improve with all the games, demos and tools written by it. It supports disk overlays and banked cartridges for larger projects."
     ],
     "homepage": "https://github.com/drmortalwombat/oscar64",
-    "license": "",
+    "license": "GNU General Public License v3.0",
     "pros": [
         "Simple and easy to use",
         "Good support for modern C features",
@@ -61,13 +61,13 @@
     "runtimeSupport": [],
     "configurations": {
         "o64p": {
-            "name": "Oscar64 - Best Performance",
+            "name": "Oscar64 - Perf.Opt.",
             "description": "-O3",
             "optimization": "performance",
             "color": "#a9ff9f"
         },
         "o64s": {
-            "name": "Oscar64 - Smallest Size",
+            "name": "Oscar64 - Size Opt.",
             "description": "-O -Os -Oo -Oz -Op",
             "optimization": "size",
             "color": "#a9ff9f"

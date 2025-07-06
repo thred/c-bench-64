@@ -6,7 +6,7 @@
     "The purpose of this compiler is to eliminate the need to write 6502 assembler code to achieve high code density and fast execution speed. It continues to improve with all the games, demos and tools written by it. It supports disk overlays and banked cartridges for larger projects."
   ],
   "homepage": "https://github.com/drmortalwombat/oscar64",
-  "license": "",
+  "license": "GNU General Public License v3.0",
   "pros": [
     "Simple and easy to use",
     "Good support for modern C features",
@@ -64,153 +64,110 @@
   "runtimeSupport": [],
   "configurations": {
     "o64p": {
-      "name": "Oscar64 - Best Performance",
+      "name": "Oscar64 - Perf.Opt.",
       "description": "-O3",
       "optimization": "performance",
       "color": "#a9ff9f"
     },
     "o64s": {
-      "name": "Oscar64 - Smallest Size",
+      "name": "Oscar64 - Size Opt.",
       "description": "-O -Os -Oo -Oz -Op",
       "optimization": "size",
       "color": "#a9ff9f"
     }
   },
+  "version": "1.31.261",
   "results": {
     "o64p": {
       "aes256": {
         "prgSize": 4353,
-        "totalTime": 14.9,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 14.8
       },
       "crc8": {
         "prgSize": 3425,
-        "totalTime": 0.8,
-        "buildTime": "2025-06-29 21:24:18",
-        "buildVersion": "build-2025-06-29"
+        "totalTime": 0.8
       },
       "crc16": {
         "prgSize": 3500,
-        "totalTime": 1.7,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 1.7
       },
       "crc32": {
         "prgSize": 3550,
-        "totalTime": 2.5,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 2.5
       },
       "dhrystone": {
         "prgSize": 3441,
-        "totalTime": 1.5,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 1.5
       },
       "fact": {
         "prgSize": 3295,
-        "totalTime": 5.5,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 5.5
       },
       "pi": {
         "prgSize": 3801,
-        "totalTime": 51,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 50.8
       },
       "pow": {
         "prgSize": 3737,
-        "totalTime": 3.4,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 3.4
       },
       "puff2": {
         "prgSize": 15575,
-        "totalTime": 7.4,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 7.3
       },
       "sieve": {
         "prgSize": 3137,
-        "totalTime": 9.4,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 9.4
       },
       "sieve_bit": {
         "prgSize": 3193,
-        "totalTime": 16.2,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 16.2
       }
     },
     "o64s": {
       "aes256": {
         "prgSize": 3248,
-        "totalTime": 16.6,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 16.6
       },
       "crc8": {
         "prgSize": 2166,
-        "totalTime": 0.8,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 0.8
       },
       "crc16": {
         "prgSize": 2196,
-        "totalTime": 1.6,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 1.6
       },
       "crc32": {
         "prgSize": 2267,
-        "totalTime": 2.5,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 2.5
       },
       "dhrystone": {
         "prgSize": 2754,
-        "totalTime": 1.7,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 1.7
       },
       "fact": {
         "prgSize": 2419,
-        "totalTime": 5.7,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 5.7
       },
       "pi": {
         "prgSize": 2894,
-        "totalTime": 51.8,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 51.8
       },
       "pow": {
         "prgSize": 3081,
-        "totalTime": 3.9,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 3.9
       },
       "puff2": {
         "prgSize": 9319,
-        "totalTime": 12,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 12
       },
       "sieve": {
         "prgSize": 2230,
-        "totalTime": 10.4,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 10.4
       },
       "sieve_bit": {
         "prgSize": 2297,
-        "totalTime": 16.3,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 16.3
       }
     }
   }

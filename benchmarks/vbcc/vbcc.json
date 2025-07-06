@@ -6,7 +6,7 @@
         "It supports ISO C according to ISO/IEC 9899:1989 and most of ISO/IEC 9899:1999 (C99)."
     ],
     "homepage": "http://www.compilers.de/vbcc.html",
-    "license": "",
+    "license": "Proprietary (free for private use only)",
     "pros": [],
     "cons": ["Free for private use only"],
     "features": {
@@ -53,16 +53,16 @@
         "wctype": ""
     },
     "runtimeSupport": [],
-    "wip": true,
+    "warning": "The description is work in progress.",
     "configurations": {
         "vbccp": {
-            "name": "VBCC - Best Performance",
+            "name": "VBCC - Perf.Opt.",
             "description": "-O4 -speed",
             "optimization": "performance",
             "color": "#706deb"
         },
         "vbccs": {
-            "name": "VBCC - Smallest Size",
+            "name": "VBCC - Size Opt.",
             "description": "-O4 -size",
             "optimization": "size",
             "color": "#706deb"

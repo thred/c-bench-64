@@ -87,13 +87,13 @@
     ],
     "configurations": {
         "cc65p": {
-            "name": "cc65 - Best Performance",
+            "name": "cc65 - Perf.Opt.",
             "description": "-Oisr --static-locals",
             "optimization": "performance",
             "color": "#c46c71"
         },
         "cc65s": {
-            "name": "cc65 - Smallest Size",
+            "name": "cc65 - Size Opt.",
             "description": "-Os --static-locals",
             "optimization": "size",
             "color": "#c46c71"

@@ -6,7 +6,7 @@
     "It supports ISO C according to ISO/IEC 9899:1989 and most of ISO/IEC 9899:1999 (C99)."
   ],
   "homepage": "http://www.compilers.de/vbcc.html",
-  "license": "",
+  "license": "Proprietary (free for private use only)",
   "pros": [],
   "cons": [
     "Free for private use only"
@@ -55,156 +55,113 @@
     "wctype": ""
   },
   "runtimeSupport": [],
-  "wip": true,
+  "warning": "The description is work in progress.",
   "configurations": {
     "vbccp": {
-      "name": "VBCC - Best Performance",
+      "name": "VBCC - Perf.Opt.",
       "description": "-O4 -speed",
       "optimization": "performance",
       "color": "#706deb"
     },
     "vbccs": {
-      "name": "VBCC - Smallest Size",
+      "name": "VBCC - Size Opt.",
       "description": "-O4 -size",
       "optimization": "size",
       "color": "#706deb"
     }
   },
+  "version": "Release 4, patch 2",
   "results": {
     "vbccp": {
       "aes256": {
         "prgSize": 22370,
-        "totalTime": 38.6,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 38.6
       },
       "crc8": {
         "prgSize": 6257,
-        "totalTime": 1.2,
-        "buildTime": "2025-06-29 21:32:25",
-        "buildVersion": "build-2025-06-29"
+        "totalTime": 1.2
       },
       "crc16": {
         "prgSize": 6476,
-        "totalTime": 2.6,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 2.6
       },
       "crc32": {
         "prgSize": 6791,
-        "totalTime": 5,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 5
       },
       "dhrystone": {
         "prgSize": 9055,
-        "totalTime": 2.4,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 2.4
       },
       "fact": {
         "prgSize": 7991,
-        "totalTime": 18.7,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 18.7
       },
       "pi": {
         "prgSize": 14979,
-        "totalTime": 97.6,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 96.4
       },
       "pow": {
         "prgSize": 16413,
-        "totalTime": 23.6,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 23.6
       },
       "puff2": {
         "prgSize": 34235,
-        "totalTime": 19.5,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 20.3
       },
       "sieve": {
         "prgSize": 6822,
-        "totalTime": 13.3,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 13.3
       },
       "sieve_bit": {
         "prgSize": 7065,
-        "totalTime": 20.3,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 20.3
       }
     },
     "vbccs": {
       "aes256": {
         "prgSize": 16447,
-        "totalTime": 69.9,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 70.1
       },
       "crc8": {
         "prgSize": 3347,
-        "totalTime": 1.9,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 1.9
       },
       "crc16": {
         "prgSize": 3401,
-        "totalTime": 3.3,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 3.3
       },
       "crc32": {
         "prgSize": 3547,
-        "totalTime": 6.4,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 6.4
       },
       "dhrystone": {
         "prgSize": 5769,
-        "totalTime": 5.7,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 5.7
       },
       "fact": {
         "prgSize": 4556,
-        "totalTime": 19.6,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 19.6
       },
       "pi": {
         "prgSize": 12858,
-        "totalTime": 99.8,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 99.1
       },
       "pow": {
         "prgSize": 12700,
-        "totalTime": 24,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 24
       },
       "puff2": {
         "prgSize": 21377,
-        "totalTime": 22.2,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 22.5
       },
       "sieve": {
         "prgSize": 4352,
-        "totalTime": 16,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 15.9
       },
       "sieve_bit": {
         "prgSize": 4452,
-        "totalTime": 30.6,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 30.6
       }
     }
   }

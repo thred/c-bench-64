@@ -75,6 +75,7 @@
         "MEGA65",
         "Commander X16"
     ],
+    "warning": "Currently, the KickC compiler crashes on the main.c file of the benchmark. It contains some inline assembler with a value assignment and KickC thinks, it's an invalid preprocessor token. I have no idea how to get around this.",
     "configurations": {
         "kickc": {
             "name": "KickC",

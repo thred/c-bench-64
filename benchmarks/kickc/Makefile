@@ -8,12 +8,19 @@ KICKC = sh kickc.sh
 KICKCTARGET = -t c64 -DKICKC
 KICKCOPTS = -Oliverangecallpath
 
+version:
+	@echo ""
+	@echo "Collecting version information of kickc ..."
+	@echo "----------------------------------------------------------------------"
+
+	cd $(KICKCWORKDIR); $(KICKC) --version | grep KickC > "../../kickc.version" 2>&1
+	
 build:
-	mkdir -p "$(BINDIR)"
+	@echo ""
+	@echo "Building $(PRG) for kickc ..."
+	@echo "----------------------------------------------------------------------"
 
-	cd $(KICKCWORKDIR); $(KICKC) --version | grep KickC > "$(BINDIR)/$(PRG)-kickc.buildversion"
-
-	@date +"%Y-%m-%d %H:%M:%S" > "$(BINDIR)/$(PRG)-kicks.buildtime"
+	@mkdir -p "$(BINDIR)"
 
 	cd $(KICKCWORKDIR); \
 		$(KICKC) $(KICKCOPTS) $(KICKCTARGET) "$(SRCDIR)/$(PRG).c" $(LIBS) $(EXTRA) \
@@ -22,10 +29,18 @@ build:
 	java -jar $(KICKASSEMBLER) "$(BINDIR)/$(PRG)-kickc.asm"
 
 clean:
-	$(RM) -rf "$(BINDIR)"
+	@echo ""
+	@echo "Cleaning kickc ..."
+	@echo "----------------------------------------------------------------------"
+
+	@$(RM) -rf "$(BINDIR)"
 
 exec:
-	$(RM) -f "$(BINDIR)/$(PRG)-kickc.log"
+	@echo ""
+	@echo "Executing $(PRG) for kickc ..."
+	@echo "----------------------------------------------------------------------"
+
+	@$(RM) -f "$(BINDIR)/$(PRG)-kickc.log"
 
 	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-kickc.prg" \
 		-initbreak 0xc000 \

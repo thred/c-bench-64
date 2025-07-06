@@ -75,6 +75,7 @@
     "MEGA65",
     "Commander X16"
   ],
+  "warning": "Currently, the KickC compiler crashes on the main.c file of the benchmark. It contains some inline assembler with a value assignment and KickC thinks, it's an invalid preprocessor token. I have no idea how to get around this.",
   "configurations": {
     "kickc": {
       "name": "KickC",
@@ -83,73 +84,52 @@
       "color": "#d87d28"
     }
   },
+  "version": "KickC 0.8.6 BETA",
   "results": {
     "kickc": {
       "aes256": {
         "prgSize": null,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": null
       },
       "crc8": {
-        "prgSize": 2099,
-        "totalTime": 19,
-        "buildTime": null,
-        "buildVersion": "KickC 0.8.6 BETA"
+        "prgSize": null,
+        "totalTime": null
       },
       "crc16": {
         "prgSize": null,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": null
       },
       "crc32": {
         "prgSize": null,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": null
       },
       "dhrystone": {
         "prgSize": null,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": null
       },
       "fact": {
         "prgSize": null,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": null
       },
       "pi": {
         "prgSize": null,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": null
       },
       "pow": {
         "prgSize": null,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": null
       },
       "puff2": {
         "prgSize": null,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": null
       },
       "sieve": {
         "prgSize": null,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": null
       },
       "sieve_bit": {
         "prgSize": null,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": null
       }
     }
   }

@@ -6,6 +6,13 @@ CLANGTARGET =
 CLANGPERFOPTS = -Os
 CLANGSIZEOPTS = -Os -flto
 
+version:
+	@echo ""
+	@echo "Collecting version information of llvm ..."
+	@echo "----------------------------------------------------------------------"
+	
+	@$(CLANG) --version | grep "clang version" | awk '{print $$3}' > "llvm.version" 2>&1
+	
 build-perf:
 	$(MAKE) CLANGOPTS="$(CLANGPERFOPTS)" SUFFIX=llvmp build
 
@@ -13,16 +20,20 @@ build-size:
 	$(MAKE) CLANGOPTS="$(CLANGSIZEOPTS)" SUFFIX=llvms build
 
 build:
-	mkdir -p "$(BINDIR)"
+	@echo ""
+	@echo "Building $(PRG) for $(SUFFIX) ..."
+	@echo "----------------------------------------------------------------------"
 
-	$(CLANG) --version | grep "clang version" | awk '{print $$3}' > "$(BINDIR)/$(PRG)-$(SUFFIX).buildversion" 2>&1
+	@mkdir -p "$(BINDIR)"
 
-	@date +"%Y-%m-%d %H:%M:%S" > "$(BINDIR)/$(PRG)-$(SUFFIX).buildtime"
-	
 	$(CLANG) $(CLANGTARGET) $(CLANGOPTS) "$(SRCDIR)/$(PRG).c" $(LIBS) $(EXTRA) -o "$(BINDIR)/$(PRG)-$(SUFFIX).prg"
 
 clean:
-	$(RM) -rf "$(BINDIR)"
+	@echo ""
+	@echo "Cleaning llvm ..."
+	@echo "----------------------------------------------------------------------"
+
+	@$(RM) -rf "$(BINDIR)"
 
 exec-perf:
 	$(MAKE) SUFFIX=llvmp exec
@@ -31,7 +42,11 @@ exec-size:
 	$(MAKE) SUFFIX=llvms exec
 
 exec:
-	$(RM) -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
+	@echo ""
+	@echo "Executing $(PRG) for $(SUFFIX) ..."
+	@echo "----------------------------------------------------------------------"
+
+	@$(RM) -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
 
 	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
 		-initbreak 0xc000 \

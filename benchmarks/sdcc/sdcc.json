@@ -5,7 +5,7 @@
         "SDCC is a retargettable, optimizing Standard C (ANSI C89, ISO C99, ISO C11, ISO C23) compiler suite that targets the Intel MCS51 based microprocessors (8031, 8032, 8051, 8052, etc.), Maxim (formerly Dallas) DS80C390 variants, Freescale (formerly Motorola) HC08 based (hc08, s08), Zilog Z80 based MCUs (Z80, Z180, SM83, Rabbit 2000, 2000A, 3000A, TLCS-90, R800), Padauk (pdk14, pdk15), STMicroelectronics STM8, MOS 6502 and WDC 65C02. Work is in progress on supporting the Padauk pdk13 target; Microchip PIC16 and PIC18 targets are unmaintained. SDCC can be retargeted for other microprocessors."
     ],
     "homepage": "https://sdcc.sourceforge.net/",
-    "license": "",
+    "license": "different FOSS licenses (see homepage)",
     "pros": [],
     "cons": [],
     "features": {
@@ -52,16 +52,16 @@
         "wctype": ""
     },
     "runtimeSupport": [],
-    "wip": true,
+    "warning": "The description is work in progress.",
     "configurations": {
         "sdccp": {
-            "name": "SDCC - Best Performance",
+            "name": "SDCC - Perf.Opt.",
             "description": "--max-allocs-per-node 250000 --opt-code-speed",
             "optimization": "performance",
             "color": "#75cec8"
         },
         "sdccs": {
-            "name": "SDCC - Smallest Size",
+            "name": "SDCC - Size Opt.",
             "description": "--max-allocs-per-node 250000",
             "optimization": "size",
             "color": "#75cec8"

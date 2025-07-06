@@ -3,6 +3,7 @@ import { computed, inject, Injectable, resource, signal } from "@angular/core";
 import { ChartOptions } from "chart.js";
 import { firstValueFrom } from "rxjs";
 import {
+    activeCompilerKeys,
     BenchmarkKey,
     benchmarkKeys,
     BenchmarkResults,
@@ -26,7 +27,7 @@ export class AppService {
 
     readonly compilers = computed<Compilers>(() => (this.compilersResource.value() as Compilers) ?? {});
 
-    readonly selectedCompilerKeys = signal<CompilerKey[]>([...compilerKeys]);
+    readonly selectedCompilerKeys = signal<CompilerKey[]>([...activeCompilerKeys]);
 
     readonly selectedBenchmarkKeys = signal<BenchmarkKey[]>([...benchmarkKeys]);
 
@@ -89,7 +90,11 @@ export class AppService {
         const benchmarkResults: Partial<BenchmarkResults> = {};
 
         for (const compilerKey of this.selectedCompilerKeys()) {
-            const compiler = compilers[compilerKey]!;
+            const compiler = compilers[compilerKey];
+
+            if (!compiler) {
+                continue;
+            }
 
             for (const configurationKey of Object.keys(compiler.configurations)) {
                 const configuration = compiler.configurations[configurationKey];

@@ -56,12 +56,10 @@ make -C benchmarks all
 Run all benchmarks for a specific compiler:
 
 ```sh
-make -C benchmarks all INCLUDE=cc65p,cc65s
+make -C benchmarks all INCLUDE=cc65
 ```
 
-The available keys are: `cc65p`, `cc65s`, `kickc`, `llvmp`, `llvms`, `o64p`, `o64s`, `sdccp`, `sdccs`, `vbccp`, `vbccs`.
-
-The postfix `p` stands for performance optimizations, the postfix `s` stands for speed optimizations.
+The available keys are: `cc65`, `kickc`, `llvm`, `o64`, `sdcc`, `vbcc`.
 
 Run individual benchmarks by their name:
 

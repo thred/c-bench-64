@@ -87,153 +87,110 @@
   ],
   "configurations": {
     "cc65p": {
-      "name": "cc65 - Best Performance",
+      "name": "cc65 - Perf.Opt.",
       "description": "-Oisr --static-locals",
       "optimization": "performance",
       "color": "#c46c71"
     },
     "cc65s": {
-      "name": "cc65 - Smallest Size",
+      "name": "cc65 - Size Opt.",
       "description": "-Os --static-locals",
       "optimization": "size",
       "color": "#c46c71"
     }
   },
+  "version": "V2.19",
   "results": {
     "cc65p": {
       "aes256": {
         "prgSize": 10734,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 203.7
       },
       "crc8": {
         "prgSize": 4235,
-        "totalTime": 3.2,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 3.2
       },
       "crc16": {
         "prgSize": 4282,
-        "totalTime": 4.4,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 4.4
       },
       "crc32": {
         "prgSize": 4679,
-        "totalTime": 40,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 40
       },
       "dhrystone": {
         "prgSize": 6705,
-        "totalTime": 8.4,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 8.4
       },
       "fact": {
         "prgSize": 4746,
-        "totalTime": 23.7,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 23.7
       },
       "pi": {
         "prgSize": 5069,
-        "totalTime": 104.4,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 105.6
       },
       "pow": {
         "prgSize": null,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": null
       },
       "puff2": {
         "prgSize": 14066,
-        "totalTime": 47.7,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 47.7
       },
       "sieve": {
         "prgSize": 4447,
-        "totalTime": 20.5,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 20.4
       },
       "sieve_bit": {
         "prgSize": 4646,
-        "totalTime": 51.3,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": 51.2
       }
     },
     "cc65s": {
       "aes256": {
         "prgSize": 10324,
-        "totalTime": null,
-        "buildTime": "2025-06-29 21:02:47",
-        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+        "totalTime": 218
       },
       "crc8": {
         "prgSize": 4249,
-        "totalTime": 3.3,
-        "buildTime": "2025-06-29 21:02:47",
-        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+        "totalTime": 3.3
       },
       "crc16": {
         "prgSize": 4303,
-        "totalTime": 5.6,
-        "buildTime": "2025-06-29 21:02:47",
-        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+        "totalTime": 5.6
       },
       "crc32": {
         "prgSize": 4696,
-        "totalTime": 40.3,
-        "buildTime": "2025-06-29 21:02:47",
-        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+        "totalTime": 40.3
       },
       "dhrystone": {
         "prgSize": 6526,
-        "totalTime": 9.6,
-        "buildTime": "2025-06-29 21:02:47",
-        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+        "totalTime": 9.5
       },
       "fact": {
         "prgSize": 4762,
-        "totalTime": 23.7,
-        "buildTime": "2025-06-29 21:02:47",
-        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+        "totalTime": 23.7
       },
       "pi": {
         "prgSize": 5079,
-        "totalTime": 104.9,
-        "buildTime": "2025-06-29 21:02:47",
-        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+        "totalTime": 106.1
       },
       "pow": {
         "prgSize": null,
-        "totalTime": null,
-        "buildTime": null,
-        "buildVersion": null
+        "totalTime": null
       },
       "puff2": {
         "prgSize": 13389,
-        "totalTime": 53,
-        "buildTime": "2025-06-29 21:02:47",
-        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+        "totalTime": 53.1
       },
       "sieve": {
         "prgSize": 4463,
-        "totalTime": 21,
-        "buildTime": "2025-06-29 21:02:48",
-        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+        "totalTime": 21
       },
       "sieve_bit": {
         "prgSize": 4651,
-        "totalTime": 53.5,
-        "buildTime": "2025-06-29 21:02:48",
-        "buildVersion": "cl65 V2.19 - Git 2470851bf"
+        "totalTime": 53.5
       }
     }
   }

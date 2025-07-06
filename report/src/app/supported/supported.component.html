@@ -2,17 +2,20 @@
     <ng-content />
 </span>
 
-@switch (supported()) {
-    @case ("yes") {
-        <span class="yes">yes</span>
-    }
-    @case ("no") {
-        <span class="no">no</span>
-    }
-    @case ("partial") {
-        <span class="partial">partially</span>
-    }
-    @default {
-        <span>{{ supported() }}</span>
-    }
+@if (url(); as url) {
+    <a [href]="url" target="_blank" [class]="className()">
+        @if (icon(); as icon) {
+            <span class="icon" [attr.shape]="icon"></span>
+        }
+
+        {{ text() }}
+    </a>
+} @else {
+    <span [class]="className()">
+        @if (icon(); as icon) {
+            <span class="icon" [attr.shape]="icon"></span>
+        }
+
+        {{ text() }}
+    </span>
 }
