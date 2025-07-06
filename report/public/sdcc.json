@@ -16,12 +16,12 @@
     "Poor support for standard libraries"
   ],
   "features": {
-    "floatingPoint": "",
-    "inlineAssembly": "",
+    "floatingPoint": "yes",
+    "inlineAssembly": "yes",
     "overlays": "unknown",
-    "fileIO": "",
-    "printf": "",
-    "recursiveFunctions": "",
+    "fileIO": "no",
+    "printf": "unknown",
+    "recursiveFunctions": "yes",
     "interruptSupport": "unknown",
     "maintained": "yes"
   },
