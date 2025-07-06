@@ -53,6 +53,11 @@
                             {
                                 "glob": "**/*",
                                 "input": "public"
+                            },
+                            {
+                                "glob": "manifest.json",
+                                "input": "public",
+                                "output": "/"
                             }
                         ],
                         "styles": ["src/styles.scss"],
@@ -106,6 +111,11 @@
                             {
                                 "glob": "**/*",
                                 "input": "public"
+                            },
+                            {
+                                "glob": "manifest.json",
+                                "input": "public",
+                                "output": "/"
                             }
                         ],
                         "styles": ["src/styles.scss"]

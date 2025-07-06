@@ -1,0 +1,21 @@
+{
+    "name": "C-Bench-64 - C Compiler Benchmarks for MOS 6502",
+    "short_name": "C-Bench-64",
+    "description": "Comprehensive benchmarking suite comparing C compiler performance on MOS 6502 platform. Compare CC65, LLVM-MOS, KickC, Oscar64, SDCC, and VBCC compilers.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#1976d2",
+    "orientation": "any",
+    "scope": "/",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "16x16 32x32 48x48",
+            "type": "image/x-icon"
+        }
+    ],
+    "categories": ["development", "productivity", "utilities"],
+    "lang": "en",
+    "dir": "ltr"
+}
