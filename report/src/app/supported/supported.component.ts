@@ -20,6 +20,8 @@ export class SupportedComponent {
                 return "no";
             case "partial":
                 return "partial";
+            case "unknown":
+                return "unknown";
             default:
                 return "";
         }
@@ -33,6 +35,8 @@ export class SupportedComponent {
                 return "times";
             case "partial":
                 return undefined;
+            case "unknown":
+                return "question";
             default:
                 return undefined;
         }
@@ -46,6 +50,8 @@ export class SupportedComponent {
                 return "No";
             case "partial":
                 return "Partially";
+            case "unknown":
+                return "Unknown";
             default:
                 return this.supported();
         }

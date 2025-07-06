@@ -2,12 +2,15 @@ CURDIR := $(shell pwd)
 BINDIR := $(CURDIR)/bin
 
 SDCCDIR := $(CURDIR)/sdcc
+SDCCINCLUDEDIR := $(SDCCDIR)/share/sdcc/include
+SDCCLIBDIR := $(SDCCDIR)/share/sdcc/lib
 SDAS = $(SDCCDIR)/bin/sdas6500
 SDCC = $(SDCCDIR)/bin/sdcc
 MAKEBIN = $(SDCCDIR)/bin/makebin
-SDCCTARGET = -mmos6502 --fverbose-asm --i-code-in-asm
+SDCCTARGET = -mmos6502 -I"$(SDCCINCLUDEDIR)" --lib-path "$(SDCCLIBDIR)"
+# SDCCTARGET = -mmos6502  -I"$(SDCCINCLUDEDIR)" --lib-path "$(SDCCLIBDIR)" --fverbose-asm --i-code-in-asm
 SDCCPERFOPTS = --max-allocs-per-node 250000 --opt-code-speed
-SDCCSIZEOPTS = --max-allocs-per-node 250000
+SDCCSIZEOPTS = --max-allocs-per-node 250000 --opt-code-size
 
 version:
 	@echo ""
@@ -31,14 +34,28 @@ build:
 
 	$(SDAS) -og "$(BINDIR)/$(SUFFIX)/c64_crt.rel" "$(SRCDIR)/c64_crt.s"
 
+	@echo ""
+
 	$(SDCC) $(SDCCTARGET) -c "$(SRCDIR)/c64lib.c" -o "$(BINDIR)/$(SUFFIX)/" 
+
+	@echo ""
 
 	$(foreach LIB,$(LIBS),$(SDCC) $(SDCCTARGET) -c "$(LIB)" -o "$(BINDIR)/$(SUFFIX)/";)
 
+	@echo ""
+
 	$(SDCC) $(SDCCTARGET) $(SDCCOPTS) -c "$(SRCDIR)/$(PRG).c" -o "$(BINDIR)/$(SUFFIX)/"
 
-	$(SDCC) $(SDCCTARGET) --no-std-crt0 --code-loc 0x7ff -mmos6502 "$(BINDIR)/$(SUFFIX)/c64_crt.rel" "$(BINDIR)/$(SUFFIX)/c64lib.rel" \
-		"$(BINDIR)/$(SUFFIX)/cia_timer.rel" "$(BINDIR)/$(SUFFIX)/main.rel" "$(BINDIR)/$(SUFFIX)/$(PRG).rel" -o "$(BINDIR)/$(SUFFIX)/$(PRG).ihx"
+	@echo ""
+
+	$(SDCC) $(SDCCTARGET) --no-std-crt0 --code-loc 0x7ff -mmos6502 \
+		"$(BINDIR)/$(SUFFIX)/c64_crt.rel" \
+		"$(BINDIR)/$(SUFFIX)/c64lib.rel" \
+		"$(BINDIR)/$(SUFFIX)/cia_timer.rel" \
+		"$(BINDIR)/$(SUFFIX)/out.rel" \
+		"$(BINDIR)/$(SUFFIX)/main.rel" \
+		"$(BINDIR)/$(SUFFIX)/$(PRG).rel" \
+		-o "$(BINDIR)/$(SUFFIX)/$(PRG).ihx"
 
 	$(MAKEBIN) -o 2047 -p "$(BINDIR)/$(SUFFIX)/$(PRG).ihx" > "$(BINDIR)/$(PRG)-$(SUFFIX).prg"
 

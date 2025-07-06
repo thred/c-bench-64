@@ -2,54 +2,61 @@
   "key": "sdcc",
   "name": "SDCC",
   "description": [
-    "SDCC is a retargettable, optimizing Standard C (ANSI C89, ISO C99, ISO C11, ISO C23) compiler suite that targets the Intel MCS51 based microprocessors (8031, 8032, 8051, 8052, etc.), Maxim (formerly Dallas) DS80C390 variants, Freescale (formerly Motorola) HC08 based (hc08, s08), Zilog Z80 based MCUs (Z80, Z180, SM83, Rabbit 2000, 2000A, 3000A, TLCS-90, R800), Padauk (pdk14, pdk15), STMicroelectronics STM8, MOS 6502 and WDC 65C02. Work is in progress on supporting the Padauk pdk13 target; Microchip PIC16 and PIC18 targets are unmaintained. SDCC can be retargeted for other microprocessors."
+    "SDCC is a retargettable, optimizing Standard C (ANSI C89, ISO C99, ISO C11, ISO C23) compiler suite that targets the Intel MCS51 based microprocessors (8031, 8032, 8051, 8052, etc.), Maxim (formerly Dallas) DS80C390 variants, Freescale (formerly Motorola) HC08 based (hc08, s08), Zilog Z80 based MCUs (Z80, Z180, SM83, Rabbit 2000, 2000A, 3000A, TLCS-90, R800), Padauk (pdk14, pdk15), STMicroelectronics STM8, MOS 6502 and WDC 65C02.",
+    "The support for MOS 6502 is quite new and limited."
   ],
   "homepage": "https://sdcc.sourceforge.net/",
   "license": "different FOSS licenses (see homepage)",
-  "pros": [],
-  "cons": [],
+  "pros": [
+    "Mature compiler with a long history"
+  ],
+  "cons": [
+    "Very complex build configuration",
+    "Sparse documentation for MOS 6502 targets",
+    "Poor support for standard libraries"
+  ],
   "features": {
     "floatingPoint": "",
     "inlineAssembly": "",
-    "overlays": "",
+    "overlays": "unknown",
     "fileIO": "",
     "printf": "",
     "recursiveFunctions": "",
-    "interruptSupport": "",
-    "maintained": ""
+    "interruptSupport": "unknown",
+    "maintained": "yes"
   },
   "libraries": {
-    "assert": "",
-    "complex": "",
-    "conio": "",
-    "ctype": "",
-    "errno": "",
-    "fenv": "",
-    "float": "",
-    "inttypes": "",
-    "iso646": "",
-    "limits": "",
-    "locale": "",
-    "math": "",
-    "setjmp": "",
-    "signal": "",
-    "stdalign": "",
-    "stdarg": "",
-    "stdatomic": "",
-    "stdbit": "",
-    "stdbool": "",
-    "stddef": "",
-    "stdint": "",
-    "stdio": "",
-    "stdlib": "",
-    "stdnoreturn": "",
-    "string": "",
-    "tgmath": "",
-    "threads": "",
-    "time": "",
-    "uchar": "",
-    "wchar": "",
-    "wctype": ""
+    "assert": "no",
+    "complex": "no",
+    "conio": "yes",
+    "ctype": "no",
+    "errno": "no",
+    "fenv": "no",
+    "float": "no",
+    "inttypes": "no",
+    "iso646": "no",
+    "limits": "no",
+    "locale": "no",
+    "math": "no",
+    "setjmp": "no",
+    "signal": "no",
+    "stdalign": "no",
+    "stdarg": "no",
+    "stdatomic": "no",
+    "stdbit": "no",
+    "stdbool": "no",
+    "stddef": "no",
+    "stdint": "no",
+    "stdio": "no",
+    "stdlib": "no",
+    "stdnoreturn": "no",
+    "string": "no",
+    "tgmath": "no",
+    "threads": "no",
+    "time": "no",
+    "uchar": "no",
+    "wchar": "no",
+    "wctype": "no"
   },
   "runtimeSupport": [],
   "warning": "The description is work in progress.",
@@ -75,7 +82,7 @@
         "totalTime": null
       },
       "crc8": {
-        "prgSize": null,
+        "prgSize": 4089,
         "totalTime": null
       },
       "crc16": {
@@ -121,7 +128,7 @@
         "totalTime": null
       },
       "crc8": {
-        "prgSize": null,
+        "prgSize": 4084,
         "totalTime": null
       },
       "crc16": {

@@ -29,7 +29,7 @@ export type CompilerKey = "cc65" | "kickc" | "llvm" | "o64" | "sdcc" | "vbcc";
 
 export const compilerKeys: readonly CompilerKey[] = ["cc65", "kickc", "llvm", "o64", "sdcc", "vbcc"];
 
-export const activeCompilerKeys: readonly CompilerKey[] = ["cc65", "llvm", "o64", "sdcc", "vbcc"];
+export const activeCompilerKeys: readonly CompilerKey[] = ["cc65", "llvm", "o64", "vbcc"];
 
 export interface Benchmark {
     key: BenchmarkKey | "combined";
@@ -147,7 +147,7 @@ export interface ConfigurationResult {
 
 export type ConfigurationResults = { [key in BenchmarkKey]: ConfigurationResult };
 
-export type Supported = "yes" | "no" | "partial" | string;
+export type Supported = "yes" | "no" | "partial" | "unknown" | string;
 
 export interface Compiler {
     key: CompilerKey;

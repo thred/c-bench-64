@@ -205,6 +205,11 @@ input[type="checkbox"]:checked::after {
         mask-image: url("/check.svg");
         -webkit-mask-image: url("/check.svg");
     }
+
+    &[shape="question"] {
+        mask-image: url("/question.svg");
+        -webkit-mask-image: url("/question.svg");
+    }
 }
 
 /* Custom scrollbar styles */

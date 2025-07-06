@@ -12,7 +12,8 @@
         "Good support for modern C features",
         "Excellent optimizations",
         "Support for interrupts",
-        "Support for overlays"
+        "Support for overlays",
+        "C++ features"
     ],
     "cons": ["Some incompatibility with the C standard", "No separated linker"],
     "features": {
