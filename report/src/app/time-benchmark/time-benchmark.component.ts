@@ -22,7 +22,9 @@ export class TimeBenchmarkComponent {
 
         const labels = configurationKeys.map((key) => results[key].name);
         const times = configurationKeys.map((key) => results[key].time);
-        const backgroundColors = configurationKeys.map((key) => results[key].color);
+        const backgroundColors = configurationKeys.map((key) =>
+            results[key].status === "pass" ? results[key].color : "#4a4a4a",
+        );
 
         return {
             labels,

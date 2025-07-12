@@ -22,7 +22,9 @@ export class SizeBenchmarkComponent {
 
         const labels = configurationKeys.map((key) => results[key].name);
         const sizes = configurationKeys.map((key) => results[key].size / 1024); // Convert bytes to kilobytes
-        const backgroundColors = configurationKeys.map((key) => results[key].color);
+        const backgroundColors = configurationKeys.map((key) =>
+            results[key].status === "pass" ? results[key].color : "#4a4a4a",
+        );
 
         return {
             labels,

@@ -2,7 +2,15 @@
     "files.associations": {
         "stdio.h": "c",
         "cia_timer.h": "c",
-        "write.h": "c"
+        "write.h": "c",
+        "out.h": "c",
+        "numbers": "c",
+        "limits": "c",
+        "format": "c",
+        "text_encoding": "c",
+        "typeinfo": "c",
+        "cmath": "c",
+        "complex": "c"
     },
     "search.exclude": {
         "**/dist": true

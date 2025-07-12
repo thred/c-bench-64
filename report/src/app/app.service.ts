@@ -43,6 +43,7 @@ export class AppService {
                 name: benchmarks[benchmarkKey].name,
                 shortName: benchmarks[benchmarkKey].shortName,
                 description: benchmarks[benchmarkKey].description,
+                note: benchmarks[benchmarkKey].note,
                 author: benchmarks[benchmarkKey].author,
                 url: benchmarks[benchmarkKey].url,
                 results,
@@ -98,17 +99,20 @@ export class AppService {
 
             for (const configurationKey of Object.keys(compiler.configurations)) {
                 const configuration = compiler.configurations[configurationKey];
-                const results = compiler.results[configurationKey]!;
+                const results = compiler.results[configurationKey];
 
                 if (
+                    results &&
                     results[benchmarkKey] &&
-                    results[benchmarkKey].totalTime !== null &&
-                    results[benchmarkKey].prgSize !== null
+                    results[benchmarkKey].time !== null &&
+                    results[benchmarkKey].size !== null
                 ) {
                     benchmarkResults[configurationKey] = Object.assign(
                         {
-                            time: results[benchmarkKey].totalTime,
-                            size: results[benchmarkKey].prgSize,
+                            time: results[benchmarkKey].time,
+                            size: results[benchmarkKey].size,
+                            status: results[benchmarkKey].status ?? "unknown",
+                            output: results[benchmarkKey].output ?? undefined,
                         },
                         configuration,
                     );

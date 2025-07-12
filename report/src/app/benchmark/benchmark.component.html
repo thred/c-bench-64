@@ -2,6 +2,10 @@
 
 <p>{{ benchmark().description }}</p>
 
+@if (benchmark().note) {
+    <p class="box note">{{ benchmark().note }}</p>
+}
+
 @if (benchmark().url) {
     <p class="no-gap">
         <strong>Source: </strong>
@@ -18,6 +22,10 @@
     </p>
 }
 
+@if (failedBenchmarks()) {
+    <p class="box warning">{{ failedBenchmarks() }} failed to execute correctly.</p>
+}
+
 <h4>Execution Times in Seconds <span class="hint">(shorter is better)</span></h4>
 
 <app-time-benchmark [results]="benchmark().results" />
@@ -25,3 +33,26 @@
 <h4>Binary Sizes in Kilobytes <span class="hint">(smaller is better)</span></h4>
 
 <app-size-benchmark [results]="benchmark().results" />
+
+<h4>Output</h4>
+
+<div class="output">
+    <ul class="tabs">
+        @for (configurationKey of configurationKeys(); track configurationKey) {
+            <li>
+                <a
+                    class="tab"
+                    [class.selected]="configurationKey === selectedOutputConfigurationKey()"
+                    href="#"
+                    (click)="toggleOutputConfigurationKey(configurationKey); $event.preventDefault()"
+                >
+                    {{ getConfigurationName(configurationKey) }}
+                </a>
+            </li>
+        }
+    </ul>
+
+    @if (selectedOutput(); as output) {
+        <app-output [output]="output"></app-output>
+    }
+</div>

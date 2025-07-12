@@ -1,0 +1,22 @@
+.output {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0 1rem;
+
+    .tabs,
+    .screen {
+        width: 100%;
+    }
+
+    .tabs {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .selected {
+            font-weight: bold;
+            color: var(--highlight-color);
+        }
+    }
+}
