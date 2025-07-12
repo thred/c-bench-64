@@ -1,6 +1,7 @@
 // Node.js script to aggregate benchmark results for each target
 // Outputs one JSON file per target with total time and .prg size for each benchmark
 
+const { output } = require("@angular/core");
 const fs = require("fs");
 const path = require("path");
 
@@ -29,31 +30,60 @@ const compilersKeys = {
 
 const baseDir = path.resolve(__dirname, "../benchmarks");
 
-function getLogTime(logPath) {
-    if (!fs.existsSync(logPath)) return null;
-
-    const content = fs.readFileSync(logPath, "utf8");
-    const match = content.match(/Total time:\s*([\d.]+)/);
+function getLogTime(log) {
+    const match = log.match(/Total time:\s*([\d.]+)/);
 
     return match ? parseFloat(match[1]) : null;
 }
 
-function getPrgSize(prgPath) {
-    if (!fs.existsSync(prgPath)) return null;
+function getStatus(log) {
+    if (log.includes("[FAIL]")) return "fail";
+    if (log.includes("[OK]")) return "pass";
+    return "unknown";
+}
 
-    return fs.statSync(prgPath).size;
+function filterLog(log) {
+    const headline = "Displaying 40x25 screen at $0400:\n";
+    const displayIdx = log.indexOf(headline);
+    
+    log = displayIdx !== -1 ? log.slice(displayIdx + headline.length) : "";
+
+    // return log
+    //     .split("\n")
+    //     .map(line => line.replace(/^[0-9a-fA-F]{4} /, ""))
+    //     .join("\n")
+    //     .trim();
+
+    return log;
 }
 
 function aggregateConfiugration(configuration, dir, ext) {
     const result = {};
 
     for (const bench of benchmarks) {
-        const log = path.join(baseDir, dir, "bin", `${bench}-${configuration}.log`);
-        const prg = path.join(baseDir, dir, "bin", `${bench}-${configuration}.prg`);
+        const prgPath = path.join(baseDir, dir, "bin", `${bench}-${configuration}.prg`);
+
+        if (!fs.existsSync(prgPath)) {
+            console.error(`  PRG file not found: ${prgPath}`);
+            continue;
+        }
+
+        const size = fs.statSync(prgPath).size;
+
+        const logPath = path.join(baseDir, dir, "bin", `${bench}-${configuration}.log`);
+
+        if (!fs.existsSync(logPath)) {
+            console.error(`  Log file not found: ${logPath}`);
+            continue;
+        }
+
+        const log = fs.readFileSync(logPath, "utf8");
 
         result[bench] = {
-            prgSize: getPrgSize(prg),
-            totalTime: getLogTime(log),
+            size: size,
+            time: getLogTime(log),
+            status: getStatus(log),
+            output: filterLog(log),
         };
     }
 
