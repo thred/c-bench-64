@@ -71,24 +71,20 @@ void benchmark_name(void)
     print("Calculates the CRC8 of the C64 Kernal\n");
 }
 
-#define CORRECT 0xa2
+#define EXPECTED 0xa2
 
 unsigned char benchmark_check(void)
 {
     print("CRC8=");
-    print_hex(crc);
+    print_hex(crc, 2);
 
-    if (crc == CORRECT)
+    if (crc == EXPECTED)
     {
         print(" [OK]");
         return 0;
     }
-    else
-    {
-        print(" [FAIL] - expected ");
-        print_hex(CORRECT);
-    }
 
-    print("\n");
+    print(" [FAIL] - expected ");
+    print_hex(EXPECTED, 2);
     return 1;
 }

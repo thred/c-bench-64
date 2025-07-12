@@ -1,17 +1,17 @@
-#include <stdio.h>
 #include "cia_timer.h"
+#include "out.h"
 
 #ifndef SDCC
 #define __reentrant
 #endif
 
-#define N_ITER 100
+#define N_ITER 1000
 
 #define SIZE 16
 
-long array[SIZE];
+int array[SIZE];
 
-long fact(long i) __reentrant
+int fact(int i) __reentrant // Change parameter and return type
 {
     if (i > 1)
         return i * fact(i - 1);
@@ -19,7 +19,7 @@ long fact(long i) __reentrant
         return 1;
 }
 
-long res;
+int res;
 
 void benchmark(void)
 {
@@ -48,23 +48,26 @@ void benchmark(void)
 
 void benchmark_name(void)
 {
-    printf("fact.c\n");
-    printf("Calculates factorials (%d iterations)\n", N_ITER);
+    print("fact.c\n");
+    print("Calculates factorials (");
+    print_int(N_ITER, 0);
+    print(" iterations)\n");
 }
+
+const int expected = -2672;
 
 unsigned char benchmark_check(void)
 {
+    print("res=");
+    print_int(res, 0);
 
-    printf("res=%ld ", res);
-    /*
-      if(prime_count==EXPECTED) {
-        printf("OK\n");
+    if (res == expected)
+    {
+        print(" [OK]");
         return 0;
-      } else {
-        printf("FAIL - expected %d\n",EXPECTED);
-        return 1;
-      }
-    */
-    printf("OK\n");
-    return 0;
+    }
+
+    print(" [FAIL] - expected ");
+    print_int(expected, 0);
+    return 1;
 }

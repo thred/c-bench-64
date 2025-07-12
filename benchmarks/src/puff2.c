@@ -81,8 +81,9 @@
 
 // #include <setjmp.h>             /* for setjmp(), longjmp(), and jmp_buf */
 // #include "puff.h"               /* prototype for puff() */
-#include <stdio.h>
+// #include <stdio.h>
 // #include <stdlib.h>
+#include "out.h"
 
 #define local static /* for local function definitions */
 #define NIL 0
@@ -915,23 +916,41 @@ void benchmark(void)
              table,  /* pointer to source data pointer */
              &slen); /* amount of input available */
 
-    printf("RES=%d\n", r);
-    printf("slen=%ld dlen=%ld\n", slen, dlen);
+    print("RES=");
+    print_int(r, 0);
+    print("\n");
+
+    print("slen=");
+    print_int(slen, 0);
+    print(" dlen=");
+    print_int(dlen, 0);
+    print("\n");
 }
 
 void benchmark_name(void)
 {
-    printf("puff.c\n");
-    printf("inflate compressed data\n");
+    print("puff.c\n");
+    print("inflate compressed data\n");
 }
 
-#define CORRECT 0x28ed93c7
+#define EXPECTED 0x28ed93c7
 
 unsigned char benchmark_check(void)
 {
     unsigned long crc = CRC32(out, 4096);
-    printf("crc = %08lx  %s\n", crc, (crc == CORRECT) ? "OK" : "FAIL");
-    return 0;
+
+    print("CRC32=");
+    print_hex(crc, 8);
+
+    if (crc == EXPECTED)
+    {
+        print(" [OK]");
+        return 0;
+    }
+
+    print(" [FAIL] - expected ");
+    print_hex(EXPECTED, 8);
+    return 1;
 }
 
 /* automatically generated from: kernal4.bin.deflate */

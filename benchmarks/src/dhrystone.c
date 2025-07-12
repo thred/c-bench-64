@@ -1,9 +1,9 @@
 /** A test based on the benchmark and its self-test
     It is based on Dhrystone 2.1 by Reinhold P. Weicker.
  */
-#include <stdio.h>
 #include <string.h>
 #include "cia_timer.h"
+#include "out.h"
 
 #ifndef OSCAR64
 #pragma disable_warning 84
@@ -533,21 +533,45 @@ void init(void)
 
 void benchmark_name(void)
 {
-    printf("dhrystone.c\n");
-    printf("the classic dhrystone benchmark\n");
+    print("dhrystone.c\n");
+    print("the classic dhrystone benchmark\n");
 
-    printf("\n");
-    printf("Dhrystone Benchmark, Version 2.1 (Language: C)\n");
-    printf("\n");
+    print("\n");
+    print("Dhrystone Benchmark, Version 2.1 (Language: C)\n");
+    print("\n");
 
     Number_Of_Runs = 1000;
 
-    printf("Execution starts, %d runs through Dhrystone\n", Number_Of_Runs);
+    print("Execution starts, ");
+    print_int(Number_Of_Runs, 0);
+    print(" runs through Dhrystone\n");
+}
+
+void assert(const char *exp, unsigned char condition)
+{
+    print(exp);
+    print(condition ? " [OK]\n" : " [FAIL]\n");
 }
 
 unsigned char benchmark_check(void)
 {
     //  Dhrystones_Per_Second = (float) Number_Of_Runs / (float) User_Time;
+
+    assert("Int_Glob == 5", Int_Glob == 5);
+    assert("Bool_Glob == 1", Bool_Glob == 1);
+    assert("Ch_1_Glob == 'A'", Ch_1_Glob == 'A');
+    assert("Ch_2_Glob == 'B'", Ch_2_Glob == 'B');
+    assert("Arr_1_Glob[8] == 7", Arr_1_Glob[8] == 7);
+    assert("Arr_2_Glob[8][7] == NOR + 10", Arr_2_Glob[8][7] == Number_Of_Runs + 10);
+    assert("Discr == 0", Ptr_Glob->Discr == 0);
+    assert("Enum_Comp == 2", Ptr_Glob->variant.var_1.Enum_Comp == 2);
+    assert("Int_Comp == 17", Ptr_Glob->variant.var_1.Int_Comp == 17);
+    assert("Str_Comp == DHRYSTONE...", !strcmp(Ptr_Glob->variant.var_1.Str_Comp, "DHRYSTONE PROGRAM, SOME STRING"));
+    assert("Ptr_Comp == Ptr_Comp", (int)Ptr_Glob->Ptr_Comp == (int)Next_Ptr_Glob->Ptr_Comp);
+    assert("Discr == 0", Next_Ptr_Glob->Discr == 0);
+    assert("Enum_Comp == 1", Next_Ptr_Glob->variant.var_1.Enum_Comp == 1);
+    assert("Int_Comp == 18", Next_Ptr_Glob->variant.var_1.Int_Comp == 18);
+
     return 1;
 }
 

@@ -9,61 +9,65 @@ float array[SIZE];
 
 float testpow(float x, unsigned int y)
 {
-  unsigned char i;
-  float tmp=x;
+    unsigned char i;
+    float tmp = x;
 
-  if(y==0) return 1;
+    if (y == 0)
+        return 1;
 
-  for(i=1;i<y;i++)
-    tmp*=x;
+    for (i = 1; i < y; i++)
+        tmp *= x;
 
-  return tmp;
+    return tmp;
 }
 
 float res;
 
 void benchmark(void)
 {
-  int i,j;
+    int i, j;
 
-  res=0;
+    res = 0;
 
-  for(j=0;j<SIZE;j++) {
-    array[j]=0;
-  }
-
-
-  for(i=0;i<N_ITER;i++) {
-    for(j=0;j<SIZE;j++) {
-      array[j]+=testpow(2.5/(i+1),j);
+    for (j = 0; j < SIZE; j++)
+    {
+        array[j] = 0;
     }
-  }
 
-  for(j=0;j<SIZE;j++) {
-    res+=array[j];
-  }
+    for (i = 0; i < N_ITER; i++)
+    {
+        for (j = 0; j < SIZE; j++)
+        {
+            array[j] += testpow(2.5 / (i + 1), j);
+        }
+    }
 
+    for (j = 0; j < SIZE; j++)
+    {
+        res += array[j];
+    }
 }
 
 void benchmark_name(void)
 {
-  printf("pow.c\n");
-  printf("Calculates floating point exponential (%d iterations)\n",N_ITER);
+    printf("pow.c\n");
+    printf("Calculates floating point exponential (%d iterations)\n", N_ITER);
 }
+
+const float expected = 3614007361536.000000;
 
 unsigned char benchmark_check(void)
 {
+    printf("res=%f ", res);
 
-  printf("res=%f ",res);
-/*
-  if(prime_count==EXPECTED) {
-    printf("OK\n");
-    return 0;
-  } else {
-    printf("FAIL - expected %d\n",EXPECTED);
+    float diff = res - expected;
+
+    if (diff < 1 && diff > -1)
+    {
+        printf("[OK]\n");
+        return 0;
+    }
+
+    printf("[FAIL] - expected %f\n", expected);
     return 1;
-  }
-*/
- printf("OK\n");
- return 0;
 }

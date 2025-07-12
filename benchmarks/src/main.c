@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "cia_timer.h"
 #include "out.h"
 
@@ -21,10 +20,18 @@ MAIN
     unsigned int t;
     unsigned int f;
 
+#ifdef OSCAR64
+    // Toggle lower case mode on OSCAR64
+    __asm {
+            lda $17 // Load the value of $17 (VIC-II register)
+            sta $d018 // Store back to VIC-II register
+    }
+#endif
+
     print("Calibrating frequency: ");
     tod_init(0);
     f = tod_freq();
-    print_int((int)f);
+    print_int((int)f, 0);
     print(" Hz\n\n");
 
     benchmark_name();
@@ -32,13 +39,13 @@ MAIN
     benchmark();
     t = tod_get10();
 
-    printf("\n");
+    print("\n");
     benchmark_check();
 
     print("\nTotal time: ");
-    print_int(t / 10);
+    print_int(t / 10, 0);
     print(".");
-    print_int(t % 10);
+    print_int(t % 10, 0);
     print(" s\n");
 
     // allow the program to be stopped at a breakpoint to capture the output
