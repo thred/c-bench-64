@@ -75,98 +75,22 @@
     }
   },
   "version": "4.5.0",
-  "date": "2025-07-06 22:11:35",
+  "date": "2025-07-12 09:32:04",
   "results": {
     "sdccp": {
-      "aes256": {
-        "prgSize": null,
-        "totalTime": null
-      },
       "crc8": {
-        "prgSize": 4089,
-        "totalTime": null
-      },
-      "crc16": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "crc32": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "dhrystone": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "fact": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "pi": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "pow": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "puff2": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "sieve": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "sieve_bit": {
-        "prgSize": null,
-        "totalTime": null
+        "size": 4089,
+        "time": null,
+        "status": "unknown",
+        "output": ""
       }
     },
     "sdccs": {
-      "aes256": {
-        "prgSize": null,
-        "totalTime": null
-      },
       "crc8": {
-        "prgSize": 4084,
-        "totalTime": null
-      },
-      "crc16": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "crc32": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "dhrystone": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "fact": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "pi": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "pow": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "puff2": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "sieve": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "sieve_bit": {
-        "prgSize": null,
-        "totalTime": null
+        "size": 4084,
+        "time": null,
+        "status": "unknown",
+        "output": ""
       }
     }
   }

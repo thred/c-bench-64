@@ -85,53 +85,8 @@
     }
   },
   "version": "KickC 0.8.6 BETA",
-  "date": "2025-07-06 22:11:35",
+  "date": "2025-07-12 09:32:04",
   "results": {
-    "kickc": {
-      "aes256": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "crc8": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "crc16": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "crc32": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "dhrystone": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "fact": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "pi": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "pow": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "puff2": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "sieve": {
-        "prgSize": null,
-        "totalTime": null
-      },
-      "sieve_bit": {
-        "prgSize": null,
-        "totalTime": null
-      }
-    }
+    "kickc": {}
   }
 }

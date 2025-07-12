@@ -3,8 +3,7 @@
   "name": "Oscar64",
   "description": [
     "Oscar64 is a C/C++ cross-compiler that runs on modern systems (such as Windows PCs, Macs, or Linux machines) and targets the classic 6502 family of processors. It is primarily focused on Commodore systems such as the C64, PET, and VIC20. The compiler supports C99 and many C++ features, including variadic templates and lambda functions.",
-    "The goal of this compiler is to eliminate the need to write 6502 assembly code to achieve high code density and fast execution speed. It continues to improve thanks to the many games, demos, and tools developed with it. Oscar64 supports disk overlays and banked cartridges for larger projects.",
-    "In my opinion, Oscar64 is not only simpler to use than other C compilers, but it also offers the most relevant features for C/C++ and usually produces the smallest and fastest code. It is even capable of creating interrupt handlers and time-critical demo effects."
+    "The goal of this compiler is to eliminate the need to write 6502 assembly code to achieve high code density and fast execution speed. It continues to improve thanks to the many games, demos, and tools developed with it. Oscar64 supports disk overlays and banked cartridges for larger projects."
   ],
   "homepage": "https://github.com/drmortalwombat/oscar64",
   "license": "GNU General Public License v3.0",
@@ -93,98 +92,142 @@
     }
   },
   "version": "1.31.261",
-  "date": "2025-07-06 22:11:35",
+  "date": "2025-07-12 09:32:04",
   "results": {
     "o64p": {
       "aes256": {
-        "prgSize": 4353,
-        "totalTime": 14.8
+        "size": 3585,
+        "time": 14.9,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-o64p\",8,1                   \n0518                                          \n0540  searching for aes256-o64p               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 [OK]                     \n06d0  Total time: 14.9 s                      \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "crc8": {
-        "prgSize": 3425,
-        "totalTime": 0.8
+        "size": 2283,
+        "time": 0.8,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-o64p\",8,1                     \n0518                                          \n0540  searching for crc8-o64p                 \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=A2 [OK]                            \n06f8  Total time: 0.8 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "crc16": {
-        "prgSize": 3500,
-        "totalTime": 1.7
+        "size": 2348,
+        "time": 1.6,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-o64p\",8,1                    \n0518                                          \n0540  searching for crc16-o64p                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 1.6 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "crc32": {
-        "prgSize": 3550,
-        "totalTime": 2.5
+        "size": 2451,
+        "time": 2.5,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-o64p\",8,1                    \n0518                                          \n0540  searching for crc32-o64p                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 [OK]                     \n06f8  Total time: 2.5 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "dhrystone": {
-        "prgSize": 3441,
-        "totalTime": 1.5
+        "size": 5349,
+        "time": 1.6,
+        "status": "fail",
+        "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  Int_Glob == 5 [OK]                      \n0568  Bool_Glob == 1 [OK]                     \n0590  Ch_1_Glob == 'A' [OK]                   \n05b8  Ch_2_Glob == 'B' [OK]                   \n05e0  Arr_1_Glob[8] == 7 [OK]                 \n0608  Arr_2_Glob[8][7] == NOR + 10 [FAIL]     \n0630  Discr == 0 [OK]                         \n0658  Enum_Comp == 2 [OK]                     \n0680  Int_Comp == 17 [OK]                     \n06a8  Str_Comp == DHRYSTONE... [OK]           \n06d0  Ptr_Comp == Ptr_Comp [OK]               \n06f8  Discr == 0 [OK]                         \n0720  Enum_Comp == 1 [OK]                     \n0748  Int_Comp == 18 [OK]                     \n0770                                          \n0798  Total time: 1.6 s                       \n07c0                                          \n"
       },
       "fact": {
-        "prgSize": 3295,
-        "totalTime": 5.5
+        "size": 2839,
+        "time": 25.7,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-o64p\",8,1                     \n0518                                          \n0540  searching for fact-o64p                 \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=-2672 [OK]                          \n06f8  Total time: 25.7 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "pi": {
-        "prgSize": 3801,
-        "totalTime": 50.8
+        "size": 3522,
+        "time": 51.2,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-o64p\",8,1                       \n0518                                          \n0540  searching for pi-o64p                   \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 51.2 s                      \n07c0                                          \n"
       },
       "pow": {
-        "prgSize": 3737,
-        "totalTime": 3.4
+        "size": 6690,
+        "time": 3.4,
+        "status": "fail",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pow-o64p\",8,1                      \n0518                                          \n0540  searching for pow-o64p                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pow.c                                   \n0680  Calculates floating point exponential (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  res=3614002000000.000000 [FAIL] - expect\n0720  ed 3614006000000.000000                 \n0748                                          \n0770  Total time: 3.4 s                       \n0798                                          \n07c0                                          \n"
       },
       "puff2": {
-        "prgSize": 15575,
-        "totalTime": 7.3
+        "size": 15967,
+        "time": 7.3,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-o64p\",8,1                    \n0518                                          \n0540  searching for puff2-o64p                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  puff.c                                  \n0680  inflate compressed data                 \n06a8  RES=0                                   \n06d0  slen=3407 dlen=4096                     \n06f8                                          \n0720  CRC32=28ED93C7 [OK]                     \n0748  Total time: 7.3 s                       \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "sieve": {
-        "prgSize": 3137,
-        "totalTime": 9.4
+        "size": 2808,
+        "time": 9.7,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-o64p\",8,1                    \n0518                                          \n0540  searching for sieve-o64p                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 [OK]                         \n0720  Total time: 9.7 s                       \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "sieve_bit": {
-        "prgSize": 3193,
-        "totalTime": 16.2
+        "size": 2767,
+        "time": 16.3,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve_bit-o64p\",8,1                \n0518                                          \n0540  searching for sieve_bit-o64p            \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve_bit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 [OK]                         \n0720  Total time: 16.3 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       }
     },
     "o64s": {
       "aes256": {
-        "prgSize": 3248,
-        "totalTime": 16.6
+        "size": 2758,
+        "time": 16.6,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-o64s\",8,1                   \n0518                                          \n0540  searching for aes256-o64s               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 [OK]                     \n06d0  Total time: 16.6 s                      \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "crc8": {
-        "prgSize": 2166,
-        "totalTime": 0.8
+        "size": 1558,
+        "time": 0.8,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-o64s\",8,1                     \n0518                                          \n0540  searching for crc8-o64s                 \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=A2 [OK]                            \n06f8  Total time: 0.8 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "crc16": {
-        "prgSize": 2196,
-        "totalTime": 1.6
+        "size": 1586,
+        "time": 1.6,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-o64s\",8,1                    \n0518                                          \n0540  searching for crc16-o64s                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 1.6 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "crc32": {
-        "prgSize": 2267,
-        "totalTime": 2.5
+        "size": 1647,
+        "time": 2.5,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-o64s\",8,1                    \n0518                                          \n0540  searching for crc32-o64s                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 [OK]                     \n06f8  Total time: 2.5 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "dhrystone": {
-        "prgSize": 2754,
-        "totalTime": 1.7
+        "size": 2801,
+        "time": 1.8,
+        "status": "fail",
+        "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  Int_Glob == 5 [OK]                      \n0568  Bool_Glob == 1 [OK]                     \n0590  Ch_1_Glob == 'A' [OK]                   \n05b8  Ch_2_Glob == 'B' [OK]                   \n05e0  Arr_1_Glob[8] == 7 [OK]                 \n0608  Arr_2_Glob[8][7] == NOR + 10 [FAIL]     \n0630  Discr == 0 [OK]                         \n0658  Enum_Comp == 2 [OK]                     \n0680  Int_Comp == 17 [OK]                     \n06a8  Str_Comp == DHRYSTONE... [OK]           \n06d0  Ptr_Comp == Ptr_Comp [OK]               \n06f8  Discr == 0 [OK]                         \n0720  Enum_Comp == 1 [OK]                     \n0748  Int_Comp == 18 [OK]                     \n0770                                          \n0798  Total time: 1.8 s                       \n07c0                                          \n"
       },
       "fact": {
-        "prgSize": 2419,
-        "totalTime": 5.7
+        "size": 1719,
+        "time": 25.7,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-o64s\",8,1                     \n0518                                          \n0540  searching for fact-o64s                 \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=-2672 [OK]                          \n06f8  Total time: 25.7 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "pi": {
-        "prgSize": 2894,
-        "totalTime": 51.8
+        "size": 2158,
+        "time": 52.3,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-o64s\",8,1                       \n0518                                          \n0540  searching for pi-o64s                   \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 52.3 s                      \n07c0                                          \n"
       },
       "pow": {
-        "prgSize": 3081,
-        "totalTime": 3.9
+        "size": 3496,
+        "time": 3.9,
+        "status": "fail",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pow-o64s\",8,1                      \n0518                                          \n0540  searching for pow-o64s                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pow.c                                   \n0680  Calculates floating point exponential (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  res=f [FAIL] - expected f               \n0720                                          \n0748  Total time: 3.9 s                       \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "puff2": {
-        "prgSize": 9319,
-        "totalTime": 12
+        "size": 8829,
+        "time": 12.3,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-o64s\",8,1                    \n0518                                          \n0540  searching for puff2-o64s                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  puff.c                                  \n0680  inflate compressed data                 \n06a8  RES=0                                   \n06d0  slen=3407 dlen=4096                     \n06f8                                          \n0720  CRC32=28ED93C7 [OK]                     \n0748  Total time: 12.3 s                      \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "sieve": {
-        "prgSize": 2230,
-        "totalTime": 10.4
+        "size": 1589,
+        "time": 10.4,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-o64s\",8,1                    \n0518                                          \n0540  searching for sieve-o64s                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 [OK]                         \n0720  Total time: 10.4 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "sieve_bit": {
-        "prgSize": 2297,
-        "totalTime": 16.3
+        "size": 1657,
+        "time": 16.2,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve_bit-o64s\",8,1                \n0518                                          \n0540  searching for sieve_bit-o64s            \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve_bit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 [OK]                         \n0720  Total time: 16.2 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       }
     }
   }

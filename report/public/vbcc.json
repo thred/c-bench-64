@@ -71,98 +71,142 @@
     }
   },
   "version": "Release 4, patch 2",
-  "date": "2025-07-06 22:11:35",
+  "date": "2025-07-12 09:32:04",
   "results": {
     "vbccp": {
       "aes256": {
-        "prgSize": 22370,
-        "totalTime": 38.6
+        "size": 13391,
+        "time": 38.6,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-vbccp\",8,1                  \n0518                                          \n0540  searching for aes256-vbccp              \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 [OK]                     \n06d0  Total time: 38.6 s                      \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "crc8": {
-        "prgSize": 6257,
-        "totalTime": 1.2
+        "size": 5362,
+        "time": 1.2,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-vbccp\",8,1                    \n0518                                          \n0540  searching for crc8-vbccp                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=A2 [OK]                            \n06f8  Total time: 1.2 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "crc16": {
-        "prgSize": 6476,
-        "totalTime": 2.6
+        "size": 5587,
+        "time": 2.6,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-vbccp\",8,1                   \n0518                                          \n0540  searching for crc16-vbccp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 2.6 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "crc32": {
-        "prgSize": 6791,
-        "totalTime": 5
+        "size": 5898,
+        "time": 5,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-vbccp\",8,1                   \n0518                                          \n0540  searching for crc32-vbccp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 [OK]                     \n06f8  Total time: 5.0 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "dhrystone": {
-        "prgSize": 9055,
-        "totalTime": 2.4
+        "size": 11305,
+        "time": 2.4,
+        "status": "pass",
+        "output": "0400  dhrystone.c                             \n0428  the classic dhrystone benchmark         \n0450                                          \n0478  Dhrystone Benchmark, Version 2.1 (Langua\n04a0  ge: C)                                  \n04c8                                          \n04f0  Execution starts, 1000 runs through Dhry\n0518  stone                                   \n0540                                          \n0568  IntDGlob == 5 [OK]                      \n0590  BoolDGlob == 1 [OK]                     \n05b8  ChD1DGlob == 'A' [OK]                   \n05e0  ChD2DGlob == 'B' [OK]                   \n0608  ArrD1DGlob[8] == 7 [OK]                 \n0630  ArrD2DGlob[8][7] == NOR + 10 [OK]       \n0658  Discr == 0 [OK]                         \n0680  EnumDComp == 2 [OK]                     \n06a8  IntDComp == 17 [OK]                     \n06d0  StrDComp == DHRYSTONE... [OK]           \n06f8  PtrDComp == PtrDComp [OK]               \n0720  Discr == 0 [OK]                         \n0748  EnumDComp == 1 [OK]                     \n0770  IntDComp == 18 [OK]                     \n0798                                          \n07c0  Total time: 2.4 s                       \n"
       },
       "fact": {
-        "prgSize": 7991,
-        "totalTime": 18.7
+        "size": 5959,
+        "time": 35.4,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-vbccp\",8,1                    \n0518                                          \n0540  searching for fact-vbccp                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=-2672 [OK]                          \n06f8  Total time: 35.4 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "pi": {
-        "prgSize": 14979,
-        "totalTime": 96.4
+        "size": 5829,
+        "time": 97.5,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-vbccp\",8,1                      \n0518                                          \n0540  searching for pi-vbccp                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 97.5 s                      \n07c0                                          \n"
       },
       "pow": {
-        "prgSize": 16413,
-        "totalTime": 23.6
+        "size": 16305,
+        "time": 23.6,
+        "status": "fail",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pow-vbccp\",8,1                     \n0518                                          \n0540  searching for pow-vbccp                 \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pow.c                                   \n0680  Calculates floating point exponential (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  res=3608633995056.150000 [FAIL] - expect\n0720  ed 3608641624450.680000                 \n0748                                          \n0770  Total time: 23.6 s                      \n0798                                          \n07c0                                          \n"
       },
       "puff2": {
-        "prgSize": 34235,
-        "totalTime": 20.3
+        "size": 25356,
+        "time": 19.4,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-vbccp\",8,1                   \n0518                                          \n0540  searching for puff2-vbccp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  puff.c                                  \n0680  inflate compressed data                 \n06a8  RES=0                                   \n06d0  slen=3407 dlen=4096                     \n06f8                                          \n0720  CRC32=28ED93C7 [OK]                     \n0748  Total time: 19.4 s                      \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "sieve": {
-        "prgSize": 6822,
-        "totalTime": 13.3
+        "size": 5798,
+        "time": 13.3,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-vbccp\",8,1                   \n0518                                          \n0540  searching for sieve-vbccp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 [OK]                         \n0720  Total time: 13.3 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "sieve_bit": {
-        "prgSize": 7065,
-        "totalTime": 20.3
+        "size": 6044,
+        "time": 20.3,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve_bit-vbccp\",8,1               \n0518                                          \n0540  searching for sieve_bit-vbccp           \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieveDbit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 [OK]                         \n0720  Total time: 20.3 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       }
     },
     "vbccs": {
       "aes256": {
-        "prgSize": 16447,
-        "totalTime": 70.1
+        "size": 7501,
+        "time": 69.9,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-vbccs\",8,1                  \n0518                                          \n0540  searching for aes256-vbccs              \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 [OK]                     \n06d0  Total time: 69.9 s                      \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "crc8": {
-        "prgSize": 3347,
-        "totalTime": 1.9
+        "size": 3244,
+        "time": 1.9,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-vbccs\",8,1                    \n0518                                          \n0540  searching for crc8-vbccs                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=A2 [OK]                            \n06f8  Total time: 1.9 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "crc16": {
-        "prgSize": 3401,
-        "totalTime": 3.3
+        "size": 3300,
+        "time": 3.3,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-vbccs\",8,1                   \n0518                                          \n0540  searching for crc16-vbccs               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 3.3 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "crc32": {
-        "prgSize": 3547,
-        "totalTime": 6.4
+        "size": 3447,
+        "time": 7.1,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-vbccs\",8,1                   \n0518                                          \n0540  searching for crc32-vbccs               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 [OK]                     \n06f8  Total time: 7.1 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "dhrystone": {
-        "prgSize": 5769,
-        "totalTime": 5.7
+        "size": 6269,
+        "time": 5.8,
+        "status": "pass",
+        "output": "0400  dhrystone.c                             \n0428  the classic dhrystone benchmark         \n0450                                          \n0478  Dhrystone Benchmark, Version 2.1 (Langua\n04a0  ge: C)                                  \n04c8                                          \n04f0  Execution starts, 1000 runs through Dhry\n0518  stone                                   \n0540                                          \n0568  IntDGlob == 5 [OK]                      \n0590  BoolDGlob == 1 [OK]                     \n05b8  ChD1DGlob == 'A' [OK]                   \n05e0  ChD2DGlob == 'B' [OK]                   \n0608  ArrD1DGlob[8] == 7 [OK]                 \n0630  ArrD2DGlob[8][7] == NOR + 10 [OK]       \n0658  Discr == 0 [OK]                         \n0680  EnumDComp == 2 [OK]                     \n06a8  IntDComp == 17 [OK]                     \n06d0  StrDComp == DHRYSTONE... [OK]           \n06f8  PtrDComp == PtrDComp [OK]               \n0720  Discr == 0 [OK]                         \n0748  EnumDComp == 1 [OK]                     \n0770  IntDComp == 18 [OK]                     \n0798                                          \n07c0  Total time: 5.8 s                       \n"
       },
       "fact": {
-        "prgSize": 4556,
-        "totalTime": 19.6
+        "size": 3445,
+        "time": 53.9,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-vbccs\",8,1                    \n0518                                          \n0540  searching for fact-vbccs                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=-2672 [OK]                          \n06f8  Total time: 53.9 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "pi": {
-        "prgSize": 12858,
-        "totalTime": 99.1
+        "size": 3900,
+        "time": 100.1,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-vbccs\",8,1                      \n0518                                          \n0540  searching for pi-vbccs                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 100.1 s                     \n07c0                                          \n"
       },
       "pow": {
-        "prgSize": 12700,
-        "totalTime": 24
+        "size": 13252,
+        "time": 24,
+        "status": "fail",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pow-vbccs\",8,1                     \n0518                                          \n0540  searching for pow-vbccs                 \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pow.c                                   \n0680  Calculates floating point exponential (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  res=3608633995056.150000 [FAIL] - expect\n0720  ed 3608641624450.680000                 \n0748                                          \n0770  Total time: 24.0 s                      \n0798                                          \n07c0                                          \n"
       },
       "puff2": {
-        "prgSize": 21377,
-        "totalTime": 22.5
+        "size": 12460,
+        "time": 22.2,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-vbccs\",8,1                   \n0518                                          \n0540  searching for puff2-vbccs               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  puff.c                                  \n0680  inflate compressed data                 \n06a8  RES=0                                   \n06d0  slen=3407 dlen=4096                     \n06f8                                          \n0720  CRC32=28ED93C7 [OK]                     \n0748  Total time: 22.2 s                      \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "sieve": {
-        "prgSize": 4352,
-        "totalTime": 15.9
+        "size": 3492,
+        "time": 15.9,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-vbccs\",8,1                   \n0518                                          \n0540  searching for sieve-vbccs               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 [OK]                         \n0720  Total time: 15.9 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       },
       "sieve_bit": {
-        "prgSize": 4452,
-        "totalTime": 30.6
+        "size": 3584,
+        "time": 30.6,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve_bit-vbccs\",8,1               \n0518                                          \n0540  searching for sieve_bit-vbccs           \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieveDbit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 [OK]                         \n0720  Total time: 30.6 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
       }
     }
   }
