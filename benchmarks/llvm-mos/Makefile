@@ -3,8 +3,8 @@ BINDIR := $(CURDIR)/bin
 
 CLANG = "$(CURDIR)/llvm-mos/bin/mos-c64-clang"
 CLANGTARGET = 
-CLANGPERFOPTS = -Os
-CLANGSIZEOPTS = -Os -flto
+CLANGPERFOPTS = -O3 -fnonreentrant
+CLANGSIZEOPTS = -Os -flto -fnonreentrant
 
 version:
 	@echo ""
