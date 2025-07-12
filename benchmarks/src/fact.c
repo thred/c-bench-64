@@ -9,9 +9,9 @@
 
 #define SIZE 16
 
-int array[SIZE];
+long array[SIZE];
 
-int fact(int i) __reentrant // Change parameter and return type
+long fact(long i) __reentrant // Change parameter and return type
 {
     if (i > 1)
         return i * fact(i - 1);
@@ -19,7 +19,7 @@ int fact(int i) __reentrant // Change parameter and return type
         return 1;
 }
 
-int res;
+long res;
 
 void benchmark(void)
 {
@@ -54,7 +54,7 @@ void benchmark_name(void)
     print(" iterations)\n");
 }
 
-const int expected = -2672;
+const long expected = 188806544;
 
 unsigned char benchmark_check(void)
 {
