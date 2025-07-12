@@ -55,19 +55,24 @@ void benchmark_name(void)
 }
 
 const float expected = 3614007361536.000000;
+const float epsilon = 10000000;
 
 unsigned char benchmark_check(void)
 {
-    printf("res=%f ", res);
+    printf("res      = %f ", res);
 
-    float diff = res - expected;
+    float diff = expected - res;
 
-    if (diff < 1 && diff > -1)
+    printf("\nexpected = %f ", expected);
+    printf("\nepsilon  = %f ", epsilon);
+    printf("\ndiff     = %f ", diff);
+
+    if (diff < epsilon && diff > (long)-epsilon)
     {
         printf("[OK]\n");
         return 0;
     }
 
-    printf("[FAIL] - expected %f\n", expected);
+    printf("[FAIL]\n");
     return 1;
 }

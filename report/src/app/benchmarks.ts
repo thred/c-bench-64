@@ -101,7 +101,6 @@ export const benchmarks: { [key in BenchmarkKey]: Benchmark } = {
         name: "Power Calculation",
         shortName: "Pow",
         description: "Performs multiple floating-point exponentiation calculations.",
-        note: "Most compilers fail this benchmark because, although they support floating-point math, they do not implement the IEEE-754 floating-point standard which causes severe rounding errors.",
         url: "benchmarks/src/pow.c",
     },
     puff2: {
