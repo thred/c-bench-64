@@ -3,8 +3,7 @@
     "name": "Oscar64",
     "description": [
         "Oscar64 is a C/C++ cross-compiler that runs on modern systems (such as Windows PCs, Macs, or Linux machines) and targets the classic 6502 family of processors. It is primarily focused on Commodore systems such as the C64, PET, and VIC20. The compiler supports C99 and many C++ features, including variadic templates and lambda functions.",
-        "The goal of this compiler is to eliminate the need to write 6502 assembly code to achieve high code density and fast execution speed. It continues to improve thanks to the many games, demos, and tools developed with it. Oscar64 supports disk overlays and banked cartridges for larger projects.",
-        "In my opinion, Oscar64 is not only simpler to use than other C compilers, but it also offers the most relevant features for C/C++ and usually produces the smallest and fastest code. It is even capable of creating interrupt handlers and time-critical demo effects."
+        "The goal of this compiler is to eliminate the need to write 6502 assembly code to achieve high code density and fast execution speed. It continues to improve thanks to the many games, demos, and tools developed with it. Oscar64 supports disk overlays and banked cartridges for larger projects."
     ],
     "homepage": "https://github.com/drmortalwombat/oscar64",
     "license": "GNU General Public License v3.0",
@@ -81,13 +80,13 @@
     "configurations": {
         "o64p": {
             "name": "Oscar64 - Perf.Opt.",
-            "description": "-O3",
+            "description": "-O3 -dHEAPCHECK -dNOBSSCLEAR -dNOZPCLEAR",
             "optimization": "performance",
             "color": "#a9ff9f"
         },
         "o64s": {
             "name": "Oscar64 - Size Opt.",
-            "description": "-O -Os -Oo -Oz -Op",
+            "description": "-O -Os -Oo -Oz -Op -dNOLONG -dNOFLOAT",
             "optimization": "size",
             "color": "#a9ff9f"
         }
