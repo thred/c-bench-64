@@ -58,7 +58,8 @@
                                 "glob": "manifest.json",
                                 "input": "public",
                                 "output": "/"
-                            }
+                            },
+                            "src/assets"
                         ],
                         "styles": ["src/styles.scss"],
                         "outputPath": "dist/cbench64"

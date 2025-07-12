@@ -197,18 +197,18 @@ input[type="checkbox"]:checked::after {
     -webkit-mask-size: contain;
 
     &[shape="times"] {
-        mask-image: url("/times.svg");
-        -webkit-mask-image: url("/times.svg");
+        mask-image: url("assets/times.svg");
+        -webkit-mask-image: url("assets/times.svg");
     }
 
     &[shape="check"] {
-        mask-image: url("/check.svg");
-        -webkit-mask-image: url("/check.svg");
+        mask-image: url("assets/check.svg");
+        -webkit-mask-image: url("assets/check.svg");
     }
 
     &[shape="question"] {
-        mask-image: url("/question.svg");
-        -webkit-mask-image: url("/question.svg");
+        mask-image: url("assets/question.svg");
+        -webkit-mask-image: url("assets/question.svg");
     }
 }
 
