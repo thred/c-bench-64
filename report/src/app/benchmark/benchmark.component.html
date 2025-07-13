@@ -56,3 +56,13 @@
         <app-output [output]="output"></app-output>
     }
 </div>
+
+@if (benchmark().footnotes?.length) {
+    <h4>Footnotes</h4>
+
+    <ul class="footnotes">
+        @for (footnote of benchmark().footnotes; track footnote) {
+            <li>{{ footnote }}</li>
+        }
+    </ul>
+}

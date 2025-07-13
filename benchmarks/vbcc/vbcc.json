@@ -10,7 +10,10 @@
     "pros": [],
     "cons": ["Free for private use only"],
     "features": {
-        "floatingPoint": "",
+        "floatingPoint": {
+            "supported": "yes",
+            "note": "(32/64bit IEEE floating point support based on SANE)"
+        },
         "inlineAssembly": "",
         "overlays": "",
         "fileIO": "",

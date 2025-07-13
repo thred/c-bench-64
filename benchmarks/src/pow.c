@@ -5,12 +5,16 @@
 
 #define SIZE 32
 
-float array[SIZE];
+#define FPTYPE float
+// #define FPTYPE double
+// #define FPTYPE long double // use %Lf for printing
 
-float testpow(float x, unsigned int y)
+FPTYPE array[SIZE];
+
+FPTYPE testpow(FPTYPE x, unsigned int y)
 {
     unsigned char i;
-    float tmp = x;
+    FPTYPE tmp = x;
 
     if (y == 0)
         return 1;
@@ -21,7 +25,7 @@ float testpow(float x, unsigned int y)
     return tmp;
 }
 
-float res;
+FPTYPE res;
 
 void benchmark(void)
 {
@@ -54,14 +58,14 @@ void benchmark_name(void)
     printf("Calculates floating point exponential (%d iterations)\n", N_ITER);
 }
 
-const float expected = 3614007361536.000000;
-const float epsilon = 10000000;
+const FPTYPE expected = 3614007361536.000000;
+const FPTYPE epsilon = 10000000;
 
 unsigned char benchmark_check(void)
 {
     printf("res      = %f ", res);
 
-    float diff = expected - res;
+    FPTYPE diff = expected - res;
 
     printf("\nexpected = %f ", expected);
     printf("\nepsilon  = %f ", epsilon);
@@ -76,3 +80,14 @@ unsigned char benchmark_check(void)
     printf("[FAIL]\n");
     return 1;
 }
+
+// compile it with: gcc pow.c -D VERIFY -o pow
+#ifdef VERIFY
+int main(void)
+{
+    benchmark_name();
+    benchmark();
+
+    return benchmark_check();
+}
+#endif

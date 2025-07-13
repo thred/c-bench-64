@@ -15,7 +15,13 @@ export class SupportedComponent {
     readonly url = input<string | undefined>(undefined);
 
     readonly className = computed(() => {
-        switch (this.supported()) {
+        let supported = this.supported();
+
+        if (typeof supported === "object") {
+            supported = supported.supported;
+        }
+
+        switch (supported) {
             case "yes":
                 return "yes";
             case "no":
@@ -30,7 +36,13 @@ export class SupportedComponent {
     });
 
     readonly icon = computed(() => {
-        switch (this.supported()) {
+        let supported = this.supported();
+
+        if (typeof supported === "object") {
+            supported = supported.supported;
+        }
+
+        switch (supported) {
             case "yes":
                 return "check";
             case "no":
@@ -45,7 +57,13 @@ export class SupportedComponent {
     });
 
     readonly text = computed(() => {
-        switch (this.supported()) {
+        let supported = this.supported();
+
+        if (typeof supported === "object") {
+            supported = supported.supported;
+        }
+
+        switch (supported) {
             case "yes":
                 return "Yes";
             case "no":
@@ -57,5 +75,15 @@ export class SupportedComponent {
             default:
                 return this.supported();
         }
+    });
+
+    readonly note = computed(() => {
+        let supported = this.supported();
+
+        if (typeof supported === "object") {
+            return supported.note;
+        }
+
+        return undefined;
     });
 }

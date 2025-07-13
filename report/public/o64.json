@@ -24,7 +24,10 @@
     "No standard file functions (just mapped kernal functions)"
   ],
   "features": {
-    "floatingPoint": "yes",
+    "floatingPoint": {
+      "supported": "yes",
+      "note": "(no NaN support)"
+    },
     "inlineAssembly": "yes",
     "overlays": "yes",
     "fileIO": "only via CBM kernal functions",
@@ -92,7 +95,7 @@
     }
   },
   "version": "1.31.262",
-  "date": "2025-07-13 07:56:01",
+  "date": "2025-07-13 08:04:26",
   "results": {
     "o64p": {
       "aes256": {

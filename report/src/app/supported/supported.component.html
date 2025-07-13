@@ -17,5 +17,9 @@
         }
 
         {{ text() }}
+
+        @if (note(); as note) {
+            <span class="note">{{ note }}</span>
+        }
     </span>
 }

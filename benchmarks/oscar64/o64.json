@@ -24,7 +24,10 @@
         "No standard file functions (just mapped kernal functions)"
     ],
     "features": {
-        "floatingPoint": "yes",
+        "floatingPoint": {
+            "supported": "yes",
+            "note": "(no NaN support)"
+        },
         "inlineAssembly": "yes",
         "overlays": "yes",
         "fileIO": "only via CBM kernal functions",

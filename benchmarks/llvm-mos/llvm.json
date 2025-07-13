@@ -15,7 +15,10 @@
     ],
     "cons": ["No overlay support", "Documentation could be improved"],
     "features": {
-        "floatingPoint": "yes",
+        "floatingPoint": {
+            "supported": "yes",
+            "note": "(IEEE-754)"
+        },
         "inlineAssembly": "yes",
         "overlays": "no",
         "fileIO": "yes",

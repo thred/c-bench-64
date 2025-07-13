@@ -46,6 +46,7 @@ export class AppService {
                 note: benchmarks[benchmarkKey].note,
                 author: benchmarks[benchmarkKey].author,
                 url: benchmarks[benchmarkKey].url,
+                footnotes: benchmarks[benchmarkKey].footnotes,
                 results,
             };
         }

@@ -39,6 +39,7 @@ export interface Benchmark {
     note?: string;
     author?: string;
     url?: string;
+    footnotes?: string[];
 }
 
 export const benchmarks: { [key in BenchmarkKey]: Benchmark } = {
@@ -54,21 +55,21 @@ export const benchmarks: { [key in BenchmarkKey]: Benchmark } = {
         key: "crc8",
         name: "CRC-8",
         shortName: "CRC-8",
-        description: "Calculates the 8-bit CRC of the C64 kernel ROM. Stresses logical operations on the char type.",
+        description: "Computes the 8-bit CRC of the C64 kernel ROM. Stresses logical operations on the char type.",
         url: "benchmarks/src/crc8.c",
     },
     crc16: {
         key: "crc16",
         name: "CRC-16",
         shortName: "CRC-16",
-        description: "Calculates the 16-bit CRC of the C64 kernel ROM. Stresses logical operations on the int type.",
+        description: "Computes the 16-bit CRC of the C64 kernel ROM. Stresses logical operations on the int type.",
         url: "benchmarks/src/crc16.c",
     },
     crc32: {
         key: "crc32",
         name: "CRC-32",
         shortName: "CRC-32",
-        description: "Calculates the 32-bit CRC of the C64 kernel ROM. Stresses logical operations on the long type.",
+        description: "Computes the 32-bit CRC of the C64 kernel ROM. Stresses logical operations on the long type.",
         url: "benchmarks/src/crc32.c",
     },
     dhrystone: {
@@ -85,7 +86,7 @@ export const benchmarks: { [key in BenchmarkKey]: Benchmark } = {
         name: "Factorial",
         shortName: "Factorial",
         description:
-            "Calculates the factorial of a number using naive recursion. Stresses recursion and use of local stack variables.",
+            "Calculates the factorial of a number using naive recursion. Stresses recursion and the use of local stack variables.",
         note: "LLVM-mos's optimizer computes the 1000 iterations of this benchmark at compile time. This is not a mistake; it really is that fast.",
         url: "benchmarks/src/fact.c",
     },
@@ -102,6 +103,9 @@ export const benchmarks: { [key in BenchmarkKey]: Benchmark } = {
         shortName: "Pow",
         description: "Performs multiple floating-point exponentiation calculations.",
         url: "benchmarks/src/pow.c",
+        footnotes: [
+            "The expected result for each output may differ due to the various floating-point implementations and representations of `float` used by the compilers.",
+        ],
     },
     puff2: {
         key: "puff2",
@@ -147,7 +151,16 @@ export interface ConfigurationResult {
 
 export type ConfigurationResults = { [key in BenchmarkKey]: ConfigurationResult };
 
-export type Supported = "yes" | "no" | "partial" | "unknown" | string;
+export type Supported =
+    | "yes"
+    | "no"
+    | "partial"
+    | "unknown"
+    | string
+    | {
+          supported: "yes" | "no" | "partial" | "unknown";
+          note: string;
+      };
 
 export type Status = "pass" | "fail" | "unknown";
 
