@@ -87,14 +87,16 @@ export const benchmarks: { [key in BenchmarkKey]: Benchmark } = {
         shortName: "Factorial",
         description:
             "Calculates the factorial of a number using naive recursion. Stresses recursion and the use of local stack variables.",
-        note: "LLVM-mos's optimizer computes the 1000 iterations of this benchmark at compile time. This is not a mistake; it really is that fast.",
+        footnotes: [
+            "LLVM's optimizer solves this benchmark at compile time, resulting in an execution time of 0 seconds. This demonstrates LLVM's powerful optimizer, but note that it is a rather rare and lucky event.",
+        ],
         url: "benchmarks/src/fact.c",
     },
     pi: {
         key: "pi",
         name: "Pi Calculation",
         shortName: "Pi",
-        description: "Calculates 160 digits of PI. Stresses integer multiplication, division, loops, and array access.",
+        description: "Calculates 160 digits of Pi. Stresses integer multiplication, division, loops, and array access.",
         url: "benchmarks/src/pi.c",
     },
     pow: {
@@ -102,10 +104,10 @@ export const benchmarks: { [key in BenchmarkKey]: Benchmark } = {
         name: "Power Calculation",
         shortName: "Pow",
         description: "Performs multiple floating-point exponentiation calculations.",
-        url: "benchmarks/src/pow.c",
         footnotes: [
-            "The expected result for each output may differ due to the various floating-point implementations and representations of `float` used by the compilers.",
+            "The expected output may differ due to the various floating-point implementations and representations of `float` used by the compilers.",
         ],
+        url: "benchmarks/src/pow.c",
     },
     puff2: {
         key: "puff2",
