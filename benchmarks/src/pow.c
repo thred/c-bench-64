@@ -63,13 +63,13 @@ const FPTYPE epsilon = 10000000;
 
 unsigned char benchmark_check(void)
 {
-    printf("res      = %f ", res);
+    printf("res      = %e ", res);
 
     FPTYPE diff = expected - res;
 
-    printf("\nexpected = %f ", expected);
-    printf("\nepsilon  = %f ", epsilon);
-    printf("\ndiff     = %f ", diff);
+    printf("\nexpected = %e ", expected);
+    printf("\nepsilon  = %e ", epsilon);
+    printf("\ndiff     = %e ", diff);
 
     if (diff < epsilon && diff > (long)-epsilon)
     {
