@@ -17,7 +17,7 @@ export LIBS = "$(SRCDIR)/cia_timer.c" "$(SRCDIR)/out.c" "$(SRCDIR)/main.c"
 export VICEEXEC = flatpak run net.sf.VICE -config "$(SRCDIR)/vice.ini" -warp
 
 all:
-	$(MAKE) INCLUDE=$(INCLUDE_ALL) version
+	$(MAKE) version
 	$(MAKE) build-all
 	$(MAKE) exec-all
 
