@@ -28,11 +28,21 @@
 
 <h4>Execution Times in Seconds <span class="hint">(shorter is better)</span></h4>
 
-<app-time-benchmark [results]="benchmark().results" />
+<div class="hOptions">
+    <input type="checkbox" [id]="this.benchmark().key + '-perfOnly'" [(ngModel)]="includePerfOptOnly" />
+    <label [for]="this.benchmark().key + '-perfOnly'">Include performance optimized results only</label>
+</div>
+
+<app-time-benchmark [results]="timeBenchmark()" />
 
 <h4>Binary Sizes in Kilobytes <span class="hint">(smaller is better)</span></h4>
 
-<app-size-benchmark [results]="benchmark().results" />
+<div class="hOptions">
+    <input type="checkbox" [id]="this.benchmark().key + '-sizeOnly'" [(ngModel)]="includeSizeOptOnly" />
+    <label [for]="this.benchmark().key + '-sizeOnly'">Include size optimized results only</label>
+</div>
+
+<app-size-benchmark [results]="sizeBenchmark()" />
 
 <h4>Output</h4>
 

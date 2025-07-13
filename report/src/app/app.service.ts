@@ -13,6 +13,8 @@ import {
     CompilerKey,
     compilerKeys,
     Compilers,
+    Configuration,
+    Configurations,
 } from "./benchmarks";
 
 @Injectable({
@@ -27,9 +29,25 @@ export class AppService {
 
     readonly compilers = computed<Compilers>(() => (this.compilersResource.value() as Compilers) ?? {});
 
+    readonly confiugrations = computed<Configurations>(() => {
+        const configurations: Configurations = {};
+
+        for (const compiler of Object.values(this.compilers())) {
+            for (const [key, configuration] of Object.entries(compiler.configurations)) {
+                configurations[key] = configuration;
+            }
+        }
+
+        return configurations;
+    });
+
     readonly selectedCompilerKeys = signal<CompilerKey[]>([...activeCompilerKeys]);
 
     readonly selectedBenchmarkKeys = signal<BenchmarkKey[]>([...benchmarkKeys]);
+
+    readonly includePerfOptOnly = signal<boolean>(false);
+
+    readonly includeSizeOptOnly = signal<boolean>(false);
 
     readonly benchmarkWithResultsMap = computed<BenchmarkWithResultsMap>(() => {
         const compilers = this.compilers();
@@ -53,6 +71,14 @@ export class AppService {
 
         return map as BenchmarkWithResultsMap;
     });
+
+    getConfiguration(configurationKey: string): Configuration | undefined {
+        return this.confiugrations()[configurationKey];
+    }
+
+    getConfigurationName(configurationKey: string): string {
+        return this.getConfiguration(configurationKey)?.name || configurationKey;
+    }
 
     isCompilerSelected(compilerKey: CompilerKey): boolean {
         return this.selectedCompilerKeys().includes(compilerKey);

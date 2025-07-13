@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <tr>
+            <th></th>
+
+            @for (configurationKey of configurationKeys(); track configurationKey) {
+                <th>{{ getConfigurationName(configurationKey) }}</th>
+            }
+        </tr>
+    </thead>
+
+    <tbody>
+        @for (benchmarkKey of benchmarkKeys(); track benchmarkKey) {
+            @if (summary()[benchmarkKey]; as summary) {
+                <tr>
+                    <th>{{ getBenchmarkShortName(benchmarkKey) }}</th>
+
+                    @for (configurationKey of configurationKeys(); track configurationKey) {
+                        <td [class]="getClassName(benchmarkKey, configurationKey)">
+                            {{ getValue(benchmarkKey, configurationKey) }}
+                        </td>
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+</table>

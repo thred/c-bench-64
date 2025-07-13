@@ -134,11 +134,13 @@ export const benchmarks: { [key in BenchmarkKey]: Benchmark } = {
     },
 };
 
+export type Optimization = "none" | "size" | "performance";
+
 export interface Configuration {
     name: string;
     compilerKey: CompilerKey;
     description: string;
-    optimization: "performance" | "size" | "none";
+    optimization: Optimization;
     color: string;
 }
 
@@ -226,6 +228,8 @@ export interface Compiler {
 
 export type Compilers = { [key in CompilerKey]?: Compiler };
 
+export type Configurations = { [key: string]: Configuration };
+
 export interface BenchmarkResult extends Configuration {
     size: number;
     time: number;
@@ -242,3 +246,16 @@ export interface BenchmarkWithResults extends Benchmark {
 export type BenchmarkWithResultsMap = {
     [key in BenchmarkKey]: BenchmarkWithResults;
 };
+
+export type BenchmarkSummary = {
+    [benchmarkKey in BenchmarkKey]?: {
+        [configurationKey: string]: BenchmarkSummaryItem;
+    };
+};
+
+export interface BenchmarkSummaryItem {
+    value: number;
+    status: Status;
+    lowestValue?: boolean;
+    hightestValue?: boolean;
+}

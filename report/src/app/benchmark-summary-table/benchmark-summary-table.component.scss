@@ -1,0 +1,16 @@
+table {
+    font-size: 80%;
+}
+
+.fail,
+.unknown {
+    color: var(---fail-color);
+}
+
+.lowest-value {
+    color: var(--success-color);
+}
+
+.highest-value {
+    color: var(--error-color);
+}

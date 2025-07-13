@@ -36,6 +36,8 @@
     --success-color: var(--c64-light-green);
     --error-color: var(--c64-light-red);
     --warning-color: var(--c64-yellow);
+    --separator-color: var(--c64-black);
+    --fail-color: var(--c64-dark-grey);
     --toc-width: 12rem;
 }
 
@@ -92,6 +94,11 @@ h3 {
 
 h4 {
     border-bottom: 2px solid var(--text-color);
+    margin-bottom: 0.25rem;
+}
+
+.hOptions {
+    padding: 0 1rem 1rem 1rem;
 }
 
 p {
@@ -186,6 +193,23 @@ input[type="checkbox"]:checked::after {
     line-height: 1.3em;
     pointer-events: none;
     font-family: inherit;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+
+    th,
+    td {
+        border: none;
+        border-bottom: 2px solid var(--separator-color);
+        padding: 8px;
+        text-align: right;
+    }
+
+    th {
+        color: var(--headline-color);
+    }
 }
 
 .icon {
