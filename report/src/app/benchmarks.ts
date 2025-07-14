@@ -163,7 +163,8 @@ export type Supported =
     | string
     | {
           supported: "yes" | "no" | "partial" | "unknown";
-          note: string;
+          note?: string;
+          url?: string;
       };
 
 export type Status = "pass" | "fail" | "unknown";

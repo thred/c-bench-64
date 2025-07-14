@@ -21,7 +21,11 @@
         "floatingPoint": "no",
         "inlineAssembly": "yes",
         "overlays": "yes",
-        "fileIO": "yes",
+        "fileIO": {
+            "supported": "partial",
+            "note": "details",
+            "url": "https://cc65.github.io/doc/library.html#s2"
+        },
         "printf": "yes",
         "recursiveFunctions": "yes",
         "interruptSupport": "no",

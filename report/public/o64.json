@@ -26,11 +26,14 @@
   "features": {
     "floatingPoint": {
       "supported": "yes",
-      "note": "(no NaN support)"
+      "note": "no NaN support"
     },
     "inlineAssembly": "yes",
     "overlays": "yes",
-    "fileIO": "only via CBM kernal functions",
+    "fileIO": {
+      "supported": "no",
+      "note": "CBM based file ops are supported"
+    },
     "printf": "yes",
     "recursiveFunctions": "yes",
     "interruptSupport": "yes",

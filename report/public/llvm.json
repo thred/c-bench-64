@@ -20,14 +20,18 @@
   "features": {
     "floatingPoint": {
       "supported": "yes",
-      "note": "(IEEE-754)"
+      "note": "IEEE-754"
     },
     "inlineAssembly": "yes",
     "overlays": "no",
     "fileIO": "yes",
     "printf": "yes",
     "recursiveFunctions": "yes",
-    "interruptSupport": "no",
+    "interruptSupport": {
+      "supported": "yes",
+      "note": "details",
+      "url": "https://llvm-mos.org/wiki/C_interrupts"
+    },
     "maintained": "yes"
   },
   "libraries": {

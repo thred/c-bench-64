@@ -12,7 +12,7 @@ export class SupportedComponent {
         transform: (value) => value ?? "unknown",
     });
 
-    readonly url = input<string | undefined>(undefined);
+    readonly link = input<string>();
 
     readonly className = computed(() => {
         let supported = this.supported();
@@ -48,7 +48,7 @@ export class SupportedComponent {
             case "no":
                 return "times";
             case "partial":
-                return undefined;
+                return "partial";
             case "unknown":
                 return "question";
             default:
@@ -69,7 +69,7 @@ export class SupportedComponent {
             case "no":
                 return "No";
             case "partial":
-                return "Partially";
+                return "Partial";
             case "unknown":
                 return "Unknown";
             default:
@@ -82,6 +82,16 @@ export class SupportedComponent {
 
         if (typeof supported === "object") {
             return supported.note;
+        }
+
+        return undefined;
+    });
+
+    readonly url = computed(() => {
+        let supported = this.supported();
+
+        if (typeof supported === "object") {
+            return supported.url;
         }
 
         return undefined;

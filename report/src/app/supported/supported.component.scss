@@ -16,6 +16,7 @@
     color: var(--error-color);
 }
 
-.unknown .icon {
+.unknown .icon,
+.partial .icon {
     color: var(--warning-color);
 }

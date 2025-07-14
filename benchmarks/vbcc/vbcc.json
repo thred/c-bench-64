@@ -12,7 +12,7 @@
     "features": {
         "floatingPoint": {
             "supported": "yes",
-            "note": "(32/64bit IEEE floating point support based on SANE)"
+            "note": "32/64bit IEEE floating point support based on SANE"
         },
         "inlineAssembly": "",
         "overlays": "",

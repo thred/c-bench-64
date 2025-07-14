@@ -12,7 +12,7 @@
 
 <ul>
     @if (compiler().homepage; as homepage) {
-        <li><app-supported [supported]="homepage" [url]="homepage">Homepage</app-supported></li>
+        <li><app-supported [supported]="homepage" [link]="homepage">Homepage</app-supported></li>
     }
 
     @if (compiler().version; as version) {
@@ -51,7 +51,7 @@
     <li><app-supported [supported]="compiler().features['floatingPoint']">Floating point support</app-supported></li>
     <li><app-supported [supported]="compiler().features['inlineAssembly']">Inline assembly</app-supported></li>
     <li><app-supported [supported]="compiler().features['overlays']">Overlays</app-supported></li>
-    <li><app-supported [supported]="compiler().features['fileIO']">File I/O</app-supported></li>
+    <li><app-supported [supported]="compiler().features['fileIO']">Standard File I/O</app-supported></li>
     <li><app-supported [supported]="compiler().features['printf']">printf</app-supported></li>
     <li><app-supported [supported]="compiler().features['recursiveFunctions']">Recursive functions</app-supported></li>
     <li><app-supported [supported]="compiler().features['interruptSupport']">Interrupt support</app-supported></li>

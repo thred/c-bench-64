@@ -263,6 +263,11 @@ canvas {
         -webkit-mask-image: url("assets/check.svg");
     }
 
+    &[shape="partial"] {
+        mask-image: url("assets/partial.svg");
+        -webkit-mask-image: url("assets/partial.svg");
+    }
+
     &[shape="question"] {
         mask-image: url("assets/question.svg");
         -webkit-mask-image: url("assets/question.svg");

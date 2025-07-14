@@ -2,8 +2,8 @@
     <ng-content />
 </span>
 
-@if (url(); as url) {
-    <a [href]="url" target="_blank" [class]="className()">
+@if (link(); as link) {
+    <a [href]="link" target="_blank" [class]="className()">
         @if (icon(); as icon) {
             <span class="icon" [attr.shape]="icon"></span>
         }
@@ -19,7 +19,13 @@
         {{ text() }}
 
         @if (note(); as note) {
-            <span class="note">{{ note }}</span>
+            @if (url(); as url) {
+                <a href="{{ url }}" target="_blank" class="note">({{ note }})</a>
+            } @else {
+                <span class="note">({{ note }})</span>
+            }
         }
+
+        @if (url(); as url) {}
     </span>
 }
