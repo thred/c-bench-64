@@ -53,11 +53,27 @@ body {
     overflow: hidden;
     margin: 0;
     padding: 0;
+
+    @media print {
+        font-size: 12pt;
+        overflow: auto;
+        height: unset;
+    }
 }
 
 body {
     padding: min(8vh, 80px) min(12vw, 120px) min(8vh, 80px) min(12vw, 120px);
     background-color: var(--border-color);
+
+    @media print {
+        padding: 0;
+    }
+}
+
+@media print {
+    .do-not-print {
+        display: none !important;
+    }
 }
 
 .screen {
@@ -95,10 +111,18 @@ h3 {
 h4 {
     border-bottom: 2px solid var(--text-color);
     margin-bottom: 0.25rem;
+
+    @media print {
+        margin-bottom: 1rem;
+    }
 }
 
 .hOptions {
     padding: 0 1rem 1rem 1rem;
+
+    @media print {
+        display: none !important;
+    }
 }
 
 p {
@@ -210,6 +234,10 @@ table {
     th {
         color: var(--headline-color);
     }
+}
+
+canvas {
+    max-width: 100%;
 }
 
 .icon {

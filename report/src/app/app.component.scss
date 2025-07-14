@@ -2,6 +2,10 @@
     display: block;
 
     padding-right: var(--toc-width);
+
+    @media print {
+        padding-right: 0;
+    }
 }
 
 .toc {
@@ -44,6 +48,10 @@
         ul {
             margin-left: 1rem;
         }
+    }
+
+    @media print {
+        display: none !important;
     }
 }
 
