@@ -1,6 +1,6 @@
 import { Component, computed, inject, input } from "@angular/core";
 import { AppService } from "../app.service";
-import { BenchmarkKey, benchmarks, BenchmarkSummary, Optimization } from "../benchmarks";
+import { BenchmarkKey, benchmarks, BenchmarkSummary } from "../benchmarks";
 
 @Component({
     selector: "app-benchmark-summary-table",
@@ -17,8 +17,6 @@ export class BenchmarkSummaryTableComponent {
 
     readonly unit = input.required<string>();
 
-    readonly optimization = input<Optimization[]>([]);
-
     readonly benchmarkKeys = computed(() => Object.keys(this.summary()) as BenchmarkKey[]);
 
     readonly benchmarks = computed(() =>
@@ -26,7 +24,7 @@ export class BenchmarkSummaryTableComponent {
     );
 
     readonly configurationKeys = computed(() => {
-        let keys: string[] = [];
+        const keys: string[] = [];
 
         for (const benchmarkKey of this.benchmarkKeys()) {
             const benchmarkSummary = this.summary()[benchmarkKey];
@@ -35,15 +33,6 @@ export class BenchmarkSummaryTableComponent {
                 keys.push(...Object.keys(benchmarkSummary));
             }
         }
-
-        keys = keys.filter((key) => {
-            const configuration = this.service.getConfiguration(key);
-
-            return (
-                configuration &&
-                (!this.optimization().length || this.optimization().includes(configuration.optimization))
-            );
-        });
 
         return Array.from(new Set(keys));
     });

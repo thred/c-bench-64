@@ -30,6 +30,12 @@ export class BenchmarkSummaryComponent {
             const benuchmarkResults = this.service.benchmarkWithResultsMap()[benchmarkKey];
 
             for (const configurationKey of Object.keys(benuchmarkResults.results)) {
+                const configuration = this.service.getConfiguration(configurationKey);
+
+                if (!configuration || (this.includePerfOptOnly() && configuration.optimization === "size")) {
+                    continue;
+                }
+
                 const currentResult: BenchmarkResult | undefined = benuchmarkResults.results[configurationKey];
 
                 if (!currentResult || currentResult.time === undefined) {
@@ -63,6 +69,12 @@ export class BenchmarkSummaryComponent {
             const benuchmarkResults = this.service.benchmarkWithResultsMap()[benchmarkKey];
 
             for (const configurationKey of Object.keys(benuchmarkResults.results)) {
+                const configuration = this.service.getConfiguration(configurationKey);
+
+                if (!configuration || (this.includeSizeOptOnly() && configuration.optimization === "performance")) {
+                    continue;
+                }
+
                 const currentResult: BenchmarkResult | undefined = benuchmarkResults.results[configurationKey];
 
                 if (!currentResult || currentResult.size === undefined) {
