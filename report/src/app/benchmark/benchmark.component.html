@@ -1,78 +1,88 @@
-<h3 id="benchmark-{{ benchmark().key }}">{{ benchmark().name }}</h3>
+<app-section>
+    <h3 id="benchmark-{{ benchmark().key }}" headline appSectionCollapser>{{ benchmark().name }}</h3>
 
-<p>{{ benchmark().description }}</p>
+    <p>{{ benchmark().description }}</p>
 
-@if (benchmark().note) {
-    <p class="box note">{{ benchmark().note }}</p>
-}
-
-@if (benchmark().url) {
-    <p class="no-gap">
-        <strong>Source: </strong>
-        <a href="https://github.com/thred/c-bench-64/blob/main/{{ benchmark().url }}" target="_blank">{{
-            benchmark().url
-        }}</a>
-    </p>
-}
-
-@if (benchmark().author) {
-    <p class="no-gap">
-        <strong>Author: </strong>
-        {{ benchmark().author }}
-    </p>
-}
-
-@if (failedBenchmarks()) {
-    <p class="box warning">{{ failedBenchmarks() }} failed to execute correctly.</p>
-}
-
-<h4>Execution Times in Seconds <span class="hint">(shorter is better)</span></h4>
-
-<div class="h-options">
-    <input type="checkbox" [id]="this.benchmark().key + '-perfOnly'" [(ngModel)]="includePerfOptOnly" />
-    <label [for]="this.benchmark().key + '-perfOnly'">Include performance optimized results only</label>
-</div>
-
-<app-time-benchmark [results]="timeBenchmark()" />
-
-<h4>Binary Sizes in Kilobytes <span class="hint">(smaller is better)</span></h4>
-
-<div class="h-options">
-    <input type="checkbox" [id]="this.benchmark().key + '-sizeOnly'" [(ngModel)]="includeSizeOptOnly" />
-    <label [for]="this.benchmark().key + '-sizeOnly'">Include size optimized results only</label>
-</div>
-
-<app-size-benchmark [results]="sizeBenchmark()" />
-
-<h4 class="do-not-print">Output</h4>
-
-<div class="output do-not-print">
-    <ul class="tabs">
-        @for (configurationKey of configurationKeys(); track configurationKey) {
-            <li>
-                <a
-                    class="tab"
-                    [class.selected]="configurationKey === selectedOutputConfigurationKey()"
-                    href="#"
-                    (click)="toggleOutputConfigurationKey(configurationKey); $event.preventDefault()"
-                >
-                    {{ getConfigurationName(configurationKey) }}
-                </a>
-            </li>
-        }
-    </ul>
-
-    @if (selectedOutput(); as output) {
-        <app-output [output]="output"></app-output>
+    @if (benchmark().note) {
+        <p class="box note">{{ benchmark().note }}</p>
     }
-</div>
 
-@if (benchmark().footnotes?.length) {
-    <h4>Footnotes</h4>
+    @if (benchmark().url) {
+        <p class="no-gap">
+            <strong>Source: </strong>
+            <a href="https://github.com/thred/c-bench-64/blob/main/{{ benchmark().url }}" target="_blank">{{
+                benchmark().url
+            }}</a>
+        </p>
+    }
 
-    <ul class="footnotes">
-        @for (footnote of benchmark().footnotes; track footnote) {
-            <li>{{ footnote }}</li>
-        }
-    </ul>
-}
+    @if (benchmark().author) {
+        <p class="no-gap">
+            <strong>Author: </strong>
+            {{ benchmark().author }}
+        </p>
+    }
+
+    @if (failedBenchmarks()) {
+        <p class="box warning">{{ failedBenchmarks() }} failed to execute correctly.</p>
+    }
+
+    <app-section>
+        <h4 headline appSectionCollapser>Execution Times in Seconds <span class="hint">(shorter is better)</span></h4>
+
+        <div class="h-options">
+            <input type="checkbox" [id]="this.benchmark().key + '-perfOnly'" [(ngModel)]="includePerfOptOnly" />
+            <label [for]="this.benchmark().key + '-perfOnly'">Include performance optimized results only</label>
+        </div>
+
+        <app-time-benchmark [results]="timeBenchmark()" />
+    </app-section>
+
+    <app-section>
+        <h4 headline appSectionCollapser>Binary Sizes in Kilobytes <span class="hint">(smaller is better)</span></h4>
+
+        <div class="h-options">
+            <input type="checkbox" [id]="this.benchmark().key + '-sizeOnly'" [(ngModel)]="includeSizeOptOnly" />
+            <label [for]="this.benchmark().key + '-sizeOnly'">Include size optimized results only</label>
+        </div>
+
+        <app-size-benchmark [results]="sizeBenchmark()" />
+    </app-section>
+
+    <app-section [collapsed]="true">
+        <h4 headline appSectionCollapser>Output</h4>
+
+        <div class="output do-not-print">
+            <ul class="tabs">
+                @for (configurationKey of configurationKeys(); track configurationKey) {
+                    <li>
+                        <a
+                            class="tab"
+                            [class.selected]="configurationKey === selectedOutputConfigurationKey()"
+                            href="#"
+                            (click)="toggleOutputConfigurationKey(configurationKey); $event.preventDefault()"
+                        >
+                            {{ getConfigurationName(configurationKey) }}
+                        </a>
+                    </li>
+                }
+            </ul>
+
+            @if (selectedOutput(); as output) {
+                <app-output [output]="output"></app-output>
+            }
+        </div>
+    </app-section>
+
+    @if (benchmark().footnotes?.length) {
+        <app-section>
+            <h4 headline appSectionCollapser>Footnotes</h4>
+
+            <ul class="footnotes">
+                @for (footnote of benchmark().footnotes; track footnote) {
+                    <li>{{ footnote }}</li>
+                }
+            </ul>
+        </app-section>
+    }
+</app-section>

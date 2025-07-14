@@ -5,10 +5,19 @@ import { BenchmarkSummaryComponent } from "./benchmark-summary/benchmark-summary
 import { BenchmarkComponent } from "./benchmark/benchmark.component";
 import { benchmarkKeys, benchmarks, BenchmarkWithResultsMap, compilerKeys } from "./benchmarks";
 import { CompilerComponent } from "./compiler/compiler.component";
+import { SectionCollapserDirective } from "./section-collapser.directive";
+import { SectionComponent } from "./section/section.component";
 
 @Component({
     selector: "app-root",
-    imports: [CommonModule, BenchmarkComponent, BenchmarkSummaryComponent, CompilerComponent],
+    imports: [
+        CommonModule,
+        BenchmarkComponent,
+        BenchmarkSummaryComponent,
+        CompilerComponent,
+        SectionComponent,
+        SectionCollapserDirective,
+    ],
     templateUrl: "./app.component.html",
     styleUrl: "./app.component.scss",
 })

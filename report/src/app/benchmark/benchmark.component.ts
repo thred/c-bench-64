@@ -3,12 +3,21 @@ import { FormsModule } from "@angular/forms";
 import { AppService } from "../app.service";
 import { BenchmarkKey, BenchmarkResults, Optimization } from "../benchmarks";
 import { OutputComponent } from "../output/output.component";
+import { SectionCollapserDirective } from "../section-collapser.directive";
+import { SectionComponent } from "../section/section.component";
 import { SizeBenchmarkComponent } from "../size-benchmark/size-benchmark.component";
 import { TimeBenchmarkComponent } from "../time-benchmark/time-benchmark.component";
 
 @Component({
     selector: "app-benchmark",
-    imports: [OutputComponent, TimeBenchmarkComponent, SizeBenchmarkComponent, FormsModule],
+    imports: [
+        OutputComponent,
+        TimeBenchmarkComponent,
+        SizeBenchmarkComponent,
+        FormsModule,
+        SectionComponent,
+        SectionCollapserDirective,
+    ],
     templateUrl: "./benchmark.component.html",
     styleUrl: "./benchmark.component.scss",
 })

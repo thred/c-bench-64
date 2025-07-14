@@ -1,71 +1,93 @@
-<h3 id="compiler-{{ compiler().key }}">
-    {{ compiler().name }}
-</h3>
+<app-section>
+    <h3 id="compiler-{{ compiler().key }}" headline appSectionCollapser>
+        {{ compiler().name }}
+    </h3>
 
-@if (compiler().warning) {
-    <p class="box">{{ compiler().warning }}<span class="blinking-cursor"></span></p>
-}
-
-@for (paragraph of compiler().description; track $index) {
-    <p>{{ paragraph }}</p>
-}
-
-<ul>
-    @if (compiler().homepage; as homepage) {
-        <li><app-supported [supported]="homepage" [link]="homepage">Homepage</app-supported></li>
+    @if (compiler().warning) {
+        <p class="box">{{ compiler().warning }}<span class="blinking-cursor"></span></p>
     }
 
-    @if (compiler().version; as version) {
-        <li><app-supported [supported]="version">Version</app-supported></li>
+    @for (paragraph of compiler().description; track $index) {
+        <p>{{ paragraph }}</p>
     }
 
-    @if (compiler().license; as license) {
-        <li><app-supported [supported]="license">License</app-supported></li>
-    }
-
-    @if (compiler().date; as date) {
-        <li><app-supported [supported]="date | date">Benchmark Execution</app-supported></li>
-    }
-</ul>
-
-@if (compiler().pros.length > 0) {
-    <h4>Pros</h4>
     <ul>
-        @for (pro of compiler().pros; track $index) {
-            <li><span class="icon success" shape="plus"></span> {{ pro }}</li>
+        @if (compiler().homepage; as homepage) {
+            <li><app-supported [supported]="homepage" [link]="homepage">Homepage</app-supported></li>
         }
-    </ul>
-}
 
-@if (compiler().cons.length > 0) {
-    <h4>Cons</h4>
-    <ul>
-        @for (con of compiler().cons; track $index) {
-            <li><span class="icon fail" shape="minus"></span> {{ con }}</li>
+        @if (compiler().version; as version) {
+            <li><app-supported [supported]="version">Version</app-supported></li>
         }
-    </ul>
-}
 
-<h4>Features</h4>
-<div class="h-hint">According to the documentation</div>
-<ul>
-    <li><app-supported [supported]="compiler().features['floatingPoint']">Floating Point Support</app-supported></li>
-    <li><app-supported [supported]="compiler().features['inlineAssembly']">Inline Assembly</app-supported></li>
-    <li><app-supported [supported]="compiler().features['overlays']">Overlays</app-supported></li>
-    <li>
-        <app-supported [supported]="compiler().features['recursiveFunctions']">Recursive Function Falls</app-supported>
-    </li>
-    <li><app-supported [supported]="compiler().features['printf']">printf Support</app-supported></li>
-    <li><app-supported [supported]="compiler().features['fileIO']">Standard File I/O</app-supported></li>
-    <li><app-supported [supported]="compiler().features['interruptSupport']">Interrupt Support</app-supported></li>
-    <li><app-supported [supported]="compiler().features['maintained']">Maintained</app-supported></li>
-</ul>
-
-@if (compiler().runtimeSupport.length) {
-    <h4>Runtime Support</h4>
-    <ul>
-        @for (runtimeSupport of compiler().runtimeSupport; track runtimeSupport) {
-            <li>{{ runtimeSupport }}</li>
+        @if (compiler().license; as license) {
+            <li><app-supported [supported]="license">License</app-supported></li>
         }
+
+        @if (compiler().date; as date) {
+            <li><app-supported [supported]="date | date">Benchmark Execution</app-supported></li>
+        }
+
+        <li><app-supported [supported]="compiler().features['maintained']">Maintained</app-supported></li>
     </ul>
-}
+
+    @if (compiler().pros.length > 0) {
+        <app-section>
+            <h4 headline appSectionCollapser>Pros</h4>
+            <ul>
+                @for (pro of compiler().pros; track $index) {
+                    <li><span class="icon success" shape="plus"></span> {{ pro }}</li>
+                }
+            </ul>
+        </app-section>
+    }
+
+    @if (compiler().cons.length > 0) {
+        <app-section>
+            <h4 headline appSectionCollapser>Cons</h4>
+            <ul>
+                @for (con of compiler().cons; track $index) {
+                    <li><span class="icon fail" shape="minus"></span> {{ con }}</li>
+                }
+            </ul>
+        </app-section>
+    }
+
+    <app-section>
+        <h4 headline appSectionCollapser>Features</h4>
+
+        <div class="h-hint">According to the documentation</div>
+
+        <ul>
+            <li>
+                <app-supported [supported]="compiler().features['floatingPoint']">Floating Point Support</app-supported>
+            </li>
+            <li>
+                <app-supported [supported]="compiler().features['recursiveFunctions']"
+                    >Recursive Function Calls</app-supported
+                >
+            </li>
+            <li><app-supported [supported]="compiler().features['fileIO']">Standard File I/O</app-supported></li>
+            <li><app-supported [supported]="compiler().features['printf']">printf Support</app-supported></li>
+            <li><app-supported [supported]="compiler().features['inlineAssembly']">Inline Assembly</app-supported></li>
+            <li><app-supported [supported]="compiler().features['overlays']">Overlays</app-supported></li>
+            <li>
+                <app-supported [supported]="compiler().features['interruptSupport']">Interrupt Support</app-supported>
+            </li>
+        </ul>
+    </app-section>
+
+    @if (compiler().runtimeSupport.length) {
+        <app-section>
+            <h4 headline appSectionCollapser>Runtime Support</h4>
+
+            <div class="h-hint">According to the documentation</div>
+
+            <ul>
+                @for (runtimeSupport of compiler().runtimeSupport; track runtimeSupport) {
+                    <li>{{ runtimeSupport }}</li>
+                }
+            </ul>
+        </app-section>
+    }
+</app-section>
