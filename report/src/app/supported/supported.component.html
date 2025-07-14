@@ -20,7 +20,8 @@
 
         @if (note(); as note) {
             @if (url(); as url) {
-                <a href="{{ url }}" target="_blank" class="note">({{ note }})</a>
+                (<a href="{{ url }}" target="_blank" class="note">{{ note }}</a
+                >)
             } @else {
                 <span class="note">({{ note }})</span>
             }

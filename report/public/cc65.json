@@ -7,20 +7,32 @@
   "homepage": "https://cc65.github.io/cc65/",
   "license": "zlib",
   "pros": [
-    "Includes a great macro assembler",
-    "Includes useful tools sprites, bitmals, GEOS, and more",
-    "Good support for mixing C and assembly",
-    "Large community and good documentation",
-    "Support for overlays"
+    "Includes a great macro assembler.",
+    "Includes useful tools for sprites, bitmaps, GEOS, and more.",
+    "Good support for mixing C and assembly.",
+    "Large community and good documentation.",
+    "Support for overlays."
   ],
   "cons": [
-    "No floating-point support",
-    "Generated code is not very efficient"
+    "No floating-point support.",
+    "Generated code is not very efficient."
   ],
   "features": {
-    "floatingPoint": "no",
-    "inlineAssembly": "yes",
-    "overlays": "yes",
+    "floatingPoint": {
+      "supported": "no",
+      "note": "details",
+      "url": "https://cc65.github.io/doc/cc65.html#s4"
+    },
+    "inlineAssembly": {
+      "supported": "yes",
+      "note": "details",
+      "url": "https://cc65.github.io/doc/cc65.html#s9"
+    },
+    "overlays": {
+      "supported": "yes",
+      "note": "details",
+      "url": "https://cc65.github.io/doc/ld65.html#s5"
+    },
     "fileIO": {
       "supported": "partial",
       "note": "details",
@@ -65,29 +77,29 @@
     "wctype": "no"
   },
   "runtimeSupport": [
-    "Commodore VIC 20",
-    "Commodore Plus/4 (Commodore 16, Commodore 116)",
-    "Commodore C64",
-    "Commodore C128",
-    "CBM 510",
-    "CBM 600/700",
-    "PET 2001",
     "Apple //+",
-    "Atari 8-bit",
     "Atari 2600",
     "Atari 5200",
-    "GEOS",
+    "Atari 8-bit",
     "Bit Corporation Gamate",
+    "CBM 510",
+    "CBM 600/700",
+    "Commander X16",
+    "Commodore C128",
+    "Commodore C64",
+    "Commodore Plus/4 (Commodore 16, Commodore 116)",
+    "Commodore VIC 20",
+    "GEOS",
+    "Lynx",
     "NEC PC-Engine",
     "NES",
-    "Watara Supervision",
-    "VTech Creativision",
+    "Ohio Scientific Challenger 1P",
     "Oric Atmos",
     "Oric Telestrat",
-    "Lynx",
-    "Ohio Scientific Challenger 1P",
-    "Commander X16",
-    "Synertek Systems Sym-1"
+    "PET 2001",
+    "Synertek Systems Sym-1",
+    "VTech Creativision",
+    "Watara Supervision"
   ],
   "configurations": {
     "cc65p": {

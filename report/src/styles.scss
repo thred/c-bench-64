@@ -117,12 +117,19 @@ h4 {
     }
 }
 
-.hOptions {
+.h-options {
     padding: 0 1rem 1rem 1rem;
 
     @media print {
         display: none !important;
     }
+}
+
+.h-hint {
+    padding: 0 1rem 1rem 1rem;
+    font-size: 0.8em;
+    font-weight: normal;
+    color: var(--text-color);
 }
 
 p {
@@ -176,6 +183,14 @@ a:hover {
     font-size: 0.8em;
     font-weight: normal;
     color: var(--text-color);
+}
+
+.success {
+    color: var(--success-color);
+}
+
+.fail {
+    color: var(--error-color);
 }
 
 /* Commodore 64 style checkboxes */
@@ -263,9 +278,19 @@ canvas {
         -webkit-mask-image: url("assets/check.svg");
     }
 
+    &[shape="minus"] {
+        mask-image: url("assets/minus.svg");
+        -webkit-mask-image: url("assets/minus.svg");
+    }
+
     &[shape="partial"] {
         mask-image: url("assets/partial.svg");
         -webkit-mask-image: url("assets/partial.svg");
+    }
+
+    &[shape="plus"] {
+        mask-image: url("assets/plus.svg");
+        -webkit-mask-image: url("assets/plus.svg");
     }
 
     &[shape="question"] {

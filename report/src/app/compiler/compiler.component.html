@@ -32,7 +32,7 @@
     <h4>Pros</h4>
     <ul>
         @for (pro of compiler().pros; track $index) {
-            <li>{{ pro }}</li>
+            <li><span class="icon success" shape="plus"></span> {{ pro }}</li>
         }
     </ul>
 }
@@ -41,20 +41,23 @@
     <h4>Cons</h4>
     <ul>
         @for (con of compiler().cons; track $index) {
-            <li>{{ con }}</li>
+            <li><span class="icon fail" shape="minus"></span> {{ con }}</li>
         }
     </ul>
 }
 
 <h4>Features</h4>
+<div class="h-hint">According to the documentation</div>
 <ul>
-    <li><app-supported [supported]="compiler().features['floatingPoint']">Floating point support</app-supported></li>
-    <li><app-supported [supported]="compiler().features['inlineAssembly']">Inline assembly</app-supported></li>
+    <li><app-supported [supported]="compiler().features['floatingPoint']">Floating Point Support</app-supported></li>
+    <li><app-supported [supported]="compiler().features['inlineAssembly']">Inline Assembly</app-supported></li>
     <li><app-supported [supported]="compiler().features['overlays']">Overlays</app-supported></li>
+    <li>
+        <app-supported [supported]="compiler().features['recursiveFunctions']">Recursive Function Falls</app-supported>
+    </li>
+    <li><app-supported [supported]="compiler().features['printf']">printf Support</app-supported></li>
     <li><app-supported [supported]="compiler().features['fileIO']">Standard File I/O</app-supported></li>
-    <li><app-supported [supported]="compiler().features['printf']">printf</app-supported></li>
-    <li><app-supported [supported]="compiler().features['recursiveFunctions']">Recursive functions</app-supported></li>
-    <li><app-supported [supported]="compiler().features['interruptSupport']">Interrupt support</app-supported></li>
+    <li><app-supported [supported]="compiler().features['interruptSupport']">Interrupt Support</app-supported></li>
     <li><app-supported [supported]="compiler().features['maintained']">Maintained</app-supported></li>
 </ul>
 
