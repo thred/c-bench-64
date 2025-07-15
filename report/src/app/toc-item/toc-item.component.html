@@ -1,0 +1,9 @@
+<ng-template>
+    @if (checkable()) {
+        <input type="checkbox" [(ngModel)]="checked" />
+    }
+
+    <a (click)="performSelect($event)" [class.inactive]="!checked()">
+        {{ label() }}
+    </a>
+</ng-template>

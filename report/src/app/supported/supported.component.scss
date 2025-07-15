@@ -5,7 +5,19 @@
 .label {
     display: inline-block;
     width: 14em;
+    flex: 0 0 auto;
     color: var(--text-color);
+}
+
+@media (max-width: 800px) {
+    :host {
+        flex-direction: column;
+    }
+
+    .label {
+        font-size: 0.8em;
+        color: var(--headline-color);
+    }
 }
 
 .yes .icon {

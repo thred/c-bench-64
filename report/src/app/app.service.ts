@@ -84,6 +84,24 @@ export class AppService {
         return this.selectedCompilerKeys().includes(compilerKey);
     }
 
+    setCompilerSelected(compilerKey: CompilerKey, value: boolean): void {
+        const selectedCompilers = [...this.selectedCompilerKeys()];
+
+        if (value) {
+            if (!selectedCompilers.includes(compilerKey)) {
+                selectedCompilers.push(compilerKey);
+            }
+        } else {
+            const index = selectedCompilers.indexOf(compilerKey);
+
+            if (index !== -1) {
+                selectedCompilers.splice(index, 1);
+            }
+        }
+
+        this.selectedCompilerKeys.set(selectedCompilers);
+    }
+
     toggleCompilerSelection(compilerKey: CompilerKey): void {
         const selectedCompilers = [...this.selectedCompilerKeys()];
         const index = selectedCompilers.indexOf(compilerKey);
@@ -99,6 +117,24 @@ export class AppService {
 
     isBenchmarkSelected(benchmarkKey: BenchmarkKey): boolean {
         return this.selectedBenchmarkKeys().includes(benchmarkKey);
+    }
+
+    setBenchmarkSelected(benchmarkKey: BenchmarkKey, value: boolean): void {
+        const selectedBenchmarks = [...this.selectedBenchmarkKeys()];
+
+        if (value) {
+            if (!selectedBenchmarks.includes(benchmarkKey)) {
+                selectedBenchmarks.push(benchmarkKey);
+            }
+        } else {
+            const index = selectedBenchmarks.indexOf(benchmarkKey);
+
+            if (index !== -1) {
+                selectedBenchmarks.splice(index, 1);
+            }
+        }
+
+        this.selectedBenchmarkKeys.set(selectedBenchmarks);
     }
 
     toggleBenchmarkSelection(benchmarkKey: BenchmarkKey): void {
@@ -175,7 +211,8 @@ export class AppService {
     createChartOptions(indexAxis: "x" | "y", xAxisText: string, fractionDigits: number, unit: string): ChartOptions {
         return {
             indexAxis,
-            aspectRatio: 3 / 1,
+            responsive: true,
+            maintainAspectRatio: false,
             scales: {
                 x: {
                     beginAtZero: true,
@@ -189,7 +226,7 @@ export class AppService {
                         color: "#706deb",
                         font: {
                             family: "Oxanium",
-                            size: 14,
+                            size: 12,
                             weight: "bold",
                         },
                     },
@@ -197,7 +234,7 @@ export class AppService {
                         color: "#706deb",
                         font: {
                             family: "Oxanium",
-                            size: 14,
+                            size: 12,
                             weight: "bold",
                         },
                     },
@@ -214,7 +251,7 @@ export class AppService {
                         color: "#706deb",
                         font: {
                             family: "Oxanium",
-                            size: 14,
+                            size: 12,
                             weight: "bold",
                         },
                     },
@@ -229,7 +266,7 @@ export class AppService {
                     labels: {
                         font: {
                             family: "Oxanium",
-                            size: 14,
+                            size: 12,
                             weight: "bold",
                         },
                     },

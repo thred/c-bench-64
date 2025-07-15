@@ -26,6 +26,12 @@ export class BenchmarkComponent {
 
     readonly key = input.required<BenchmarkKey>();
 
+    readonly chartWidth = input<number>(1024);
+
+    readonly widthStyle = computed(() => `${this.chartWidth() - 24}px`);
+
+    readonly heightStyle = computed(() => `${Math.max(376, this.chartWidth() / 3)}px`);
+
     readonly benchmark = computed(() => this.service.benchmarkWithResultsMap()[this.key()]);
 
     readonly timeBenchmark = computed(() =>

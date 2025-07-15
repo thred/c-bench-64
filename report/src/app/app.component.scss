@@ -1,56 +1,10 @@
 :host {
-    display: block;
-
-    padding-right: var(--toc-width);
-
-    @media print {
-        padding-right: 0;
-    }
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.toc {
-    position: fixed;
-    right: min(12vw, 120px);
-    top: min(8vh, 80px);
-    height: fit-content;
-    width: var(--toc-width);
-    margin-right: 2rem;
-    max-height: 100vh;
-    box-sizing: border-box;
-
-    h4 {
-        margin: 0.25em 0 0.5em 0;
-    }
-
-    a {
-        text-decoration: none;
-        color: var(--text-color);
-
-        &:hover {
-            color: var(--hover-color);
-        }
-
-        &.inactive {
-            opacity: 0.5;
-
-            &:hover {
-                color: inherit;
-                cursor: default;
-            }
-        }
-    }
-
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0 1rem;
-    }
-
-    @media print {
-        display: none !important;
-    }
-}
-
+app-toc,
 .content {
     max-width: 1024px;
     margin: 0 auto;

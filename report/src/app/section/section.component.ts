@@ -6,6 +6,7 @@ import { Component, model, signal } from "@angular/core";
     templateUrl: "./section.component.html",
     styleUrl: "./section.component.scss",
     host: {
+        class: "section",
         "[class.do-not-print]": "collapsed()",
     },
 })

@@ -1,4 +1,4 @@
-import { Component, computed, inject, input } from "@angular/core";
+import { Component, computed, ElementRef, inject, input, viewChild } from "@angular/core";
 import { BaseChartDirective } from "ng2-charts";
 import { AppService } from "../app.service";
 import { BenchmarkResults } from "../benchmarks";
@@ -11,6 +11,8 @@ import { BenchmarkResults } from "../benchmarks";
 })
 export class TimeBenchmarkComponent {
     protected readonly service = inject(AppService);
+
+    protected readonly canvas = viewChild.required<ElementRef<HTMLCanvasElement>>("canvas");
 
     readonly results = input.required<BenchmarkResults>();
 

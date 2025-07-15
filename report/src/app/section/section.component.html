@@ -1,5 +1,7 @@
-<ng-content select="[headline]" />
+<div class="section-toggle">
+    <ng-content select="[headline]" />
+</div>
 
-<div class="collapsible" [class.collapsed]="collapsed()">
+<div class="section-collapsible" [class.collapsed]="collapsed()">
     <ng-content />
 </div>

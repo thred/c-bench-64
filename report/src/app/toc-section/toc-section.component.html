@@ -1,0 +1,11 @@
+<a class="toc-section-label" (click)="expand($event)">
+    {{ label() }}
+</a>
+
+<ul class="toc-section-items" [class.expanded]="expanded()" [style.top]="toc.height()">
+    @for (item of items(); track item) {
+        <li>
+            <ng-container *ngTemplateOutlet="item.template()"></ng-container>
+        </li>
+    }
+</ul>

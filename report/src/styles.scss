@@ -7,7 +7,9 @@
 
 * {
     box-sizing: border-box;
+}
 
+html {
     // Commodore 64 Pepto color palette (https://www.pepto.de/projects/colorvic/)
     --c64-black: #000000;
     --c64-white: #ffffff;
@@ -32,13 +34,42 @@
     --highlight-color: var(--c64-yellow);
     --headline-color: var(--c64-white);
     --link-color: var(--c64-cyan);
-    --hover-color: var(--c64-white);
+    --hover-color: var(--c64-yellow);
     --success-color: var(--c64-light-green);
     --error-color: var(--c64-light-red);
     --warning-color: var(--c64-yellow);
     --separator-color: var(--c64-black);
     --fail-color: var(--c64-dark-grey);
-    --toc-width: 12rem;
+
+    &.dark {
+        --background-color: var(--c64-black);
+        --border-color: var(--c64-dark-grey);
+        --text-color: var(--c64-light-grey);
+        --highlight-color: var(--c64-yellow);
+        --headline-color: var(--c64-white);
+        --link-color: var(--c64-cyan);
+        --hover-color: var(--c64-yellow);
+        --success-color: var(--c64-light-green);
+        --error-color: var(--c64-light-red);
+        --warning-color: var(--c64-yellow);
+        --separator-color: var(--c64-dark-grey);
+        --fail-color: var(--c64-dark-grey);
+    }
+
+    &.light {
+        --background-color: var(--c64-white);
+        --border-color: var(--c64-light-grey);
+        --text-color: var(--c64-dark-grey);
+        --highlight-color: var(--c64-light-blue);
+        --headline-color: var(--c64-black);
+        --link-color: var(--c64-blue);
+        --hover-color: var(--c64-light-blue);
+        --success-color: var(--c64-green);
+        --error-color: var(--c64-red);
+        --warning-color: var(--c64-orange);
+        --separator-color: var(--c64-black);
+        --fail-color: var(--c64-light-grey);
+    }
 }
 
 html,
@@ -59,6 +90,12 @@ body {
         overflow: auto;
         height: unset;
     }
+
+    @media (max-width: 1024px) {
+        font-size: 12pt;
+        padding: 0;
+        overflow: auto;
+    }
 }
 
 body {
@@ -76,14 +113,138 @@ body {
     }
 }
 
-.screen {
+.header-wrapper {
+    background-color: var(--headline-color);
+    color: var(--background-color);
+    border-bottom: 2px solid var(--background-color);
+}
+
+.content-wrapper {
     display: block;
     position: relative;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
+    overflow-x: none;
     overflow-y: auto;
     background-color: var(--background-color);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    margin: 0 0.5em 0 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    vertical-align: text-top;
+    transition: background-image 0.2s;
+    box-shadow: none;
+    background: var(--text-color);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    mask-image: url("assets/checkbox.svg");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    -webkit-mask-image: url("assets/checkbox.svg");
+
+    &:hover,
+    &:focus {
+        background: var(--hover-color);
+    }
+
+    &:checked {
+        mask-image: url("assets/checkbox-checked.svg");
+        -webkit-mask-image: url("assets/checkbox-checked.svg");
+    }
+}
+
+.section {
+    position: relative;
+}
+
+.toc {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    a,
+    a:visited,
+    a:active {
+        color: var(--background-color);
+        text-decoration: none;
+    }
+
+    a:hover,
+    a:focus {
+        color: var(--background-color);
+        background-color: var(--highlight-color);
+    }
+
+    input[type="checkbox"] {
+        background: var(--background-color);
+
+        &:hover,
+        &:focus {
+            background: var(--text-color);
+        }
+    }
+
+    .toc-section {
+        z-index: 1024;
+
+        .toc-section-label {
+            display: inline-block;
+            padding: 0.25em 0.5em;
+            width: 100%;
+            height: 100%;
+            color: var(--background-color);
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .toc-section-items {
+            z-index: 2048;
+            display: none;
+            position: absolute;
+            background-color: var(--headline-color);
+            overflow: hidden;
+            margin: 0;
+            padding: 0.25rem 0;
+            border: 2px solid var(--background-color);
+            border-top: none;
+
+            &.expanded {
+                display: block;
+            }
+
+            li {
+                padding: 0.125em 1em;
+                color: var(--background-color);
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--highlight-color);
+                }
+            }
+        }
+    }
+
+    @media print {
+        display: none !important;
+    }
 }
 
 h1,
@@ -183,7 +344,8 @@ a:active {
     color: var(--link-color);
 }
 
-a:hover {
+a:hover,
+a:focus {
     color: var(--hover-color);
 }
 
@@ -201,50 +363,9 @@ a:hover {
     color: var(--error-color);
 }
 
-/* Commodore 64 style checkboxes */
-input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 1.5em;
-    height: 1.5em;
-    margin: 0 0.5em 0 0;
-    border: 4px solid var(--text-color);
-    border-radius: 4px;
-    background: none;
-    outline: none;
-    cursor: pointer;
-    position: relative;
-    vertical-align: text-top;
-    transition: border-color 0.2s;
-    box-shadow: none;
-    display: inline-block;
-}
-
-input[type="checkbox"]:hover,
-input[type="checkbox"]:focus {
-    border-color: var(--hover-color);
-}
-
-input[type="checkbox"]:checked {
-    background: none;
-}
-
-input[type="checkbox"]:checked::after {
-    content: "✕";
-    color: var(--hover-color);
-    font-size: 1.2em;
-    font-weight: bold;
-    position: absolute;
-    left: -0.04em;
-    top: -0.2em;
-    line-height: 1.3em;
-    pointer-events: none;
-    font-family: inherit;
-}
-
 table {
     border-collapse: collapse;
-    width: 100%;
+    min-width: 100%;
 
     th,
     td {
@@ -339,10 +460,22 @@ canvas {
         transition: transform 0.2s;
     }
 
+    &:hover::after,
+    &:focus::after {
+        background: var(--hover-color);
+    }
+
     &.collapsed {
         &::after {
             transform: rotate(-90deg);
         }
+    }
+}
+
+h3.section-collapser {
+    &:hover::after,
+    &:focus::after {
+        background: var(--text-color);
     }
 }
 

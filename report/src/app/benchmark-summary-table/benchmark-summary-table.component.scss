@@ -1,10 +1,16 @@
+:host {
+    display: block;
+    overflow-x: auto;
+}
+
 table {
     font-size: 80%;
 }
 
 .fail,
 .unknown {
-    color: var(---fail-color);
+    opacity: 0.25;
+    color: var(--text-color);
 }
 
 .lowest-value {
