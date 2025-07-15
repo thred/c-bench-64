@@ -99,10 +99,14 @@ body {
 }
 
 body {
-    padding: min(8vh, 80px) min(12vw, 120px) min(8vh, 80px) min(12vw, 120px);
+    padding: min(6vh, 60px) min(8vw, 80px) min(6vh, 60px) min(8vw, 80px);
     background-color: var(--border-color);
 
     @media print {
+        padding: 0;
+    }
+
+    @media (max-width: 640px), (max-height: 640px) {
         padding: 0;
     }
 }
