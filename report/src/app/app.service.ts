@@ -27,6 +27,8 @@ export class AppService {
         loader: () => this.loadCompilers(),
     });
 
+    readonly loading = computed(() => this.compilersResource.isLoading());
+
     readonly compilers = computed<Compilers>(() => (this.compilersResource.value() as Compilers) ?? {});
 
     readonly confiugrations = computed<Configurations>(() => {
