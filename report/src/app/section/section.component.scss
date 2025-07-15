@@ -3,7 +3,7 @@
         max-height 0.3s ease,
         opacity 0.3s ease;
     overflow: hidden;
-    max-height: 10000px;
+    max-height: unset;
     opacity: 1;
 
     &.collapsed {
