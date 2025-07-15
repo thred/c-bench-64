@@ -88,7 +88,7 @@ export const benchmarks: { [key in BenchmarkKey]: Benchmark } = {
         description:
             "Calculates the factorial of a number using naive recursion. Stresses recursion and the use of local stack variables.",
         footnotes: [
-            "LLVM's optimizer solves this benchmark at compile time, resulting in an execution time of 0 seconds. This demonstrates LLVM's powerful optimizer, but note that it is a rather rare and lucky event.",
+            "The optimzers of LLVM and Oscar64 are solving this benchmark at compile time, resulting in an execution time of 0 seconds. This demonstrates the power of the optimizers, but note that it is a rather rare and lucky event.",
         ],
         url: "benchmarks/src/fact.c",
     },
