@@ -194,6 +194,10 @@ input[type="checkbox"] {
         background-color: var(--highlight-color);
     }
 
+    a.inactive {
+        opacity: 0.5;
+    }
+
     input[type="checkbox"] {
         background: var(--background-color);
 
