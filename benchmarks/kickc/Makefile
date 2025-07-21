@@ -8,6 +8,9 @@ KICKC = sh kickc.sh
 KICKCTARGET = -t c64 -DKICKC
 KICKCOPTS = -Oliverangecallpath
 
+# Install a trap at kernal GETIN
+VICETRAP = 0xffe4
+
 version:
 	@echo ""
 	@echo "Collecting version information of kickc ..."
@@ -44,11 +47,13 @@ exec:
 
 	@$(RM) -f "$(BINDIR)/$(PRG)-kickc.log"
 
-	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-kickc.prg" \
-		-initbreak 0xc000 \
+	$(VICEEXEC) $(VICEOPTS) -autostart "$(BINDIR)/$(PRG)-kickc.prg" \
+		-initbreak $(VICETRAP) \
 		-moncommands "$(SRCDIR)/vice.mon" \
 		-monlog \
 		-monlogname "$(BINDIR)/$(PRG)-kickc.log"
+
+	@if [ -f "$(BINDIR)/vice.png" ]; then mv "$(BINDIR)/vice.png" "$(BINDIR)/$(PRG)-$(SUFFIX).png"; fi
 
 	cat "$(BINDIR)/$(PRG)-kickc.log" 
 

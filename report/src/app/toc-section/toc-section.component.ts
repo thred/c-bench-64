@@ -1,6 +1,7 @@
 import { NgTemplateOutlet } from "@angular/common";
 import { Component, computed, contentChildren, inject, input, model } from "@angular/core";
-import { TOCItemComponent } from "../toc-item/toc-item.component";
+import { AbstractTocItemComponent } from "../toc-item/abstract-toc-item.component";
+import { TOCSeparatorComponent } from "../toc-separator/toc-separator.component";
 import { TOCComponent } from "../toc/toc.component";
 
 @Component({
@@ -17,7 +18,9 @@ export class TOCSectionComponent {
 
     readonly id = crypto.randomUUID();
 
-    readonly items = contentChildren(TOCItemComponent);
+    readonly items = contentChildren(AbstractTocItemComponent);
+
+    readonly separators = contentChildren(TOCSeparatorComponent);
 
     readonly href = input<string | undefined>(undefined);
 

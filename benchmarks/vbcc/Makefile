@@ -3,9 +3,12 @@ BINDIR := $(CURDIR)/bin
 
 export VBCC = $(CURDIR)/vbcc
 VC = vc
-VBCCTARGET = +c64 -lm
+VBCCTARGET = +c64 -lm -DVBCC
 VBCCPERFOPTS = -O4 -speed
 VBCCSIZEOPTS = -O4 -size
+
+# Install a trap at kernal GETIN
+VICETRAP = 0xffe4
 
 version:
 	@echo ""
@@ -51,11 +54,13 @@ exec:
 
 	@$(RM) -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
 
-	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
-		-initbreak 0xc000 \
+	$(VICEEXEC) $(VICEOPTS) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
+		-initbreak $(VICETRAP) \
 		-moncommands "$(SRCDIR)/vice.mon" \
 		-monlog \
 		-monlogname "$(BINDIR)/$(PRG)-$(SUFFIX).log"
+
+	@if [ -f "$(BINDIR)/vice.png" ]; then mv "$(BINDIR)/vice.png" "$(BINDIR)/$(PRG)-$(SUFFIX).png"; fi
 
 	cat "$(BINDIR)/$(PRG)-$(SUFFIX).log" 
 

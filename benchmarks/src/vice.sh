@@ -3,7 +3,7 @@
 flatpak run net.sf.VICE \
     -config ../src/vice.ini \
     -autostart "$1" \
-    -initbreak 0xc000 \
+    -initbreak $(VICETRAP) \
     -moncommands ../src/vice.mon \
     -monlog \
     -monlogname monitor.log &

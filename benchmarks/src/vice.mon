@@ -1,3 +1,5 @@
+sw
+screenshot "bin/vice" 2
 sc 0400
 quit
 

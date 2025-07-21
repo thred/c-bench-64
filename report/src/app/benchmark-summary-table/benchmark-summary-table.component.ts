@@ -23,7 +23,7 @@ export class BenchmarkSummaryTableComponent {
         this.benchmarkKeys().map((key) => this.service.benchmarkWithResultsMap()[key]),
     );
 
-    readonly configurationKeys = computed(() => {
+    readonly configKeys = computed(() => {
         const keys: string[] = [];
 
         for (const benchmarkKey of this.benchmarkKeys()) {
@@ -41,12 +41,12 @@ export class BenchmarkSummaryTableComponent {
         return benchmarks[benchmarkKey].shortName;
     }
 
-    getConfigurationName(configurationKey: string): string {
-        return this.service.getConfigurationName(configurationKey);
+    getConfigName(configKey: string): string {
+        return this.service.findConfigNameByKey(configKey);
     }
 
-    getValue(benchmarkKey: BenchmarkKey, configurationKey: string): string {
-        const item = this.summary()[benchmarkKey]?.[configurationKey];
+    getValue(benchmarkKey: BenchmarkKey, configKey: string): string {
+        const item = this.summary()[benchmarkKey]?.[configKey];
 
         if (!item || isNaN(item.value)) {
             return "";
@@ -55,8 +55,8 @@ export class BenchmarkSummaryTableComponent {
         return `${item.value.toFixed(this.decimalDigits())} ${this.unit()}`;
     }
 
-    getClassName(benchmarkKey: BenchmarkKey, configurationKey: string): string {
-        const item = this.summary()[benchmarkKey]?.[configurationKey];
+    getClassName(benchmarkKey: BenchmarkKey, configKey: string): string {
+        const item = this.summary()[benchmarkKey]?.[configKey];
 
         if (!item) {
             return "unknown";

@@ -31,24 +31,24 @@ export class BenchmarkSummaryComponent {
             const results = (allResults[benchmarkKey] = allResults[benchmarkKey] ?? {});
             const benuchmarkResults = this.service.benchmarkWithResultsMap()[benchmarkKey];
 
-            for (const configurationKey of Object.keys(benuchmarkResults.results)) {
-                const configuration = this.service.getConfiguration(configurationKey);
+            for (const configKey of Object.keys(benuchmarkResults.results)) {
+                const configuration = this.service.findConfigByKey(configKey);
 
                 if (!configuration || (this.includePerfOptOnly() && configuration.optimization === "size")) {
                     continue;
                 }
 
-                const currentResult: BenchmarkResult | undefined = benuchmarkResults.results[configurationKey];
+                const currentResult: BenchmarkResult | undefined = benuchmarkResults.results[configKey];
 
                 if (!currentResult || currentResult.time === undefined) {
-                    results[configurationKey] = {
+                    results[configKey] = {
                         value: NaN,
                         status: "unknown",
                         lowestValue: false,
                         hightestValue: false,
                     };
                 } else {
-                    results[configurationKey] = {
+                    results[configKey] = {
                         value: currentResult.time,
                         status: currentResult.status,
                         lowestValue: false,
@@ -70,24 +70,24 @@ export class BenchmarkSummaryComponent {
             const results = (allResults[benchmarkKey] = allResults[benchmarkKey] ?? {});
             const benuchmarkResults = this.service.benchmarkWithResultsMap()[benchmarkKey];
 
-            for (const configurationKey of Object.keys(benuchmarkResults.results)) {
-                const configuration = this.service.getConfiguration(configurationKey);
+            for (const configKey of Object.keys(benuchmarkResults.results)) {
+                const configuration = this.service.findConfigByKey(configKey);
 
                 if (!configuration || (this.includeSizeOptOnly() && configuration.optimization === "performance")) {
                     continue;
                 }
 
-                const currentResult: BenchmarkResult | undefined = benuchmarkResults.results[configurationKey];
+                const currentResult: BenchmarkResult | undefined = benuchmarkResults.results[configKey];
 
                 if (!currentResult || currentResult.size === undefined) {
-                    results[configurationKey] = {
+                    results[configKey] = {
                         value: NaN,
                         status: "unknown",
                         lowestValue: false,
                         hightestValue: false,
                     };
                 } else {
-                    results[configurationKey] = {
+                    results[configKey] = {
                         value: currentResult.size / 1024,
                         status: currentResult.status,
                         lowestValue: false,
@@ -102,9 +102,7 @@ export class BenchmarkSummaryComponent {
         return allResults as BenchmarkSummary;
     });
 
-    private static updateLowestAndHighestValues(benchmarkSummary: {
-        [configurationKey: string]: BenchmarkSummaryItem;
-    }): void {
+    private static updateLowestAndHighestValues(benchmarkSummary: { [configKey: string]: BenchmarkSummaryItem }): void {
         const values = Object.values(benchmarkSummary)
             .filter((item) => !isNaN(item.value) && item.status === "pass")
             .map((item) => item.value);
@@ -116,7 +114,7 @@ export class BenchmarkSummaryComponent {
         const lowestValue = Math.min(...values);
         const highestValue = Math.max(...values);
 
-        for (const [configurationKey, item] of Object.entries(benchmarkSummary)) {
+        for (const [configKey, item] of Object.entries(benchmarkSummary)) {
             if (isNaN(item.value) || item.status !== "pass") {
                 continue;
             }

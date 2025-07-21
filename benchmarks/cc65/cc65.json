@@ -13,9 +13,12 @@
         "Large community and good documentation.",
         "Support for overlays."
     ],
+    "neutral": [
+        "Generated code is not very efficient but at least quite small."
+    ],
     "cons": [
         "No floating-point support.",
-        "Generated code is not very efficient."
+        "No built-in support for interrupts."
     ],
     "features": {
         "floatingPoint": {
@@ -34,7 +37,7 @@
             "url": "https://cc65.github.io/doc/ld65.html#s5"
         },
         "fileIO": {
-            "supported": "partial",
+            "supported": "yes",
             "note": "details",
             "url": "https://cc65.github.io/doc/library.html#s2"
         },
@@ -101,18 +104,20 @@
         "VTech Creativision",
         "Watara Supervision"
     ],
-    "configurations": {
-        "cc65p": {
+    "configs": [
+        {
+            "key": "cc65p",
             "name": "cc65 - Perf.Opt.",
             "description": "-Oisr --static-locals",
             "optimization": "performance",
             "color": "#c46c71"
         },
-        "cc65s": {
+        {
+            "key": "cc65s",
             "name": "cc65 - Size Opt.",
             "description": "-Os --static-locals",
             "optimization": "size",
             "color": "#c46c71"
         }
-    }
+    ]
 }

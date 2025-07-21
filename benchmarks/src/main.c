@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "cia_timer.h"
 #include "out.h"
 
@@ -12,8 +13,11 @@ unsigned char benchmark_check(void);
 #define MAIN int main()
 #endif
 
-static volatile unsigned char *brk = (unsigned char *)0xc000;
-static void (*func)(void) = (void (*)(void))0xc000;
+#if defined(LLVM) || defined(VBCC)
+#define VICETRAP 0xc000
+static volatile unsigned char *viceTrapPtr = (unsigned char *)VICETRAP;
+static void (*viceTrap)(void) = (void (*)(void))VICETRAP;
+#endif
 
 MAIN
 {
@@ -21,11 +25,7 @@ MAIN
     unsigned int f;
 
 #ifdef OSCAR64
-    // Toggle lower case mode on OSCAR64
-    __asm {
-            lda $17 // Load the value of $17 (VIC-II register)
-            sta $d018 // Store back to VIC-II register
-    }
+    *(unsigned char *)0xd018 = 0x17; // Set VIC-II to lower case mode
 #endif
 
     print("Calibrating frequency: ");
@@ -48,16 +48,17 @@ MAIN
     print_int(t % 10, 0);
     print(" s\n");
 
-    // allow the program to be stopped at a breakpoint to capture the output
-#ifdef OSCAR64
-    __asm {
-        lda #$60 // Load accumulator with RTS opcode (0x60)
-        sta $c000 // Store it at $c000
-        jmp $c000 // Jump to $c000 to execute the BRK
-    }
-#else
-    *brk = 0x60; // Write RTS opcode (0x60) at $c000 for return
-    func();      // Jump to $c000 and execute BRK
+#if defined(LLVM) || defined(VBCC)
+    fflush(stdout);
+#endif
+
+    // Wait a bit to ensure a refresh before taking a screenshot
+    tod_init(0);
+
+#if defined(LLVM) || defined(VBCC)
+    // Trigger the VICE monitor to exit
+    *viceTrapPtr = 0x60; // RTS opcode
+    viceTrap();
 #endif
 
 #ifndef KICKC

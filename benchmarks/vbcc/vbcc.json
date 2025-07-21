@@ -57,18 +57,20 @@
     },
     "runtimeSupport": [],
     "warning": "The description is work in progress.",
-    "configurations": {
-        "vbccp": {
+    "configs": [
+        {
+            "key": "vbccp",
             "name": "VBCC - Perf.Opt.",
             "description": "-O4 -speed",
             "optimization": "performance",
             "color": "#706deb"
         },
-        "vbccs": {
+        {
+            "key": "vbccs",
             "name": "VBCC - Size Opt.",
             "description": "-O4 -size",
             "optimization": "size",
             "color": "#706deb"
         }
-    }
+    ]
 }

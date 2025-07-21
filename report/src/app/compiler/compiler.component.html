@@ -31,7 +31,7 @@
         <li><app-supported [supported]="compiler().features['maintained']">Maintained</app-supported></li>
     </ul>
 
-    @if (compiler().pros.length > 0) {
+    @if (compiler().pros?.length) {
         <app-section>
             <h4 headline appSectionCollapser>Pros</h4>
             <ul>
@@ -42,7 +42,18 @@
         </app-section>
     }
 
-    @if (compiler().cons.length > 0) {
+    @if (compiler().neutral?.length) {
+        <app-section>
+            <h4 headline appSectionCollapser>Neutral</h4>
+            <ul>
+                @for (neutral of compiler().neutral; track $index) {
+                    <li><span class="icon warning" shape="partial"></span> {{ neutral }}</li>
+                }
+            </ul>
+        </app-section>
+    }
+
+    @if (compiler().cons?.length) {
         <app-section>
             <h4 headline appSectionCollapser>Cons</h4>
             <ul>

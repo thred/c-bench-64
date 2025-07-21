@@ -17,7 +17,40 @@ const benchmarks = [
     "puff2",
     "sieve",
     "sieve_bit",
+    "test_math",
+    "test_stdio_file",
+    "test_stdio_print",
+    "test_stdio_scan",
+    "test_stdlib",
+    "test_string",
 ];
+
+const testDefs = {
+    "test_math": {
+        "name": "math.h",
+        "tests": ["floor", "ceil", "sin", "cos", "tan", "asin", "acos", "atan", "atan2", "exp", "log", "log10", "pow", "sqrt"]
+    },
+    "test_stdio_file": {
+        "name": "stdio.h",
+        "tests": ["fputc", "fgetc", "fputs", "fgets", "fwrite", "fread"]
+    },
+    "test_stdio_print": {
+        "name": "stdio.h",
+        "tests": ["printf-c", "printf-s", "printf-d", "printf-ld", "printf-i", "printf-li", "printf-x", "printf-lx", "printf-X", "printf-lX", "printf-f", "printf-e"]
+    },
+    "test_stdio_scan": {
+        "name": "stdio.h",   
+        "tests": ["scanf-c", "scanf-s", "scanf-d",  "scanf-i", "scanf-x", "scanf-X", "scanf-f", "scanf-e"]     
+    },
+    "test_stdlib": {
+        "name": "stdlib.h",
+        "tests": ["rand", "srand", "atof", "atoi", "atol", "malloc", "calloc", "realloc", "qsort", "abs", "labs", "div", "ldiv"]
+    },
+    "test_string": {
+        "name": "string.h",
+        "tests": ["strlen", "strchr", "strrchr", "strcmp", "strncmp", "strcat", "strncat", "strstr", "memchr", "memset", "memcpy", "memmove"]
+    }
+};
 
 const compilersKeys = {
     cc65: "cc65",
@@ -37,7 +70,9 @@ function getLogTime(log) {
 }
 
 function getStatus(log) {
+    if (!log) return "unknown";
     if (log.includes("[FAIL]")) return "fail";
+    if (log.includes("[MISS]")) return "unsupported";
     if (log.includes("[OK]")) return "pass";
     return "unknown";
 }
@@ -48,20 +83,15 @@ function filterLog(log) {
     
     log = displayIdx !== -1 ? log.slice(displayIdx + headline.length) : "";
 
-    // return log
-    //     .split("\n")
-    //     .map(line => line.replace(/^[0-9a-fA-F]{4} /, ""))
-    //     .join("\n")
-    //     .trim();
-
     return log;
 }
 
-function aggregateConfiugration(configuration, dir, ext) {
-    const result = {};
+function aggregateResults(configKey, dir) {
+    const results = {};
 
     for (const bench of benchmarks) {
-        const prgPath = path.join(baseDir, dir, "bin", `${bench}-${configuration}.prg`);
+        const prgName = `${bench}-${configKey}.prg`;
+        const prgPath = path.join(baseDir, dir, "bin", prgName);
 
         if (!fs.existsSync(prgPath)) {
             console.error(`  PRG file not found: ${prgPath}`);
@@ -70,7 +100,7 @@ function aggregateConfiugration(configuration, dir, ext) {
 
         const size = fs.statSync(prgPath).size;
 
-        const logPath = path.join(baseDir, dir, "bin", `${bench}-${configuration}.log`);
+        const logPath = path.join(baseDir, dir, "bin", `${bench}-${configKey}.log`);
 
         if (!fs.existsSync(logPath)) {
             console.error(`  Log file not found: ${logPath}`);
@@ -79,15 +109,67 @@ function aggregateConfiugration(configuration, dir, ext) {
 
         const log = fs.readFileSync(logPath, "utf8");
 
-        result[bench] = {
+        results[bench] = {
+            prgName: prgName,
             size: size,
             time: getLogTime(log),
             status: getStatus(log),
             output: filterLog(log),
         };
+
+        const screenshotName = `${bench}-${configKey}.png`;
+        const screenshotPath = path.join(baseDir, dir, "bin", screenshotName);
+
+        if (fs.existsSync(screenshotPath)) {
+            results[bench].screenshot = screenshotName;
+            const destScreenshotPath = path.join(__dirname, "public", screenshotName);
+            fs.copyFileSync(screenshotPath, destScreenshotPath);
+        }
     }
 
-    return result;
+    return results;
+}
+
+function aggregateTests(configKey, dir) {
+    const tests = {};
+
+    for (const testKey in testDefs) {
+        const testDef = testDefs[testKey];
+        const testName = testDef.name;
+
+        tests[testName] = tests[testName] || {};
+
+        const prgName = `${testKey}-${configKey}.prg`;
+        const prgPath = path.join(baseDir, dir, "bin", prgName);
+
+        if (!fs.existsSync(prgPath)) {
+            console.error(`  PRG file not found: ${prgPath}`);
+            continue;
+        }
+
+        const size = fs.statSync(prgPath).size;
+
+        const logPath = path.join(baseDir, dir, "bin", `${testKey}-${configKey}.log`);
+
+        if (!fs.existsSync(logPath)) {
+            console.error(`  Log file not found for test ${testName}: ${logPath}`);
+            continue;
+        }
+
+        const log = fs.readFileSync(logPath, "utf8");
+
+        for (const test of testDef.tests) {
+            const regex = new RegExp(`#${test}\\b.*`, "m");
+            const match = log.match(regex);
+            
+            tests[testName][test] = {
+                status: getStatus(match ? match[0] : null),
+                prgName: prgName
+            };
+        }
+    }
+
+    return tests;
 }
 
 function main() {
@@ -119,16 +201,23 @@ function main() {
 
         // Read compiler config
         const compiler = JSON.parse(fs.readFileSync(compilerPath, "utf8"));
-        const configurations = Object.keys(compiler.configurations);
 
         // Aggregate results for each configuration
-        for (const configuration of configurations) {
-            const data = aggregateConfiugration(configuration, dir, "prg");
+        for (const config of compiler.configs) {
+
+            if (!config.compilerKey) {
+                config.compilerKey = compilerKey;
+            }
+
+            const results = aggregateResults(config.key, dir);
+            const tests = aggregateTests(config.key, dir);
 
             compiler.version = version || "unknown";
             compiler.date = date || "unknown";
             compiler.results = compiler.results || {};
-            compiler.results[configuration] = data;
+            compiler.results[config.key] = results;
+            compiler.tests = compiler.tests || {};
+            compiler.tests[config.key] = tests;
         }
 
         fs.writeFileSync(destJson, JSON.stringify(compiler, null, 2));

@@ -46,7 +46,7 @@ export class BenchmarkComponent {
         BenchmarkComponent.filterConfigurations(this.benchmark()?.results, ["none", "size"], this.includeSizeOptOnly()),
     );
 
-    readonly configurationKeys = computed(() => Object.keys(this.benchmark()?.results || {}));
+    readonly configKeys = computed(() => Object.keys(this.benchmark()?.results || {}));
 
     readonly failedBenchmarks = computed(() =>
         Object.keys(this.benchmark()?.results)
@@ -55,12 +55,10 @@ export class BenchmarkComponent {
             .join(", "),
     );
 
-    readonly selectedOutputConfigurationKey = signal<string | undefined>(undefined);
+    readonly selectedOutputConfigKey = signal<string | undefined>(undefined);
 
     readonly selectedOutput = computed(() =>
-        this.selectedOutputConfigurationKey()
-            ? this.benchmark()?.results[this.selectedOutputConfigurationKey()!]?.output
-            : undefined,
+        this.selectedOutputConfigKey() ? this.benchmark()?.results[this.selectedOutputConfigKey()!]?.output : undefined,
     );
 
     get includePerfOptOnly() {
@@ -71,16 +69,16 @@ export class BenchmarkComponent {
         return this.service.includeSizeOptOnly;
     }
 
-    toggleOutputConfigurationKey(configurationKey: string): void {
-        if (this.selectedOutputConfigurationKey() === configurationKey) {
-            this.selectedOutputConfigurationKey.set(undefined);
+    toggleOutputConfigKey(configKey: string): void {
+        if (this.selectedOutputConfigKey() === configKey) {
+            this.selectedOutputConfigKey.set(undefined);
         } else {
-            this.selectedOutputConfigurationKey.set(configurationKey);
+            this.selectedOutputConfigKey.set(configKey);
         }
     }
 
-    getConfigurationName(configurationKey: string): string {
-        return this.benchmark()?.results[configurationKey]?.name || configurationKey;
+    getConfigName(configKey: string): string {
+        return this.benchmark()?.results[configKey]?.name || configKey;
     }
 
     static filterConfigurations(

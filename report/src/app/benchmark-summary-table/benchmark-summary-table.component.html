@@ -1,27 +1,33 @@
-<table>
-    <thead>
-        <tr>
-            <th></th>
+@if (!benchmarkKeys().length) {
+    <p class="box">
+        No benchmarks selected. Please select one or more benchmarks from the menu.<span class="blinking-cursor"></span>
+    </p>
+} @else {
+    <table>
+        <thead>
+            <tr>
+                <th>Benchmark</th>
 
-            @for (configurationKey of configurationKeys(); track configurationKey) {
-                <th>{{ getConfigurationName(configurationKey) }}</th>
+                @for (configKey of configKeys(); track configKey) {
+                    <th>{{ getConfigName(configKey) }}</th>
+                }
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (benchmarkKey of benchmarkKeys(); track benchmarkKey) {
+                @if (summary()[benchmarkKey]; as summary) {
+                    <tr>
+                        <th>{{ getBenchmarkShortName(benchmarkKey) }}</th>
+
+                        @for (configKey of configKeys(); track configKey) {
+                            <td [class]="getClassName(benchmarkKey, configKey)">
+                                {{ getValue(benchmarkKey, configKey) }}
+                            </td>
+                        }
+                    </tr>
+                }
             }
-        </tr>
-    </thead>
-
-    <tbody>
-        @for (benchmarkKey of benchmarkKeys(); track benchmarkKey) {
-            @if (summary()[benchmarkKey]; as summary) {
-                <tr>
-                    <th>{{ getBenchmarkShortName(benchmarkKey) }}</th>
-
-                    @for (configurationKey of configurationKeys(); track configurationKey) {
-                        <td [class]="getClassName(benchmarkKey, configurationKey)">
-                            {{ getValue(benchmarkKey, configurationKey) }}
-                        </td>
-                    }
-                </tr>
-            }
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+}

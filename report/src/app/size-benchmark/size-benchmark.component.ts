@@ -20,11 +20,11 @@ export class SizeBenchmarkComponent {
 
     readonly data = computed(() => {
         const results = this.results();
-        const configurationKeys = Object.keys(results);
+        const configKeys = Object.keys(results);
 
-        const labels = configurationKeys.map((key) => results[key].name);
-        const sizes = configurationKeys.map((key) => results[key].size / 1024); // Convert bytes to kilobytes
-        const backgroundColors = configurationKeys.map((key) =>
+        const labels = configKeys.map((key) => results[key].name);
+        const sizes = configKeys.map((key) => results[key].size / 1024); // Convert bytes to kilobytes
+        const backgroundColors = configKeys.map((key) =>
             results[key].status === "pass" ? results[key].color : "#4a4a4a",
         );
 

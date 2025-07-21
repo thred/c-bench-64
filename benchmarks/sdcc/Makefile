@@ -12,6 +12,9 @@ SDCCTARGET = -mmos6502 -I"$(SDCCINCLUDEDIR)" --lib-path "$(SDCCLIBDIR)"
 SDCCPERFOPTS = --max-allocs-per-node 250000 --opt-code-speed
 SDCCSIZEOPTS = --max-allocs-per-node 250000 --opt-code-size
 
+# Install a trap at kernal GETIN
+VICETRAP = 0xffe4
+
 version:
 	@echo ""
 	@echo "Collecting version information of sdcc ..."
@@ -81,11 +84,13 @@ exec:
 
 	@$(RM) -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
 
-	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
-		-initbreak 0xc000 \
+	$(VICEEXEC) $(VICEOPTS) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
+		-initbreak $(VICETRAP) \
 		-moncommands "$(SRCDIR)/vice.mon" \
 		-monlog \
 		-monlogname "$(BINDIR)/$(PRG)-$(SUFFIX).log"
+
+	@if [ -f "$(BINDIR)/vice.png" ]; then mv "$(BINDIR)/vice.png" "$(BINDIR)/$(PRG)-$(SUFFIX).png"; fi
 
 	cat "$(BINDIR)/$(PRG)-$(SUFFIX).log" 
 

@@ -15,7 +15,8 @@
   ],
   "cons": [
     "No overlay support",
-    "Documentation could be improved"
+    "Documentation could be improved",
+    "Procudes rather large binaries"
   ],
   "features": {
     "floatingPoint": {
@@ -90,157 +91,750 @@
     "Picocomputer 6502 (RP6502)",
     "RPC/8e (RedPower 2)"
   ],
-  "configurations": {
-    "llvmp": {
+  "configs": [
+    {
+      "key": "llvmp",
       "name": "LLVM-mos - Perf.Opt.",
       "description": "-O3 -fnonreentrant",
       "optimization": "performance",
-      "color": "#edf171"
+      "color": "#edf171",
+      "compilerKey": "llvm"
     },
-    "llvms": {
+    {
+      "key": "llvms",
       "name": "LLVM-mos - Size Opt.",
       "description": "-Os -flto -fnonreentrant",
       "optimization": "size",
-      "color": "#edf171"
+      "color": "#edf171",
+      "compilerKey": "llvm"
     }
-  },
+  ],
   "version": "21.0.0git",
-  "date": "2025-07-12 11:42:59",
+  "date": "2025-07-26 08:58:45",
   "results": {
     "llvmp": {
       "aes256": {
-        "size": 6054,
+        "prgName": "aes256-llvmp.prg",
+        "size": 10587,
         "time": 10,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-llvmp\",8,1                  \n0518                                          \n0540  searching for aes256-llvmp              \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 [OK]                     \n06d0  Total time: 10.0 s                      \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-llvmp\",8,1                  \n0518                                          \n0540  searching for aes256-llvmp              \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 [OK]                     \n06d0  Total time: 10.0 s                      \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "aes256-llvmp.png"
       },
       "crc8": {
-        "size": 2964,
+        "prgName": "crc8-llvmp.prg",
+        "size": 7789,
         "time": 1,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-llvmp\",8,1                    \n0518                                          \n0540  searching for crc8-llvmp                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=A2 [OK]                            \n06f8  Total time: 1.0 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-llvmp\",8,1                    \n0518                                          \n0540  searching for crc8-llvmp                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=A2 [OK]                            \n06f8  Total time: 1.0 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc8-llvmp.png"
       },
       "crc16": {
-        "size": 3227,
-        "time": 2.3,
+        "prgName": "crc16-llvmp.prg",
+        "size": 7889,
+        "time": 1.7,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-llvmp\",8,1                   \n0518                                          \n0540  searching for crc16-llvmp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 2.3 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-llvmp\",8,1                   \n0518                                          \n0540  searching for crc16-llvmp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 1.7 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc16-llvmp.png"
       },
       "crc32": {
-        "size": 3717,
-        "time": 4,
+        "prgName": "crc32-llvmp.prg",
+        "size": 8124,
+        "time": 3.6,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-llvmp\",8,1                   \n0518                                          \n0540  searching for crc32-llvmp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 [OK]                     \n06f8  Total time: 4.0 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-llvmp\",8,1                   \n0518                                          \n0540  searching for crc32-llvmp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 [OK]                     \n06f8  Total time: 3.6 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc32-llvmp.png"
       },
       "dhrystone": {
-        "size": 5317,
+        "prgName": "dhrystone-llvmp.prg",
+        "size": 8374,
         "time": 2,
         "status": "pass",
-        "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  Int_Glob == 5 [OK]                      \n0568  Bool_Glob == 1 [OK]                     \n0590  Ch_1_Glob == 'A' [OK]                   \n05b8  Ch_2_Glob == 'B' [OK]                   \n05e0  Arr_1_Glob[8] == 7 [OK]                 \n0608  Arr_2_Glob[8][7] == NOR + 10 [OK]       \n0630  Discr == 0 [OK]                         \n0658  Enum_Comp == 2 [OK]                     \n0680  Int_Comp == 17 [OK]                     \n06a8  Str_Comp == DHRYSTONE... [OK]           \n06d0  Ptr_Comp == Ptr_Comp [OK]               \n06f8  Discr == 0 [OK]                         \n0720  Enum_Comp == 1 [OK]                     \n0748  Int_Comp == 18 [OK]                     \n0770                                          \n0798  Total time: 2.0 s                       \n07c0                                          \n"
+        "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  Int_Glob == 5 [OK]                      \n0568  Bool_Glob == 1 [OK]                     \n0590  Ch_1_Glob == 'A' [OK]                   \n05b8  Ch_2_Glob == 'B' [OK]                   \n05e0  Arr_1_Glob[8] == 7 [OK]                 \n0608  Arr_2_Glob[8][7] == NOR + 10 [OK]       \n0630  Discr == 0 [OK]                         \n0658  Enum_Comp == 2 [OK]                     \n0680  Int_Comp == 17 [OK]                     \n06a8  Str_Comp == DHRYSTONE... [OK]           \n06d0  Ptr_Comp == Ptr_Comp [OK]               \n06f8  Discr == 0 [OK]                         \n0720  Enum_Comp == 1 [OK]                     \n0748  Int_Comp == 18 [OK]                     \n0770                                          \n0798  Total time: 2.0 s                       \n07c0                                          \n",
+        "screenshot": "dhrystone-llvmp.png"
       },
       "fact": {
-        "size": 3057,
+        "prgName": "fact-llvmp.prg",
+        "size": 7842,
         "time": 0,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-llvmp\",8,1                    \n0518                                          \n0540  searching for fact-llvmp                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=188806544 [OK]                      \n06f8  Total time: 0.0 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-llvmp\",8,1                    \n0518                                          \n0540  searching for fact-llvmp                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=188806544 [OK]                      \n06f8  Total time: 0.0 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "fact-llvmp.png"
       },
       "pi": {
-        "size": 4824,
+        "prgName": "pi-llvmp.prg",
+        "size": 9380,
         "time": 62.9,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-llvmp\",8,1                      \n0518                                          \n0540  searching for pi-llvmp                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 62.9 s                      \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-llvmp\",8,1                      \n0518                                          \n0540  searching for pi-llvmp                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 62.9 s                      \n07c0                                          \n",
+        "screenshot": "pi-llvmp.png"
       },
       "pow": {
-        "size": 17449,
+        "prgName": "pow-llvmp.prg",
+        "size": 29391,
         "time": 19.2,
         "status": "pass",
-        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"pow-llvmp\",8,1                     \n04f0                                          \n0518  searching for pow-llvmp                 \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0  Calibrating frequency: 50 Hz            \n0608                                          \n0630  pow.c                                   \n0658  Calculates floating point exponential (1\n0680  0 iterations)                           \n06a8                                          \n06d0  res      = %e                           \n06f8  expected = %e                           \n0720  epsilon  = %e                           \n0748  diff     = %e [OK]                      \n0770                                          \n0798  Total time: 19.2 s                      \n07c0                                          \n"
+        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"pow-llvmp\",8,1                     \n04f0                                          \n0518  searching for pow-llvmp                 \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0  Calibrating frequency: 50 Hz            \n0608                                          \n0630  pow.c                                   \n0658  Calculates floating point exponential (1\n0680  0 iterations)                           \n06a8                                          \n06d0  res      = %e                           \n06f8  expected = %e                           \n0720  epsilon  = %e                           \n0748  diff     = %e [OK]                      \n0770                                          \n0798  Total time: 19.2 s                      \n07c0                                          \n",
+        "screenshot": "pow-llvmp.png"
       },
       "puff2": {
-        "size": 20598,
-        "time": 22.8,
-        "status": "fail",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-llvmp\",8,1                   \n0518                                          \n0540  searching for puff2-llvmp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  puff.c                                  \n0680  inflate compressed data                 \n06a8  RES=1                                   \n06d0  slen=3407 dlen=4096                     \n06f8                                          \n0720  CRC32=9CC619A9 [FAIL] - expected 28ED93C\n0748  7                                       \n0770  Total time: 22.8 s                      \n0798                                          \n07c0                                          \n"
+        "prgName": "puff2-llvmp.prg",
+        "size": 24872,
+        "time": 16,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-llvmp\",8,1                   \n0518                                          \n0540  searching for puff2-llvmp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  puff.c                                  \n0680  inflate compressed data                 \n06a8  RES=0                                   \n06d0  slen=3407 dlen=4096                     \n06f8                                          \n0720  CRC32=28ED93C7 [OK]                     \n0748  Total time: 16.0 s                      \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "puff2-llvmp.png"
       },
       "sieve": {
-        "size": 4814,
+        "prgName": "sieve-llvmp.prg",
+        "size": 8884,
         "time": 18.5,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-llvmp\",8,1                   \n0518                                          \n0540  searching for sieve-llvmp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 [OK]                         \n0720  Total time: 18.5 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-llvmp\",8,1                   \n0518                                          \n0540  searching for sieve-llvmp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 [OK]                         \n0720  Total time: 18.5 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "sieve-llvmp.png"
       },
       "sieve_bit": {
-        "size": 4051,
+        "prgName": "sieve_bit-llvmp.prg",
+        "size": 8025,
         "time": 20.5,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve_bit-llvmp\",8,1               \n0518                                          \n0540  searching for sieve_bit-llvmp           \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve_bit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 [OK]                         \n0720  Total time: 20.5 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve_bit-llvmp\",8,1               \n0518                                          \n0540  searching for sieve_bit-llvmp           \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve_bit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 [OK]                         \n0720  Total time: 20.5 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "sieve_bit-llvmp.png"
+      },
+      "test_math": {
+        "prgName": "test_math-llvmp.prg",
+        "size": 13992,
+        "time": 1.3,
+        "status": "unsupported",
+        "output": "0400  ready.                                  \n0428  load\"test_math-llvmp\",8,1               \n0450                                          \n0478  searching for test_math-llvmp           \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #floor [MISS]                           \n0590  #ceil [MISS]                            \n05b8  #cos [MISS]                             \n05e0  #sin [MISS]                             \n0608  #tan [MISS]                             \n0630  #acos [MISS]                            \n0658  #asin [MISS]                            \n0680  #atan [MISS]                            \n06a8  #atan2 [MISS]                           \n06d0  #exp [MISS]                             \n06f8  #log [MISS]                             \n0720  #log10 [MISS]                           \n0748  #pow [MISS]                             \n0770  #sqrt [MISS]                            \n0798  Total time: 1.3 s                       \n07c0                                          \n",
+        "screenshot": "test_math-llvmp.png"
+      },
+      "test_stdio_print": {
+        "prgName": "test_stdio_print-llvmp.prg",
+        "size": 12964,
+        "time": 1.4,
+        "status": "fail",
+        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [FAIL] (%.2f!=3.14)           \n0770  #printf-e [FAIL] (%.2e!=1.23e+05)       \n0798  Total time: 1.4 s                       \n07c0                                          \n",
+        "screenshot": "test_stdio_print-llvmp.png"
+      },
+      "test_stdio_scan": {
+        "prgName": "test_stdio_scan-llvmp.prg",
+        "size": 34742,
+        "time": 1.4,
+        "status": "fail",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [FAIL] (%f)                    \n0770  #scanf-e [FAIL] (%f)                    \n0798  Total time: 1.4 s                       \n07c0                                          \n",
+        "screenshot": "test_stdio_scan-llvmp.png"
+      },
+      "test_string": {
+        "prgName": "test_string-llvmp.prg",
+        "size": 41233,
+        "time": 1.7,
+        "status": "fail",
+        "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen [OK]                            \n0590  #strchr [OK]                            \n05b8  #strrchr [OK]                           \n05e0  #strcmp [OK] [OK]                       \n0608  #strncmp [OK] [OK]                      \n0630  #strcpy [OK]                            \n0658  #strncpy [OK]                           \n0680  #strcat [OK]                            \n06a8  #strncat [OK] [FAIL]                    \n06d0  #strstr [OK]                            \n06f8  #memchr [OK]                            \n0720  #memset [OK]                            \n0748  #memcpy [OK]                            \n0770  #memmove [OK] [OK] [OK] [OK] [OK]       \n0798  Total time: 1.7 s                       \n07c0                                          \n",
+        "screenshot": "test_string-llvmp.png"
       }
     },
     "llvms": {
       "aes256": {
-        "size": 3783,
-        "time": 15.7,
+        "prgName": "aes256-llvms.prg",
+        "size": 7886,
+        "time": 15.6,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-llvms\",8,1                  \n0518                                          \n0540  searching for aes256-llvms              \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 [OK]                     \n06d0  Total time: 15.7 s                      \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-llvms\",8,1                  \n0518                                          \n0540  searching for aes256-llvms              \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 [OK]                     \n06d0  Total time: 15.6 s                      \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "aes256-llvms.png"
       },
       "crc8": {
-        "size": 2335,
+        "prgName": "crc8-llvms.prg",
+        "size": 6439,
         "time": 1.6,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-llvms\",8,1                    \n0518                                          \n0540  searching for crc8-llvms                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=A2 [OK]                            \n06f8  Total time: 1.6 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-llvms\",8,1                    \n0518                                          \n0540  searching for crc8-llvms                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=A2 [OK]                            \n06f8  Total time: 1.6 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc8-llvms.png"
       },
       "crc16": {
-        "size": 2383,
+        "prgName": "crc16-llvms.prg",
+        "size": 6486,
         "time": 2.8,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-llvms\",8,1                   \n0518                                          \n0540  searching for crc16-llvms               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 2.8 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-llvms\",8,1                   \n0518                                          \n0540  searching for crc16-llvms               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 2.8 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc16-llvms.png"
       },
       "crc32": {
-        "size": 2473,
-        "time": 4.4,
+        "prgName": "crc32-llvms.prg",
+        "size": 6565,
+        "time": 4.5,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-llvms\",8,1                   \n0518                                          \n0540  searching for crc32-llvms               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 [OK]                     \n06f8  Total time: 4.4 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-llvms\",8,1                   \n0518                                          \n0540  searching for crc32-llvms               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 [OK]                     \n06f8  Total time: 4.5 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc32-llvms.png"
       },
       "dhrystone": {
-        "size": 4037,
+        "prgName": "dhrystone-llvms.prg",
+        "size": 8145,
         "time": 2.6,
         "status": "pass",
-        "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  Int_Glob == 5 [OK]                      \n0568  Bool_Glob == 1 [OK]                     \n0590  Ch_1_Glob == 'A' [OK]                   \n05b8  Ch_2_Glob == 'B' [OK]                   \n05e0  Arr_1_Glob[8] == 7 [OK]                 \n0608  Arr_2_Glob[8][7] == NOR + 10 [OK]       \n0630  Discr == 0 [OK]                         \n0658  Enum_Comp == 2 [OK]                     \n0680  Int_Comp == 17 [OK]                     \n06a8  Str_Comp == DHRYSTONE... [OK]           \n06d0  Ptr_Comp == Ptr_Comp [OK]               \n06f8  Discr == 0 [OK]                         \n0720  Enum_Comp == 1 [OK]                     \n0748  Int_Comp == 18 [OK]                     \n0770                                          \n0798  Total time: 2.6 s                       \n07c0                                          \n"
+        "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  Int_Glob == 5 [OK]                      \n0568  Bool_Glob == 1 [OK]                     \n0590  Ch_1_Glob == 'A' [OK]                   \n05b8  Ch_2_Glob == 'B' [OK]                   \n05e0  Arr_1_Glob[8] == 7 [OK]                 \n0608  Arr_2_Glob[8][7] == NOR + 10 [OK]       \n0630  Discr == 0 [OK]                         \n0658  Enum_Comp == 2 [OK]                     \n0680  Int_Comp == 17 [OK]                     \n06a8  Str_Comp == DHRYSTONE... [OK]           \n06d0  Ptr_Comp == Ptr_Comp [OK]               \n06f8  Discr == 0 [OK]                         \n0720  Enum_Comp == 1 [OK]                     \n0748  Int_Comp == 18 [OK]                     \n0770                                          \n0798  Total time: 2.6 s                       \n07c0                                          \n",
+        "screenshot": "dhrystone-llvms.png"
       },
       "fact": {
-        "size": 2706,
-        "time": 43.2,
+        "prgName": "fact-llvms.prg",
+        "size": 6795,
+        "time": 43.6,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-llvms\",8,1                    \n0518                                          \n0540  searching for fact-llvms                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=188806544 [OK]                      \n06f8  Total time: 43.2 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-llvms\",8,1                    \n0518                                          \n0540  searching for fact-llvms                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=188806544 [OK]                      \n06f8  Total time: 43.6 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "fact-llvms.png"
       },
       "pi": {
-        "size": 3685,
-        "time": 63,
+        "prgName": "pi-llvms.prg",
+        "size": 7778,
+        "time": 62.8,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-llvms\",8,1                      \n0518                                          \n0540  searching for pi-llvms                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 63.0 s                      \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-llvms\",8,1                      \n0518                                          \n0540  searching for pi-llvms                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 62.8 s                      \n07c0                                          \n",
+        "screenshot": "pi-llvms.png"
       },
       "pow": {
-        "size": 22900,
+        "prgName": "pow-llvms.prg",
+        "size": 31296,
         "time": 19.9,
         "status": "pass",
-        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"pow-llvms\",8,1                     \n04f0                                          \n0518  searching for pow-llvms                 \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0  Calibrating frequency: 50 Hz            \n0608                                          \n0630  pow.c                                   \n0658  Calculates floating point exponential (1\n0680  0 iterations)                           \n06a8                                          \n06d0  res      = %e                           \n06f8  expected = %e                           \n0720  epsilon  = %e                           \n0748  diff     = %e [OK]                      \n0770                                          \n0798  Total time: 19.9 s                      \n07c0                                          \n"
+        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"pow-llvms\",8,1                     \n04f0                                          \n0518  searching for pow-llvms                 \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0  Calibrating frequency: 50 Hz            \n0608                                          \n0630  pow.c                                   \n0658  Calculates floating point exponential (1\n0680  0 iterations)                           \n06a8                                          \n06d0  res      = %e                           \n06f8  expected = %e                           \n0720  epsilon  = %e                           \n0748  diff     = %e [OK]                      \n0770                                          \n0798  Total time: 19.9 s                      \n07c0                                          \n",
+        "screenshot": "pow-llvms.png"
       },
       "puff2": {
-        "size": 13074,
-        "time": 24.6,
-        "status": "fail",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-llvms\",8,1                   \n0518                                          \n0540  searching for puff2-llvms               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  puff.c                                  \n0680  inflate compressed data                 \n06a8  RES=1                                   \n06d0  slen=5 dlen=0                           \n06f8                                          \n0720  CRC32=9CC619A9 [FAIL] - expected 28ED93C\n0748  7                                       \n0770  Total time: 24.6 s                      \n0798                                          \n07c0                                          \n"
+        "prgName": "puff2-llvms.prg",
+        "size": 17255,
+        "time": 21,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-llvms\",8,1                   \n0518                                          \n0540  searching for puff2-llvms               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  puff.c                                  \n0680  inflate compressed data                 \n06a8  RES=0                                   \n06d0  slen=3407 dlen=4096                     \n06f8                                          \n0720  CRC32=28ED93C7 [OK]                     \n0748  Total time: 21.0 s                      \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "puff2-llvms.png"
       },
       "sieve": {
-        "size": 2455,
-        "time": 21.6,
+        "prgName": "sieve-llvms.prg",
+        "size": 6548,
+        "time": 21.7,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-llvms\",8,1                   \n0518                                          \n0540  searching for sieve-llvms               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 [OK]                         \n0720  Total time: 21.6 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-llvms\",8,1                   \n0518                                          \n0540  searching for sieve-llvms               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 [OK]                         \n0720  Total time: 21.7 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "sieve-llvms.png"
       },
       "sieve_bit": {
-        "size": 2527,
+        "prgName": "sieve_bit-llvms.prg",
+        "size": 6624,
         "time": 23.8,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve_bit-llvms\",8,1               \n0518                                          \n0540  searching for sieve_bit-llvms           \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve_bit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 [OK]                         \n0720  Total time: 23.8 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n"
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve_bit-llvms\",8,1               \n0518                                          \n0540  searching for sieve_bit-llvms           \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve_bit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 [OK]                         \n0720  Total time: 23.8 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "sieve_bit-llvms.png"
+      },
+      "test_math": {
+        "prgName": "test_math-llvms.prg",
+        "size": 13723,
+        "time": 1.3,
+        "status": "unsupported",
+        "output": "0400  ready.                                  \n0428  load\"test_math-llvms\",8,1               \n0450                                          \n0478  searching for test_math-llvms           \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #floor [MISS]                           \n0590  #ceil [MISS]                            \n05b8  #cos [MISS]                             \n05e0  #sin [MISS]                             \n0608  #tan [MISS]                             \n0630  #acos [MISS]                            \n0658  #asin [MISS]                            \n0680  #atan [MISS]                            \n06a8  #atan2 [MISS]                           \n06d0  #exp [MISS]                             \n06f8  #log [MISS]                             \n0720  #log10 [MISS]                           \n0748  #pow [MISS]                             \n0770  #sqrt [MISS]                            \n0798  Total time: 1.3 s                       \n07c0                                          \n",
+        "screenshot": "test_math-llvms.png"
+      },
+      "test_stdio_file": {
+        "prgName": "test_stdio_file-llvms.prg",
+        "size": 19953,
+        "time": 11.7,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 11.7 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "test_stdio_file-llvms.png"
+      },
+      "test_stdio_print": {
+        "prgName": "test_stdio_print-llvms.prg",
+        "size": 12608,
+        "time": 1.4,
+        "status": "fail",
+        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [FAIL] (%.2f!=3.14)           \n0770  #printf-e [FAIL] (%.2e!=1.23e+05)       \n0798  Total time: 1.4 s                       \n07c0                                          \n",
+        "screenshot": "test_stdio_print-llvms.png"
+      },
+      "test_stdio_scan": {
+        "prgName": "test_stdio_scan-llvms.prg",
+        "size": 34166,
+        "time": 1.4,
+        "status": "fail",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [FAIL] (841)                   \n0748  #scanf-f [FAIL] (%f)                    \n0770  #scanf-e [FAIL] (%f)                    \n0798  Total time: 1.4 s                       \n07c0                                          \n",
+        "screenshot": "test_stdio_scan-llvms.png"
+      },
+      "test_stdlib": {
+        "prgName": "test_stdlib-llvms.prg",
+        "size": 19898,
+        "time": 1.6,
+        "status": "fail",
+        "output": "0400                                          \n0428  ready.                                  \n0450  load\"*\",8,1                             \n0478                                          \n04a0  searching for *                         \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #rand [FAIL] (-32383)                   \n05b8  #srand [OK]                             \n05e0  #atof [MISS]                            \n0608  #atoi [OK] [OK]                         \n0630  #atol [OK] [OK]                         \n0658  #malloc [OK]                            \n0680  #calloc [OK]                            \n06a8  #realloc [OK]                           \n06d0  #qsort [OK]                             \n06f8  #abs [OK] [OK]                          \n0720  #labs [OK] [OK]                         \n0748  #div [OK] [OK] [OK] [OK]                \n0770  #ldiv [OK] [OK] [OK] [OK]               \n0798  Total time: 1.6 s                       \n07c0                                          \n",
+        "screenshot": "test_stdlib-llvms.png"
+      },
+      "test_string": {
+        "prgName": "test_string-llvms.prg",
+        "size": 19469,
+        "time": 1.7,
+        "status": "pass",
+        "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen [OK]                            \n0590  #strchr [OK]                            \n05b8  #strrchr [OK]                           \n05e0  #strcmp [OK] [OK]                       \n0608  #strncmp [OK] [OK]                      \n0630  #strcpy [OK]                            \n0658  #strncpy [OK]                           \n0680  #strcat [OK]                            \n06a8  #strncat [OK] [OK]                      \n06d0  #strstr [OK]                            \n06f8  #memchr [OK]                            \n0720  #memset [OK]                            \n0748  #memcpy [OK]                            \n0770  #memmove [OK] [OK] [OK] [OK] [OK]       \n0798  Total time: 1.7 s                       \n07c0                                          \n",
+        "screenshot": "test_string-llvms.png"
+      }
+    }
+  },
+  "tests": {
+    "llvmp": {
+      "math.h": {
+        "floor": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "ceil": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "sin": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "cos": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "tan": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "asin": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "acos": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "atan": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "atan2": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "exp": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "log": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "log10": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "pow": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        },
+        "sqrt": {
+          "status": "unsupported",
+          "prgName": "test_math-llvmp.prg"
+        }
+      },
+      "stdio.h": {
+        "printf-c": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvmp.prg"
+        },
+        "printf-s": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvmp.prg"
+        },
+        "printf-d": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvmp.prg"
+        },
+        "printf-ld": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvmp.prg"
+        },
+        "printf-i": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvmp.prg"
+        },
+        "printf-li": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvmp.prg"
+        },
+        "printf-x": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvmp.prg"
+        },
+        "printf-lx": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvmp.prg"
+        },
+        "printf-X": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvmp.prg"
+        },
+        "printf-lX": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvmp.prg"
+        },
+        "printf-f": {
+          "status": "fail",
+          "prgName": "test_stdio_print-llvmp.prg"
+        },
+        "printf-e": {
+          "status": "fail",
+          "prgName": "test_stdio_print-llvmp.prg"
+        },
+        "scanf-c": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-llvmp.prg"
+        },
+        "scanf-s": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-llvmp.prg"
+        },
+        "scanf-d": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-llvmp.prg"
+        },
+        "scanf-i": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-llvmp.prg"
+        },
+        "scanf-x": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-llvmp.prg"
+        },
+        "scanf-X": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-llvmp.prg"
+        },
+        "scanf-f": {
+          "status": "fail",
+          "prgName": "test_stdio_scan-llvmp.prg"
+        },
+        "scanf-e": {
+          "status": "fail",
+          "prgName": "test_stdio_scan-llvmp.prg"
+        }
+      },
+      "stdlib.h": {},
+      "string.h": {
+        "strlen": {
+          "status": "pass",
+          "prgName": "test_string-llvmp.prg"
+        },
+        "strchr": {
+          "status": "pass",
+          "prgName": "test_string-llvmp.prg"
+        },
+        "strrchr": {
+          "status": "pass",
+          "prgName": "test_string-llvmp.prg"
+        },
+        "strcmp": {
+          "status": "pass",
+          "prgName": "test_string-llvmp.prg"
+        },
+        "strncmp": {
+          "status": "pass",
+          "prgName": "test_string-llvmp.prg"
+        },
+        "strcat": {
+          "status": "pass",
+          "prgName": "test_string-llvmp.prg"
+        },
+        "strncat": {
+          "status": "fail",
+          "prgName": "test_string-llvmp.prg"
+        },
+        "strstr": {
+          "status": "pass",
+          "prgName": "test_string-llvmp.prg"
+        },
+        "memchr": {
+          "status": "pass",
+          "prgName": "test_string-llvmp.prg"
+        },
+        "memset": {
+          "status": "pass",
+          "prgName": "test_string-llvmp.prg"
+        },
+        "memcpy": {
+          "status": "pass",
+          "prgName": "test_string-llvmp.prg"
+        },
+        "memmove": {
+          "status": "pass",
+          "prgName": "test_string-llvmp.prg"
+        }
+      }
+    },
+    "llvms": {
+      "math.h": {
+        "floor": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "ceil": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "sin": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "cos": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "tan": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "asin": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "acos": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "atan": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "atan2": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "exp": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "log": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "log10": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "pow": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        },
+        "sqrt": {
+          "status": "unsupported",
+          "prgName": "test_math-llvms.prg"
+        }
+      },
+      "stdio.h": {
+        "fputc": {
+          "status": "pass",
+          "prgName": "test_stdio_file-llvms.prg"
+        },
+        "fgetc": {
+          "status": "pass",
+          "prgName": "test_stdio_file-llvms.prg"
+        },
+        "fputs": {
+          "status": "pass",
+          "prgName": "test_stdio_file-llvms.prg"
+        },
+        "fgets": {
+          "status": "pass",
+          "prgName": "test_stdio_file-llvms.prg"
+        },
+        "fwrite": {
+          "status": "pass",
+          "prgName": "test_stdio_file-llvms.prg"
+        },
+        "fread": {
+          "status": "pass",
+          "prgName": "test_stdio_file-llvms.prg"
+        },
+        "printf-c": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvms.prg"
+        },
+        "printf-s": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvms.prg"
+        },
+        "printf-d": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvms.prg"
+        },
+        "printf-ld": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvms.prg"
+        },
+        "printf-i": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvms.prg"
+        },
+        "printf-li": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvms.prg"
+        },
+        "printf-x": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvms.prg"
+        },
+        "printf-lx": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvms.prg"
+        },
+        "printf-X": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvms.prg"
+        },
+        "printf-lX": {
+          "status": "pass",
+          "prgName": "test_stdio_print-llvms.prg"
+        },
+        "printf-f": {
+          "status": "fail",
+          "prgName": "test_stdio_print-llvms.prg"
+        },
+        "printf-e": {
+          "status": "fail",
+          "prgName": "test_stdio_print-llvms.prg"
+        },
+        "scanf-c": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-llvms.prg"
+        },
+        "scanf-s": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-llvms.prg"
+        },
+        "scanf-d": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-llvms.prg"
+        },
+        "scanf-i": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-llvms.prg"
+        },
+        "scanf-x": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-llvms.prg"
+        },
+        "scanf-X": {
+          "status": "fail",
+          "prgName": "test_stdio_scan-llvms.prg"
+        },
+        "scanf-f": {
+          "status": "fail",
+          "prgName": "test_stdio_scan-llvms.prg"
+        },
+        "scanf-e": {
+          "status": "fail",
+          "prgName": "test_stdio_scan-llvms.prg"
+        }
+      },
+      "stdlib.h": {
+        "rand": {
+          "status": "fail",
+          "prgName": "test_stdlib-llvms.prg"
+        },
+        "srand": {
+          "status": "pass",
+          "prgName": "test_stdlib-llvms.prg"
+        },
+        "atof": {
+          "status": "unsupported",
+          "prgName": "test_stdlib-llvms.prg"
+        },
+        "atoi": {
+          "status": "pass",
+          "prgName": "test_stdlib-llvms.prg"
+        },
+        "atol": {
+          "status": "pass",
+          "prgName": "test_stdlib-llvms.prg"
+        },
+        "malloc": {
+          "status": "pass",
+          "prgName": "test_stdlib-llvms.prg"
+        },
+        "calloc": {
+          "status": "pass",
+          "prgName": "test_stdlib-llvms.prg"
+        },
+        "realloc": {
+          "status": "pass",
+          "prgName": "test_stdlib-llvms.prg"
+        },
+        "qsort": {
+          "status": "pass",
+          "prgName": "test_stdlib-llvms.prg"
+        },
+        "abs": {
+          "status": "pass",
+          "prgName": "test_stdlib-llvms.prg"
+        },
+        "labs": {
+          "status": "pass",
+          "prgName": "test_stdlib-llvms.prg"
+        },
+        "div": {
+          "status": "pass",
+          "prgName": "test_stdlib-llvms.prg"
+        },
+        "ldiv": {
+          "status": "pass",
+          "prgName": "test_stdlib-llvms.prg"
+        }
+      },
+      "string.h": {
+        "strlen": {
+          "status": "pass",
+          "prgName": "test_string-llvms.prg"
+        },
+        "strchr": {
+          "status": "pass",
+          "prgName": "test_string-llvms.prg"
+        },
+        "strrchr": {
+          "status": "pass",
+          "prgName": "test_string-llvms.prg"
+        },
+        "strcmp": {
+          "status": "pass",
+          "prgName": "test_string-llvms.prg"
+        },
+        "strncmp": {
+          "status": "pass",
+          "prgName": "test_string-llvms.prg"
+        },
+        "strcat": {
+          "status": "pass",
+          "prgName": "test_string-llvms.prg"
+        },
+        "strncat": {
+          "status": "pass",
+          "prgName": "test_string-llvms.prg"
+        },
+        "strstr": {
+          "status": "pass",
+          "prgName": "test_string-llvms.prg"
+        },
+        "memchr": {
+          "status": "pass",
+          "prgName": "test_string-llvms.prg"
+        },
+        "memset": {
+          "status": "pass",
+          "prgName": "test_string-llvms.prg"
+        },
+        "memcpy": {
+          "status": "pass",
+          "prgName": "test_string-llvms.prg"
+        },
+        "memmove": {
+          "status": "pass",
+          "prgName": "test_string-llvms.prg"
+        }
       }
     }
   }

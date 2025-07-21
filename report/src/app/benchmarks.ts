@@ -9,7 +9,13 @@ export type BenchmarkKey =
     | "pow"
     | "puff2"
     | "sieve"
-    | "sieve_bit";
+    | "sieve_bit"
+    | "test_math"
+    | "test_stdio_file"
+    | "test_stdio_print"
+    | "test_stdio_scan"
+    | "test_stdlib"
+    | "test_string";
 
 export const benchmarkKeys: readonly BenchmarkKey[] = [
     "aes256",
@@ -23,7 +29,17 @@ export const benchmarkKeys: readonly BenchmarkKey[] = [
     "puff2",
     "sieve",
     "sieve_bit",
+    "test_math",
+    "test_stdio_file",
+    "test_stdio_print",
+    "test_stdio_scan",
+    "test_stdlib",
+    "test_string",
 ];
+
+export type TestKey = "math.h" | "stdio.h" | "stdlib.h" | "string.h";
+
+export const testKeys: readonly TestKey[] = ["math.h", "stdio.h", "stdlib.h", "string.h"];
 
 export type CompilerKey = "cc65" | "kickc" | "llvm" | "o64" | "sdcc" | "vbcc";
 
@@ -40,6 +56,7 @@ export interface Benchmark {
     author?: string;
     url?: string;
     footnotes?: string[];
+    initiallyDisabled?: boolean;
 }
 
 export const benchmarks: { [key in BenchmarkKey]: Benchmark } = {
@@ -134,11 +151,90 @@ export const benchmarks: { [key in BenchmarkKey]: Benchmark } = {
             "Calculates prime numbers using the Sieve of Eratosthenes algorithm with a bitfield to conserve memory. Stresses loops, array access, and logical operations.",
         url: "benchmarks/src/sieve_bit.c",
     },
+    test_math: {
+        key: "test_math",
+        name: "Math Library",
+        shortName: "math.h",
+        description: "Test of the math library functions.",
+        note: "This is a test, not a benchmark! The results are not representative (but interesting nonetheless).",
+        url: "benchmarks/src/test_math.c",
+        initiallyDisabled: true,
+    },
+    test_stdio_file: {
+        key: "test_stdio_file",
+        name: "Standard I/O Library, File Operations",
+        shortName: "stdio.h (File)",
+        description: "Test of the standard I/O file library functions.",
+        note: "This is a test, not a benchmark! The results are not representative (but interesting nonetheless).",
+        url: "benchmarks/src/test_stdio_file.c",
+        initiallyDisabled: true,
+    },
+    test_stdio_print: {
+        key: "test_stdio_print",
+        name: "Standard I/O Library, Print Functions",
+        shortName: "stdio.h (Print)",
+        description: "Test of the standard I/O print library functions.",
+        note: "This is a test, not a benchmark! The results are not representative (but interesting nonetheless).",
+        url: "benchmarks/src/test_stdio_print.c",
+        initiallyDisabled: true,
+    },
+    test_stdio_scan: {
+        key: "test_stdio_scan",
+        name: "Standard I/O Library, Scan Functions",
+        shortName: "stdio.h (Scan)",
+        description: "Test of the standard I/O scan library functions.",
+        note: "This is a test, not a benchmark! The results are not representative (but interesting nonetheless).",
+        url: "benchmarks/src/test_stdio_scan.c",
+        initiallyDisabled: true,
+    },
+    test_stdlib: {
+        key: "test_stdlib",
+        name: "Standard Library",
+        shortName: "stdlib.h",
+        description: "Test of the standard library functions.",
+        note: "This is a test, not a benchmark! The results are not representative (but interesting nonetheless).",
+        url: "benchmarks/src/test_stdlib.c",
+        initiallyDisabled: true,
+    },
+    test_string: {
+        key: "test_string",
+        name: "String Library",
+        shortName: "string.h",
+        description: "Test of the string library functions.",
+        note: "This is a test, not a benchmark! The results are not representative (but interesting nonetheless).",
+        url: "benchmarks/src/test_string.c",
+        initiallyDisabled: true,
+    },
+};
+
+export interface TestDef {
+    key: TestKey;
+    name: string;
+}
+
+export const testDefs: { [key in TestKey]: TestDef } = {
+    "math.h": {
+        key: "math.h",
+        name: "Math Library",
+    },
+    "stdio.h": {
+        key: "stdio.h",
+        name: "Standard I/O Library",
+    },
+    "stdlib.h": {
+        key: "stdlib.h",
+        name: "Standard Library",
+    },
+    "string.h": {
+        key: "string.h",
+        name: "String Library",
+    },
 };
 
 export type Optimization = "none" | "size" | "performance";
 
-export interface Configuration {
+export interface Config {
+    key: string;
     name: string;
     compilerKey: CompilerKey;
     description: string;
@@ -146,14 +242,21 @@ export interface Configuration {
     color: string;
 }
 
-export interface ConfigurationResult {
+export interface ConfigResult {
+    prgName: string | null;
     size: number | null;
     time: number | null;
     status: Status | null;
     output: string | null;
+    screenshot?: string;
 }
 
-export type ConfigurationResults = { [key in BenchmarkKey]: ConfigurationResult };
+export interface TestSource {
+    size: number;
+    output?: string;
+}
+
+export type TestSources = { [key: string]: TestSource };
 
 export type Supported =
     | "yes"
@@ -167,7 +270,7 @@ export type Supported =
           url?: string;
       };
 
-export type Status = "pass" | "fail" | "unknown";
+export type Status = "pass" | "fail" | "unsupported" | "unknown";
 
 export interface Compiler {
     key: CompilerKey;
@@ -218,29 +321,33 @@ export interface Compiler {
         wchar: Supported;
         wctype: Supported;
     };
-    pros: string[];
-    cons: string[];
+    pros?: string[];
+    neutral?: string[];
+    cons?: string[];
     runtimeSupport: string[];
     wip?: boolean;
     warning?: string;
     version: string;
     date: Date;
-    configurations: { [configurationkey: string]: Configuration };
-    results: { [configurationKey: string]: ConfigurationResults };
+    configs: Config[];
+    results: { [configKey: string]: ConfigResults };
+    tests: { [configKey: string]: TestKeyMethodTestResultsMap };
+    testSources: TestSources;
 }
 
-export type Compilers = { [key in CompilerKey]?: Compiler };
+export type CompilersByKey = { [key in CompilerKey]?: Compiler };
 
-export type Configurations = { [key: string]: Configuration };
+export type ConfigsByKey = { [key: string]: Config };
 
-export interface BenchmarkResult extends Configuration {
+export interface BenchmarkResult extends Config {
     size: number;
     time: number;
     status: Status;
     output?: string;
+    screenshot?: string;
 }
 
-export type BenchmarkResults = { [configurationKey: string]: BenchmarkResult };
+export type BenchmarkResults = { [configKey: string]: BenchmarkResult };
 
 export interface BenchmarkWithResults extends Benchmark {
     results: BenchmarkResults;
@@ -252,7 +359,7 @@ export type BenchmarkWithResultsMap = {
 
 export type BenchmarkSummary = {
     [benchmarkKey in BenchmarkKey]?: {
-        [configurationKey: string]: BenchmarkSummaryItem;
+        [configKey: string]: BenchmarkSummaryItem;
     };
 };
 
@@ -261,4 +368,15 @@ export interface BenchmarkSummaryItem {
     status: Status;
     lowestValue?: boolean;
     hightestValue?: boolean;
+}
+
+export type ConfigResults = { [key in BenchmarkKey]: ConfigResult };
+
+export type MethodTestResultsMap = { [method: string]: TestResult };
+
+export type TestKeyMethodTestResultsMap = { [key in TestKey]: MethodTestResultsMap };
+
+export interface TestResult {
+    status: Status;
+    prgName?: string;
 }

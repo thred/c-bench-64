@@ -1,3 +1,5 @@
+<app-screenshot />
+
 <div class="header-wrapper">
     <app-toc>
         <app-toc-section href="#compilers" label="Compilers">
@@ -15,7 +17,28 @@
         </app-toc-section>
 
         <app-toc-section href="#benchmarks" label="Benchmarks">
-            @for (key of benchmarkKeys; track key) {
+            <app-toc-separator label="Summary" />
+
+            <app-toc-item href="#timeSummary" label="Execution Times" />
+            <app-toc-item href="#sizeSummary" label="Binary Sizes" />
+
+            <app-toc-separator label="Benchmarks" />
+
+            @for (key of nonTestBenchmarkKeys; track key) {
+                @if (benchmarks[key]; as benchmark) {
+                    <app-toc-item
+                        [href]="'#benchmark-' + key"
+                        [label]="benchmark.shortName"
+                        [checked]="service.isBenchmarkSelected(key)"
+                        (checkedChange)="service.setBenchmarkSelected(key, $event)"
+                        [checkable]="true"
+                    />
+                }
+            }
+
+            <app-toc-separator label="Test Benchmarks" />
+
+            @for (key of testBenchmarkKeys; track key) {
                 @if (benchmarks[key]; as benchmark) {
                     <app-toc-item
                         [href]="'#benchmark-' + key"
@@ -28,9 +51,16 @@
             }
         </app-toc-section>
 
-        <app-toc-section href="#summary" label="Summary">
-            <app-toc-item href="#timeSummary" label="Execution Times" />
-            <app-toc-item href="#sizeSummary" label="Binary Sizes" />
+        <app-toc-section href="#tests" label="Tests">
+            @for (testKey of testKeys; track testKey) {
+                <app-toc-item
+                    [href]="'#test-' + testKey"
+                    [label]="testKey"
+                    [checked]="service.isTestSelected(testKey)"
+                    (checkedChange)="service.setTestSelected(testKey, $event)"
+                    [checkable]="true"
+                />
+            }
         </app-toc-section>
 
         <app-toc-section href="#legal" label="Legal Notice">
@@ -40,30 +70,18 @@
             <app-toc-item href="#attribution" label="Attribution" />
         </app-toc-section>
 
-        <app-toc-section label="Colors">
-            <app-toc-item
-                label="C64"
-                (click)="theme.set('c64')"
-                [checked]="theme() == 'c64'"
-                (checkedChange)="theme.set('c64')"
-                [checkable]="true"
-            />
+        <app-toc-section label="Settings">
+            <app-toc-separator label="Theme" />
 
-            <app-toc-item
-                label="Day"
-                (click)="theme.set('light')"
-                [checked]="theme() == 'light'"
-                (checkedChange)="theme.set('light')"
-                [checkable]="true"
-            />
-
-            <app-toc-item
-                label="Night"
-                (click)="theme.set('dark')"
-                [checked]="theme() == 'dark'"
-                (checkedChange)="theme.set('dark')"
-                [checkable]="true"
-            />
+            @for (theme of themes; track theme) {
+                <app-toc-item
+                    [label]="themeNames[theme]"
+                    (click)="this.theme.set(theme)"
+                    [checked]="this.theme() === theme"
+                    (checkedChange)="this.theme.set(theme)"
+                    [checkable]="true"
+                />
+            }
         </app-toc-section>
     </app-toc>
 </div>
@@ -71,6 +89,34 @@
 <div class="content-wrapper" #contentWrapper>
     <div class="content">
         <h1>C-Compiler Benchmarks for MOS Technology 6502 Cross Compilers</h1>
+
+        <p>
+            This page provides benchmarks for various C compilers targeting the MOS Technology 6502 architecture. The
+            benchmarks not only measure the execution time of the compiled code but also the size of the resulting
+            binaries which is often more crucial for resource-constrained environments than the execution time.
+        </p>
+
+        <p>
+            The benchmarks are designed to be run on a Commodore 64 emulator but most results should also apply to other
+            MOS 6502 based systems. A test section covers the most common C library functions.
+        </p>
+
+        <p>
+            The project contains instructions and scripts to run the benchmarks. The results are easily reproducible and
+            updatable. The code for the benchmarks is based on the
+            <a href="https://web.archive.org/web/20250124180056/https://gglabs.us/node/2293" target="_blank"
+                >original benchmarks by GG Labs</a
+            >.
+        </p>
+
+        <p class="box">
+            If you find any errors or have suggestions to optimize the benchmarks, please submit a
+            <a href="https://github.com/thred/c-bench-64/pulls" target="_blank">pull request</a> or create an
+            <a href="https://github.com/thred/c-bench-64/issues" target="_blank">issue</a>. The project is hosted on
+            <a href="https://github.com/thred/c-bench-64" target="_blank">GitHub</a>.<span
+                class="blinking-cursor"
+            ></span>
+        </p>
 
         @if (service.loading()) {
             <pre>
@@ -80,23 +126,6 @@
                 loading<span class="blinking-cursor"></span>
             </pre>
         } @else {
-            <p>
-                This page is based on the
-                <a href="https://web.archive.org/web/20250124180056/https://gglabs.us/node/2293" target="_blank"
-                    >original benchmarks by GG Labs</a
-                >. The page has been abadoned and was archived by GG on Sat, 03/12/2022 - 01:11. I try to rescue the
-                code. The compilers Oscar64 and LLVM-mos have been added since.
-            </p>
-
-            <p>GG, if you read this, please contact me to discuss attribution and licensing issues!</p>
-
-            <p class="box">
-                If you find any errors or have suggestions to optimize the benchmarks, please submit a
-                <a href="https://github.com/thred/c-bench-64/pulls" target="_blank">pull request</a> or create an
-                <a href="https://github.com/thred/c-bench-64/issues" target="_blank">issue</a>. The project is hosted on
-                <a href="https://github.com/thred/c-bench-64" target="_blank">GitHub</a>.
-            </p>
-
             <app-section>
                 <h2 id="compilers" headline appSectionCollapser>Compilers</h2>
 
@@ -110,7 +139,7 @@
 
                 @if (service.selectedCompilerKeys().length === 0) {
                     <p class="box">
-                        No compilers selected. Please select one or more compilers from the table of contents.<span
+                        No compilers selected. Please select one or more compilers from the menu.<span
                             class="blinking-cursor"
                         ></span>
                     </p>
@@ -126,118 +155,137 @@
                     itself, so the speed of the host system does not matter.
                 </p>
 
-                @for (key of benchmarkKeys; track key) {
-                    @if (service.isBenchmarkSelected(key)) {
-                        @if (benchmarks[key]; as benchmark) {
-                            <app-benchmark [key]="key" [chartWidth]="chartWidth()"></app-benchmark>
-                        }
-                    }
-                }
-
-                @if (service.selectedBenchmarkKeys().length === 0) {
+                @if (service.selectedCompilerKeys().length === 0) {
                     <p class="box">
-                        No benchmarks selected. Please select one or more benchmarks from the table of contents.<span
+                        No configurations selected. Please select one or more compilers from the menu.<span
                             class="blinking-cursor"
                         ></span>
                     </p>
+                } @else {
+                    <app-section>
+                        <h3 id="summary" headline appSectionCollapser>Summary</h3>
+
+                        <app-benchmark-summary />
+                    </app-section>
+
+                    @for (key of benchmarkKeys; track key) {
+                        @if (service.isBenchmarkSelected(key)) {
+                            @if (benchmarks[key]; as benchmark) {
+                                <app-benchmark [key]="key" [chartWidth]="chartWidth()"></app-benchmark>
+                            }
+                        }
+                    }
                 }
             </app-section>
 
             <app-section>
-                <h2 id="summary" headline appSectionCollapser>Summary</h2>
+                <h2 id="tests" headline appSectionCollapser>Tests</h2>
 
-                <app-benchmark-summary />
+                <p>
+                    The tests cover some - not all - C library functions that are considered relevant for the 6502
+                    architecture. The tests are executed on a Commodore 64 emulator and you should be aware that other
+                    target platforms may not support all of these functions (e.g. I/O functions using the CBM kern<span
+                        style="text-decoration: line-through"
+                        >e</span
+                    >al).
+                </p>
+
+                @if (service.selectedCompilerKeys().length === 0) {
+                    <p class="box">
+                        No configurations selected. Please select one or more compilers from the menu.<span
+                            class="blinking-cursor"
+                        ></span>
+                    </p>
+                } @else {
+                    @for (testKey of testKeys; track testKey) {
+                        <app-test [testKey]="testKey" [configKeys]="service.selectedConfigKeys()" />
+                    }
+                }
+            </app-section>
+        }
+
+        <app-section>
+            <h2 id="legal" headline appSectionCollapser>Legal Notice & Disclaimer</h2>
+
+            <app-section>
+                <h3 id="impressum" headline appSectionCollapser>Impressum</h3>
+
+                <p>
+                    This project is maintained as an open-source initiative. For questions regarding content, licensing,
+                    or attribution, please contact the project maintainers through the official GitHub repository.
+                </p>
+
+                <p>
+                    <strong>Project Repository: </strong>
+                    <a href="https://github.com/thred/c-bench-64" target="_blank"
+                        >https://github.com/thred/c-bench-64</a
+                    >
+                </p>
             </app-section>
 
             <app-section>
-                <h2 id="legal" headline appSectionCollapser>Legal Notice & Disclaimer</h2>
+                <h3 id="disclaimer" headline appSectionCollapser>Disclaimer</h3>
 
-                <app-section>
-                    <h3 id="impressum" headline appSectionCollapser>Impressum</h3>
+                <p>
+                    The benchmark results and information provided on this website are for educational and informational
+                    purposes only. While we strive for accuracy, we make no warranties or representations regarding the
+                    completeness, accuracy, or reliability of the benchmark data presented.
+                </p>
 
-                    <p>
-                        This project is maintained as an open-source initiative. For questions regarding content,
-                        licensing, or attribution, please contact the project maintainers through the official GitHub
-                        repository.
-                    </p>
+                <p>
+                    <strong>No Liability: </strong> The authors and contributors of this project shall not be liable for
+                    any errors, omissions, or damages arising from the use of this information. Users should verify
+                    results independently and use their own judgment when making decisions based on this data.
+                </p>
 
-                    <p>
-                        <strong>Project Repository: </strong>
-                        <a href="https://github.com/thred/c-bench-64" target="_blank"
-                            >https://github.com/thred/c-bench-64</a
-                        >
-                    </p>
-                </app-section>
-
-                <app-section>
-                    <h3 id="disclaimer" headline appSectionCollapser>Disclaimer</h3>
-
-                    <p>
-                        The benchmark results and information provided on this website are for educational and
-                        informational purposes only. While we strive for accuracy, we make no warranties or
-                        representations regarding the completeness, accuracy, or reliability of the benchmark data
-                        presented.
-                    </p>
-
-                    <p>
-                        <strong>No Liability: </strong> The authors and contributors of this project shall not be liable
-                        for any errors, omissions, or damages arising from the use of this information. Users should
-                        verify results independently and use their own judgment when making decisions based on this
-                        data.
-                    </p>
-
-                    <p>
-                        <strong>Third-Party Content: </strong> This project includes references to and comparisons of
-                        third-party compilers and tools. We are not affiliated with these projects and make no claims
-                        about their performance beyond what is measured in our specific test conditions.
-                    </p>
-                </app-section>
-
-                <app-section>
-                    <h3 id="contributing" headline appSectionCollapser>Contributing & Feedback</h3>
-
-                    <p>
-                        We welcome contributions and feedback to improve the accuracy and usefulness of these
-                        benchmarks:
-                    </p>
-
-                    <ul>
-                        <li>
-                            <strong>Report Issues: </strong>
-                            <a href="https://github.com/thred/c-bench-64/issues" target="_blank"
-                                >Create an issue on GitHub</a
-                            >
-                        </li>
-                        <li>
-                            <strong>Submit Improvements: </strong>
-                            <a href="https://github.com/thred/c-bench-64/pulls" target="_blank"
-                                >Submit a pull request</a
-                            >
-                        </li>
-                        <li>
-                            <strong>View Source Code: </strong>
-                            <a href="https://github.com/thred/c-bench-64" target="_blank"
-                                >Browse the project repository</a
-                            >
-                        </li>
-                    </ul>
-
-                    <p>
-                        If you find any errors, have suggestions for optimization, or want to contribute additional
-                        benchmark tests, your participation is greatly appreciated.
-                    </p>
-                </app-section>
-
-                <app-section>
-                    <h3 id="attribution" headline appSectionCollapser>Attribution</h3>
-
-                    <p>
-                        This work is based on the original benchmarks by GG Labs, which were archived on March 12, 2022.
-                        We are committed to proper attribution and encourage the original authors to contact us
-                        regarding licensing and attribution matters.
-                    </p>
-                </app-section>
+                <p>
+                    <strong>Third-Party Content: </strong> This project includes references to and comparisons of
+                    third-party compilers and tools. We are not affiliated with these projects and make no claims about
+                    their performance beyond what is measured in our specific test conditions.
+                </p>
             </app-section>
-        }
+
+            <app-section>
+                <h3 id="contributing" headline appSectionCollapser>Contributing & Feedback</h3>
+
+                <p>We welcome contributions and feedback to improve the accuracy and usefulness of these benchmarks:</p>
+
+                <ul>
+                    <li>
+                        <strong>Report Issues: </strong>
+                        <a href="https://github.com/thred/c-bench-64/issues" target="_blank"
+                            >Create an issue on GitHub</a
+                        >
+                    </li>
+                    <li>
+                        <strong>Submit Improvements: </strong>
+                        <a href="https://github.com/thred/c-bench-64/pulls" target="_blank">Submit a pull request</a>
+                    </li>
+                    <li>
+                        <strong>View Source Code: </strong>
+                        <a href="https://github.com/thred/c-bench-64" target="_blank">Browse the project repository</a>
+                    </li>
+                </ul>
+
+                <p>
+                    If you find any errors, have suggestions for optimization, or want to contribute additional
+                    benchmark tests, your participation is greatly appreciated.
+                </p>
+            </app-section>
+
+            <app-section>
+                <h3 id="attribution" headline appSectionCollapser>Attribution</h3>
+
+                <p>
+                    This work is based on the
+                    <a href="https://web.archive.org/web/20250124180056/https://gglabs.us/node/2293" target="_blank"
+                        >original benchmarks by GG Labs</a
+                    >, which were archived on March 12, 2022. The page has been abadoned. We are committed to proper
+                    attribution and encourage the original authors to contact us regarding licensing and attribution
+                    matters. This page is an attempt to rescue the code. The compilers Oscar64 and LLVM-mos have been
+                    added since.
+                </p>
+            </app-section>
+        </app-section>
     </div>
 </div>

@@ -76,17 +76,27 @@
     "Commander X16"
   ],
   "warning": "Currently, the KickC compiler crashes on the main.c file of the benchmark. It contains some inline assembler with a value assignment and KickC thinks, it's an invalid preprocessor token. I have no idea how to get around this.",
-  "configurations": {
-    "kickc": {
+  "configs": [
+    {
+      "key": "kickc",
       "name": "KickC",
       "description": "-Oliverangecallpath",
       "optimization": "none",
-      "color": "#d87d28"
+      "color": "#d87d28",
+      "compilerKey": "kickc"
     }
-  },
+  ],
   "version": "KickC 0.8.6 BETA",
   "date": "2025-07-12 11:42:59",
   "results": {
     "kickc": {}
+  },
+  "tests": {
+    "kickc": {
+      "math.h": {},
+      "stdio.h": {},
+      "stdlib.h": {},
+      "string.h": {}
+    }
   }
 }

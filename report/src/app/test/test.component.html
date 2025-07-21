@@ -1,0 +1,23 @@
+<app-section>
+    <h3 id="test-{{ testKey() }}" headline appSectionCollapser>
+        {{ testKey() }}
+    </h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Method</th>
+                @for (config of configs(); track config.key) {
+                    <th class="text-center">{{ config.name }}</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @for (method of methods(); track method) {
+                <tr appTestResultRow [testKey]="testKey()" [method]="method" [configKeys]="existingConfigKeys()"></tr>
+            }
+        </tbody>
+    </table>
+
+    <p class="hint text-right">Click on the status icon to view the screenshot of the test result.</p>
+</app-section>

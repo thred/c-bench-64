@@ -13,7 +13,11 @@
         "Modular and extensible",
         "Active development and community"
     ],
-    "cons": ["No overlay support", "Documentation could be improved"],
+    "cons": [
+        "No overlay support",
+        "Documentation could be improved",
+        "Procudes rather large binaries"
+    ],
     "features": {
         "floatingPoint": {
             "supported": "yes",
@@ -87,18 +91,20 @@
         "Picocomputer 6502 (RP6502)",
         "RPC/8e (RedPower 2)"
     ],
-    "configurations": {
-        "llvmp": {
+    "configs": [
+        {
+            "key": "llvmp",
             "name": "LLVM-mos - Perf.Opt.",
             "description": "-O3 -fnonreentrant",
             "optimization": "performance",
             "color": "#edf171"
         },
-        "llvms": {
+        {
+            "key": "llvms",
             "name": "LLVM-mos - Size Opt.",
             "description": "-Os -flto -fnonreentrant",
             "optimization": "size",
             "color": "#edf171"
         }
-    }
+    ]
 }

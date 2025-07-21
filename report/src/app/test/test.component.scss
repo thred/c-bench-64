@@ -1,0 +1,12 @@
+:host {
+    display: block;
+    overflow-x: auto;
+}
+
+table {
+    font-size: 12pt;
+
+    th:first-child {
+        min-width: 8em;
+    }
+}

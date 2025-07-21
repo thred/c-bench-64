@@ -4,10 +4,15 @@
 }
 
 table {
-    font-size: 80%;
+    font-size: 12pt;
+
+    th:first-child {
+        min-width: 8em;
+    }
 }
 
 .fail,
+.unsupported,
 .unknown {
     opacity: 0.25;
     color: var(--text-color);

@@ -10,9 +10,18 @@
         "text_encoding": "c",
         "typeinfo": "c",
         "cmath": "c",
-        "complex": "c"
+        "complex": "c",
+        "regex": "c",
+        "string.h": "c",
+        "test.h": "c",
+        "random": "c"
     },
     "search.exclude": {
-        "**/dist": true
+        "**/dist": true,
+        "benchmarks/cc65/cc65": true,
+        "benchmarks/llvm-mos/llvm-mos": true,
+        "benchmarks/oscar64/oscar64": true,
+        "benchmarks/sdcc/sdcc": true,
+        "benchmarks/vbcc/vbcc": true
     }
 }

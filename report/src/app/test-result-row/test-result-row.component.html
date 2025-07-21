@@ -1,0 +1,12 @@
+<th>{{ method() }}</th>
+
+@for (testResult of testResults(); track testResult) {
+    <td
+        class="text-center"
+        [class.clickable]="hasPrgName(testResult)"
+        [attr.title]="getTitleAttr(testResult)"
+        (click)="openScreenshot(testResult)"
+    >
+        <app-status [status]="testResult.status" />
+    </td>
+}

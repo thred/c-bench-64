@@ -24,7 +24,7 @@
     }
 
     @if (failedBenchmarks()) {
-        <p class="box warning">{{ failedBenchmarks() }} failed to execute correctly.</p>
+        <p class="box warning">{{ failedBenchmarks() }} had issues while executing (see output).</p>
     }
 
     <app-section>
@@ -56,15 +56,15 @@
 
         <div class="output do-not-print">
             <ul class="tabs">
-                @for (configurationKey of configurationKeys(); track configurationKey) {
+                @for (configKey of configKeys(); track configKey) {
                     <li>
                         <a
                             class="tab"
-                            [class.selected]="configurationKey === selectedOutputConfigurationKey()"
+                            [class.selected]="configKey === selectedOutputConfigKey()"
                             href="#"
-                            (click)="toggleOutputConfigurationKey(configurationKey); $event.preventDefault()"
+                            (click)="toggleOutputConfigKey(configKey); $event.preventDefault()"
                         >
-                            {{ getConfigurationName(configurationKey) }}
+                            {{ getConfigName(configKey) }}
                         </a>
                     </li>
                 }

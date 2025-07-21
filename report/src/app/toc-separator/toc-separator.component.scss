@@ -1,0 +1,22 @@
+.toc-separator {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .toc-separator-label {
+        font-size: 0.6rem;
+        color: var(--header-text-color);
+        white-space: nowrap;
+        margin: 0 0.25rem;
+        letter-spacing: 0.05em;
+    }
+
+    .toc-separator-line {
+        flex: 1;
+        height: 1px;
+        border: none;
+        background-color: var(--header-text-color);
+        opacity: 0.3;
+        margin: 0;
+    }
+}

@@ -12,10 +12,17 @@ import {
     Compiler,
     CompilerKey,
     compilerKeys,
-    Compilers,
-    Configuration,
-    Configurations,
+    CompilersByKey,
+    Config,
+    ConfigResult,
+    ConfigsByKey,
+    MethodTestResultsMap,
+    Optimization,
+    TestKey,
+    testKeys,
+    TestResult,
 } from "./benchmarks";
+import { persistentSignal } from "./persistent.signal";
 
 @Injectable({
     providedIn: "root",
@@ -29,30 +36,63 @@ export class AppService {
 
     readonly loading = computed(() => this.compilersResource.isLoading());
 
-    readonly compilers = computed<Compilers>(() => (this.compilersResource.value() as Compilers) ?? {});
+    readonly theme = persistentSignal<string>("c-bench-64.theme", () => "c64");
 
-    readonly confiugrations = computed<Configurations>(() => {
-        const configurations: Configurations = {};
+    readonly compilers = computed<CompilersByKey>(() => this.compilersResource.value() ?? {});
 
-        for (const compiler of Object.values(this.compilers())) {
-            for (const [key, configuration] of Object.entries(compiler.configurations)) {
-                configurations[key] = configuration;
+    readonly compilersByKey = computed<CompilersByKey>(() => (this.compilersResource.value() as CompilersByKey) ?? {});
+
+    readonly configsByKey = computed<ConfigsByKey>(() => {
+        const configsByKey: ConfigsByKey = {};
+
+        for (const compiler of Object.values(this.compilersByKey())) {
+            for (const config of compiler.configs) {
+                configsByKey[config.key] = config;
             }
         }
 
-        return configurations;
+        return configsByKey;
     });
+
+    readonly includePerfOpts = signal<boolean>(true);
+
+    readonly includeSizeOpts = signal<boolean>(true);
 
     readonly selectedCompilerKeys = signal<CompilerKey[]>([...activeCompilerKeys]);
 
-    readonly selectedBenchmarkKeys = signal<BenchmarkKey[]>([...benchmarkKeys]);
+    readonly selectedBenchmarkKeys = signal<BenchmarkKey[]>([
+        ...benchmarkKeys.filter((key) => !benchmarks[key].initiallyDisabled),
+    ]);
+
+    readonly selectedTestKeys = signal<TestKey[]>([...testKeys]);
+
+    readonly selectedConfigKeys = computed(() => {
+        const selectedCompilerKeys = this.selectedCompilerKeys();
+        const configKeys: string[] = [];
+
+        for (const compilerKey of selectedCompilerKeys) {
+            const compiler = this.compilersByKey()[compilerKey];
+
+            if (!compiler) {
+                continue;
+            }
+
+            for (const config of compiler.configs) {
+                if (this.isConfigSelected(config.key)) {
+                    configKeys.push(config.key);
+                }
+            }
+        }
+
+        return configKeys;
+    });
 
     readonly includePerfOptOnly = signal<boolean>(false);
 
     readonly includeSizeOptOnly = signal<boolean>(false);
 
     readonly benchmarkWithResultsMap = computed<BenchmarkWithResultsMap>(() => {
-        const compilers = this.compilers();
+        const compilers = this.compilersByKey();
         const map: Partial<BenchmarkWithResultsMap> = {};
 
         for (const benchmarkKey of this.selectedBenchmarkKeys()) {
@@ -73,14 +113,6 @@ export class AppService {
 
         return map as BenchmarkWithResultsMap;
     });
-
-    getConfiguration(configurationKey: string): Configuration | undefined {
-        return this.confiugrations()[configurationKey];
-    }
-
-    getConfigurationName(configurationKey: string): string {
-        return this.getConfiguration(configurationKey)?.name || configurationKey;
-    }
 
     isCompilerSelected(compilerKey: CompilerKey): boolean {
         return this.selectedCompilerKeys().includes(compilerKey);
@@ -152,7 +184,66 @@ export class AppService {
         this.selectedBenchmarkKeys.set(selectedBenchmarks);
     }
 
-    private collectBenchmarkResults(compilers: Compilers, benchmarkKey: BenchmarkKey): BenchmarkResults {
+    isTestSelected(benchmarkKey: TestKey): boolean {
+        return this.selectedTestKeys().includes(benchmarkKey);
+    }
+
+    setTestSelected(benchmarkKey: TestKey, value: boolean): void {
+        const selectedTests = [...this.selectedTestKeys()];
+
+        if (value) {
+            if (!selectedTests.includes(benchmarkKey)) {
+                selectedTests.push(benchmarkKey);
+            }
+        } else {
+            const index = selectedTests.indexOf(benchmarkKey);
+
+            if (index !== -1) {
+                selectedTests.splice(index, 1);
+            }
+        }
+
+        this.selectedTestKeys.set(selectedTests);
+    }
+
+    toggleTestSelection(benchmarkKey: TestKey): void {
+        const selectedTests = [...this.selectedTestKeys()];
+        const index = selectedTests.indexOf(benchmarkKey);
+
+        if (index === -1) {
+            selectedTests.push(benchmarkKey);
+        } else {
+            selectedTests.splice(index, 1);
+        }
+
+        this.selectedTestKeys.set(selectedTests);
+    }
+
+    isConfigSelected(configKey: string): boolean {
+        const config = this.findConfigByKey(configKey);
+
+        if (!config) {
+            return false;
+        }
+
+        if (!this.isOptimizationSelected(config.optimization)) {
+            return false;
+        }
+
+        return this.isCompilerSelected(config.compilerKey);
+    }
+
+    isOptimizationSelected(optimization: Optimization): boolean {
+        if (optimization === "performance") {
+            return this.includePerfOpts();
+        } else if (optimization === "size") {
+            return this.includeSizeOpts();
+        }
+
+        return true;
+    }
+
+    private collectBenchmarkResults(compilers: CompilersByKey, benchmarkKey: BenchmarkKey): BenchmarkResults {
         const benchmarkResults: Partial<BenchmarkResults> = {};
 
         for (const compilerKey of this.selectedCompilerKeys()) {
@@ -162,9 +253,8 @@ export class AppService {
                 continue;
             }
 
-            for (const configurationKey of Object.keys(compiler.configurations)) {
-                const configuration = compiler.configurations[configurationKey];
-                const results = compiler.results[configurationKey];
+            for (const config of compiler.configs) {
+                const results = compiler.results[config.key];
 
                 if (
                     results &&
@@ -172,14 +262,15 @@ export class AppService {
                     results[benchmarkKey].time !== null &&
                     results[benchmarkKey].size !== null
                 ) {
-                    benchmarkResults[configurationKey] = Object.assign(
+                    benchmarkResults[config.key] = Object.assign(
                         {
                             time: results[benchmarkKey].time,
                             size: results[benchmarkKey].size,
                             status: results[benchmarkKey].status ?? "unknown",
                             output: results[benchmarkKey].output ?? undefined,
+                            screenshot: results[benchmarkKey].screenshot ?? undefined,
                         },
-                        configuration,
+                        config,
                     );
                 }
             }
@@ -188,8 +279,70 @@ export class AppService {
         return benchmarkResults as BenchmarkResults;
     }
 
-    private async loadCompilers(): Promise<Compilers> {
-        const compilers: Compilers = {};
+    findConfigByKey(configKey: string): Config | undefined {
+        return this.configsByKey()[configKey];
+    }
+
+    findConfigNameByKey(configKey: string): string {
+        return this.findConfigByKey(configKey)?.name || configKey;
+    }
+
+    findCompilerByConfigKey(configKey: string): Compiler | undefined {
+        const config = this.findConfigByKey(configKey);
+
+        if (!config) {
+            return undefined;
+        }
+
+        return this.compilersByKey()[config.compilerKey];
+    }
+
+    findMethodTestResultsMapByTestAndConfigKey(testKey: TestKey, configKey: string): MethodTestResultsMap | undefined {
+        const configurationTest = this.findCompilerByConfigKey(configKey)?.tests[configKey];
+
+        if (!configurationTest) {
+            return undefined;
+        }
+
+        return configurationTest[testKey];
+    }
+
+    findTestResultByTestAndConfigKeyAndMethod(
+        testKey: TestKey,
+        configKey: string,
+        method: string,
+    ): TestResult | undefined {
+        const results = this.findMethodTestResultsMapByTestAndConfigKey(testKey, configKey);
+
+        if (!results) {
+            return undefined;
+        }
+
+        return results[method];
+    }
+
+    findConfigResultByPrgName(prgName: string): ConfigResult | undefined {
+        const compilers = this.compilers();
+
+        for (const compiler of Object.values(compilers)) {
+            if (!compiler.results) {
+                continue;
+            }
+
+            for (const result of Object.values(compiler.results)) {
+                for (const configResult of Object.values(result)) {
+                    if (configResult.prgName === prgName) {
+                        return configResult;
+                    }
+                }
+            }
+        }
+
+        return undefined;
+    }
+
+    private async loadCompilers(): Promise<CompilersByKey> {
+        const compilers: CompilersByKey = {};
 
         // Load each target's JSON file
         for (const compilerKey of compilerKeys) {
@@ -211,6 +364,8 @@ export class AppService {
     }
 
     createChartOptions(indexAxis: "x" | "y", xAxisText: string, fractionDigits: number, unit: string): ChartOptions {
+        const gridColor = this.theme() === "cbm" ? "#888888" : "#000000";
+
         return {
             indexAxis,
             responsive: true,
@@ -219,7 +374,7 @@ export class AppService {
                 x: {
                     beginAtZero: true,
                     grid: {
-                        color: "#000000",
+                        color: gridColor,
                         lineWidth: 2,
                     },
                     title: {
@@ -241,12 +396,12 @@ export class AppService {
                         },
                     },
                     border: {
-                        color: "#000000",
+                        color: gridColor,
                     },
                 },
                 y: {
                     grid: {
-                        color: "#000000",
+                        color: gridColor,
                         lineWidth: 2,
                     },
                     ticks: {
@@ -258,7 +413,7 @@ export class AppService {
                         },
                     },
                     border: {
-                        color: "#000000",
+                        color: gridColor,
                     },
                 },
             },

@@ -1,0 +1,17 @@
+:host {
+    &.pass {
+        color: var(--success-color);
+    }
+
+    &.fail {
+        color: var(--error-color);
+    }
+
+    &.unsupported {
+        color: var(--error-color);
+    }
+
+    &.unknown {
+        color: var(--warning-color);
+    }
+}

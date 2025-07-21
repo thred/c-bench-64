@@ -1,0 +1,8 @@
+@if (screenshotUrl(); as url) {
+    <div class="screenshot-overlay" (click)="close()">
+        <div class="screenshot-container" (click)="$event.stopPropagation()">
+            <button class="close-button" (click)="close()" aria-label="Close screenshot">×</button>
+            <img [src]="url" alt="Screenshot" class="screenshot-image" />
+        </div>
+    </div>
+}

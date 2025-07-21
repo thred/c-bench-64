@@ -2,9 +2,12 @@ CURDIR := $(shell pwd)
 BINDIR := $(CURDIR)/bin
 
 CLANG = "$(CURDIR)/llvm-mos/bin/mos-c64-clang"
-CLANGTARGET = 
-CLANGPERFOPTS = -O3 -fnonreentrant
+CLANGTARGET = -DLLVM
+CLANGPERFOPTS = -O3 -flto -fnonreentrant
 CLANGSIZEOPTS = -Os -flto -fnonreentrant
+
+# Trap at the end of the SYS call in $e147
+VICETRAP = 0xc000
 
 version:
 	@echo ""
@@ -50,11 +53,13 @@ exec:
 
 	@$(RM) -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
 
-	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
-		-initbreak 0xc000 \
+	$(VICEEXEC) $(VICEOPTS) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
+		-initbreak $(VICETRAP) \
 		-moncommands "$(SRCDIR)/vice.mon" \
 		-monlog \
 		-monlogname "$(BINDIR)/$(PRG)-$(SUFFIX).log"
+
+	@if [ -f "$(BINDIR)/vice.png" ]; then mv "$(BINDIR)/vice.png" "$(BINDIR)/$(PRG)-$(SUFFIX).png"; fi
 
 	cat "$(BINDIR)/$(PRG)-$(SUFFIX).log" 
 

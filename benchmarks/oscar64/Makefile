@@ -4,7 +4,10 @@ BINDIR := $(CURDIR)/bin
 OSCAR64 = "$(CURDIR)/oscar64/bin/oscar64"
 OSCAR64TARGET = -tf=prg -tm=c64 -psci -dOSCAR64
 OSCAR64PERFOPTS = -O3 -dHEAPCHECK -dNOBSSCLEAR -dNOZPCLEAR
-OSCAR64SIZEOPTS = -O -Os -Oo -Oz -Op -dNOLONG -dNOFLOAT
+OSCAR64SIZEOPTS = -O -Os -Oo -Oz -Op -dNOLONG -dNOFLOAT -dQUIETASSERT
+
+# Trap at the end of the SYS call in $e147
+VICETRAP = 0xe147
 
 version: 
 	@echo ""
@@ -50,11 +53,14 @@ exec:
 
 	@$(RM) -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
 
-	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
-		-initbreak 0xc000 \
+# VICE will fall into a breakpoint at the end of the SYS call in $e147
+	$(VICEEXEC) $(VICEOPTS) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
+		-initbreak $(VICETRAP) \
 		-moncommands "$(SRCDIR)/vice.mon" \
 		-monlog \
 		-monlogname "$(BINDIR)/$(PRG)-$(SUFFIX).log"
+
+	@if [ -f "$(BINDIR)/vice.png" ]; then mv "$(BINDIR)/vice.png" "$(BINDIR)/$(PRG)-$(SUFFIX).png"; fi
 
 	cat "$(BINDIR)/$(PRG)-$(SUFFIX).log" 
 

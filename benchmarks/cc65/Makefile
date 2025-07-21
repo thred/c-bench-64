@@ -3,9 +3,12 @@ BINDIR := $(CURDIR)/bin
 
 CC65DIR := $(CURDIR)/cc65
 CC65 = $(CC65DIR)/bin/cl65
-CC65TARGET = -t c64
+CC65TARGET = -t c64 -DCC65
 CC65PERFOPTS = -Oisr --static-locals
 CC65SIZEOPTS = -O --static-locals
+
+# Trap at the end of the SYS call in $e147
+VICETRAP = 0xe147
 
 version:
 	@echo ""
@@ -55,10 +58,12 @@ exec:
 
 	@$(RM) -f "$(BINDIR)/$(PRG)-$(SUFFIX).log"
 
-	$(VICEEXEC) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
-		-initbreak 0xc000 \
+	$(VICEEXEC) $(VICEOPTS) -autostart "$(BINDIR)/$(PRG)-$(SUFFIX).prg" \
+		-initbreak $(VICETRAP) \
 		-moncommands "$(SRCDIR)/vice.mon" \
 		-monlog \
 		-monlogname "$(BINDIR)/$(PRG)-$(SUFFIX).log"
+
+	@if [ -f "$(BINDIR)/vice.png" ]; then mv "$(BINDIR)/vice.png" "$(BINDIR)/$(PRG)-$(SUFFIX).png"; fi
 
 	cat "$(BINDIR)/$(PRG)-$(SUFFIX).log" 

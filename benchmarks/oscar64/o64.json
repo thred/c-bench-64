@@ -9,19 +9,18 @@
     "license": "GNU General Public License v3.0",
     "pros": [
         "Ease of use",
-        "Good support for modern C features",
-        "Partial support for C++ features",
+        "Good support for modern C features.",
+        "Partial support for C++ features.",
         "Excellent optimizations",
         "Support for interrupts",
         "Support for overlays (compressed or uncompressed)",
-        "Good documentation and tons of examples, even complete games",
+        "Good documentation and tons of examples, even complete games.",
         "Floating point support",
         ".d64 output",
         "Cartridge support"
     ],
-    "cons": [
-        "No separated linker, no external libraries",
-        "No standard file functions (just mapped kernal functions)"
+    "neutral": [
+        "No separated linker (no external libraries) but makes it lot easier to use."
     ],
     "features": {
         "floatingPoint": {
@@ -30,14 +29,14 @@
         },
         "inlineAssembly": "yes",
         "overlays": "yes",
-        "fileIO": {
-            "supported": "no",
-            "note": "CBM based file ops are supported"
-        },
+        "fileIO": "yes",
         "printf": "yes",
         "recursiveFunctions": "yes",
         "interruptSupport": "yes",
-        "maintained": "yes"
+        "maintained": {
+            "supported": "yes",
+            "note": "higly active"
+        }
     },
     "libraries": {
         "assert": "yes",
@@ -83,18 +82,20 @@
         "Commander X16",
         "Mega 65"
     ],
-    "configurations": {
-        "o64p": {
+    "configs": [
+        {
+            "key": "o64p",
             "name": "Oscar64 - Perf.Opt.",
             "description": "-O3 -dHEAPCHECK -dNOBSSCLEAR -dNOZPCLEAR",
             "optimization": "performance",
             "color": "#a9ff9f"
         },
-        "o64s": {
+        {
+            "key": "o64s",
             "name": "Oscar64 - Size Opt.",
-            "description": "-O -Os -Oo -Oz -Op -dNOLONG -dNOFLOAT",
+            "description": "-O -Os -Oo -Oz -Op -dNOLONG -dNOFLOAT -dQUIETASSERT",
             "optimization": "size",
             "color": "#a9ff9f"
         }
-    }
+    ]
 }

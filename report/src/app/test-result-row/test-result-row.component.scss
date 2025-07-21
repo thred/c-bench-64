@@ -1,0 +1,7 @@
+.clickable {
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--hover-background-color);
+    }
+}

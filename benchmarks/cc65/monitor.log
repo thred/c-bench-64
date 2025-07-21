@@ -1,0 +1,8 @@
+BREAK: 1  C:$e147  (Stop on exec)
+#1 (Stop on  exec e147)   68/$044,  29/$1d
+.C:e147  08          PHP            - A:00 X:37 Y:00 SP:f8 ..-.....    9281945
+(C:$e147) x
+BREAK: 1  C:$e147  (Stop on exec)
+#1 (Stop on  exec e147)   73/$049,  61/$3d
+.C:e147  08          PHP            - A:00 X:37 Y:00 SP:f8 ..-.....    9419884
+(C:$e147) q
