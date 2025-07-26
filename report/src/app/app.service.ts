@@ -6,9 +6,7 @@ import {
     activeCompilerKeys,
     BenchmarkKey,
     benchmarkKeys,
-    BenchmarkResults,
     benchmarks,
-    BenchmarkWithResultsMap,
     Compiler,
     CompilerKey,
     compilerKeys,
@@ -87,33 +85,6 @@ export class AppService {
         return configKeys;
     });
 
-    readonly includePerfOptOnly = signal<boolean>(false);
-
-    readonly includeSizeOptOnly = signal<boolean>(false);
-
-    readonly benchmarkWithResultsMap = computed<BenchmarkWithResultsMap>(() => {
-        const compilers = this.compilersByKey();
-        const map: Partial<BenchmarkWithResultsMap> = {};
-
-        for (const benchmarkKey of this.selectedBenchmarkKeys()) {
-            const results = this.collectBenchmarkResults(compilers, benchmarkKey);
-
-            map[benchmarkKey] = {
-                key: benchmarkKey,
-                name: benchmarks[benchmarkKey].name,
-                shortName: benchmarks[benchmarkKey].shortName,
-                description: benchmarks[benchmarkKey].description,
-                note: benchmarks[benchmarkKey].note,
-                author: benchmarks[benchmarkKey].author,
-                url: benchmarks[benchmarkKey].url,
-                footnotes: benchmarks[benchmarkKey].footnotes,
-                results,
-            };
-        }
-
-        return map as BenchmarkWithResultsMap;
-    });
-
     isCompilerSelected(compilerKey: CompilerKey): boolean {
         return this.selectedCompilerKeys().includes(compilerKey);
     }
@@ -131,19 +102,6 @@ export class AppService {
             if (index !== -1) {
                 selectedCompilers.splice(index, 1);
             }
-        }
-
-        this.selectedCompilerKeys.set(selectedCompilers);
-    }
-
-    toggleCompilerSelection(compilerKey: CompilerKey): void {
-        const selectedCompilers = [...this.selectedCompilerKeys()];
-        const index = selectedCompilers.indexOf(compilerKey);
-
-        if (index === -1) {
-            selectedCompilers.push(compilerKey);
-        } else {
-            selectedCompilers.splice(index, 1);
         }
 
         this.selectedCompilerKeys.set(selectedCompilers);
@@ -171,19 +129,6 @@ export class AppService {
         this.selectedBenchmarkKeys.set(selectedBenchmarks);
     }
 
-    toggleBenchmarkSelection(benchmarkKey: BenchmarkKey): void {
-        const selectedBenchmarks = [...this.selectedBenchmarkKeys()];
-        const index = selectedBenchmarks.indexOf(benchmarkKey);
-
-        if (index === -1) {
-            selectedBenchmarks.push(benchmarkKey);
-        } else {
-            selectedBenchmarks.splice(index, 1);
-        }
-
-        this.selectedBenchmarkKeys.set(selectedBenchmarks);
-    }
-
     isTestSelected(benchmarkKey: TestKey): boolean {
         return this.selectedTestKeys().includes(benchmarkKey);
     }
@@ -201,19 +146,6 @@ export class AppService {
             if (index !== -1) {
                 selectedTests.splice(index, 1);
             }
-        }
-
-        this.selectedTestKeys.set(selectedTests);
-    }
-
-    toggleTestSelection(benchmarkKey: TestKey): void {
-        const selectedTests = [...this.selectedTestKeys()];
-        const index = selectedTests.indexOf(benchmarkKey);
-
-        if (index === -1) {
-            selectedTests.push(benchmarkKey);
-        } else {
-            selectedTests.splice(index, 1);
         }
 
         this.selectedTestKeys.set(selectedTests);
@@ -241,42 +173,6 @@ export class AppService {
         }
 
         return true;
-    }
-
-    private collectBenchmarkResults(compilers: CompilersByKey, benchmarkKey: BenchmarkKey): BenchmarkResults {
-        const benchmarkResults: Partial<BenchmarkResults> = {};
-
-        for (const compilerKey of this.selectedCompilerKeys()) {
-            const compiler = compilers[compilerKey];
-
-            if (!compiler) {
-                continue;
-            }
-
-            for (const config of compiler.configs) {
-                const results = compiler.results[config.key];
-
-                if (
-                    results &&
-                    results[benchmarkKey] &&
-                    results[benchmarkKey].time !== null &&
-                    results[benchmarkKey].size !== null
-                ) {
-                    benchmarkResults[config.key] = Object.assign(
-                        {
-                            time: results[benchmarkKey].time,
-                            size: results[benchmarkKey].size,
-                            status: results[benchmarkKey].status ?? "unknown",
-                            output: results[benchmarkKey].output ?? undefined,
-                            screenshot: results[benchmarkKey].screenshot ?? undefined,
-                        },
-                        config,
-                    );
-                }
-            }
-        }
-
-        return benchmarkResults as BenchmarkResults;
     }
 
     findConfigByKey(configKey: string): Config | undefined {
@@ -339,6 +235,22 @@ export class AppService {
         }
 
         return undefined;
+    }
+
+    findConfigResultByBenchmarkAndConfigKey(benchmarkKey: BenchmarkKey, configKey: string): ConfigResult | undefined {
+        const compiler = this.findCompilerByConfigKey(configKey);
+
+        if (!compiler || !compiler.results) {
+            return undefined;
+        }
+
+        const results = compiler.results[configKey];
+
+        if (!results || !results[benchmarkKey]) {
+            return undefined;
+        }
+
+        return results[benchmarkKey];
     }
 
     private async loadCompilers(): Promise<CompilersByKey> {

@@ -115,7 +115,7 @@ html {
     --header-hover-color: var(--c64-yellow);
     --link-color: var(--c64-cyan);
     --hover-color: var(--c64-yellow);
-    --hover-background-color: var(--c64-light-blue);
+    --hover-background-color: var(--c64-light-grey);
     --success-color: var(--c64-light-green);
     --error-color: var(--c64-light-red);
     --warning-color: var(--c64-yellow);
@@ -412,18 +412,10 @@ h3 {
 h4 {
     border-bottom: 2px solid var(--text-color);
     margin-top: 1rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 1rem;
 
     @media print {
         margin-bottom: 1rem;
-    }
-}
-
-.h-options {
-    padding: 0 1rem 1rem 1rem;
-
-    @media print {
-        display: none !important;
     }
 }
 

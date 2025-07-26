@@ -1,0 +1,23 @@
+.clickable {
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+        background-color: var(--hover-background-color);
+    }
+}
+
+.fail,
+.unsupported,
+.unknown {
+    opacity: 0.25;
+    color: var(--text-color);
+}
+
+.lowest-value {
+    color: var(--success-color);
+}
+
+.highest-value {
+    color: var(--error-color);
+}

@@ -8,26 +8,23 @@
             <tr>
                 <th>Benchmark</th>
 
-                @for (configKey of configKeys(); track configKey) {
-                    <th>{{ getConfigName(configKey) }}</th>
+                @for (configName of configNames(); track configName) {
+                    <th>{{ configName }}</th>
                 }
             </tr>
         </thead>
 
         <tbody>
             @for (benchmarkKey of benchmarkKeys(); track benchmarkKey) {
-                @if (summary()[benchmarkKey]; as summary) {
-                    <tr>
-                        <th>{{ getBenchmarkShortName(benchmarkKey) }}</th>
-
-                        @for (configKey of configKeys(); track configKey) {
-                            <td [class]="getClassName(benchmarkKey, configKey)">
-                                {{ getValue(benchmarkKey, configKey) }}
-                            </td>
-                        }
-                    </tr>
-                }
+                <tr
+                    appBenchmarkSummaryRow
+                    [benchmarkKey]="benchmarkKey"
+                    [type]="type()"
+                    [configKeys]="configKeys()"
+                ></tr>
             }
         </tbody>
     </table>
+
+    <p class="hint text-right">Click on the values to view the screenshot of the benchmark result.</p>
 }

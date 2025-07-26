@@ -364,10 +364,13 @@ export type BenchmarkSummary = {
 };
 
 export interface BenchmarkSummaryItem {
+    configKey?: string;
     value: number;
     status: Status;
     lowestValue?: boolean;
     hightestValue?: boolean;
+    output?: string;
+    screenshot?: string;
 }
 
 export type ConfigResults = { [key in BenchmarkKey]: ConfigResult };

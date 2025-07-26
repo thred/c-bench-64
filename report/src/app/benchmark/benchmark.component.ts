@@ -1,7 +1,7 @@
 import { Component, computed, inject, input, signal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { AppService } from "../app.service";
-import { BenchmarkKey, BenchmarkResults, Optimization } from "../benchmarks";
+import { BenchmarkKey, BenchmarkResults, benchmarks, Optimization } from "../benchmarks";
 import { OutputComponent } from "../output/output.component";
 import { SectionCollapserDirective } from "../section-collapser.directive";
 import { SectionComponent } from "../section/section.component";
@@ -32,21 +32,43 @@ export class BenchmarkComponent {
 
     readonly heightStyle = computed(() => `${Math.max(376, this.chartWidth() / 3)}px`);
 
-    readonly benchmark = computed(() => this.service.benchmarkWithResultsMap()[this.key()]);
+    readonly benchmark = computed(() => {
+        const key = this.key();
+        const results: BenchmarkResults = {};
+        const configKeys = this.service.selectedConfigKeys();
 
-    readonly timeBenchmark = computed(() =>
-        BenchmarkComponent.filterConfigurations(
-            this.benchmark()?.results,
-            ["none", "performance"],
-            this.includePerfOptOnly(),
-        ),
-    );
+        for (const configKey of configKeys) {
+            const result = this.service.findConfigResultByBenchmarkAndConfigKey(this.key(), configKey);
+            const config = this.service.findConfigByKey(configKey);
 
-    readonly sizeBenchmark = computed(() =>
-        BenchmarkComponent.filterConfigurations(this.benchmark()?.results, ["none", "size"], this.includeSizeOptOnly()),
-    );
+            if (result && result.time !== null && result.size !== null) {
+                results[configKey] = Object.assign(
+                    {
+                        time: result.time,
+                        size: result.size,
+                        status: result.status ?? "unknown",
+                        output: result.output ?? undefined,
+                        screenshot: result.screenshot ?? undefined,
+                    },
+                    config,
+                );
+            }
+        }
 
-    readonly configKeys = computed(() => Object.keys(this.benchmark()?.results || {}));
+        return {
+            key,
+            name: benchmarks[key].name,
+            shortName: benchmarks[key].shortName,
+            description: benchmarks[key].description,
+            note: benchmarks[key].note,
+            author: benchmarks[key].author,
+            url: benchmarks[key].url,
+            footnotes: benchmarks[key].footnotes,
+            results,
+        };
+    });
+
+    readonly configKeys = computed(() => this.service.selectedConfigKeys());
 
     readonly failedBenchmarks = computed(() =>
         Object.keys(this.benchmark()?.results)
@@ -60,14 +82,6 @@ export class BenchmarkComponent {
     readonly selectedOutput = computed(() =>
         this.selectedOutputConfigKey() ? this.benchmark()?.results[this.selectedOutputConfigKey()!]?.output : undefined,
     );
-
-    get includePerfOptOnly() {
-        return this.service.includePerfOptOnly;
-    }
-
-    get includeSizeOptOnly() {
-        return this.service.includeSizeOptOnly;
-    }
 
     toggleOutputConfigKey(configKey: string): void {
         if (this.selectedOutputConfigKey() === configKey) {

@@ -71,6 +71,24 @@
         </app-toc-section>
 
         <app-toc-section label="Settings">
+            <app-toc-separator label="Configs" />
+
+            <app-toc-item
+                label="Performance Configs"
+                (click)="this.toggleIncludePerfOpts()"
+                [checked]="this.includePerfOpts()"
+                (checkedChange)="setIncludePerfOpts($event)"
+                [checkable]="true"
+            />
+
+            <app-toc-item
+                label="Size Configs"
+                (click)="this.toggleIncludeSizeOpts()"
+                [checked]="this.includeSizeOpts()"
+                (checkedChange)="setIncludeSizeOpts($event)"
+                [checkable]="true"
+            />
+
             <app-toc-separator label="Theme" />
 
             @for (theme of themes; track theme) {

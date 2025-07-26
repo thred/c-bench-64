@@ -1,0 +1,11 @@
+<th (click)="gotoBenchmark()" class="clickable">{{ benchmarkShortName() }}</th>
+
+@for (benchmarkResult of benchmarkResults(); track benchmarkResult.configKey) {
+    <td
+        [class]="getClassName(benchmarkResult)"
+        [class.clickable]="benchmarkResult.screenshot"
+        (click)="gotoScreenshot(benchmarkResult)"
+    >
+        {{ getValue(benchmarkResult) }}
+    </td>
+}
