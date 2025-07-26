@@ -136,7 +136,6 @@ static void test_atol(void)
 
     begin("atol");
 
-#if !defined(OSCAR64)
     sprintf(str, "%ld", r);
 
     expect(atol(str) == r);
@@ -144,9 +143,6 @@ static void test_atol(void)
     sprintf(str, "-%ld", r);
 
     expect(atol(str) == -r);
-#else
-    missing();
-#endif
 }
 
 void test_malloc()

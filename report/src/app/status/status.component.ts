@@ -23,6 +23,8 @@ export class StatusComponent {
                 return "times";
             case "unsupported":
                 return "minus";
+            case "disabled":
+                return "partial";
             case "unknown":
                 return "question";
             default:

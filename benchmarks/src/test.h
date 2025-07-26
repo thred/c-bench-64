@@ -11,6 +11,8 @@ void failure(void);
 
 void missing();
 
+void disabled();
+
 char expect(char result);
 
 #if !defined(CC65)

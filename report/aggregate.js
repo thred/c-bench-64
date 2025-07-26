@@ -73,6 +73,7 @@ function getStatus(log) {
     if (!log) return "unknown";
     if (log.includes("[FAIL]")) return "fail";
     if (log.includes("[MISS]")) return "unsupported";
+    if (log.includes("[OFF]")) return "disabled";
     if (log.includes("[OK]")) return "pass";
     return "unknown";
 }

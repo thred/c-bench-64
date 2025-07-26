@@ -11,6 +11,10 @@
         color: var(--error-color);
     }
 
+    &.disabled {
+        color: var(--warning-color);
+    }
+
     &.unknown {
         color: var(--warning-color);
     }

@@ -86,7 +86,7 @@
         {
             "key": "o64p",
             "name": "Oscar64 - Perf.Opt.",
-            "description": "-O3 -dNOBSSCLEAR -dNOZPCLEAR",
+            "description": "-O3",
             "optimization": "performance",
             "color": "#a9ff9f"
         },

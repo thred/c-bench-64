@@ -57,7 +57,11 @@ export class TestResultRowComponent {
                 break;
 
             case "unsupported":
-                title = "Features is not supported or disabled.";
+                title = "Features is not supported.";
+                break;
+
+            case "disabled":
+                title = "Feature is disabled by compiler options.";
                 break;
 
             case "unknown":

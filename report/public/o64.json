@@ -86,7 +86,7 @@
     {
       "key": "o64p",
       "name": "Oscar64 - Perf.Opt.",
-      "description": "-O3 -dNOBSSCLEAR -dNOZPCLEAR",
+      "description": "-O3",
       "optimization": "performance",
       "color": "#a9ff9f",
       "compilerKey": "o64"
@@ -101,7 +101,7 @@
     }
   ],
   "version": "1.31.262",
-  "date": "2025-07-26 17:59:22",
+  "date": "2025-07-26 18:49:54",
   "results": {
     "o64p": {
       "aes256": {
@@ -226,10 +226,10 @@
       },
       "test_stdlib": {
         "prgName": "test_stdlib-o64p.prg",
-        "size": 13369,
+        "size": 14158,
         "time": null,
         "status": "fail",
-        "output": "0400                                          \n0428   64k ram system  38911 basic bytes free \n0450                                          \n0478  ready.                                  \n04a0  load\"test_stdlib-o64p\",8,1              \n04c8                                          \n04f0  searching for test_stdlib-o64p          \n0518  loading                                 \n0540  ?load  error                            \n0568  ready.                                  \n0590  run:                                    \n05b8                                          \n05e0  #rand [FAIL] (-27436<0)                 \n0608  #srand [OK]                             \n0630  #atof [OK] [OK]                         \n0658  #atoi [OK] [OK]                         \n0680  #atol [MISS]                            \n06a8  #malloc [OK]                            \n06d0  #calloc [OK]                            \n06f8  #realloc [OK]                           \n0720  #qsort [MISS]                           \n0748  #abs [OK] [OK]                          \n0770  #labs [OK] [OK]                         \n0798  #div [OK] [OK] [OK] [OK]                \n07c0  #ldiv [OK] [OK] [OK] [OK]               \n",
+        "output": "0400                                          \n0428   64k ram system  38911 basic bytes free \n0450                                          \n0478  ready.                                  \n04a0  load\"test_stdlib-o64p\",8,1              \n04c8                                          \n04f0  searching for test_stdlib-o64p          \n0518  loading                                 \n0540  ?load  error                            \n0568  ready.                                  \n0590  run:                                    \n05b8                                          \n05e0  #rand [FAIL] (-27436<0)                 \n0608  #srand [OK]                             \n0630  #atof [OK] [OK]                         \n0658  #atoi [OK] [OK]                         \n0680  #atol [OK] [OK]                         \n06a8  #malloc [OK]                            \n06d0  #calloc [OK]                            \n06f8  #realloc [OK]                           \n0720  #qsort [MISS]                           \n0748  #abs [OK] [OK]                          \n0770  #labs [OK] [OK]                         \n0798  #div [OK] [OK] [OK] [OK]                \n07c0  #ldiv [OK] [OK] [OK] [OK]               \n",
         "screenshot": "test_stdlib-o64p.png"
       },
       "test_string": {
@@ -348,26 +348,26 @@
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-o64s.prg",
-        "size": 2707,
+        "size": 2706,
         "time": null,
-        "status": "unsupported",
-        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"*\",8,1                             \n04f0                                          \n0518  searching for *                         \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #printf-c [OK]                          \n0630  #printf-s [OK]                          \n0658  #printf-d [OK]                          \n0680  #printf-ld [MISS]                       \n06a8  #printf-i [OK]                          \n06d0  #printf-li [MISS]                       \n06f8  #printf-x [OK]                          \n0720  #printf-lx [MISS]                       \n0748  #printf-X [OK]                          \n0770  #printf-lX [MISS]                       \n0798  #printf-f [MISS]                        \n07c0  #printf-e [MISS]                        \n",
+        "status": "disabled",
+        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"*\",8,1                             \n04f0                                          \n0518  searching for *                         \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #printf-c [OK]                          \n0630  #printf-s [OK]                          \n0658  #printf-d [OK]                          \n0680  #printf-ld [OFF]                        \n06a8  #printf-i [OK]                          \n06d0  #printf-li [OFF]                        \n06f8  #printf-x [OK]                          \n0720  #printf-lx [OFF]                        \n0748  #printf-X [OK]                          \n0770  #printf-lX [OFF]                        \n0798  #printf-f [OFF]                         \n07c0  #printf-e [OFF]                         \n",
         "screenshot": "test_stdio_print-o64s.png"
       },
       "test_stdio_scan": {
         "prgName": "test_stdio_scan-o64s.prg",
-        "size": 4097,
+        "size": 4103,
         "time": null,
-        "status": "unsupported",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [MISS]                         \n0770  #scanf-e [MISS]                         \n0798                                          \n07c0                                          \n",
+        "status": "disabled",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [OFF]                          \n0770  #scanf-e [OFF]                          \n0798                                          \n07c0                                          \n",
         "screenshot": "test_stdio_scan-o64s.png"
       },
       "test_stdlib": {
         "prgName": "test_stdlib-o64s.prg",
-        "size": 8836,
+        "size": 9221,
         "time": null,
         "status": "fail",
-        "output": "0400                                          \n0428   64k ram system  38911 basic bytes free \n0450                                          \n0478  ready.                                  \n04a0  load\"test_stdlib-o64s\",8,1              \n04c8                                          \n04f0  searching for test_stdlib-o64s          \n0518  loading                                 \n0540  ?load  error                            \n0568  ready.                                  \n0590  run:                                    \n05b8                                          \n05e0  #rand [FAIL] (-27436<0)                 \n0608  #srand [OK]                             \n0630  #atof [OK] [OK]                         \n0658  #atoi [OK] [OK]                         \n0680  #atol [MISS]                            \n06a8  #malloc [OK]                            \n06d0  #calloc [OK]                            \n06f8  #realloc [OK]                           \n0720  #qsort [MISS]                           \n0748  #abs [OK] [OK]                          \n0770  #labs [OK] [OK]                         \n0798  #div [OK] [OK] [OK] [OK]                \n07c0  #ldiv [OK] [OK] [OK] [OK]               \n",
+        "output": "0400                                          \n0428   64k ram system  38911 basic bytes free \n0450                                          \n0478  ready.                                  \n04a0  load\"test_stdlib-o64s\",8,1              \n04c8                                          \n04f0  searching for test_stdlib-o64s          \n0518  loading                                 \n0540  ?load  error                            \n0568  ready.                                  \n0590  run:                                    \n05b8                                          \n05e0  #rand [FAIL] (-27436<0)                 \n0608  #srand [OK]                             \n0630  #atof [OK] [OK]                         \n0658  #atoi [OK] [OK]                         \n0680  #atol [FAIL] [FAIL]                     \n06a8  #malloc [OK]                            \n06d0  #calloc [OK]                            \n06f8  #realloc [OK]                           \n0720  #qsort [MISS]                           \n0748  #abs [OK] [OK]                          \n0770  #labs [OK] [OK]                         \n0798  #div [OK] [OK] [OK] [OK]                \n07c0  #ldiv [OK] [OK] [OK] [OK]               \n",
         "screenshot": "test_stdlib-o64s.png"
       },
       "test_string": {
@@ -564,7 +564,7 @@
           "prgName": "test_stdlib-o64p.prg"
         },
         "atol": {
-          "status": "unsupported",
+          "status": "pass",
           "prgName": "test_stdlib-o64p.prg"
         },
         "malloc": {
@@ -748,7 +748,7 @@
           "prgName": "test_stdio_print-o64s.prg"
         },
         "printf-ld": {
-          "status": "unsupported",
+          "status": "disabled",
           "prgName": "test_stdio_print-o64s.prg"
         },
         "printf-i": {
@@ -756,7 +756,7 @@
           "prgName": "test_stdio_print-o64s.prg"
         },
         "printf-li": {
-          "status": "unsupported",
+          "status": "disabled",
           "prgName": "test_stdio_print-o64s.prg"
         },
         "printf-x": {
@@ -764,7 +764,7 @@
           "prgName": "test_stdio_print-o64s.prg"
         },
         "printf-lx": {
-          "status": "unsupported",
+          "status": "disabled",
           "prgName": "test_stdio_print-o64s.prg"
         },
         "printf-X": {
@@ -772,15 +772,15 @@
           "prgName": "test_stdio_print-o64s.prg"
         },
         "printf-lX": {
-          "status": "unsupported",
+          "status": "disabled",
           "prgName": "test_stdio_print-o64s.prg"
         },
         "printf-f": {
-          "status": "unsupported",
+          "status": "disabled",
           "prgName": "test_stdio_print-o64s.prg"
         },
         "printf-e": {
-          "status": "unsupported",
+          "status": "disabled",
           "prgName": "test_stdio_print-o64s.prg"
         },
         "scanf-c": {
@@ -808,11 +808,11 @@
           "prgName": "test_stdio_scan-o64s.prg"
         },
         "scanf-f": {
-          "status": "unsupported",
+          "status": "disabled",
           "prgName": "test_stdio_scan-o64s.prg"
         },
         "scanf-e": {
-          "status": "unsupported",
+          "status": "disabled",
           "prgName": "test_stdio_scan-o64s.prg"
         }
       },
@@ -834,7 +834,7 @@
           "prgName": "test_stdlib-o64s.prg"
         },
         "atol": {
-          "status": "unsupported",
+          "status": "fail",
           "prgName": "test_stdlib-o64s.prg"
         },
         "malloc": {

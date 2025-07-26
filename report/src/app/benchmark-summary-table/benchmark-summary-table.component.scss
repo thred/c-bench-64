@@ -13,6 +13,7 @@ table {
 
 .fail,
 .unsupported,
+.disabled,
 .unknown {
     opacity: 0.25;
     color: var(--text-color);

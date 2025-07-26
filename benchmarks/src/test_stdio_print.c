@@ -67,7 +67,7 @@ static void test_printf_ld(void)
         printf(" (%s!=1234567890)", buffer);
     }
 #else
-    missing();
+    disabled();
 #endif
 }
 
@@ -101,7 +101,7 @@ static void test_printf_li(void)
         printf(" (%s!=-1234567890)", buffer);
     }
 #else
-    missing();
+    disabled();
 #endif
 }
 
@@ -135,7 +135,7 @@ static void test_printf_lx(void)
         printf(" (%s!=deadbeef)", buffer);
     }
 #else
-    missing();
+    disabled();
 #endif
 }
 
@@ -169,24 +169,28 @@ static void test_printf_lX(void)
         printf(" (%s!=DEADBEEF)", buffer);
     }
 #else
-    missing();
+    disabled();
 #endif
 }
 
 static void test_printf_f(void)
 {
-#if !defined(CC65) && !defined(NOFLOAT)
+#if !defined(CC65)
     float f = 3.14159;
     char buffer[BUFFER_SIZE];
 
     begin("printf-f");
 
+#if !defined(NOFLOAT)
     sprintf(buffer, "%.2f", f);
 
     if (!expect(strcmp(buffer, "3.14") == 0))
     {
         printf(" (%s!=3.14)", buffer);
     }
+#else
+    disabled();
+#endif
 #else
     begin("printf-f");
     missing();
@@ -195,18 +199,22 @@ static void test_printf_f(void)
 
 static void test_printf_e(void)
 {
-#if !defined(CC65) && !defined(NOFLOAT)
+#if !defined(CC65)
     float d = 123456.789;
     char buffer[BUFFER_SIZE];
 
     begin("printf-e");
 
+#if !defined(NOFLOAT)
     sprintf(buffer, "%.2e", d);
 
     if (!expect(strcmp(buffer, "1.23e+05") == 0))
     {
         printf(" (%s!=1.23e+05)", buffer);
     }
+#else
+    disabled();
+#endif
 #else
     begin("printf-e");
     missing();

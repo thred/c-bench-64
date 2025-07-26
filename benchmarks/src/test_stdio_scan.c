@@ -124,17 +124,21 @@ void test_scanf_X(void)
 
 void test_scanf_f(void)
 {
-#if !defined(CC65) && !defined(NOFLOAT)
+#if !defined(CC65)
     float value;
 
     begin("scanf-f");
 
+#if !defined(NOFLOAT)
     sscanf("3.14", "%f", &value);
 
     if (!expect(closeTo(value, 3.14)))
     {
         printf(" (%f)", value);
     }
+#else
+    disabled();
+#endif
 #else
     begin("scanf-f");
     missing();
@@ -143,17 +147,21 @@ void test_scanf_f(void)
 
 void test_scanf_e(void)
 {
-#if !defined(CC65) && !defined(NOFLOAT)
+#if !defined(CC65)
     float value;
 
     begin("scanf-e");
 
+#if !defined(NOFLOAT)
     sscanf("3.14e2", "%e", &value);
 
     if (!expect(closeTo(value, 314.0)))
     {
         printf(" (%f)", value);
     }
+#else
+    disabled();
+#endif
 #else
     begin("scanf-e");
     missing();

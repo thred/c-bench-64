@@ -85,6 +85,11 @@ void missing()
     printf(" [MISS]");
 }
 
+void disabled()
+{
+    printf(" [OFF]");
+}
+
 char expect(char result)
 {
     if (result)

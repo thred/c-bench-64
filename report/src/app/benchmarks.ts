@@ -270,7 +270,7 @@ export type Supported =
           url?: string;
       };
 
-export type Status = "pass" | "fail" | "unsupported" | "unknown";
+export type Status = "pass" | "fail" | "unsupported" | "disabled" | "unknown";
 
 export interface Compiler {
     key: CompilerKey;
