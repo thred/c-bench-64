@@ -226,7 +226,7 @@
       },
       "test_stdlib": {
         "prgName": "test_stdlib-o64p.prg",
-        "size": 14158,
+        "size": 16185,
         "time": null,
         "status": "fail",
         "output": "0400                                          \n0428   64k ram system  38911 basic bytes free \n0450                                          \n0478  ready.                                  \n04a0  load\"test_stdlib-o64p\",8,1              \n04c8                                          \n04f0  searching for test_stdlib-o64p          \n0518  loading                                 \n0540  ?load  error                            \n0568  ready.                                  \n0590  run:                                    \n05b8                                          \n05e0  #rand [FAIL] (-27436<0)                 \n0608  #srand [OK]                             \n0630  #atof [OK] [OK]                         \n0658  #atoi [OK] [OK]                         \n0680  #atol [OK] [OK]                         \n06a8  #malloc [OK]                            \n06d0  #calloc [OK]                            \n06f8  #realloc [OK]                           \n0720  #qsort [MISS]                           \n0748  #abs [OK] [OK]                          \n0770  #labs [OK] [OK]                         \n0798  #div [OK] [OK] [OK] [OK]                \n07c0  #ldiv [OK] [OK] [OK] [OK]               \n",
@@ -364,10 +364,10 @@
       },
       "test_stdlib": {
         "prgName": "test_stdlib-o64s.prg",
-        "size": 9221,
+        "size": 9725,
         "time": null,
         "status": "fail",
-        "output": "0400                                          \n0428   64k ram system  38911 basic bytes free \n0450                                          \n0478  ready.                                  \n04a0  load\"test_stdlib-o64s\",8,1              \n04c8                                          \n04f0  searching for test_stdlib-o64s          \n0518  loading                                 \n0540  ?load  error                            \n0568  ready.                                  \n0590  run:                                    \n05b8                                          \n05e0  #rand [FAIL] (-27436<0)                 \n0608  #srand [OK]                             \n0630  #atof [OK] [OK]                         \n0658  #atoi [OK] [OK]                         \n0680  #atol [FAIL] [FAIL]                     \n06a8  #malloc [OK]                            \n06d0  #calloc [OK]                            \n06f8  #realloc [OK]                           \n0720  #qsort [MISS]                           \n0748  #abs [OK] [OK]                          \n0770  #labs [OK] [OK]                         \n0798  #div [OK] [OK] [OK] [OK]                \n07c0  #ldiv [OK] [OK] [OK] [OK]               \n",
+        "output": "0400                                          \n0428   64k ram system  38911 basic bytes free \n0450                                          \n0478  ready.                                  \n04a0  load\"test_stdlib-o64s\",8,1              \n04c8                                          \n04f0  searching for test_stdlib-o64s          \n0518  loading                                 \n0540  ?load  error                            \n0568  ready.                                  \n0590  run:                                    \n05b8                                          \n05e0  #rand [FAIL] (-27436<0)                 \n0608  #srand [OK]                             \n0630  #atof [OK] [OK]                         \n0658  #atoi [OK] [OK]                         \n0680  #atol [OK] [OK]                         \n06a8  #malloc [OK]                            \n06d0  #calloc [OK]                            \n06f8  #realloc [OK]                           \n0720  #qsort [MISS]                           \n0748  #abs [OK] [OK]                          \n0770  #labs [OK] [OK]                         \n0798  #div [OK] [OK] [OK] [OK]                \n07c0  #ldiv [OK] [OK] [OK] [OK]               \n",
         "screenshot": "test_stdlib-o64s.png"
       },
       "test_string": {
@@ -834,7 +834,7 @@
           "prgName": "test_stdlib-o64s.prg"
         },
         "atol": {
-          "status": "fail",
+          "status": "pass",
           "prgName": "test_stdlib-o64s.prg"
         },
         "malloc": {

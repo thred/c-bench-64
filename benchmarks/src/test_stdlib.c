@@ -103,11 +103,17 @@ static void test_atof(void)
 #if !defined(CC65) && !defined(LLVM)
     sprintf(str, "0.%d", r);
 
-    expect(abs((int)(atof(str) * 10000.0) - r) <= 1);
+    if (!expect(abs((int)(atof(str) * 10000.0) - r) <= 1))
+    {
+        printf(" (%s!=%.4f)", str, atof(str));
+    }
 
     sprintf(str, "-0.%d", r);
 
-    expect(abs((int)(atof(str) * 10000.0) - -r) <= 1);
+    if (!expect(abs((int)(atof(str) * 10000.0) - -r) <= 1))
+    {
+        printf(" (%s!=%.4f)", str, atof(str));
+    }
 #else
     missing();
 #endif
@@ -122,27 +128,40 @@ static void test_atoi(void)
 
     sprintf(str, "%d", r);
 
-    expect(atoi(str) == r);
+    if (!expect(atoi(str) == r))
+    {
+        printf(" (%s!=%d)\n", str, r);
+    }
 
     sprintf(str, "-%d", r);
 
-    expect(atoi(str) == -r);
+    if (!expect(atoi(str) == -r))
+    {
+        printf(" (%s!=%d)\n", str, -r);
+    }
 }
 
 static void test_atol(void)
 {
-    long r = randLong(1000000, 9999999);
+    long r = randLong(1000, 9999);
     char str[20];
 
     begin("atol");
 
-    sprintf(str, "%ld", r);
+    // It's a bit tricky to test atol when LONG support in Oscar64 is disabled.
+    sprintf(str, "%d000", r);
 
-    expect(atol(str) == r);
+    if (!expect(atol(str) == r * 1000L))
+    {
+        printf(" (%s!=%d000)\n", str, r * 1000L);
+    }
 
-    sprintf(str, "-%ld", r);
+    sprintf(str, "-%d000", r);
 
-    expect(atol(str) == -r);
+    if (!expect(atol(str) == -r * 1000L))
+    {
+        printf(" (%s!=%d000)\n", str, -r * 1000L);
+    }
 }
 
 void test_malloc()
