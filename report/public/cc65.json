@@ -177,9 +177,9 @@
       "pi": {
         "prgName": "pi-cc65p.prg",
         "size": 3700,
-        "time": null,
-        "status": "unknown",
-        "output": "",
+        "time": 105.1,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-cc65p\",8,1                      \n0518                                          \n0540  searching for pi-cc65p                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 105.1 s                     \n07c0                                          \n",
         "screenshot": "pi-cc65p.png"
       },
       "puff2": {
