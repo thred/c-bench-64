@@ -46,39 +46,6 @@
     "interruptSupport": "no",
     "maintained": "yes"
   },
-  "libraries": {
-    "assert": "yes",
-    "complex": "no",
-    "conio": "yes",
-    "ctype": "yes",
-    "errno": "yes",
-    "fenv": "no",
-    "float": "no",
-    "inttypes": "yes",
-    "iso646": "yes",
-    "limits": "yes",
-    "locale": "yes",
-    "math": "no",
-    "setjmp": "yes",
-    "signal": "yes",
-    "stdalign": "no",
-    "stdarg": "yes",
-    "stdatomic": "no",
-    "stdbit": "no",
-    "stdbool": "yes",
-    "stddef": "yes",
-    "stdint": "yes",
-    "stdio": "yes",
-    "stdlib": "yes",
-    "stdnoreturn": "no",
-    "string": "yes",
-    "tgmath": "no",
-    "threads": "no",
-    "time": "yes",
-    "uchar": "no",
-    "wchar": "no",
-    "wctype": "no"
-  },
   "runtimeSupport": [
     "Apple //+",
     "Atari 2600",
@@ -123,7 +90,7 @@
     }
   ],
   "version": "V2.19",
-  "date": "2025-07-26 08:58:45",
+  "date": "2025-07-27 12:29:28",
   "results": {
     "cc65p": {
       "aes256": {
@@ -144,10 +111,10 @@
       },
       "crc16": {
         "prgName": "crc16-cc65p.prg",
-        "size": 3064,
-        "time": 4.4,
+        "size": 3056,
+        "time": 4.3,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-cc65p\",8,1                   \n0518                                          \n0540  searching for crc16-cc65p               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 4.4 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-cc65p\",8,1                   \n0518                                          \n0540  searching for crc16-cc65p               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 4.3 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
         "screenshot": "crc16-cc65p.png"
       },
       "crc32": {
@@ -177,9 +144,9 @@
       "pi": {
         "prgName": "pi-cc65p.prg",
         "size": 3700,
-        "time": 105.1,
-        "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-cc65p\",8,1                      \n0518                                          \n0540  searching for pi-cc65p                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 105.1 s                     \n07c0                                          \n",
+        "time": null,
+        "status": "unknown",
+        "output": "",
         "screenshot": "pi-cc65p.png"
       },
       "puff2": {
@@ -208,7 +175,7 @@
       },
       "test_math": {
         "prgName": "test_math-cc65p.prg",
-        "size": 5298,
+        "size": 5317,
         "time": 1.2,
         "status": "unsupported",
         "output": "0400  ready.                                  \n0428  load\"test_math-cc65p\",8,1               \n0450                                          \n0478  searching for test_math-cc65p           \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #floor [MISS]                           \n0590  #ceil [MISS]                            \n05b8  #cos [MISS]                             \n05e0  #sin [MISS]                             \n0608  #tan [MISS]                             \n0630  #acos [MISS]                            \n0658  #asin [MISS]                            \n0680  #atan [MISS]                            \n06a8  #atan2 [MISS]                           \n06d0  #exp [MISS]                             \n06f8  #log [MISS]                             \n0720  #log10 [MISS]                           \n0748  #pow [MISS]                             \n0770  #sqrt [MISS]                            \n0798  Total time: 1.2 s                       \n07c0                                          \n",
@@ -216,15 +183,15 @@
       },
       "test_stdio_file": {
         "prgName": "test_stdio_file-cc65p.prg",
-        "size": 8383,
-        "time": 14.2,
+        "size": 8402,
+        "time": 14.1,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 14.2 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 14.1 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
         "screenshot": "test_stdio_file-cc65p.png"
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-cc65p.prg",
-        "size": 7037,
+        "size": 7056,
         "time": 1.2,
         "status": "unsupported",
         "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [MISS]                        \n0770  #printf-e [MISS]                        \n0798  Total time: 1.2 s                       \n07c0                                          \n",
@@ -232,7 +199,7 @@
       },
       "test_stdio_scan": {
         "prgName": "test_stdio_scan-cc65p.prg",
-        "size": 8528,
+        "size": 8547,
         "time": 1.1,
         "status": "unsupported",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [MISS]                         \n0770  #scanf-e [MISS]                         \n0798  Total time: 1.1 s                       \n07c0                                          \n",
@@ -240,7 +207,7 @@
       },
       "test_stdlib": {
         "prgName": "test_stdlib-cc65p.prg",
-        "size": 12373,
+        "size": 12700,
         "time": 4.6,
         "status": "unsupported",
         "output": "0400                                          \n0428  ready.                                  \n0450  load\"*\",8,1                             \n0478                                          \n04a0  searching for *                         \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #rand [OK] [OK]                         \n05b8  #srand [OK]                             \n05e0  #atof [MISS]                            \n0608  #atoi [OK] [OK]                         \n0630  #atol [OK] [OK]                         \n0658  #malloc [OK]                            \n0680  #calloc [OK]                            \n06a8  #realloc [OK]                           \n06d0  #qsort [OK]                             \n06f8  #abs [OK] [OK]                          \n0720  #labs [OK] [OK]                         \n0748  #div [OK] [OK] [OK] [OK]                \n0770  #ldiv [MISS]                            \n0798  Total time: 4.6 s                       \n07c0                                          \n",
@@ -248,7 +215,7 @@
       },
       "test_string": {
         "prgName": "test_string-cc65p.prg",
-        "size": 8441,
+        "size": 8460,
         "time": 1.5,
         "status": "pass",
         "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen [OK]                            \n0590  #strchr [OK]                            \n05b8  #strrchr [OK]                           \n05e0  #strcmp [OK] [OK]                       \n0608  #strncmp [OK] [OK]                      \n0630  #strcpy [OK]                            \n0658  #strncpy [OK]                           \n0680  #strcat [OK]                            \n06a8  #strncat [OK] [OK]                      \n06d0  #strstr [OK]                            \n06f8  #memchr [OK]                            \n0720  #memset [OK]                            \n0748  #memcpy [OK]                            \n0770  #memmove [OK] [OK] [OK] [OK] [OK]       \n0798  Total time: 1.5 s                       \n07c0                                          \n",
@@ -258,15 +225,15 @@
     "cc65s": {
       "aes256": {
         "prgName": "aes256-cc65s.prg",
-        "size": 9108,
-        "time": 218.1,
+        "size": 9070,
+        "time": 216.3,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-cc65s\",8,1                  \n0518                                          \n0540  searching for aes256-cc65s              \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 [OK]                     \n06d0  Total time: 218.1 s                     \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-cc65s\",8,1                  \n0518                                          \n0540  searching for aes256-cc65s              \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 [OK]                     \n06d0  Total time: 216.3 s                     \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
         "screenshot": "aes256-cc65s.png"
       },
       "crc8": {
         "prgName": "crc8-cc65s.prg",
-        "size": 3058,
+        "size": 3049,
         "time": 3.3,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-cc65s\",8,1                    \n0518                                          \n0540  searching for crc8-cc65s                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=A2 [OK]                            \n06f8  Total time: 3.3 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -274,31 +241,31 @@
       },
       "crc16": {
         "prgName": "crc16-cc65s.prg",
-        "size": 3115,
-        "time": 5.6,
+        "size": 3098,
+        "time": 5.5,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-cc65s\",8,1                   \n0518                                          \n0540  searching for crc16-cc65s               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 5.6 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-cc65s\",8,1                   \n0518                                          \n0540  searching for crc16-cc65s               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 5.5 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
         "screenshot": "crc16-cc65s.png"
       },
       "crc32": {
         "prgName": "crc32-cc65s.prg",
-        "size": 3453,
-        "time": 40.3,
+        "size": 3444,
+        "time": 40.2,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-cc65s\",8,1                   \n0518                                          \n0540  searching for crc32-cc65s               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 [OK]                     \n06f8  Total time: 40.3 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-cc65s\",8,1                   \n0518                                          \n0540  searching for crc32-cc65s               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 [OK]                     \n06f8  Total time: 40.2 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
         "screenshot": "crc32-cc65s.png"
       },
       "dhrystone": {
         "prgName": "dhrystone-cc65s.prg",
-        "size": 6080,
-        "time": 9.6,
+        "size": 6040,
+        "time": 9.5,
         "status": "pass",
-        "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  IntDGlob == 5 [OK]                      \n0568  BoolDGlob == 1 [OK]                     \n0590  ChD1DGlob == 'A' [OK]                   \n05b8  ChD2DGlob == 'B' [OK]                   \n05e0  ArrD1DGlob[8] == 7 [OK]                 \n0608  ArrD2DGlob[8][7] == NOR + 10 [OK]       \n0630  Discr == 0 [OK]                         \n0658  EnumDComp == 2 [OK]                     \n0680  IntDComp == 17 [OK]                     \n06a8  StrDComp == DHRYSTONE... [OK]           \n06d0  PtrDComp == PtrDComp [OK]               \n06f8  Discr == 0 [OK]                         \n0720  EnumDComp == 1 [OK]                     \n0748  IntDComp == 18 [OK]                     \n0770                                          \n0798  Total time: 9.6 s                       \n07c0                                          \n",
+        "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  IntDGlob == 5 [OK]                      \n0568  BoolDGlob == 1 [OK]                     \n0590  ChD1DGlob == 'A' [OK]                   \n05b8  ChD2DGlob == 'B' [OK]                   \n05e0  ArrD1DGlob[8] == 7 [OK]                 \n0608  ArrD2DGlob[8][7] == NOR + 10 [OK]       \n0630  Discr == 0 [OK]                         \n0658  EnumDComp == 2 [OK]                     \n0680  IntDComp == 17 [OK]                     \n06a8  StrDComp == DHRYSTONE... [OK]           \n06d0  PtrDComp == PtrDComp [OK]               \n06f8  Discr == 0 [OK]                         \n0720  EnumDComp == 1 [OK]                     \n0748  IntDComp == 18 [OK]                     \n0770                                          \n0798  Total time: 9.5 s                       \n07c0                                          \n",
         "screenshot": "dhrystone-cc65s.png"
       },
       "fact": {
         "prgName": "fact-cc65s.prg",
-        "size": 3580,
+        "size": 3575,
         "time": 237.1,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-cc65s\",8,1                    \n0518                                          \n0540  searching for fact-cc65s                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=188806544 [OK]                      \n06f8  Total time: 237.1 s                     \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -306,7 +273,7 @@
       },
       "pi": {
         "prgName": "pi-cc65s.prg",
-        "size": 3737,
+        "size": 3741,
         "time": 105.6,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-cc65s\",8,1                      \n0518                                          \n0540  searching for pi-cc65s                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 105.6 s                     \n07c0                                          \n",
@@ -314,7 +281,7 @@
       },
       "puff2": {
         "prgName": "puff2-cc65s.prg",
-        "size": 12182,
+        "size": 12165,
         "time": 53.1,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-cc65s\",8,1                   \n0518                                          \n0540  searching for puff2-cc65s               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  puff.c                                  \n0680  inflate compressed data                 \n06a8  RES=0                                   \n06d0  slen=3407 dlen=4096                     \n06f8                                          \n0720  CRC32=28ED93C7 [OK]                     \n0748  Total time: 53.1 s                      \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -322,7 +289,7 @@
       },
       "sieve": {
         "prgName": "sieve-cc65s.prg",
-        "size": 3281,
+        "size": 3285,
         "time": 21,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-cc65s\",8,1                   \n0518                                          \n0540  searching for sieve-cc65s               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 [OK]                         \n0720  Total time: 21.0 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -330,7 +297,7 @@
       },
       "sieve_bit": {
         "prgName": "sieve_bit-cc65s.prg",
-        "size": 3472,
+        "size": 3476,
         "time": 53.4,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve_bit-cc65s\",8,1               \n0518                                          \n0540  searching for sieve_bit-cc65s           \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieveDbit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 [OK]                         \n0720  Total time: 53.4 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -338,7 +305,7 @@
       },
       "test_math": {
         "prgName": "test_math-cc65s.prg",
-        "size": 5245,
+        "size": 5272,
         "time": 1.2,
         "status": "unsupported",
         "output": "0400  ready.                                  \n0428  load\"test_math-cc65s\",8,1               \n0450                                          \n0478  searching for test_math-cc65s           \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #floor [MISS]                           \n0590  #ceil [MISS]                            \n05b8  #cos [MISS]                             \n05e0  #sin [MISS]                             \n0608  #tan [MISS]                             \n0630  #acos [MISS]                            \n0658  #asin [MISS]                            \n0680  #atan [MISS]                            \n06a8  #atan2 [MISS]                           \n06d0  #exp [MISS]                             \n06f8  #log [MISS]                             \n0720  #log10 [MISS]                           \n0748  #pow [MISS]                             \n0770  #sqrt [MISS]                            \n0798  Total time: 1.2 s                       \n07c0                                          \n",
@@ -346,15 +313,15 @@
       },
       "test_stdio_file": {
         "prgName": "test_stdio_file-cc65s.prg",
-        "size": 8356,
-        "time": 14.1,
+        "size": 8383,
+        "time": 14.2,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 14.1 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 14.2 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
         "screenshot": "test_stdio_file-cc65s.png"
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-cc65s.prg",
-        "size": 6817,
+        "size": 6844,
         "time": 1.2,
         "status": "unsupported",
         "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [MISS]                        \n0770  #printf-e [MISS]                        \n0798  Total time: 1.2 s                       \n07c0                                          \n",
@@ -362,7 +329,7 @@
       },
       "test_stdio_scan": {
         "prgName": "test_stdio_scan-cc65s.prg",
-        "size": 8489,
+        "size": 8516,
         "time": 1.1,
         "status": "unsupported",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [MISS]                         \n0770  #scanf-e [MISS]                         \n0798  Total time: 1.1 s                       \n07c0                                          \n",
@@ -370,15 +337,15 @@
       },
       "test_stdlib": {
         "prgName": "test_stdlib-cc65s.prg",
-        "size": 11863,
-        "time": 4.7,
+        "size": 12204,
+        "time": 4.8,
         "status": "unsupported",
-        "output": "0400                                          \n0428  ready.                                  \n0450  load\"*\",8,1                             \n0478                                          \n04a0  searching for *                         \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #rand [OK] [OK]                         \n05b8  #srand [OK]                             \n05e0  #atof [MISS]                            \n0608  #atoi [OK] [OK]                         \n0630  #atol [OK] [OK]                         \n0658  #malloc [OK]                            \n0680  #calloc [OK]                            \n06a8  #realloc [OK]                           \n06d0  #qsort [OK]                             \n06f8  #abs [OK] [OK]                          \n0720  #labs [OK] [OK]                         \n0748  #div [OK] [OK] [OK] [OK]                \n0770  #ldiv [MISS]                            \n0798  Total time: 4.7 s                       \n07c0                                          \n",
+        "output": "0400                                          \n0428  ready.                                  \n0450  load\"*\",8,1                             \n0478                                          \n04a0  searching for *                         \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #rand [OK] [OK]                         \n05b8  #srand [OK]                             \n05e0  #atof [MISS]                            \n0608  #atoi [OK] [OK]                         \n0630  #atol [OK] [OK]                         \n0658  #malloc [OK]                            \n0680  #calloc [OK]                            \n06a8  #realloc [OK]                           \n06d0  #qsort [OK]                             \n06f8  #abs [OK] [OK]                          \n0720  #labs [OK] [OK]                         \n0748  #div [OK] [OK] [OK] [OK]                \n0770  #ldiv [MISS]                            \n0798  Total time: 4.8 s                       \n07c0                                          \n",
         "screenshot": "test_stdlib-cc65s.png"
       },
       "test_string": {
         "prgName": "test_string-cc65s.prg",
-        "size": 8192,
+        "size": 8219,
         "time": 1.5,
         "status": "pass",
         "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen [OK]                            \n0590  #strchr [OK]                            \n05b8  #strrchr [OK]                           \n05e0  #strcmp [OK] [OK]                       \n0608  #strncmp [OK] [OK]                      \n0630  #strcpy [OK]                            \n0658  #strncpy [OK]                           \n0680  #strcat [OK]                            \n06a8  #strncat [OK] [OK]                      \n06d0  #strstr [OK]                            \n06f8  #memchr [OK]                            \n0720  #memset [OK]                            \n0748  #memcpy [OK]                            \n0770  #memmove [OK] [OK] [OK] [OK] [OK]       \n0798  Total time: 1.5 s                       \n07c0                                          \n",
