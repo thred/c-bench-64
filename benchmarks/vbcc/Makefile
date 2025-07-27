@@ -3,12 +3,12 @@ BINDIR := $(CURDIR)/bin
 
 export VBCC = $(CURDIR)/vbcc
 VC = vc
-VBCCTARGET = +c64 -lm -DVBCC
+VBCCTARGET = +c64 -lm -DVBCC -D__MATHH_MISSING
 VBCCPERFOPTS = -O4 -speed
 VBCCSIZEOPTS = -O4 -size
 
-# Install a trap at kernal GETIN
-VICETRAP = 0xffe4
+# Install a breakpoint to capture output
+VICETRAP = 0xc000
 
 version:
 	@echo ""
