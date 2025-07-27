@@ -8,7 +8,7 @@ KICKC = sh kickc.sh
 KICKCTARGET = -t c64 -DKICKC
 KICKCOPTS = -Oliverangecallpath
 
-# Install a trap at kernal GETIN
+# Install a breakpoint to capture output
 VICETRAP = 0xffe4
 
 version:
