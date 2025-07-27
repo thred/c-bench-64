@@ -29,7 +29,7 @@
 
     <app-section>
         <h4 headline appSectionCollapser>
-            Execution Times in Seconds <span class="hint" #sizeRef>(shorter is better)</span>
+            Execution Times in Seconds <span class="hint" #sizeRef>(less is better)</span>
         </h4>
 
         <app-time-benchmark
@@ -40,7 +40,7 @@
     </app-section>
 
     <app-section>
-        <h4 headline appSectionCollapser>Binary Sizes in Kilobytes <span class="hint">(smaller is better)</span></h4>
+        <h4 headline appSectionCollapser>Binary Sizes in Kilobytes <span class="hint">(less is better)</span></h4>
 
         <app-size-benchmark
             [results]="benchmark().results"

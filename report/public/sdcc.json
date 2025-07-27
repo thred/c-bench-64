@@ -8,63 +8,33 @@
   "homepage": "https://sdcc.sourceforge.net/",
   "license": "different FOSS licenses (see homepage)",
   "pros": [
-    "Mature compiler with a long history"
+    "Mature compiler with a long history."
   ],
   "cons": [
-    "Very complex build configuration",
-    "Sparse documentation for MOS 6502 targets",
-    "Poor support for standard libraries"
+    "Versions 4.4.0 and later fails to produce a working binary for the C64.",
+    "Some benchmarks and tests do not complete normally, e.g. zlib.",
+    "Complex build configuration.",
+    "Sparse documentation for MOS 6502 targets."
   ],
   "features": {
     "floatingPoint": "yes",
     "inlineAssembly": "yes",
     "overlays": "unknown",
     "fileIO": "no",
-    "printf": "unknown",
-    "recursiveFunctions": "yes",
+    "printf": "yes",
+    "recursiveFunctions": {
+      "supported": "yes",
+      "note": "when marked with __reentrant"
+    },
     "interruptSupport": "unknown",
     "maintained": "yes"
   },
-  "libraries": {
-    "assert": "no",
-    "complex": "no",
-    "conio": "yes",
-    "ctype": "no",
-    "errno": "no",
-    "fenv": "no",
-    "float": "no",
-    "inttypes": "no",
-    "iso646": "no",
-    "limits": "no",
-    "locale": "no",
-    "math": "no",
-    "setjmp": "no",
-    "signal": "no",
-    "stdalign": "no",
-    "stdarg": "no",
-    "stdatomic": "no",
-    "stdbit": "no",
-    "stdbool": "no",
-    "stddef": "no",
-    "stdint": "no",
-    "stdio": "no",
-    "stdlib": "no",
-    "stdnoreturn": "no",
-    "string": "no",
-    "tgmath": "no",
-    "threads": "no",
-    "time": "no",
-    "uchar": "no",
-    "wchar": "no",
-    "wctype": "no"
-  },
   "runtimeSupport": [],
-  "warning": "The description is work in progress.",
   "configs": [
     {
       "key": "sdccp",
       "name": "SDCC - Perf.Opt.",
-      "description": "--max-allocs-per-node 250000 --opt-code-speed",
+      "description": "--max-allocs-per-node 250000 --opt-code-speed --allow-unsafe-read",
       "optimization": "performance",
       "color": "#75cec8",
       "compilerKey": "sdcc"
@@ -72,46 +42,832 @@
     {
       "key": "sdccs",
       "name": "SDCC - Size Opt.",
-      "description": "--max-allocs-per-node 250000",
+      "description": "--max-allocs-per-node 250000 --opt-code-size --allow-unsafe-read",
       "optimization": "size",
       "color": "#75cec8",
       "compilerKey": "sdcc"
     }
   ],
-  "version": "4.5.0",
-  "date": "2025-07-12 11:42:59",
+  "version": "4.3.0",
+  "date": "2025-07-27 11:55:24",
   "results": {
     "sdccp": {
+      "aes256": {
+        "prgName": "aes256-sdccp.prg",
+        "size": 6628,
+        "time": 66.9,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-sdccp\",8,1                  \n0518                                          \n0540  searching for aes256-sdccp              \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 .OK.                     \n06d0  Total time: 66.9 s                      \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "aes256-sdccp.png"
+      },
       "crc8": {
         "prgName": "crc8-sdccp.prg",
-        "size": 4089,
+        "size": 2167,
+        "time": 1.9,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-sdccp\",8,1                    \n0518                                          \n0540  searching for crc8-sdccp                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=A2 .OK.                            \n06f8  Total time: 1.9 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc8-sdccp.png"
+      },
+      "crc16": {
+        "prgName": "crc16-sdccp.prg",
+        "size": 2226,
+        "time": 2.8,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-sdccp\",8,1                   \n0518                                          \n0540  searching for crc16-sdccp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 .OK.                         \n06f8  Total time: 2.8 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc16-sdccp.png"
+      },
+      "crc32": {
+        "prgName": "crc32-sdccp.prg",
+        "size": 2371,
+        "time": 4.6,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-sdccp\",8,1                   \n0518                                          \n0540  searching for crc32-sdccp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 .OK.                     \n06f8  Total time: 4.6 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc32-sdccp.png"
+      },
+      "dhrystone": {
+        "prgName": "dhrystone-sdccp.prg",
+        "size": 5123,
+        "time": 6.3,
+        "status": "pass",
+        "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  Int.Glob == 5 .OK.                      \n0568  Bool.Glob == 1 .OK.                     \n0590  Ch.1.Glob == 'A' .OK.                   \n05b8  Ch.2.Glob == 'B' .OK.                   \n05e0  Arr.1.Glob.8. == 7 .OK.                 \n0608  Arr.2.Glob.8..7. == NOR + 10 .OK.       \n0630  Discr == 0 .OK.                         \n0658  Enum.Comp == 2 .OK.                     \n0680  Int.Comp == 17 .OK.                     \n06a8  Str.Comp == DHRYSTONE... .OK.           \n06d0  Ptr.Comp == Ptr.Comp .OK.               \n06f8  Discr == 0 .OK.                         \n0720  Enum.Comp == 1 .OK.                     \n0748  Int.Comp == 18 .OK.                     \n0770                                          \n0798  Total time: 6.3 s                       \n07c0                                          \n",
+        "screenshot": "dhrystone-sdccp.png"
+      },
+      "fact": {
+        "prgName": "fact-sdccp.prg",
+        "size": 2832,
+        "time": 187.3,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-sdccp\",8,1                    \n0518                                          \n0540  searching for fact-sdccp                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=188806544 .OK.                      \n06f8  Total time: 187.3 s                     \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "fact-sdccp.png"
+      },
+      "pi": {
+        "prgName": "pi-sdccp.prg",
+        "size": 2906,
+        "time": 97.2,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-sdccp\",8,1                      \n0518                                          \n0540  searching for pi-sdccp                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 .OK.                         \n0798  Total time: 97.2 s                      \n07c0                                          \n",
+        "screenshot": "pi-sdccp.png"
+      },
+      "pow": {
+        "prgName": "pow-sdccp.prg",
+        "size": 10725,
+        "time": 31.1,
+        "status": "pass",
+        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"pow-sdccp\",8,1                     \n04f0                                          \n0518  searching for pow-sdccp                 \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0  Calibrating frequency: 50 Hz            \n0608                                          \n0630  pow.c                                   \n0658  Calculates floating point exponential (1\n0680  0 iterations)                           \n06a8                                          \n06d0  res      = E                            \n06f8  expected = E                            \n0720  epsilon  = E                            \n0748  diff     = E .OK.                       \n0770                                          \n0798  Total time: 31.1 s                      \n07c0                                          \n",
+        "screenshot": "pow-sdccp.png"
+      },
+      "puff2": {
+        "prgName": "puff2-sdccp.prg",
+        "size": 12015,
         "time": null,
         "status": "unknown",
-        "output": ""
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-sdccp\",8,1                   \n0518                                          \n0540  searching for puff2-sdccp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630                                          \n0658                                          \n0680                                          \n06a8                                          \n06d0                                          \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "puff2-sdccp.png"
+      },
+      "sieve": {
+        "prgName": "sieve-sdccp.prg",
+        "size": 2417,
+        "time": 21.3,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-sdccp\",8,1                   \n0518                                          \n0540  searching for sieve-sdccp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 .OK.                         \n0720  Total time: 21.3 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "sieve-sdccp.png"
+      },
+      "sieve_bit": {
+        "prgName": "sieve_bit-sdccp.prg",
+        "size": 2551,
+        "time": 29.5,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve_bit-sdccp\",8,1               \n0518                                          \n0540  searching for sieve_bit-sdccp           \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.bit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 .OK.                         \n0720  Total time: 29.5 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "sieve_bit-sdccp.png"
+      },
+      "test_math": {
+        "prgName": "test_math-sdccp.prg",
+        "size": 27725,
+        "time": null,
+        "status": "pass",
+        "output": "0400                                          \n0428  ready.                                  \n0450  load\"test_math-sdccp\",8,1               \n0478                                          \n04a0  searching for test_math-sdccp           \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #floor .OK. .OK. .OK.                   \n05b8  #ceil .OK. .OK. .OK.                    \n05e0  #cos .OK. .OK. .OK. .OK. .OK.           \n0608  #sin .OK. .OK. .OK. .OK. .OK.           \n0630  #tan .OK. .OK. .OK. .OK.                \n0658  #acos .OK. .OK. .OK. .OK.               \n0680  #asin .OK. .OK. .OK. .OK.               \n06a8  #atan .OK. .OK. .OK.                    \n06d0  #atan2 .OK. .OK. .OK. .OK. .OK.         \n06f8  #exp .OK. .OK. .OK. .OK.                \n0720  #log .OK. .OK. .OK. .OK.                \n0748  #log10 .OK. .OK. .OK. .OK.              \n0770  #pow .OK. .OK. .OK. .OK. .OK.           \n0798  #sqrt .OK. .OK. .OK. .OK. .OK. .OK.     \n07c0  Total time:                             \n",
+        "screenshot": "test_math-sdccp.png"
+      },
+      "test_stdio_file": {
+        "prgName": "test_stdio_file-sdccp.prg",
+        "size": 8945,
+        "time": 1.1,
+        "status": "unsupported",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc .MISS.                           \n0630  #fgetc .MISS.                           \n0658  #fputs .MISS.                           \n0680  #fgets .MISS.                           \n06a8  #fwrite .MISS.                          \n06d0  #fread .MISS.                           \n06f8  Total time: 1.1 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "test_stdio_file-sdccp.png"
+      },
+      "test_stdio_print": {
+        "prgName": "test_stdio_print-sdccp.prg",
+        "size": 10424,
+        "time": 1.2,
+        "status": "fail",
+        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c .OK.                          \n05e0  #printf-s .OK.                          \n0608  #printf-d .OK.                          \n0630  #printf-ld .OK.                         \n0658  #printf-i .OK.                          \n0680  #printf-li .OK.                         \n06a8  #printf-x .OK.                          \n06d0  #printf-lx .OK.                         \n06f8  #printf-X .OK.                          \n0720  #printf-lX .OK.                         \n0748  #printf-f .FAIL. (<NO FLOAT>!=3.14)     \n0770  #printf-e .FAIL. (E!=1.23e+05)          \n0798  Total time: 1.2 s                       \n07c0                                          \n",
+        "screenshot": "test_stdio_print-sdccp.png"
+      },
+      "test_stdio_scan": {
+        "prgName": "test_stdio_scan-sdccp.prg",
+        "size": 8588,
+        "time": 1,
+        "status": "unsupported",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c .MISS.                         \n0658  #scanf-s .MISS.                         \n0680  #scanf-d .MISS.                         \n06a8  #scanf-i .MISS.                         \n06d0  #scanf-u .MISS.                         \n06f8  #scanf-x .MISS.                         \n0720  #scanf-X .MISS.                         \n0748  #scanf-f .MISS.                         \n0770  #scanf-e .MISS.                         \n0798  Total time: 1.0 s                       \n07c0                                          \n",
+        "screenshot": "test_stdio_scan-sdccp.png"
+      },
+      "test_stdlib": {
+        "prgName": "test_stdlib-sdccp.prg",
+        "size": 20331,
+        "time": null,
+        "status": "pass",
+        "output": "0400                                          \n0428      ****#srand .OK.64 basic v2 ****     \n0450                                          \n0478  #atofram system  38911 basic bytes free \n04a0                                          \n04c8  ready.  #rand .OK. .OK.                 \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  n                                       \n0630                                          \n0658                                          \n0680                                          \n06a8                                          \n06d0                                          \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "test_stdlib-sdccp.png"
+      },
+      "test_string": {
+        "prgName": "test_string-sdccp.prg",
+        "size": 12406,
+        "time": 1.5,
+        "status": "pass",
+        "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen .OK.                            \n0590  #strchr .OK.                            \n05b8  #strrchr .OK.                           \n05e0  #strcmp .OK. .OK.                       \n0608  #strncmp .OK. .OK.                      \n0630  #strcpy .OK.                            \n0658  #strncpy .OK.                           \n0680  #strcat .OK.                            \n06a8  #strncat .OK. .OK.                      \n06d0  #strstr .OK.                            \n06f8  #memchr .OK.                            \n0720  #memset .OK.                            \n0748  #memcpy .OK.                            \n0770  #memmove .OK. .OK. .OK. .OK. .OK.       \n0798  Total time: 1.5 s                       \n07c0                                          \n",
+        "screenshot": "test_string-sdccp.png"
       }
     },
     "sdccs": {
+      "aes256": {
+        "prgName": "aes256-sdccs.prg",
+        "size": 6631,
+        "time": 67,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-sdccs\",8,1                  \n0518                                          \n0540  searching for aes256-sdccs              \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 .OK.                     \n06d0  Total time: 67.0 s                      \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "aes256-sdccs.png"
+      },
       "crc8": {
         "prgName": "crc8-sdccs.prg",
-        "size": 4084,
+        "size": 2167,
+        "time": 1.9,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-sdccs\",8,1                    \n0518                                          \n0540  searching for crc8-sdccs                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=A2 .OK.                            \n06f8  Total time: 1.9 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc8-sdccs.png"
+      },
+      "crc16": {
+        "prgName": "crc16-sdccs.prg",
+        "size": 2226,
+        "time": 2.8,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-sdccs\",8,1                   \n0518                                          \n0540  searching for crc16-sdccs               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 .OK.                         \n06f8  Total time: 2.8 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc16-sdccs.png"
+      },
+      "crc32": {
+        "prgName": "crc32-sdccs.prg",
+        "size": 2371,
+        "time": 4.6,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-sdccs\",8,1                   \n0518                                          \n0540  searching for crc32-sdccs               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 .OK.                     \n06f8  Total time: 4.6 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc32-sdccs.png"
+      },
+      "dhrystone": {
+        "prgName": "dhrystone-sdccs.prg",
+        "size": 5117,
+        "time": 6.3,
+        "status": "pass",
+        "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  Int.Glob == 5 .OK.                      \n0568  Bool.Glob == 1 .OK.                     \n0590  Ch.1.Glob == 'A' .OK.                   \n05b8  Ch.2.Glob == 'B' .OK.                   \n05e0  Arr.1.Glob.8. == 7 .OK.                 \n0608  Arr.2.Glob.8..7. == NOR + 10 .OK.       \n0630  Discr == 0 .OK.                         \n0658  Enum.Comp == 2 .OK.                     \n0680  Int.Comp == 17 .OK.                     \n06a8  Str.Comp == DHRYSTONE... .OK.           \n06d0  Ptr.Comp == Ptr.Comp .OK.               \n06f8  Discr == 0 .OK.                         \n0720  Enum.Comp == 1 .OK.                     \n0748  Int.Comp == 18 .OK.                     \n0770                                          \n0798  Total time: 6.3 s                       \n07c0                                          \n",
+        "screenshot": "dhrystone-sdccs.png"
+      },
+      "fact": {
+        "prgName": "fact-sdccs.prg",
+        "size": 2832,
+        "time": 187.3,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-sdccs\",8,1                    \n0518                                          \n0540  searching for fact-sdccs                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=188806544 .OK.                      \n06f8  Total time: 187.3 s                     \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "fact-sdccs.png"
+      },
+      "pi": {
+        "prgName": "pi-sdccs.prg",
+        "size": 2906,
+        "time": 97.2,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-sdccs\",8,1                      \n0518                                          \n0540  searching for pi-sdccs                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 .OK.                         \n0798  Total time: 97.2 s                      \n07c0                                          \n",
+        "screenshot": "pi-sdccs.png"
+      },
+      "pow": {
+        "prgName": "pow-sdccs.prg",
+        "size": 10725,
+        "time": 31.1,
+        "status": "pass",
+        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"pow-sdccs\",8,1                     \n04f0                                          \n0518  searching for pow-sdccs                 \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0  Calibrating frequency: 50 Hz            \n0608                                          \n0630  pow.c                                   \n0658  Calculates floating point exponential (1\n0680  0 iterations)                           \n06a8                                          \n06d0  res      = E                            \n06f8  expected = E                            \n0720  epsilon  = E                            \n0748  diff     = E .OK.                       \n0770                                          \n0798  Total time: 31.1 s                      \n07c0                                          \n",
+        "screenshot": "pow-sdccs.png"
+      },
+      "puff2": {
+        "prgName": "puff2-sdccs.prg",
+        "size": 12015,
         "time": null,
         "status": "unknown",
-        "output": ""
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-sdccs\",8,1                   \n0518                                          \n0540  searching for puff2-sdccs               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630                                          \n0658                                          \n0680                                          \n06a8                                          \n06d0                                          \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "puff2-sdccs.png"
+      },
+      "sieve": {
+        "prgName": "sieve-sdccs.prg",
+        "size": 2417,
+        "time": 21.3,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-sdccs\",8,1                   \n0518                                          \n0540  searching for sieve-sdccs               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 .OK.                         \n0720  Total time: 21.3 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "sieve-sdccs.png"
+      },
+      "sieve_bit": {
+        "prgName": "sieve_bit-sdccs.prg",
+        "size": 2551,
+        "time": 29.5,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve_bit-sdccs\",8,1               \n0518                                          \n0540  searching for sieve_bit-sdccs           \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.bit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 .OK.                         \n0720  Total time: 29.5 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "sieve_bit-sdccs.png"
+      },
+      "test_math": {
+        "prgName": "test_math-sdccs.prg",
+        "size": 27725,
+        "time": null,
+        "status": "pass",
+        "output": "0400                                          \n0428  ready.                                  \n0450  load\"test_math-sdccs\",8,1               \n0478                                          \n04a0  searching for test_math-sdccs           \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #floor .OK. .OK. .OK.                   \n05b8  #ceil .OK. .OK. .OK.                    \n05e0  #cos .OK. .OK. .OK. .OK. .OK.           \n0608  #sin .OK. .OK. .OK. .OK. .OK.           \n0630  #tan .OK. .OK. .OK. .OK.                \n0658  #acos .OK. .OK. .OK. .OK.               \n0680  #asin .OK. .OK. .OK. .OK.               \n06a8  #atan .OK. .OK. .OK.                    \n06d0  #atan2 .OK. .OK. .OK. .OK. .OK.         \n06f8  #exp .OK. .OK. .OK. .OK.                \n0720  #log .OK. .OK. .OK. .OK.                \n0748  #log10 .OK. .OK. .OK. .OK.              \n0770  #pow .OK. .OK. .OK. .OK. .OK.           \n0798  #sqrt .OK. .OK. .OK. .OK. .OK. .OK.     \n07c0  Total time:                             \n",
+        "screenshot": "test_math-sdccs.png"
+      },
+      "test_stdio_file": {
+        "prgName": "test_stdio_file-sdccs.prg",
+        "size": 8945,
+        "time": 1.1,
+        "status": "unsupported",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc .MISS.                           \n0630  #fgetc .MISS.                           \n0658  #fputs .MISS.                           \n0680  #fgets .MISS.                           \n06a8  #fwrite .MISS.                          \n06d0  #fread .MISS.                           \n06f8  Total time: 1.1 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "test_stdio_file-sdccs.png"
+      },
+      "test_stdio_print": {
+        "prgName": "test_stdio_print-sdccs.prg",
+        "size": 10424,
+        "time": 1.2,
+        "status": "fail",
+        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c .OK.                          \n05e0  #printf-s .OK.                          \n0608  #printf-d .OK.                          \n0630  #printf-ld .OK.                         \n0658  #printf-i .OK.                          \n0680  #printf-li .OK.                         \n06a8  #printf-x .OK.                          \n06d0  #printf-lx .OK.                         \n06f8  #printf-X .OK.                          \n0720  #printf-lX .OK.                         \n0748  #printf-f .FAIL. (<NO FLOAT>!=3.14)     \n0770  #printf-e .FAIL. (E!=1.23e+05)          \n0798  Total time: 1.2 s                       \n07c0                                          \n",
+        "screenshot": "test_stdio_print-sdccs.png"
+      },
+      "test_stdio_scan": {
+        "prgName": "test_stdio_scan-sdccs.prg",
+        "size": 8588,
+        "time": 1,
+        "status": "unsupported",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c .MISS.                         \n0658  #scanf-s .MISS.                         \n0680  #scanf-d .MISS.                         \n06a8  #scanf-i .MISS.                         \n06d0  #scanf-u .MISS.                         \n06f8  #scanf-x .MISS.                         \n0720  #scanf-X .MISS.                         \n0748  #scanf-f .MISS.                         \n0770  #scanf-e .MISS.                         \n0798  Total time: 1.0 s                       \n07c0                                          \n",
+        "screenshot": "test_stdio_scan-sdccs.png"
+      },
+      "test_stdlib": {
+        "prgName": "test_stdlib-sdccs.prg",
+        "size": 20333,
+        "time": null,
+        "status": "pass",
+        "output": "0400                                          \n0428      ****#srand .OK.64 basic v2 ****     \n0450                                          \n0478  #atofram system  38911 basic bytes free \n04a0                                          \n04c8  ready.  #rand .OK. .OK.                 \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  n                                       \n0630                                          \n0658                                          \n0680                                          \n06a8                                          \n06d0                                          \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "test_stdlib-sdccs.png"
+      },
+      "test_string": {
+        "prgName": "test_string-sdccs.prg",
+        "size": 12400,
+        "time": 1.5,
+        "status": "pass",
+        "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen .OK.                            \n0590  #strchr .OK.                            \n05b8  #strrchr .OK.                           \n05e0  #strcmp .OK. .OK.                       \n0608  #strncmp .OK. .OK.                      \n0630  #strcpy .OK.                            \n0658  #strncpy .OK.                           \n0680  #strcat .OK.                            \n06a8  #strncat .OK. .OK.                      \n06d0  #strstr .OK.                            \n06f8  #memchr .OK.                            \n0720  #memset .OK.                            \n0748  #memcpy .OK.                            \n0770  #memmove .OK. .OK. .OK. .OK. .OK.       \n0798  Total time: 1.5 s                       \n07c0                                          \n",
+        "screenshot": "test_string-sdccs.png"
       }
     }
   },
   "tests": {
     "sdccp": {
-      "math.h": {},
-      "stdio.h": {},
-      "stdlib.h": {},
-      "string.h": {}
+      "math.h": {
+        "floor": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "ceil": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "sin": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "cos": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "tan": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "asin": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "acos": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "atan": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "atan2": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "exp": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "log": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "log10": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "pow": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        },
+        "sqrt": {
+          "status": "pass",
+          "prgName": "test_math-sdccp.prg"
+        }
+      },
+      "stdio.h": {
+        "fputc": {
+          "status": "unsupported",
+          "prgName": "test_stdio_file-sdccp.prg"
+        },
+        "fgetc": {
+          "status": "unsupported",
+          "prgName": "test_stdio_file-sdccp.prg"
+        },
+        "fputs": {
+          "status": "unsupported",
+          "prgName": "test_stdio_file-sdccp.prg"
+        },
+        "fgets": {
+          "status": "unsupported",
+          "prgName": "test_stdio_file-sdccp.prg"
+        },
+        "fwrite": {
+          "status": "unsupported",
+          "prgName": "test_stdio_file-sdccp.prg"
+        },
+        "fread": {
+          "status": "unsupported",
+          "prgName": "test_stdio_file-sdccp.prg"
+        },
+        "printf-c": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccp.prg"
+        },
+        "printf-s": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccp.prg"
+        },
+        "printf-d": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccp.prg"
+        },
+        "printf-ld": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccp.prg"
+        },
+        "printf-i": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccp.prg"
+        },
+        "printf-li": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccp.prg"
+        },
+        "printf-x": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccp.prg"
+        },
+        "printf-lx": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccp.prg"
+        },
+        "printf-X": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccp.prg"
+        },
+        "printf-lX": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccp.prg"
+        },
+        "printf-f": {
+          "status": "fail",
+          "prgName": "test_stdio_print-sdccp.prg"
+        },
+        "printf-e": {
+          "status": "fail",
+          "prgName": "test_stdio_print-sdccp.prg"
+        },
+        "scanf-c": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccp.prg"
+        },
+        "scanf-s": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccp.prg"
+        },
+        "scanf-d": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccp.prg"
+        },
+        "scanf-i": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccp.prg"
+        },
+        "scanf-x": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccp.prg"
+        },
+        "scanf-X": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccp.prg"
+        },
+        "scanf-f": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccp.prg"
+        },
+        "scanf-e": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccp.prg"
+        }
+      },
+      "stdlib.h": {
+        "rand": {
+          "status": "pass",
+          "prgName": "test_stdlib-sdccp.prg"
+        },
+        "srand": {
+          "status": "pass",
+          "prgName": "test_stdlib-sdccp.prg"
+        },
+        "atof": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccp.prg"
+        },
+        "atoi": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccp.prg"
+        },
+        "atol": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccp.prg"
+        },
+        "malloc": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccp.prg"
+        },
+        "calloc": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccp.prg"
+        },
+        "realloc": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccp.prg"
+        },
+        "qsort": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccp.prg"
+        },
+        "abs": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccp.prg"
+        },
+        "labs": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccp.prg"
+        },
+        "div": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccp.prg"
+        },
+        "ldiv": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccp.prg"
+        }
+      },
+      "string.h": {
+        "strlen": {
+          "status": "pass",
+          "prgName": "test_string-sdccp.prg"
+        },
+        "strchr": {
+          "status": "pass",
+          "prgName": "test_string-sdccp.prg"
+        },
+        "strrchr": {
+          "status": "pass",
+          "prgName": "test_string-sdccp.prg"
+        },
+        "strcmp": {
+          "status": "pass",
+          "prgName": "test_string-sdccp.prg"
+        },
+        "strncmp": {
+          "status": "pass",
+          "prgName": "test_string-sdccp.prg"
+        },
+        "strcat": {
+          "status": "pass",
+          "prgName": "test_string-sdccp.prg"
+        },
+        "strncat": {
+          "status": "pass",
+          "prgName": "test_string-sdccp.prg"
+        },
+        "strstr": {
+          "status": "pass",
+          "prgName": "test_string-sdccp.prg"
+        },
+        "memchr": {
+          "status": "pass",
+          "prgName": "test_string-sdccp.prg"
+        },
+        "memset": {
+          "status": "pass",
+          "prgName": "test_string-sdccp.prg"
+        },
+        "memcpy": {
+          "status": "pass",
+          "prgName": "test_string-sdccp.prg"
+        },
+        "memmove": {
+          "status": "pass",
+          "prgName": "test_string-sdccp.prg"
+        }
+      }
     },
     "sdccs": {
-      "math.h": {},
-      "stdio.h": {},
-      "stdlib.h": {},
-      "string.h": {}
+      "math.h": {
+        "floor": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "ceil": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "sin": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "cos": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "tan": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "asin": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "acos": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "atan": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "atan2": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "exp": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "log": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "log10": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "pow": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        },
+        "sqrt": {
+          "status": "pass",
+          "prgName": "test_math-sdccs.prg"
+        }
+      },
+      "stdio.h": {
+        "fputc": {
+          "status": "unsupported",
+          "prgName": "test_stdio_file-sdccs.prg"
+        },
+        "fgetc": {
+          "status": "unsupported",
+          "prgName": "test_stdio_file-sdccs.prg"
+        },
+        "fputs": {
+          "status": "unsupported",
+          "prgName": "test_stdio_file-sdccs.prg"
+        },
+        "fgets": {
+          "status": "unsupported",
+          "prgName": "test_stdio_file-sdccs.prg"
+        },
+        "fwrite": {
+          "status": "unsupported",
+          "prgName": "test_stdio_file-sdccs.prg"
+        },
+        "fread": {
+          "status": "unsupported",
+          "prgName": "test_stdio_file-sdccs.prg"
+        },
+        "printf-c": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccs.prg"
+        },
+        "printf-s": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccs.prg"
+        },
+        "printf-d": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccs.prg"
+        },
+        "printf-ld": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccs.prg"
+        },
+        "printf-i": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccs.prg"
+        },
+        "printf-li": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccs.prg"
+        },
+        "printf-x": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccs.prg"
+        },
+        "printf-lx": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccs.prg"
+        },
+        "printf-X": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccs.prg"
+        },
+        "printf-lX": {
+          "status": "pass",
+          "prgName": "test_stdio_print-sdccs.prg"
+        },
+        "printf-f": {
+          "status": "fail",
+          "prgName": "test_stdio_print-sdccs.prg"
+        },
+        "printf-e": {
+          "status": "fail",
+          "prgName": "test_stdio_print-sdccs.prg"
+        },
+        "scanf-c": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccs.prg"
+        },
+        "scanf-s": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccs.prg"
+        },
+        "scanf-d": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccs.prg"
+        },
+        "scanf-i": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccs.prg"
+        },
+        "scanf-x": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccs.prg"
+        },
+        "scanf-X": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccs.prg"
+        },
+        "scanf-f": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccs.prg"
+        },
+        "scanf-e": {
+          "status": "unsupported",
+          "prgName": "test_stdio_scan-sdccs.prg"
+        }
+      },
+      "stdlib.h": {
+        "rand": {
+          "status": "pass",
+          "prgName": "test_stdlib-sdccs.prg"
+        },
+        "srand": {
+          "status": "pass",
+          "prgName": "test_stdlib-sdccs.prg"
+        },
+        "atof": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccs.prg"
+        },
+        "atoi": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccs.prg"
+        },
+        "atol": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccs.prg"
+        },
+        "malloc": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccs.prg"
+        },
+        "calloc": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccs.prg"
+        },
+        "realloc": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccs.prg"
+        },
+        "qsort": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccs.prg"
+        },
+        "abs": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccs.prg"
+        },
+        "labs": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccs.prg"
+        },
+        "div": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccs.prg"
+        },
+        "ldiv": {
+          "status": "unknown",
+          "prgName": "test_stdlib-sdccs.prg"
+        }
+      },
+      "string.h": {
+        "strlen": {
+          "status": "pass",
+          "prgName": "test_string-sdccs.prg"
+        },
+        "strchr": {
+          "status": "pass",
+          "prgName": "test_string-sdccs.prg"
+        },
+        "strrchr": {
+          "status": "pass",
+          "prgName": "test_string-sdccs.prg"
+        },
+        "strcmp": {
+          "status": "pass",
+          "prgName": "test_string-sdccs.prg"
+        },
+        "strncmp": {
+          "status": "pass",
+          "prgName": "test_string-sdccs.prg"
+        },
+        "strcat": {
+          "status": "pass",
+          "prgName": "test_string-sdccs.prg"
+        },
+        "strncat": {
+          "status": "pass",
+          "prgName": "test_string-sdccs.prg"
+        },
+        "strstr": {
+          "status": "pass",
+          "prgName": "test_string-sdccs.prg"
+        },
+        "memchr": {
+          "status": "pass",
+          "prgName": "test_string-sdccs.prg"
+        },
+        "memset": {
+          "status": "pass",
+          "prgName": "test_string-sdccs.prg"
+        },
+        "memcpy": {
+          "status": "pass",
+          "prgName": "test_string-sdccs.prg"
+        },
+        "memmove": {
+          "status": "pass",
+          "prgName": "test_string-sdccs.prg"
+        }
+      }
     }
   }
 }

@@ -19,6 +19,7 @@
     "search.exclude": {
         "**/dist": true,
         "benchmarks/cc65/cc65": true,
+        "benchmarks/kickc/KickC": true,
         "benchmarks/llvm-mos/llvm-mos": true,
         "benchmarks/oscar64/oscar64": true,
         "benchmarks/sdcc/sdcc": true,

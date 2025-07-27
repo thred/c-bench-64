@@ -175,7 +175,7 @@ static void test_printf_lX(void)
 
 static void test_printf_f(void)
 {
-#if !defined(CC65)
+#if !defined(__FLOAT_MISSING)
     float f = 3.14159;
     char buffer[BUFFER_SIZE];
 
@@ -199,7 +199,7 @@ static void test_printf_f(void)
 
 static void test_printf_e(void)
 {
-#if !defined(CC65)
+#if !defined(__FLOAT_MISSING)
     float d = 123456.789;
     char buffer[BUFFER_SIZE];
 

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
 #include <math.h>
 #endif
 
@@ -11,23 +11,55 @@
 
 #define PI 3.141592653
 
+#ifndef SDCC
+#define _floor floor
+#define _ceil ceil
+#define _cos cos
+#define _sin sin
+#define _tan tan
+#define _acos acos
+#define _asin asin
+#define _atan atan
+#define _atan2 atan2
+#define _exp exp
+#define _log log
+#define _log10 log10
+#define _pow pow
+#define _sqrt sqrt
+#else
+#define _floor floorf
+#define _ceil ceilf
+#define _cos cosf
+#define _sin sinf
+#define _tan tanf
+#define _acos acosf
+#define _asin asinf
+#define _atan atanf
+#define _atan2 atan2f
+#define _exp expf
+#define _log logf
+#define _log10 log10f
+#define _pow powf
+#define _sqrt sqrtf
+#endif
+
 static void test_floor(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float value = 3.7;
     float result;
 
     begin("floor");
 
-    result = floor(value);
+    result = _floor(value);
     expectCloseTo(result, 3.0);
 
     value = -3.7;
-    result = floor(value);
+    result = _floor(value);
     expectCloseTo(result, -4.0);
 
     value = 0.0;
-    result = floor(value);
+    result = _floor(value);
     expectCloseTo(result, 0.0);
 #else
     begin("floor");
@@ -37,21 +69,21 @@ static void test_floor(void)
 
 static void test_ceil(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float value = 3.7;
     float result;
 
     begin("ceil");
 
-    result = ceil(value);
+    result = _ceil(value);
     expectCloseTo(result, 4.0);
 
     value = -3.7;
-    result = ceil(value);
+    result = _ceil(value);
     expectCloseTo(result, -3.0);
 
     value = 0.0;
-    result = ceil(value);
+    result = _ceil(value);
     expectCloseTo(result, 0.0);
 #else
     begin("ceil");
@@ -61,29 +93,29 @@ static void test_ceil(void)
 
 static void test_cos(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float angle = 0.0;
     float result;
 
     begin("cos");
 
-    result = cos(angle);
+    result = _cos(angle);
     expectCloseTo(result, 1.0);
 
     angle = PI / 2;
-    result = cos(angle);
+    result = _cos(angle);
     expectCloseTo(result, 0.0);
 
     angle = PI;
-    result = cos(angle);
+    result = _cos(angle);
     expectCloseTo(result, -1.0);
 
     angle = (3 * PI) / 2;
-    result = cos(angle);
+    result = _cos(angle);
     expectCloseTo(result, 0.0);
 
     angle = 2 * PI;
-    result = cos(angle);
+    result = _cos(angle);
     expectCloseTo(result, 1.0);
 #else
     begin("cos");
@@ -93,29 +125,29 @@ static void test_cos(void)
 
 static void test_sin(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float angle = 0.0;
     float result;
 
     begin("sin");
 
-    result = sin(angle);
+    result = _sin(angle);
     expectCloseTo(result, 0.0);
 
     angle = PI / 2;
-    result = sin(angle);
+    result = _sin(angle);
     expectCloseTo(result, 1.0);
 
     angle = PI;
-    result = sin(angle);
+    result = _sin(angle);
     expectCloseTo(result, 0.0);
 
     angle = (3 * PI) / 2;
-    result = sin(angle);
+    result = _sin(angle);
     expectCloseTo(result, -1.0);
 
     angle = 2 * PI;
-    result = sin(angle);
+    result = _sin(angle);
     expectCloseTo(result, 0.0);
 #else
     begin("sin");
@@ -125,25 +157,25 @@ static void test_sin(void)
 
 static void test_tan(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float angle = 0.0;
     float result;
 
     begin("tan");
 
-    result = tan(angle);
+    result = _tan(angle);
     expectCloseTo(result, 0.0);
 
     angle = PI / 4;
-    result = tan(angle);
+    result = _tan(angle);
     expectCloseTo(result, 1.0);
 
     angle = PI;
-    result = tan(angle);
+    result = _tan(angle);
     expectCloseTo(result, 0.0);
 
     angle = 2 * PI;
-    result = tan(angle);
+    result = _tan(angle);
     expectCloseTo(result, 0.0);
 #else
     begin("tan");
@@ -153,25 +185,25 @@ static void test_tan(void)
 
 static void test_asin(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float value = 0.0;
     float result;
 
     begin("asin");
 
-    result = asin(value);
+    result = _asin(value);
     expectCloseTo(result, 0.0);
 
     value = 1.0;
-    result = asin(value);
+    result = _asin(value);
     expectCloseTo(result, PI / 2);
 
     value = -1.0;
-    result = asin(value);
+    result = _asin(value);
     expectCloseTo(result, -PI / 2);
 
     value = 0.5;
-    result = asin(value);
+    result = _asin(value);
     expectCloseTo(result, PI / 6);
 #else
     begin("asin");
@@ -181,25 +213,25 @@ static void test_asin(void)
 
 static void test_acos(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float value = 1.0;
     float result;
 
     begin("acos");
 
-    result = acos(value);
+    result = _acos(value);
     expectCloseTo(result, 0.0);
 
     value = 0.0;
-    result = acos(value);
+    result = _acos(value);
     expectCloseTo(result, PI / 2);
 
     value = -1.0;
-    result = acos(value);
+    result = _acos(value);
     expectCloseTo(result, PI);
 
     value = 0.5;
-    result = acos(value);
+    result = _acos(value);
     expectCloseTo(result, PI / 3);
 #else
     begin("acos");
@@ -209,21 +241,21 @@ static void test_acos(void)
 
 static void test_atan(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float value = 0.0;
     float result;
 
     begin("atan");
 
-    result = atan(value);
+    result = _atan(value);
     expectCloseTo(result, 0.0);
 
     value = 1.0;
-    result = atan(value);
+    result = _atan(value);
     expectCloseTo(result, PI / 4);
 
     value = -1.0;
-    result = atan(value);
+    result = _atan(value);
     expectCloseTo(result, -PI / 4);
 #else
     begin("atan");
@@ -233,7 +265,7 @@ static void test_atan(void)
 
 static void test_atan2(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float y, x;
     float result;
 
@@ -241,27 +273,27 @@ static void test_atan2(void)
 
     y = 0.0;
     x = 1.0;
-    result = atan2(y, x);
+    result = _atan2(y, x);
     expectCloseTo(result, 0.0);
 
     y = 1.0;
     x = 1.0;
-    result = atan2(y, x);
+    result = _atan2(y, x);
     expectCloseTo(result, PI / 4);
 
     y = 1.0;
     x = 0.0;
-    result = atan2(y, x);
+    result = _atan2(y, x);
     expectCloseTo(result, PI / 2);
 
     y = 0.0;
     x = -1.0;
-    result = atan2(y, x);
+    result = _atan2(y, x);
     expectCloseTo(result, PI);
 
     y = -1.0;
     x = 0.0;
-    result = atan2(y, x);
+    result = _atan2(y, x);
     expectCloseTo(result, -PI / 2);
 #else
     begin("atan2");
@@ -271,25 +303,25 @@ static void test_atan2(void)
 
 static void test_exp(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float value = 0.0;
     float result;
 
     begin("exp");
 
-    result = exp(value);
+    result = _exp(value);
     expectCloseTo(result, 1.0);
 
     value = 1.0;
-    result = exp(value);
+    result = _exp(value);
     expectCloseTo(result, 2.71828);
 
     value = 2.0;
-    result = exp(value);
+    result = _exp(value);
     expectCloseTo(result, 7.38906);
 
     value = -1.0;
-    result = exp(value);
+    result = _exp(value);
     expectCloseTo(result, 0.36788);
 #else
     begin("exp");
@@ -299,25 +331,25 @@ static void test_exp(void)
 
 static void test_log(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float value = 1.0;
     float result;
 
     begin("log");
 
-    result = log(value);
+    result = _log(value);
     expectCloseTo(result, 0.0);
 
     value = 2.71828;
-    result = log(value);
+    result = _log(value);
     expectCloseTo(result, 1.0);
 
     value = 7.38906;
-    result = log(value);
+    result = _log(value);
     expectCloseTo(result, 2.0);
 
     value = 0.36788;
-    result = log(value);
+    result = _log(value);
     expectCloseTo(result, -1.0);
 #else
     begin("log");
@@ -327,25 +359,25 @@ static void test_log(void)
 
 static void test_log10(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float value = 1.0;
     float result;
 
     begin("log10");
 
-    result = log10(value);
+    result = _log10(value);
     expectCloseTo(result, 0.0);
 
     value = 10.0;
-    result = log10(value);
+    result = _log10(value);
     expectCloseTo(result, 1.0);
 
     value = 100.0;
-    result = log10(value);
+    result = _log10(value);
     expectCloseTo(result, 2.0);
 
     value = 0.1;
-    result = log10(value);
+    result = _log10(value);
     expectCloseTo(result, -1.0);
 #else
     begin("log10");
@@ -355,7 +387,7 @@ static void test_log10(void)
 
 static void test_pow(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float base, exponent;
     float result;
 
@@ -363,27 +395,27 @@ static void test_pow(void)
 
     base = 2.0;
     exponent = 3.0;
-    result = pow(base, exponent);
+    result = _pow(base, exponent);
     expectCloseTo(result, 8.0);
 
     base = 5.0;
     exponent = 2.0;
-    result = pow(base, exponent);
+    result = _pow(base, exponent);
     expectCloseTo(result, 25.0);
 
     base = 10.0;
     exponent = 0.0;
-    result = pow(base, exponent);
+    result = _pow(base, exponent);
     expectCloseTo(result, 1.0);
 
     base = 4.0;
     exponent = 0.5;
-    result = pow(base, exponent);
+    result = _pow(base, exponent);
     expectCloseTo(result, 2.0);
 
     base = 2.0;
     exponent = -2.0;
-    result = pow(base, exponent);
+    result = _pow(base, exponent);
     expectCloseTo(result, 0.25);
 #else
     begin("pow");
@@ -393,34 +425,34 @@ static void test_pow(void)
 
 static void test_sqrt(void)
 {
-#if !defined(CC65) && !defined(LLVM) && !defined(VBCC)
+#if !defined(__MATHH_MISSING)
     float value;
     float result;
 
     begin("sqrt");
 
     value = 0.0;
-    result = sqrt(value);
+    result = _sqrt(value);
     expectCloseTo(result, 0.0);
 
     value = 1.0;
-    result = sqrt(value);
+    result = _sqrt(value);
     expectCloseTo(result, 1.0);
 
     value = 4.0;
-    result = sqrt(value);
+    result = _sqrt(value);
     expectCloseTo(result, 2.0);
 
     value = 9.0;
-    result = sqrt(value);
+    result = _sqrt(value);
     expectCloseTo(result, 3.0);
 
     value = 16.0;
-    result = sqrt(value);
+    result = _sqrt(value);
     expectCloseTo(result, 4.0);
 
     value = 2.0;
-    result = sqrt(value);
+    result = _sqrt(value);
     expectCloseTo(result, 1.41421);
 #else
     begin("sqrt");

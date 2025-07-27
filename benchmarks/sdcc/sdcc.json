@@ -7,69 +7,39 @@
     ],
     "homepage": "https://sdcc.sourceforge.net/",
     "license": "different FOSS licenses (see homepage)",
-    "pros": ["Mature compiler with a long history"],
+    "pros": ["Mature compiler with a long history."],
     "cons": [
-        "Very complex build configuration",
-        "Sparse documentation for MOS 6502 targets",
-        "Poor support for standard libraries"
+        "Versions 4.4.0 and later fails to produce a working binary for the C64.",
+        "Some benchmarks and tests do not complete normally, e.g. zlib.",
+        "Complex build configuration.",
+        "Sparse documentation for MOS 6502 targets."
     ],
     "features": {
         "floatingPoint": "yes",
         "inlineAssembly": "yes",
         "overlays": "unknown",
         "fileIO": "no",
-        "printf": "unknown",
-        "recursiveFunctions": "yes",
+        "printf": "yes",
+        "recursiveFunctions": {
+            "supported": "yes",
+            "note": "when marked with __reentrant"
+        },
         "interruptSupport": "unknown",
         "maintained": "yes"
     },
-    "libraries": {
-        "assert": "no",
-        "complex": "no",
-        "conio": "yes",
-        "ctype": "no",
-        "errno": "no",
-        "fenv": "no",
-        "float": "no",
-        "inttypes": "no",
-        "iso646": "no",
-        "limits": "no",
-        "locale": "no",
-        "math": "no",
-        "setjmp": "no",
-        "signal": "no",
-        "stdalign": "no",
-        "stdarg": "no",
-        "stdatomic": "no",
-        "stdbit": "no",
-        "stdbool": "no",
-        "stddef": "no",
-        "stdint": "no",
-        "stdio": "no",
-        "stdlib": "no",
-        "stdnoreturn": "no",
-        "string": "no",
-        "tgmath": "no",
-        "threads": "no",
-        "time": "no",
-        "uchar": "no",
-        "wchar": "no",
-        "wctype": "no"
-    },
     "runtimeSupport": [],
-    "warning": "The description is work in progress.",
     "configs": [
         {
             "key": "sdccp",
             "name": "SDCC - Perf.Opt.",
-            "description": "--max-allocs-per-node 250000 --opt-code-speed",
+            "description": "--max-allocs-per-node 250000 --opt-code-speed --allow-unsafe-read",
             "optimization": "performance",
             "color": "#75cec8"
         },
         {
             "key": "sdccs",
             "name": "SDCC - Size Opt.",
-            "description": "--max-allocs-per-node 250000",
+            "description": "--max-allocs-per-node 250000 --opt-code-size --allow-unsafe-read",
             "optimization": "size",
             "color": "#75cec8"
         }

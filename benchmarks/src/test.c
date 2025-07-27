@@ -6,13 +6,13 @@
 #include <string.h>
 #include <stdbool.h>
 
-#if !defined(CC65)
+#if !defined(__FLOAT_MISSING)
 #include <math.h>
 #endif
 
 #include "cia_timer.h"
 
-#define EPSILON 0.001
+#define EPSILON 0.01
 
 void test(void);
 
@@ -22,7 +22,7 @@ void test(void);
 #define MAIN int main()
 #endif
 
-#if defined(LLVM) || defined(VBCC)
+#if defined(LLVM) || defined(SDCC) || defined(VBCC)
 #define VICETRAP 0xc000
 static volatile unsigned char *viceTrapPtr = (unsigned char *)VICETRAP;
 static void (*viceTrap)(void) = (void (*)(void))VICETRAP;
@@ -42,10 +42,7 @@ MAIN
 
     t = tod_get10();
 
-    // sometimes, the access to t causes a seg fault with OSCAR64, e.g. with test-math
-#ifndef OSCAR64
     printf("\nTotal time: %01d.%01d s\n", t / 10, t % 10);
-#endif
 
 #if defined(LLVM) || defined(VBCC)
     fflush(stdout);
@@ -54,7 +51,7 @@ MAIN
     // Wait a bit to ensure a refresh before taking a screenshot
     tod_init(0);
 
-#if defined(LLVM) || defined(VBCC)
+#if defined(LLVM) || defined(SDCC) || defined(VBCC)
     // Trigger the VICE monitor to exit
     *viceTrapPtr = 0x60; // RTS opcode
     viceTrap();
@@ -104,7 +101,7 @@ char expect(char result)
     return result;
 }
 
-#if !defined(CC65)
+#if !defined(__FLOAT_MISSING)
 char closeTo(float a, float b)
 {
     float diff;

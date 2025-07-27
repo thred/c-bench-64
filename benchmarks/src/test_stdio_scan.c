@@ -14,6 +14,7 @@ void test_scanf_c(void)
 
     begin("scanf-c");
 
+#if !defined(__SCANF_MISSING)
     sscanf("AB DE", "%c", &c);
 
     if (!expect(c == 'A'))
@@ -29,6 +30,9 @@ void test_scanf_c(void)
         str[4] = '\0';
         printf(" (%s)", str);
     }
+#else
+    missing();
+#endif
 }
 
 void test_scanf_s(void)
@@ -37,6 +41,7 @@ void test_scanf_s(void)
 
     begin("scanf-s");
 
+#if !defined(__SCANF_MISSING)
     sscanf("Hello, World!", "%s", str);
 
     if (!expect(strcmp(str, "Hello,") == 0))
@@ -50,6 +55,9 @@ void test_scanf_s(void)
     {
         printf(" (%s)", str);
     }
+#else
+    missing();
+#endif
 }
 
 void test_scanf_d(void)
@@ -58,12 +66,16 @@ void test_scanf_d(void)
 
     begin("scanf-d");
 
+#if !defined(__SCANF_MISSING)
     sscanf("42", "%d", &value);
 
     if (!expect(value == 42))
     {
         printf(" (%d)", value);
     }
+#else
+    missing();
+#endif
 }
 
 void test_scanf_i(void)
@@ -72,12 +84,16 @@ void test_scanf_i(void)
 
     begin("scanf-i");
 
+#if !defined(__SCANF_MISSING)
     sscanf("-42", "%i", &value);
 
     if (!expect(value == -42))
     {
         printf(" (%d)", value);
     }
+#else
+    missing();
+#endif
 }
 
 void test_scanf_u(void)
@@ -86,12 +102,16 @@ void test_scanf_u(void)
 
     begin("scanf-u");
 
+#if !defined(__SCANF_MISSING)
     sscanf("65535", "%u", &value);
 
     if (!expect(value == 65535))
     {
         printf(" (%u)", value);
     }
+#else
+    missing();
+#endif
 }
 
 void test_scanf_x(void)
@@ -100,12 +120,16 @@ void test_scanf_x(void)
 
     begin("scanf-x");
 
+#if !defined(__SCANF_MISSING)
     sscanf("cafe", "%x", &value);
 
     if (!expect(value == 0xcafe))
     {
         printf(" (%x)", value);
     }
+#else
+    missing();
+#endif
 }
 
 void test_scanf_X(void)
@@ -114,17 +138,21 @@ void test_scanf_X(void)
 
     begin("scanf-X");
 
+#if !defined(__SCANF_MISSING)
     sscanf("CAFE", "%X", &value);
 
     if (!expect(value == 0xcafe))
     {
         printf(" (%x)", value);
     }
+#else
+    missing();
+#endif
 }
 
 void test_scanf_f(void)
 {
-#if !defined(CC65)
+#if !defined(__FLOAT_MISSING) && !defined(__SCANF_MISSING)
     float value;
 
     begin("scanf-f");
@@ -147,7 +175,7 @@ void test_scanf_f(void)
 
 void test_scanf_e(void)
 {
-#if !defined(CC65)
+#if !defined(__FLOAT_MISSING) && !defined(__SCANF_MISSING)
     float value;
 
     begin("scanf-e");

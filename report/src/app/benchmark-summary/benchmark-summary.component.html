@@ -1,6 +1,6 @@
 <app-section>
     <h4 id="timeSummary" headline appSectionCollapser>
-        Execution Times in Seconds <span class="hint">(shorter is better)</span>
+        Execution Times in Seconds <span class="hint">(less is better)</span>
     </h4>
 
     <app-benchmark-summary-table [benchmarkKeys]="benchmarkKeys()" type="time" [configKeys]="configKeys()" />
@@ -8,7 +8,7 @@
 
 <app-section>
     <h4 id="sizeSummary" headline appSectionCollapser>
-        Binary Sizes in Kilobytes <span class="hint">(smaller is better)</span>
+        Binary Sizes in Kilobytes <span class="hint">(less is better)</span>
     </h4>
 
     <app-benchmark-summary-table [benchmarkKeys]="benchmarkKeys()" type="size" [configKeys]="configKeys()" />

@@ -13,7 +13,7 @@ unsigned char benchmark_check(void);
 #define MAIN int main()
 #endif
 
-#if defined(LLVM) || defined(VBCC)
+#if defined(LLVM) || defined(SDCC) || defined(VBCC)
 #define VICETRAP 0xc000
 static volatile unsigned char *viceTrapPtr = (unsigned char *)VICETRAP;
 static void (*viceTrap)(void) = (void (*)(void))VICETRAP;
@@ -55,7 +55,7 @@ MAIN
     // Wait a bit to ensure a refresh before taking a screenshot
     tod_init(0);
 
-#if defined(LLVM) || defined(VBCC)
+#if defined(LLVM) || defined(SDCC) || defined(VBCC)
     // Trigger the VICE monitor to exit
     *viceTrapPtr = 0x60; // RTS opcode
     viceTrap();

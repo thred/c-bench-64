@@ -100,7 +100,7 @@ static void test_atof(void)
 
     begin("atof");
 
-#if !defined(CC65) && !defined(LLVM)
+#if !defined(__FLOAT_MISSING) && !defined(LLVM)
     sprintf(str, "0.%d", r);
 
     if (!expect(abs((int)(atof(str) * 10000.0) - r) <= 1))
@@ -149,18 +149,18 @@ static void test_atol(void)
     begin("atol");
 
     // It's a bit tricky to test atol when LONG support in Oscar64 is disabled.
-    sprintf(str, "%d000", r);
+    sprintf(str, "%d000", (int)r);
 
     if (!expect(atol(str) == r * 1000L))
     {
-        printf(" (%s!=%d000)\n", str, r * 1000L);
+        printf(" (%s!=%d000)\n", str, (int)r);
     }
 
-    sprintf(str, "-%d000", r);
+    sprintf(str, "%d000", (int)-r);
 
     if (!expect(atol(str) == -r * 1000L))
     {
-        printf(" (%s!=%d000)\n", str, -r * 1000L);
+        printf(" (%s!=%d000)\n", str, (int)-r);
     }
 }
 
@@ -418,6 +418,7 @@ static void test_div(void)
 
     begin("div");
 
+#if !defined(__DIV_MISSING)
     res = div(r, d);
     expect(res.quot == r / d && res.rem == r % d);
 
@@ -429,6 +430,9 @@ static void test_div(void)
 
     res = div(negR, negD);
     expect(res.quot == negR / negD && res.rem == negR % negD);
+#else
+    missing();
+#endif
 }
 
 static void test_ldiv(void)
@@ -442,7 +446,7 @@ static void test_ldiv(void)
 
     begin("ldiv");
 
-#if !defined(CC65)
+#if !defined(__LDIV_MISSING)
     res = ldiv(r, d);
     expect(res.quot == r / d && res.rem == r % d);
 

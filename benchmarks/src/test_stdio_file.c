@@ -33,6 +33,7 @@ static void randTestData(test_data_t *testData);
 
 static void test_fputc(void)
 {
+#if !defined(__FILEIO_MISSING)
     char *ptr = data;
     FILE *fout = fopen(filename, "w");
 
@@ -57,10 +58,15 @@ static void test_fputc(void)
     fclose(fout);
 
     success();
+#else
+    begin("fputc");
+    missing();
+#endif
 }
 
 static void test_fgetc(void)
 {
+#if !defined(__FILEIO_MISSING)
     int ch;
     int i = 0;
     FILE *fin = fopen(filename, "r");
@@ -84,10 +90,15 @@ static void test_fgetc(void)
     fclose(fin);
 
     expect(strcmp(result, data) == 0);
+#else
+    begin("fgetc");
+    missing();
+#endif
 }
 
 static void test_fputs(void)
 {
+#if !defined(__FILEIO_MISSING)
     FILE *fout = fopen(filename, "w");
 
     begin("fputs");
@@ -108,10 +119,15 @@ static void test_fputs(void)
     fclose(fout);
 
     success();
+#else
+    begin("fputs");
+    missing();
+#endif
 }
 
 static void test_fgets(void)
 {
+#if !defined(__FILEIO_MISSING)
     FILE *fin = fopen(filename, "r");
     char buffer[BUFFER_SIZE];
     char result[DATA_SIZE];
@@ -168,10 +184,15 @@ static void test_fgets(void)
     fclose(fin);
 
     expect(strcmp(result, data) == 0);
+#else
+    begin("fgets");
+    missing();
+#endif
 }
 
 static void test_fwrite(void)
 {
+#if !defined(__FILEIO_MISSING)
     FILE *fout = fopen(filename, "wb");
 
     begin("fwrite");
@@ -192,10 +213,15 @@ static void test_fwrite(void)
     fclose(fout);
 
     success();
+#else
+    begin("fwrite");
+    missing();
+#endif
 }
 
 static void test_fread(void)
 {
+#if !defined(__FILEIO_MISSING)
     test_data_t readData;
     FILE *fin;
 
@@ -219,6 +245,10 @@ static void test_fread(void)
     fclose(fin);
 
     expect(memcmp(&testData, &readData, sizeof(test_data_t)) == 0);
+#else
+    begin("fread");
+    missing();
+#endif
 }
 
 void test(void)

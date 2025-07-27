@@ -899,60 +899,6 @@ unsigned long CRC32(const unsigned char *data, unsigned int length)
     return crc;
 }
 
-const unsigned char table[];
-
-unsigned char out[4096];
-
-void benchmark(void)
-{
-    int r;
-    unsigned long slen, dlen;
-
-    slen = 3407;
-    dlen = 0x1000;
-
-    r = puff(out,    /* pointer to destination pointer */
-             &dlen,  /* amount of output space */
-             table,  /* pointer to source data pointer */
-             &slen); /* amount of input available */
-
-    print("RES=");
-    print_int(r, 0);
-    print("\n");
-
-    print("slen=");
-    print_int(slen, 0);
-    print(" dlen=");
-    print_int(dlen, 0);
-    print("\n");
-}
-
-void benchmark_name(void)
-{
-    print("puff.c\n");
-    print("inflate compressed data\n");
-}
-
-#define EXPECTED 0x28ed93c7
-
-unsigned char benchmark_check(void)
-{
-    unsigned long crc = CRC32(out, 4096);
-
-    print("CRC32=");
-    print_hex(crc, 8);
-
-    if (crc == EXPECTED)
-    {
-        print(" [OK]");
-        return 0;
-    }
-
-    print(" [FAIL] - expected ");
-    print_hex(EXPECTED, 8);
-    return 1;
-}
-
 /* automatically generated from: kernal4.bin.deflate */
 
 const unsigned char table[3407] = {
@@ -4364,3 +4310,55 @@ const unsigned char table[3407] = {
     0xFE,
     0x1F,
 };
+
+unsigned char out[4096];
+
+void benchmark(void)
+{
+    int r;
+    unsigned long slen, dlen;
+
+    slen = 3407;
+    dlen = 0x1000;
+
+    r = puff(out,    /* pointer to destination pointer */
+             &dlen,  /* amount of output space */
+             table,  /* pointer to source data pointer */
+             &slen); /* amount of input available */
+
+    print("RES=");
+    print_int(r, 0);
+    print("\n");
+
+    print("slen=");
+    print_int(slen, 0);
+    print(" dlen=");
+    print_int(dlen, 0);
+    print("\n");
+}
+
+void benchmark_name(void)
+{
+    print("puff.c\n");
+    print("inflate compressed data\n");
+}
+
+#define EXPECTED 0x28ed93c7
+
+unsigned char benchmark_check(void)
+{
+    unsigned long crc = CRC32(out, 4096);
+
+    print("CRC32=");
+    print_hex(crc, 8);
+
+    if (crc == EXPECTED)
+    {
+        print(" [OK]");
+        return 0;
+    }
+
+    print(" [FAIL] - expected ");
+    print_hex(EXPECTED, 8);
+    return 1;
+}

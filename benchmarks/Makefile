@@ -3,12 +3,10 @@ CURDIR := $(shell pwd)
 # Currently kickc is mostly incompatible and does not even recognize #ifdef.
 # It is not included in the default build.
 
-# Removed sdcc, because it currently generates invalid code. Maybe it's my fault, but documentation is sparse.
-
 # INCLUDE = cc65,kickc,llvm,o64,sdcc,vbcc
 
 INCLUDE_ALL = cc65,kickc,llvm,o64,sdcc,vbcc
-INCLUDE = cc65,llvm,o64,vbcc
+INCLUDE = cc65,llvm,o64,sdcc,vbcc
 
 export SRCDIR = $(CURDIR)/src
 

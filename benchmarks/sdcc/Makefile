@@ -7,13 +7,13 @@ SDCCLIBDIR := $(SDCCDIR)/share/sdcc/lib
 SDAS = $(SDCCDIR)/bin/sdas6500
 SDCC = $(SDCCDIR)/bin/sdcc
 MAKEBIN = $(SDCCDIR)/bin/makebin
-SDCCTARGET = -mmos6502 -I"$(SDCCINCLUDEDIR)" --lib-path "$(SDCCLIBDIR)"
-# SDCCTARGET = -mmos6502  -I"$(SDCCINCLUDEDIR)" --lib-path "$(SDCCLIBDIR)" --fverbose-asm --i-code-in-asm
-SDCCPERFOPTS = --max-allocs-per-node 250000 --opt-code-speed
-SDCCSIZEOPTS = --max-allocs-per-node 250000 --opt-code-size
+SDCCTARGET = --no-std-crt0 --code-loc 0x7ff -mmos6502 -I"$(SDCCINCLUDEDIR)" --lib-path "$(SDCCLIBDIR)" \
+	-DSDCC -D__FILEIO_MISSING -D__SCANF_MISSING -D__DIV_MISSING -D__LDIV_MISSING 
+SDCCPERFOPTS = --max-allocs-per-node 250000 --opt-code-speed --allow-unsafe-read
+SDCCSIZEOPTS = --max-allocs-per-node 250000 --opt-code-size --allow-unsafe-read
 
-# Install a trap at kernal GETIN
-VICETRAP = 0xffe4
+# Install a breakpoint to capture output
+VICETRAP = 0xc000
 
 version:
 	@echo ""
@@ -56,9 +56,7 @@ build:
 	$(SDCC) $(SDCCTARGET) --no-std-crt0 --code-loc 0x7ff -mmos6502 \
 		"$(BINDIR)/$(SUFFIX)/c64_crt.rel" \
 		"$(BINDIR)/$(SUFFIX)/c64lib.rel" \
-		"$(BINDIR)/$(SUFFIX)/cia_timer.rel" \
-		"$(BINDIR)/$(SUFFIX)/out.rel" \
-		"$(BINDIR)/$(SUFFIX)/main.rel" \
+		$(foreach LIB,$(LIBS),"$(BINDIR)/$(SUFFIX)/$(notdir $(basename $(LIB))).rel") \
 		"$(BINDIR)/$(SUFFIX)/$(PRG).rel" \
 		-o "$(BINDIR)/$(SUFFIX)/$(PRG).ihx"
 
@@ -88,11 +86,10 @@ exec:
 		-initbreak $(VICETRAP) \
 		-moncommands "$(SRCDIR)/vice.mon" \
 		-monlog \
-		-monlogname "$(BINDIR)/$(PRG)-$(SUFFIX).log"
+		-monlogname "$(BINDIR)/$(PRG)-$(SUFFIX).log"; \
 
 	@if [ -f "$(BINDIR)/vice.png" ]; then mv "$(BINDIR)/vice.png" "$(BINDIR)/$(PRG)-$(SUFFIX).png"; fi
 
 	cat "$(BINDIR)/$(PRG)-$(SUFFIX).log" 
-
 
 
