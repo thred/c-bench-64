@@ -38,39 +38,6 @@
       "note": "higly active"
     }
   },
-  "libraries": {
-    "assert": "yes",
-    "complex": "no",
-    "conio": "yes",
-    "ctype": "yes",
-    "errno": "no",
-    "fenv": "no",
-    "float": "no",
-    "inttypes": "yes",
-    "iso646": "yes",
-    "limits": "yes",
-    "locale": "no",
-    "math": "yes",
-    "setjmp": "yes",
-    "signal": "no",
-    "stdalign": "no",
-    "stdarg": "yes",
-    "stdatomic": "no",
-    "stdbit": "no",
-    "stdbool": "yes",
-    "stddef": "yes",
-    "stdint": "yes",
-    "stdio": "yes",
-    "stdlib": "yes",
-    "stdnoreturn": "no",
-    "string": "yes",
-    "tgmath": "no",
-    "threads": "no",
-    "time": "yes",
-    "uchar": "no",
-    "wchar": "no",
-    "wctype": "no"
-  },
   "runtimeSupport": [
     "Commodore C64",
     "Commodore C128",
@@ -101,7 +68,7 @@
     }
   ],
   "version": "1.31.262",
-  "date": "2025-07-26 18:49:54",
+  "date": "2025-07-27 14:00:09",
   "results": {
     "o64p": {
       "aes256": {
@@ -194,50 +161,50 @@
       },
       "test_math": {
         "prgName": "test_math-o64p.prg",
-        "size": 10459,
-        "time": null,
+        "size": 10708,
+        "time": 1.7,
         "status": "pass",
-        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"test_math-o64p\",8,1                \n04a0                                          \n04c8  searching for test_math-o64p            \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #floor [OK] [OK] [OK]                   \n05e0  #ceil [OK] [OK] [OK]                    \n0608  #cos [OK] [OK] [OK] [OK] [OK]           \n0630  #sin [OK] [OK] [OK] [OK] [OK]           \n0658  #tan [OK] [OK] [OK] [OK]                \n0680  #acos [OK] [OK] [OK] [OK]               \n06a8  #asin [OK] [OK] [OK] [OK]               \n06d0  #atan [OK] [OK] [OK]                    \n06f8  #atan2 [OK] [OK] [OK] [OK] [OK]         \n0720  #exp [OK] [OK] [OK] [OK]                \n0748  #log [OK] [OK] [OK] [OK]                \n0770  #log10 [OK] [OK] [OK] [OK]              \n0798  #pow [OK] [OK] [OK] [OK] [OK]           \n07c0  #sqrt [OK] [OK] [OK] [OK] [OK] [OK]     \n",
+        "output": "0400  ready.                                  \n0428  load\"test_math-o64p\",8,1                \n0450                                          \n0478  searching for test_math-o64p            \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #floor [OK] [OK] [OK]                   \n0590  #ceil [OK] [OK] [OK]                    \n05b8  #cos [OK] [OK] [OK] [OK] [OK]           \n05e0  #sin [OK] [OK] [OK] [OK] [OK]           \n0608  #tan [OK] [OK] [OK] [OK]                \n0630  #acos [OK] [OK] [OK] [OK]               \n0658  #asin [OK] [OK] [OK] [OK]               \n0680  #atan [OK] [OK] [OK]                    \n06a8  #atan2 [OK] [OK] [OK] [OK] [OK]         \n06d0  #exp [OK] [OK] [OK] [OK]                \n06f8  #log [OK] [OK] [OK] [OK]                \n0720  #log10 [OK] [OK] [OK] [OK]              \n0748  #pow [OK] [OK] [OK] [OK] [OK]           \n0770  #sqrt [OK] [OK] [OK] [OK] [OK] [OK]     \n0798  Total time: 1.7 s                       \n07c0                                          \n",
         "screenshot": "test_math-o64p.png"
       },
       "test_stdio_file": {
         "prgName": "test_stdio_file-o64p.prg",
-        "size": 10167,
-        "time": null,
+        "size": 10415,
+        "time": 12.3,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 12.3 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
         "screenshot": "test_stdio_file-o64p.png"
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-o64p.prg",
-        "size": 7631,
-        "time": null,
+        "size": 7880,
+        "time": 1.1,
         "status": "pass",
-        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"*\",8,1                             \n04f0                                          \n0518  searching for *                         \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #printf-c [OK]                          \n0630  #printf-s [OK]                          \n0658  #printf-d [OK]                          \n0680  #printf-ld [OK]                         \n06a8  #printf-i [OK]                          \n06d0  #printf-li [OK]                         \n06f8  #printf-x [OK]                          \n0720  #printf-lx [OK]                         \n0748  #printf-X [OK]                          \n0770  #printf-lX [OK]                         \n0798  #printf-f [OK]                          \n07c0  #printf-e [OK]                          \n",
+        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [OK]                          \n0770  #printf-e [OK]                          \n0798  Total time: 1.1 s                       \n07c0                                          \n",
         "screenshot": "test_stdio_print-o64p.png"
       },
       "test_stdio_scan": {
         "prgName": "test_stdio_scan-o64p.prg",
-        "size": 10424,
-        "time": null,
+        "size": 10673,
+        "time": 1,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [OK]                           \n0770  #scanf-e [OK]                           \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [OK]                           \n0770  #scanf-e [OK]                           \n0798  Total time: 1.0 s                       \n07c0                                          \n",
         "screenshot": "test_stdio_scan-o64p.png"
       },
       "test_stdlib": {
         "prgName": "test_stdlib-o64p.prg",
-        "size": 16185,
-        "time": null,
+        "size": 16277,
+        "time": 1.2,
         "status": "fail",
-        "output": "0400                                          \n0428   64k ram system  38911 basic bytes free \n0450                                          \n0478  ready.                                  \n04a0  load\"test_stdlib-o64p\",8,1              \n04c8                                          \n04f0  searching for test_stdlib-o64p          \n0518  loading                                 \n0540  ?load  error                            \n0568  ready.                                  \n0590  run:                                    \n05b8                                          \n05e0  #rand [FAIL] (-27436<0)                 \n0608  #srand [OK]                             \n0630  #atof [OK] [OK]                         \n0658  #atoi [OK] [OK]                         \n0680  #atol [OK] [OK]                         \n06a8  #malloc [OK]                            \n06d0  #calloc [OK]                            \n06f8  #realloc [OK]                           \n0720  #qsort [MISS]                           \n0748  #abs [OK] [OK]                          \n0770  #labs [OK] [OK]                         \n0798  #div [OK] [OK] [OK] [OK]                \n07c0  #ldiv [OK] [OK] [OK] [OK]               \n",
+        "output": "0400                                          \n0428  ready.                                  \n0450  load\"test_stdlib-o64p\",8,1              \n0478                                          \n04a0  searching for test_stdlib-o64p          \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #rand [FAIL] (-27436<0)                 \n05b8  #srand [OK]                             \n05e0  #atof [OK] [OK]                         \n0608  #atoi [OK] [OK]                         \n0630  #atol [OK] [OK]                         \n0658  #malloc [OK]                            \n0680  #calloc [OK]                            \n06a8  #realloc [OK]                           \n06d0  #qsort [MISS]                           \n06f8  #abs [OK] [OK]                          \n0720  #labs [OK] [OK]                         \n0748  #div [OK] [OK] [OK] [OK]                \n0770  #ldiv [OK] [OK] [OK] [OK]               \n0798  Total time: 1.2 s                       \n07c0                                          \n",
         "screenshot": "test_stdlib-o64p.png"
       },
       "test_string": {
         "prgName": "test_string-o64p.prg",
-        "size": 10211,
-        "time": null,
+        "size": 10462,
+        "time": 1.3,
         "status": "pass",
-        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"test_string-o64p\",8,1              \n04a0                                          \n04c8  searching for test_string-o64p          \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #strlen [OK]                            \n05e0  #strchr [OK]                            \n0608  #strrchr [OK]                           \n0630  #strcmp [OK] [OK]                       \n0658  #strncmp [OK] [OK]                      \n0680  #strcpy [OK]                            \n06a8  #strncpy [OK]                           \n06d0  #strcat [OK]                            \n06f8  #strncat [OK] [OK]                      \n0720  #strstr [OK]                            \n0748  #memchr [OK]                            \n0770  #memset [OK]                            \n0798  #memcpy [OK]                            \n07c0  #memmove [OK] [OK] [OK] [OK] [OK]       \n",
+        "output": "0400  ready.                                  \n0428  load\"test_string-o64p\",8,1              \n0450                                          \n0478  searching for test_string-o64p          \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen [OK]                            \n0590  #strchr [OK]                            \n05b8  #strrchr [OK]                           \n05e0  #strcmp [OK] [OK]                       \n0608  #strncmp [OK] [OK]                      \n0630  #strcpy [OK]                            \n0658  #strncpy [OK]                           \n0680  #strcat [OK]                            \n06a8  #strncat [OK] [OK]                      \n06d0  #strstr [OK]                            \n06f8  #memchr [OK]                            \n0720  #memset [OK]                            \n0748  #memcpy [OK]                            \n0770  #memmove [OK] [OK] [OK] [OK] [OK]       \n0798  Total time: 1.3 s                       \n07c0                                          \n",
         "screenshot": "test_string-o64p.png"
       }
     },
@@ -332,50 +299,50 @@
       },
       "test_math": {
         "prgName": "test_math-o64s.prg",
-        "size": 6408,
-        "time": null,
+        "size": 6643,
+        "time": 1.8,
         "status": "pass",
-        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"test_math-o64s\",8,1                \n04a0                                          \n04c8  searching for test_math-o64s            \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #floor [OK] [OK] [OK]                   \n05e0  #ceil [OK] [OK] [OK]                    \n0608  #cos [OK] [OK] [OK] [OK] [OK]           \n0630  #sin [OK] [OK] [OK] [OK] [OK]           \n0658  #tan [OK] [OK] [OK] [OK]                \n0680  #acos [OK] [OK] [OK] [OK]               \n06a8  #asin [OK] [OK] [OK] [OK]               \n06d0  #atan [OK] [OK] [OK]                    \n06f8  #atan2 [OK] [OK] [OK] [OK] [OK]         \n0720  #exp [OK] [OK] [OK] [OK]                \n0748  #log [OK] [OK] [OK] [OK]                \n0770  #log10 [OK] [OK] [OK] [OK]              \n0798  #pow [OK] [OK] [OK] [OK] [OK]           \n07c0  #sqrt [OK] [OK] [OK] [OK] [OK] [OK]     \n",
+        "output": "0400  ready.                                  \n0428  load\"test_math-o64s\",8,1                \n0450                                          \n0478  searching for test_math-o64s            \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #floor [OK] [OK] [OK]                   \n0590  #ceil [OK] [OK] [OK]                    \n05b8  #cos [OK] [OK] [OK] [OK] [OK]           \n05e0  #sin [OK] [OK] [OK] [OK] [OK]           \n0608  #tan [OK] [OK] [OK] [OK]                \n0630  #acos [OK] [OK] [OK] [OK]               \n0658  #asin [OK] [OK] [OK] [OK]               \n0680  #atan [OK] [OK] [OK]                    \n06a8  #atan2 [OK] [OK] [OK] [OK] [OK]         \n06d0  #exp [OK] [OK] [OK] [OK]                \n06f8  #log [OK] [OK] [OK] [OK]                \n0720  #log10 [OK] [OK] [OK] [OK]              \n0748  #pow [OK] [OK] [OK] [OK] [OK]           \n0770  #sqrt [OK] [OK] [OK] [OK] [OK] [OK]     \n0798  Total time: 1.8 s                       \n07c0                                          \n",
         "screenshot": "test_math-o64s.png"
       },
       "test_stdio_file": {
         "prgName": "test_stdio_file-o64s.prg",
-        "size": 4843,
-        "time": null,
+        "size": 5243,
+        "time": 12.1,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 12.1 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
         "screenshot": "test_stdio_file-o64s.png"
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-o64s.prg",
-        "size": 2706,
-        "time": null,
+        "size": 2971,
+        "time": 1.1,
         "status": "disabled",
-        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"*\",8,1                             \n04f0                                          \n0518  searching for *                         \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #printf-c [OK]                          \n0630  #printf-s [OK]                          \n0658  #printf-d [OK]                          \n0680  #printf-ld [OFF]                        \n06a8  #printf-i [OK]                          \n06d0  #printf-li [OFF]                        \n06f8  #printf-x [OK]                          \n0720  #printf-lx [OFF]                        \n0748  #printf-X [OK]                          \n0770  #printf-lX [OFF]                        \n0798  #printf-f [OFF]                         \n07c0  #printf-e [OFF]                         \n",
+        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OFF]                        \n0658  #printf-i [OK]                          \n0680  #printf-li [OFF]                        \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OFF]                        \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OFF]                        \n0748  #printf-f [OFF]                         \n0770  #printf-e [OFF]                         \n0798  Total time: 1.1 s                       \n07c0                                          \n",
         "screenshot": "test_stdio_print-o64s.png"
       },
       "test_stdio_scan": {
         "prgName": "test_stdio_scan-o64s.prg",
-        "size": 4103,
-        "time": null,
+        "size": 4310,
+        "time": 1,
         "status": "disabled",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [OFF]                          \n0770  #scanf-e [OFF]                          \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [OFF]                          \n0770  #scanf-e [OFF]                          \n0798  Total time: 1.0 s                       \n07c0                                          \n",
         "screenshot": "test_stdio_scan-o64s.png"
       },
       "test_stdlib": {
         "prgName": "test_stdlib-o64s.prg",
-        "size": 9725,
-        "time": null,
+        "size": 9880,
+        "time": 1.2,
         "status": "fail",
-        "output": "0400                                          \n0428   64k ram system  38911 basic bytes free \n0450                                          \n0478  ready.                                  \n04a0  load\"test_stdlib-o64s\",8,1              \n04c8                                          \n04f0  searching for test_stdlib-o64s          \n0518  loading                                 \n0540  ?load  error                            \n0568  ready.                                  \n0590  run:                                    \n05b8                                          \n05e0  #rand [FAIL] (-27436<0)                 \n0608  #srand [OK]                             \n0630  #atof [OK] [OK]                         \n0658  #atoi [OK] [OK]                         \n0680  #atol [OK] [OK]                         \n06a8  #malloc [OK]                            \n06d0  #calloc [OK]                            \n06f8  #realloc [OK]                           \n0720  #qsort [MISS]                           \n0748  #abs [OK] [OK]                          \n0770  #labs [OK] [OK]                         \n0798  #div [OK] [OK] [OK] [OK]                \n07c0  #ldiv [OK] [OK] [OK] [OK]               \n",
+        "output": "0400                                          \n0428  ready.                                  \n0450  load\"test_stdlib-o64s\",8,1              \n0478                                          \n04a0  searching for test_stdlib-o64s          \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #rand [FAIL] (-27436<0)                 \n05b8  #srand [OK]                             \n05e0  #atof [OK] [OK]                         \n0608  #atoi [OK] [OK]                         \n0630  #atol [OK] [OK]                         \n0658  #malloc [OK]                            \n0680  #calloc [OK]                            \n06a8  #realloc [OK]                           \n06d0  #qsort [MISS]                           \n06f8  #abs [OK] [OK]                          \n0720  #labs [OK] [OK]                         \n0748  #div [OK] [OK] [OK] [OK]                \n0770  #ldiv [OK] [OK] [OK] [OK]               \n0798  Total time: 1.2 s                       \n07c0                                          \n",
         "screenshot": "test_stdlib-o64s.png"
       },
       "test_string": {
         "prgName": "test_string-o64s.prg",
-        "size": 4833,
-        "time": null,
+        "size": 5287,
+        "time": 1.3,
         "status": "pass",
-        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"test_string-o64s\",8,1              \n04a0                                          \n04c8  searching for test_string-o64s          \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #strlen [OK]                            \n05e0  #strchr [OK]                            \n0608  #strrchr [OK]                           \n0630  #strcmp [OK] [OK]                       \n0658  #strncmp [OK] [OK]                      \n0680  #strcpy [OK]                            \n06a8  #strncpy [OK]                           \n06d0  #strcat [OK]                            \n06f8  #strncat [OK] [OK]                      \n0720  #strstr [OK]                            \n0748  #memchr [OK]                            \n0770  #memset [OK]                            \n0798  #memcpy [OK]                            \n07c0  #memmove [OK] [OK] [OK] [OK] [OK]       \n",
+        "output": "0400  ready.                                  \n0428  load\"test_string-o64s\",8,1              \n0450                                          \n0478  searching for test_string-o64s          \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen [OK]                            \n0590  #strchr [OK]                            \n05b8  #strrchr [OK]                           \n05e0  #strcmp [OK] [OK]                       \n0608  #strncmp [OK] [OK]                      \n0630  #strcpy [OK]                            \n0658  #strncpy [OK]                           \n0680  #strcat [OK]                            \n06a8  #strncat [OK] [OK]                      \n06d0  #strstr [OK]                            \n06f8  #memchr [OK]                            \n0720  #memset [OK]                            \n0748  #memcpy [OK]                            \n0770  #memmove [OK] [OK] [OK] [OK] [OK]       \n0798  Total time: 1.3 s                       \n07c0                                          \n",
         "screenshot": "test_string-o64s.png"
       }
     }
