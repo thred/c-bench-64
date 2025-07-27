@@ -186,18 +186,18 @@
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-llvmp.prg",
-        "size": 12892,
+        "size": 12557,
         "time": 1.4,
-        "status": "fail",
-        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [FAIL] (%.2f!=3.14)           \n0770  #printf-e [FAIL] (%.2e!=1.23e+05)       \n0798  Total time: 1.4 s                       \n07c0                                          \n",
+        "status": "unsupported",
+        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [MISS]                        \n0770  #printf-e [MISS]                        \n0798  Total time: 1.4 s                       \n07c0                                          \n",
         "screenshot": "test_stdio_print-llvmp.png"
       },
       "test_stdio_scan": {
         "prgName": "test_stdio_scan-llvmp.prg",
-        "size": 34449,
-        "time": 1.4,
-        "status": "fail",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [FAIL] (41)                    \n0748  #scanf-f [FAIL] (%f)                    \n0770  #scanf-e [FAIL] (%f)                    \n0798  Total time: 1.4 s                       \n07c0                                          \n",
+        "size": 24918,
+        "time": 1.2,
+        "status": "unsupported",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [MISS]                         \n0770  #scanf-e [MISS]                         \n0798  Total time: 1.2 s                       \n07c0                                          \n",
         "screenshot": "test_stdio_scan-llvmp.png"
       },
       "test_stdlib": {
@@ -324,18 +324,18 @@
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-llvms.prg",
-        "size": 12608,
+        "size": 12262,
         "time": 1.4,
-        "status": "fail",
-        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [FAIL] (%.2f!=3.14)           \n0770  #printf-e [FAIL] (%.2e!=1.23e+05)       \n0798  Total time: 1.4 s                       \n07c0                                          \n",
+        "status": "unsupported",
+        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [MISS]                        \n0770  #printf-e [MISS]                        \n0798  Total time: 1.4 s                       \n07c0                                          \n",
         "screenshot": "test_stdio_print-llvms.png"
       },
       "test_stdio_scan": {
         "prgName": "test_stdio_scan-llvms.prg",
-        "size": 34166,
-        "time": 1.4,
-        "status": "fail",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [FAIL] (841)                   \n0748  #scanf-f [FAIL] (%f)                    \n0770  #scanf-e [FAIL] (%f)                    \n0798  Total time: 1.4 s                       \n07c0                                          \n",
+        "size": 24625,
+        "time": 1.2,
+        "status": "unsupported",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [MISS]                         \n0770  #scanf-e [MISS]                         \n0798  Total time: 1.2 s                       \n07c0                                          \n",
         "screenshot": "test_stdio_scan-llvms.png"
       },
       "test_stdlib": {
@@ -482,11 +482,11 @@
           "prgName": "test_stdio_print-llvmp.prg"
         },
         "printf-f": {
-          "status": "fail",
+          "status": "unsupported",
           "prgName": "test_stdio_print-llvmp.prg"
         },
         "printf-e": {
-          "status": "fail",
+          "status": "unsupported",
           "prgName": "test_stdio_print-llvmp.prg"
         },
         "scanf-c": {
@@ -510,15 +510,15 @@
           "prgName": "test_stdio_scan-llvmp.prg"
         },
         "scanf-X": {
-          "status": "fail",
+          "status": "pass",
           "prgName": "test_stdio_scan-llvmp.prg"
         },
         "scanf-f": {
-          "status": "fail",
+          "status": "unsupported",
           "prgName": "test_stdio_scan-llvmp.prg"
         },
         "scanf-e": {
-          "status": "fail",
+          "status": "unsupported",
           "prgName": "test_stdio_scan-llvmp.prg"
         }
       },
@@ -752,11 +752,11 @@
           "prgName": "test_stdio_print-llvms.prg"
         },
         "printf-f": {
-          "status": "fail",
+          "status": "unsupported",
           "prgName": "test_stdio_print-llvms.prg"
         },
         "printf-e": {
-          "status": "fail",
+          "status": "unsupported",
           "prgName": "test_stdio_print-llvms.prg"
         },
         "scanf-c": {
@@ -780,15 +780,15 @@
           "prgName": "test_stdio_scan-llvms.prg"
         },
         "scanf-X": {
-          "status": "fail",
+          "status": "pass",
           "prgName": "test_stdio_scan-llvms.prg"
         },
         "scanf-f": {
-          "status": "fail",
+          "status": "unsupported",
           "prgName": "test_stdio_scan-llvms.prg"
         },
         "scanf-e": {
-          "status": "fail",
+          "status": "unsupported",
           "prgName": "test_stdio_scan-llvms.prg"
         }
       },

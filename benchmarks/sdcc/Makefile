@@ -8,7 +8,7 @@ SDAS = $(SDCCDIR)/bin/sdas6500
 SDCC = $(SDCCDIR)/bin/sdcc
 MAKEBIN = $(SDCCDIR)/bin/makebin
 SDCCTARGET = --no-std-crt0 --code-loc 0x7ff -mmos6502 -I"$(SDCCINCLUDEDIR)" --lib-path "$(SDCCLIBDIR)" \
-	-DSDCC -D__FILEIO_MISSING -D__SCANF_MISSING -D__DIV_MISSING -D__LDIV_MISSING 
+	-DSDCC -D__FILEIO_MISSING -D__DIV_MISSING -D__LDIV_MISSING 
 SDCCPERFOPTS = --max-allocs-per-node 250000 --opt-code-speed --allow-unsafe-read
 SDCCSIZEOPTS = --max-allocs-per-node 250000 --opt-code-size --allow-unsafe-read
 

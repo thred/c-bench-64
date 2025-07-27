@@ -158,10 +158,10 @@
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-sdccp.prg",
-        "size": 10424,
+        "size": 10172,
         "time": 1.2,
-        "status": "fail",
-        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c .OK.                          \n05e0  #printf-s .OK.                          \n0608  #printf-d .OK.                          \n0630  #printf-ld .OK.                         \n0658  #printf-i .OK.                          \n0680  #printf-li .OK.                         \n06a8  #printf-x .OK.                          \n06d0  #printf-lx .OK.                         \n06f8  #printf-X .OK.                          \n0720  #printf-lX .OK.                         \n0748  #printf-f .FAIL. (<NO FLOAT>!=3.14)     \n0770  #printf-e .FAIL. (E!=1.23e+05)          \n0798  Total time: 1.2 s                       \n07c0                                          \n",
+        "status": "unsupported",
+        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c .OK.                          \n05e0  #printf-s .OK.                          \n0608  #printf-d .OK.                          \n0630  #printf-ld .OK.                         \n0658  #printf-i .OK.                          \n0680  #printf-li .OK.                         \n06a8  #printf-x .OK.                          \n06d0  #printf-lx .OK.                         \n06f8  #printf-X .OK.                          \n0720  #printf-lX .OK.                         \n0748  #printf-f .MISS.                        \n0770  #printf-e .MISS.                        \n0798  Total time: 1.2 s                       \n07c0                                          \n",
         "screenshot": "test_stdio_print-sdccp.png"
       },
       "test_stdio_scan": {
@@ -296,10 +296,10 @@
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-sdccs.prg",
-        "size": 10424,
+        "size": 10172,
         "time": 1.2,
-        "status": "fail",
-        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c .OK.                          \n05e0  #printf-s .OK.                          \n0608  #printf-d .OK.                          \n0630  #printf-ld .OK.                         \n0658  #printf-i .OK.                          \n0680  #printf-li .OK.                         \n06a8  #printf-x .OK.                          \n06d0  #printf-lx .OK.                         \n06f8  #printf-X .OK.                          \n0720  #printf-lX .OK.                         \n0748  #printf-f .FAIL. (<NO FLOAT>!=3.14)     \n0770  #printf-e .FAIL. (E!=1.23e+05)          \n0798  Total time: 1.2 s                       \n07c0                                          \n",
+        "status": "unsupported",
+        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c .OK.                          \n05e0  #printf-s .OK.                          \n0608  #printf-d .OK.                          \n0630  #printf-ld .OK.                         \n0658  #printf-i .OK.                          \n0680  #printf-li .OK.                         \n06a8  #printf-x .OK.                          \n06d0  #printf-lx .OK.                         \n06f8  #printf-X .OK.                          \n0720  #printf-lX .OK.                         \n0748  #printf-f .MISS.                        \n0770  #printf-e .MISS.                        \n0798  Total time: 1.2 s                       \n07c0                                          \n",
         "screenshot": "test_stdio_print-sdccs.png"
       },
       "test_stdio_scan": {
@@ -454,11 +454,11 @@
           "prgName": "test_stdio_print-sdccp.prg"
         },
         "printf-f": {
-          "status": "fail",
+          "status": "unsupported",
           "prgName": "test_stdio_print-sdccp.prg"
         },
         "printf-e": {
-          "status": "fail",
+          "status": "unsupported",
           "prgName": "test_stdio_print-sdccp.prg"
         },
         "scanf-c": {
@@ -724,11 +724,11 @@
           "prgName": "test_stdio_print-sdccs.prg"
         },
         "printf-f": {
-          "status": "fail",
+          "status": "unsupported",
           "prgName": "test_stdio_print-sdccs.prg"
         },
         "printf-e": {
-          "status": "fail",
+          "status": "unsupported",
           "prgName": "test_stdio_print-sdccs.prg"
         },
         "scanf-c": {

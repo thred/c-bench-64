@@ -14,7 +14,7 @@ void test_scanf_c(void)
 
     begin("scanf-c");
 
-#if !defined(__SCANF_MISSING)
+#if !defined(SDCC)
     sscanf("AB DE", "%c", &c);
 
     if (!expect(c == 'A'))
@@ -41,7 +41,7 @@ void test_scanf_s(void)
 
     begin("scanf-s");
 
-#if !defined(__SCANF_MISSING)
+#if !defined(SDCC)
     sscanf("Hello, World!", "%s", str);
 
     if (!expect(strcmp(str, "Hello,") == 0))
@@ -66,7 +66,7 @@ void test_scanf_d(void)
 
     begin("scanf-d");
 
-#if !defined(__SCANF_MISSING)
+#if !defined(SDCC)
     sscanf("42", "%d", &value);
 
     if (!expect(value == 42))
@@ -84,7 +84,7 @@ void test_scanf_i(void)
 
     begin("scanf-i");
 
-#if !defined(__SCANF_MISSING)
+#if !defined(SDCC)
     sscanf("-42", "%i", &value);
 
     if (!expect(value == -42))
@@ -102,7 +102,7 @@ void test_scanf_u(void)
 
     begin("scanf-u");
 
-#if !defined(__SCANF_MISSING)
+#if !defined(SDCC)
     sscanf("65535", "%u", &value);
 
     if (!expect(value == 65535))
@@ -120,7 +120,7 @@ void test_scanf_x(void)
 
     begin("scanf-x");
 
-#if !defined(__SCANF_MISSING)
+#if !defined(SDCC)
     sscanf("cafe", "%x", &value);
 
     if (!expect(value == 0xcafe))
@@ -138,7 +138,7 @@ void test_scanf_X(void)
 
     begin("scanf-X");
 
-#if !defined(__SCANF_MISSING)
+#if !defined(SDCC)
     sscanf("CAFE", "%X", &value);
 
     if (!expect(value == 0xcafe))
@@ -152,7 +152,7 @@ void test_scanf_X(void)
 
 void test_scanf_f(void)
 {
-#if !defined(__FLOAT_MISSING) && !defined(__SCANF_MISSING)
+#if !defined(__FLOAT_MISSING) && !defined(LLVM) && !defined(SDCC)
     float value;
 
     begin("scanf-f");
@@ -175,7 +175,7 @@ void test_scanf_f(void)
 
 void test_scanf_e(void)
 {
-#if !defined(__FLOAT_MISSING) && !defined(__SCANF_MISSING)
+#if !defined(__FLOAT_MISSING) && !defined(LLVM) && !defined(SDCC)
     float value;
 
     begin("scanf-e");
