@@ -81,7 +81,7 @@ export class BenchmarkSummaryRowComponent {
             return "";
         }
 
-        return `${testResult.value.toFixed(this.type() === "time" ? 1 : 3)} ${this.type() === "time" ? "s" : "KB"}`;
+        return `${testResult.value.toFixed(this.type() === "time" ? 1 : 1)} ${this.type() === "time" ? "s" : "KB"}`;
     }
 
     gotoBenchmark(): void {
