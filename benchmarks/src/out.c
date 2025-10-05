@@ -6,7 +6,19 @@ void print(const char *s)
 {
     while (*s)
     {
-        putchar(*s++);
+        char c = *s++;
+
+#ifdef CALYPSI
+        if (c >= 'A' && c <= 'Z') {
+            c += 0x80; // Convert ASCII uppercase to PETSCII uppercase (lowercase in C64 mode)
+        } else if (c >= 'a' && c <= 'z') {
+            c -= 0x20; // Convert ASCII lowercase to PETSCII lowercase (uppercase in C64 mode)
+        } else if (c == '\n') {
+            c = 13; // Convert ASCII newline to PETSCII newline (CR)
+        }
+#endif
+
+        putchar(c);
     }
 }
 

@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include "cia_timer.h"
 
+#ifdef NEWLINE_CR
+#define NEWLINE "\r\n"
+#else
+#define NEWLINE "\n"
+#endif
+
 #define N_ITER 10
 
 #define SIZE 32
@@ -54,8 +60,8 @@ void benchmark(void)
 
 void benchmark_name(void)
 {
-    printf("pow.c\n");
-    printf("Calculates floating point exponential (%d iterations)\n", N_ITER);
+    printf("pow.c" NEWLINE);
+    printf("Calculates floating point exponential (%d iterations)" NEWLINE, N_ITER);
 }
 
 const FPTYPE expected = 3614007361536.000000;
@@ -67,17 +73,17 @@ unsigned char benchmark_check(void)
 
     FPTYPE diff = expected - res;
 
-    printf("\nexpected = %e ", expected);
-    printf("\nepsilon  = %e ", epsilon);
-    printf("\ndiff     = %e ", diff);
+    printf(NEWLINE "expected = %e ", expected);
+    printf(NEWLINE "epsilon  = %e ", epsilon);
+    printf(NEWLINE "diff     = %e ", diff);
 
     if (diff < epsilon && diff > (long)-epsilon)
     {
-        printf("[OK]\n");
+        printf("[OK]" NEWLINE);
         return 0;
     }
 
-    printf("[FAIL]\n");
+    printf("[FAIL]" NEWLINE);
     return 1;
 }
 

@@ -45,12 +45,12 @@
     }
   ],
   "version": "Release 4, patch 2",
-  "date": "2025-07-27 11:46:02",
+  "date": "2025-10-07 20:16:39",
   "results": {
     "vbccp": {
       "aes256": {
         "prgName": "aes256-vbccp.prg",
-        "size": 13532,
+        "size": 13560,
         "time": 38.6,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"aes256-vbccp\",8,1                  \n0518                                          \n0540  searching for aes256-vbccp              \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  aes256.c                                \n0680  Encrypts the C64 kernel                 \n06a8  CRC32=FF1EE2C1 [OK]                     \n06d0  Total time: 38.6 s                      \n06f8                                          \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -58,7 +58,7 @@
       },
       "crc8": {
         "prgName": "crc8-vbccp.prg",
-        "size": 5503,
+        "size": 5531,
         "time": 1.2,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-vbccp\",8,1                    \n0518                                          \n0540  searching for crc8-vbccp                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=A2 [OK]                            \n06f8  Total time: 1.2 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -66,7 +66,7 @@
       },
       "crc16": {
         "prgName": "crc16-vbccp.prg",
-        "size": 5728,
+        "size": 5756,
         "time": 2.6,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-vbccp\",8,1                   \n0518                                          \n0540  searching for crc16-vbccp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=FFD0 [OK]                         \n06f8  Total time: 2.6 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -74,7 +74,7 @@
       },
       "crc32": {
         "prgName": "crc32-vbccp.prg",
-        "size": 6039,
+        "size": 6067,
         "time": 5,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-vbccp\",8,1                   \n0518                                          \n0540  searching for crc32-vbccp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=E1FA84C6 [OK]                     \n06f8  Total time: 5.0 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -82,7 +82,7 @@
       },
       "dhrystone": {
         "prgName": "dhrystone-vbccp.prg",
-        "size": 11446,
+        "size": 11536,
         "time": 2.4,
         "status": "pass",
         "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  IntDGlob == 5 [OK]                      \n0568  BoolDGlob == 1 [OK]                     \n0590  ChD1DGlob == 'A' [OK]                   \n05b8  ChD2DGlob == 'B' [OK]                   \n05e0  ArrD1DGlob[8] == 7 [OK]                 \n0608  ArrD2DGlob[8][7] == NOR + 10 [OK]       \n0630  Discr == 0 [OK]                         \n0658  EnumDComp == 2 [OK]                     \n0680  IntDComp == 17 [OK]                     \n06a8  StrDComp == DHRYSTONE... [OK]           \n06d0  PtrDComp == PtrDComp [OK]               \n06f8  Discr == 0 [OK]                         \n0720  EnumDComp == 1 [OK]                     \n0748  IntDComp == 18 [OK]                     \n0770                                          \n0798  Total time: 2.4 s                       \n07c0                                          \n",
@@ -90,7 +90,7 @@
       },
       "fact": {
         "prgName": "fact-vbccp.prg",
-        "size": 7007,
+        "size": 7046,
         "time": 187.4,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-vbccp\",8,1                    \n0518                                          \n0540  searching for fact-vbccp                \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=188806544 [OK]                      \n06f8  Total time: 187.4 s                     \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -98,7 +98,7 @@
       },
       "pi": {
         "prgName": "pi-vbccp.prg",
-        "size": 5970,
+        "size": 6009,
         "time": 96.3,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-vbccp\",8,1                      \n0518                                          \n0540  searching for pi-vbccp                  \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 96.3 s                      \n07c0                                          \n",
@@ -106,15 +106,15 @@
       },
       "pow": {
         "prgName": "pow-vbccp.prg",
-        "size": 16679,
-        "time": 23.9,
+        "size": 16693,
+        "time": 23.6,
         "status": "pass",
-        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"pow-vbccp\",8,1                     \n04f0                                          \n0518  searching for pow-vbccp                 \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0  Calibrating frequency: 50 Hz            \n0608                                          \n0630  pow.c                                   \n0658  Calculates floating point exponential (1\n0680  0 iterations)                           \n06a8                                          \n06d0  res      = 3.608633e+12                 \n06f8  expected = 3.608641e+12                 \n0720  epsilon  = 9.991294e+06                 \n0748  diff     = 7.334577e+06 [OK]            \n0770                                          \n0798  Total time: 23.9 s                      \n07c0                                          \n",
+        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"pow-vbccp\",8,1                     \n04f0                                          \n0518  searching for pow-vbccp                 \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0  Calibrating frequency: 50 Hz            \n0608                                          \n0630  pow.c                                   \n0658  Calculates floating point exponential (1\n0680  0 iterations)                           \n06a8                                          \n06d0  res      = 3.608633e+12                 \n06f8  expected = 3.608641e+12                 \n0720  epsilon  = 9.991294e+06                 \n0748  diff     = 7.334577e+06 [OK]            \n0770                                          \n0798  Total time: 23.6 s                      \n07c0                                          \n",
         "screenshot": "pow-vbccp.png"
       },
       "puff2": {
         "prgName": "puff2-vbccp.prg",
-        "size": 25497,
+        "size": 25535,
         "time": 19.4,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-vbccp\",8,1                   \n0518                                          \n0540  searching for puff2-vbccp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  puff.c                                  \n0680  inflate compressed data                 \n06a8  RES=0                                   \n06d0  slen=3407 dlen=4096                     \n06f8                                          \n0720  CRC32=28ED93C7 [OK]                     \n0748  Total time: 19.4 s                      \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -122,7 +122,7 @@
       },
       "sieve": {
         "prgName": "sieve-vbccp.prg",
-        "size": 5939,
+        "size": 5981,
         "time": 13.3,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-vbccp\",8,1                   \n0518                                          \n0540  searching for sieve-vbccp               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 [OK]                         \n0720  Total time: 13.3 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -130,7 +130,7 @@
       },
       "sieve_bit": {
         "prgName": "sieve_bit-vbccp.prg",
-        "size": 6185,
+        "size": 6227,
         "time": 20.3,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve_bit-vbccp\",8,1               \n0518                                          \n0540  searching for sieve_bit-vbccp           \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieveDbit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 [OK]                         \n0720  Total time: 20.3 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -138,7 +138,7 @@
       },
       "test_math": {
         "prgName": "test_math-vbccp.prg",
-        "size": 16320,
+        "size": 15953,
         "time": 1.3,
         "status": "unsupported",
         "output": "0400  ready.                                  \n0428  load\"test_math-vbccp\",8,1               \n0450                                          \n0478  searching for test_math-vbccp           \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #floor [MISS]                           \n0590  #ceil [MISS]                            \n05b8  #cos [MISS]                             \n05e0  #sin [MISS]                             \n0608  #tan [MISS]                             \n0630  #acos [MISS]                            \n0658  #asin [MISS]                            \n0680  #atan [MISS]                            \n06a8  #atan2 [MISS]                           \n06d0  #exp [MISS]                             \n06f8  #log [MISS]                             \n0720  #log10 [MISS]                           \n0748  #pow [MISS]                             \n0770  #sqrt [MISS]                            \n0798  Total time: 1.3 s                       \n07c0                                          \n",
@@ -146,15 +146,15 @@
       },
       "test_stdio_file": {
         "prgName": "test_stdio_file-vbccp.prg",
-        "size": 27400,
-        "time": 14.7,
+        "size": 27033,
+        "time": 14.8,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 14.7 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 14.8 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
         "screenshot": "test_stdio_file-vbccp.png"
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-vbccp.prg",
-        "size": 18694,
+        "size": 18327,
         "time": 2,
         "status": "pass",
         "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [OK]                          \n0770  #printf-e [OK]                          \n0798  Total time: 2.0 s                       \n07c0                                          \n",
@@ -162,7 +162,7 @@
       },
       "test_stdio_scan": {
         "prgName": "test_stdio_scan-vbccp.prg",
-        "size": 29128,
+        "size": 28761,
         "time": 1.6,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [OK]                           \n0770  #scanf-e [OK]                           \n0798  Total time: 1.6 s                       \n07c0                                          \n",
@@ -170,7 +170,7 @@
       },
       "test_stdlib": {
         "prgName": "test_stdlib-vbccp.prg",
-        "size": 37911,
+        "size": 37233,
         "time": 15.1,
         "status": "pass",
         "output": "0400                                          \n0428  ready.                                  \n0450  load\"*\",8,1                             \n0478                                          \n04a0  searching for *                         \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #rand [OK] [OK]                         \n05b8  #srand [OK]                             \n05e0  #atof [OK] [OK]                         \n0608  #atoi [OK] [OK]                         \n0630  #atol [OK] [OK]                         \n0658  #malloc [OK]                            \n0680  #calloc [OK]                            \n06a8  #realloc [OK]                           \n06d0  #qsort [OK]                             \n06f8  #abs [OK] [OK]                          \n0720  #labs [OK] [OK]                         \n0748  #div [OK] [OK] [OK] [OK]                \n0770  #ldiv [OK] [OK] [OK] [OK]               \n0798  Total time: 15.1 s                      \n07c0                                          \n",
@@ -178,7 +178,7 @@
       },
       "test_string": {
         "prgName": "test_string-vbccp.prg",
-        "size": 37389,
+        "size": 36969,
         "time": 2.1,
         "status": "pass",
         "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen [OK]                            \n0590  #strchr [OK]                            \n05b8  #strrchr [OK]                           \n05e0  #strcmp [OK] [OK]                       \n0608  #strncmp [OK] [OK]                      \n0630  #strcpy [OK]                            \n0658  #strncpy [OK]                           \n0680  #strcat [OK]                            \n06a8  #strncat [OK] [OK]                      \n06d0  #strstr [OK]                            \n06f8  #memchr [OK]                            \n0720  #memset [OK]                            \n0748  #memcpy [OK]                            \n0770  #memmove [OK] [OK] [OK] [OK] [OK]       \n0798  Total time: 2.1 s                       \n07c0                                          \n",
@@ -220,7 +220,7 @@
       },
       "dhrystone": {
         "prgName": "dhrystone-vbccs.prg",
-        "size": 6289,
+        "size": 6293,
         "time": 5.8,
         "status": "pass",
         "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  IntDGlob == 5 [OK]                      \n0568  BoolDGlob == 1 [OK]                     \n0590  ChD1DGlob == 'A' [OK]                   \n05b8  ChD2DGlob == 'B' [OK]                   \n05e0  ArrD1DGlob[8] == 7 [OK]                 \n0608  ArrD2DGlob[8][7] == NOR + 10 [OK]       \n0630  Discr == 0 [OK]                         \n0658  EnumDComp == 2 [OK]                     \n0680  IntDComp == 17 [OK]                     \n06a8  StrDComp == DHRYSTONE... [OK]           \n06d0  PtrDComp == PtrDComp [OK]               \n06f8  Discr == 0 [OK]                         \n0720  EnumDComp == 1 [OK]                     \n0748  IntDComp == 18 [OK]                     \n0770                                          \n0798  Total time: 5.8 s                       \n07c0                                          \n",
@@ -276,7 +276,7 @@
       },
       "test_math": {
         "prgName": "test_math-vbccs.prg",
-        "size": 13794,
+        "size": 13568,
         "time": 1.3,
         "status": "unsupported",
         "output": "0400  ready.                                  \n0428  load\"test_math-vbccs\",8,1               \n0450                                          \n0478  searching for test_math-vbccs           \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #floor [MISS]                           \n0590  #ceil [MISS]                            \n05b8  #cos [MISS]                             \n05e0  #sin [MISS]                             \n0608  #tan [MISS]                             \n0630  #acos [MISS]                            \n0658  #asin [MISS]                            \n0680  #atan [MISS]                            \n06a8  #atan2 [MISS]                           \n06d0  #exp [MISS]                             \n06f8  #log [MISS]                             \n0720  #log10 [MISS]                           \n0748  #pow [MISS]                             \n0770  #sqrt [MISS]                            \n0798  Total time: 1.3 s                       \n07c0                                          \n",
@@ -284,15 +284,15 @@
       },
       "test_stdio_file": {
         "prgName": "test_stdio_file-vbccs.prg",
-        "size": 19541,
-        "time": 14.7,
+        "size": 19316,
+        "time": 14.8,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 14.7 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 14.8 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
         "screenshot": "test_stdio_file-vbccs.png"
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-vbccs.prg",
-        "size": 15321,
+        "size": 15091,
         "time": 2,
         "status": "pass",
         "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [OK]                          \n0770  #printf-e [OK]                          \n0798  Total time: 2.0 s                       \n07c0                                          \n",
@@ -300,7 +300,7 @@
       },
       "test_stdio_scan": {
         "prgName": "test_stdio_scan-vbccs.prg",
-        "size": 24797,
+        "size": 24566,
         "time": 1.6,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [OK]                           \n0770  #scanf-e [OK]                           \n0798  Total time: 1.6 s                       \n07c0                                          \n",
@@ -308,7 +308,7 @@
       },
       "test_stdlib": {
         "prgName": "test_stdlib-vbccs.prg",
-        "size": 28822,
+        "size": 28532,
         "time": 15.4,
         "status": "pass",
         "output": "0400                                          \n0428  ready.                                  \n0450  load\"*\",8,1                             \n0478                                          \n04a0  searching for *                         \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #rand [OK] [OK]                         \n05b8  #srand [OK]                             \n05e0  #atof [OK] [OK]                         \n0608  #atoi [OK] [OK]                         \n0630  #atol [OK] [OK]                         \n0658  #malloc [OK]                            \n0680  #calloc [OK]                            \n06a8  #realloc [OK]                           \n06d0  #qsort [OK]                             \n06f8  #abs [OK] [OK]                          \n0720  #labs [OK] [OK]                         \n0748  #div [OK] [OK] [OK] [OK]                \n0770  #ldiv [OK] [OK] [OK] [OK]               \n0798  Total time: 15.4 s                      \n07c0                                          \n",
@@ -316,7 +316,7 @@
       },
       "test_string": {
         "prgName": "test_string-vbccs.prg",
-        "size": 16923,
+        "size": 16696,
         "time": 2.1,
         "status": "pass",
         "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen [OK]                            \n0590  #strchr [OK]                            \n05b8  #strrchr [OK]                           \n05e0  #strcmp [OK] [OK]                       \n0608  #strncmp [OK] [OK]                      \n0630  #strcpy [OK]                            \n0658  #strncpy [OK]                           \n0680  #strcat [OK]                            \n06a8  #strncat [OK] [OK]                      \n06d0  #strstr [OK]                            \n06f8  #memchr [OK]                            \n0720  #memset [OK]                            \n0748  #memcpy [OK]                            \n0770  #memmove [OK] [OK] [OK] [OK] [OK]       \n0798  Total time: 2.1 s                       \n07c0                                          \n",
@@ -442,11 +442,11 @@
           "prgName": "test_stdio_print-vbccp.prg"
         },
         "printf-X": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_print-vbccp.prg"
         },
         "printf-lX": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_print-vbccp.prg"
         },
         "printf-f": {
@@ -478,7 +478,7 @@
           "prgName": "test_stdio_scan-vbccp.prg"
         },
         "scanf-X": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_scan-vbccp.prg"
         },
         "scanf-f": {
@@ -712,11 +712,11 @@
           "prgName": "test_stdio_print-vbccs.prg"
         },
         "printf-X": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_print-vbccs.prg"
         },
         "printf-lX": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_print-vbccs.prg"
         },
         "printf-f": {
@@ -748,7 +748,7 @@
           "prgName": "test_stdio_scan-vbccs.prg"
         },
         "scanf-X": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_scan-vbccs.prg"
         },
         "scanf-f": {

@@ -45,7 +45,13 @@
 
 static void test_floor(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("floor");
+    missing();
+#elif defined(__MATHH_FLOOR_BROKEN)
+    begin("floor");
+    failure();
+#else
     float value = 3.7;
     float result;
 
@@ -61,15 +67,18 @@ static void test_floor(void)
     value = 0.0;
     result = _floor(value);
     expectCloseTo(result, 0.0);
-#else
-    begin("floor");
-    missing();
 #endif
 }
 
 static void test_ceil(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("ceil");
+    missing();
+#elif defined(__MATHH_CEIL_BROKEN)
+    begin("ceil");
+    failure();
+#else
     float value = 3.7;
     float result;
 
@@ -85,15 +94,18 @@ static void test_ceil(void)
     value = 0.0;
     result = _ceil(value);
     expectCloseTo(result, 0.0);
-#else
-    begin("ceil");
-    missing();
 #endif
 }
 
 static void test_cos(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("cos");
+    missing();
+#elif defined(__MATHH_COS_BROKEN)
+    begin("cos");
+    failure();
+#else
     float angle = 0.0;
     float result;
 
@@ -117,15 +129,18 @@ static void test_cos(void)
     angle = 2 * PI;
     result = _cos(angle);
     expectCloseTo(result, 1.0);
-#else
-    begin("cos");
-    missing();
 #endif
 }
 
 static void test_sin(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("sin");
+    missing();
+#elif defined(__MATHH_SIN_BROKEN)
+    begin("sin");
+    failure();
+#else
     float angle = 0.0;
     float result;
 
@@ -149,15 +164,18 @@ static void test_sin(void)
     angle = 2 * PI;
     result = _sin(angle);
     expectCloseTo(result, 0.0);
-#else
-    begin("sin");
-    missing();
 #endif
 }
 
 static void test_tan(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("tan");
+    missing();
+#elif defined(__MATHH_TAN_BROKEN)
+    begin("tan");
+    failure();
+#else
     float angle = 0.0;
     float result;
 
@@ -177,15 +195,18 @@ static void test_tan(void)
     angle = 2 * PI;
     result = _tan(angle);
     expectCloseTo(result, 0.0);
-#else
-    begin("tan");
-    missing();
 #endif
 }
 
 static void test_asin(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("asin");
+    missing();
+#elif defined(__MATHH_ASIN_BROKEN)
+    begin("asin");
+    failure();
+#else
     float value = 0.0;
     float result;
 
@@ -205,15 +226,18 @@ static void test_asin(void)
     value = 0.5;
     result = _asin(value);
     expectCloseTo(result, PI / 6);
-#else
-    begin("asin");
-    missing();
 #endif
 }
 
 static void test_acos(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("acos");
+    missing();
+#elif defined(__MATHH_ACOS_BROKEN)
+    begin("acos");
+    failure();
+#else
     float value = 1.0;
     float result;
 
@@ -233,15 +257,18 @@ static void test_acos(void)
     value = 0.5;
     result = _acos(value);
     expectCloseTo(result, PI / 3);
-#else
-    begin("acos");
-    missing();
 #endif
 }
 
 static void test_atan(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("atan");
+    missing();
+#elif defined(__MATHH_ATAN_BROKEN)
+    begin("atan");
+    failure();
+#else
     float value = 0.0;
     float result;
 
@@ -257,15 +284,18 @@ static void test_atan(void)
     value = -1.0;
     result = _atan(value);
     expectCloseTo(result, -PI / 4);
-#else
-    begin("atan");
-    missing();
 #endif
 }
 
 static void test_atan2(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("atan2");
+    missing();
+#elif defined(__MATHH_ATAN2_BROKEN)
+    begin("atan2");
+    failure();
+#else
     float y, x;
     float result;
 
@@ -295,15 +325,18 @@ static void test_atan2(void)
     x = 0.0;
     result = _atan2(y, x);
     expectCloseTo(result, -PI / 2);
-#else
-    begin("atan2");
-    missing();
 #endif
 }
 
 static void test_exp(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("exp");
+    missing();
+#elif defined(__MATHH_EXP_BROKEN)
+    begin("exp");
+    failure();
+#else
     float value = 0.0;
     float result;
 
@@ -323,15 +356,18 @@ static void test_exp(void)
     value = -1.0;
     result = _exp(value);
     expectCloseTo(result, 0.36788);
-#else
-    begin("exp");
-    missing();
 #endif
 }
 
 static void test_log(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("log");
+    missing();
+#elif defined(__MATHH_LOG_BROKEN)
+    begin("log");
+    failure();
+#else
     float value = 1.0;
     float result;
 
@@ -351,15 +387,18 @@ static void test_log(void)
     value = 0.36788;
     result = _log(value);
     expectCloseTo(result, -1.0);
-#else
-    begin("log");
-    missing();
 #endif
 }
 
 static void test_log10(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("log10");
+    missing();
+#elif defined(__MATHH_LOG10_BROKEN)
+    begin("log10");
+    failure();
+#else
     float value = 1.0;
     float result;
 
@@ -372,22 +411,29 @@ static void test_log10(void)
     result = _log10(value);
     expectCloseTo(result, 1.0);
 
-    value = 100.0;
-    result = _log10(value);
-    expectCloseTo(result, 2.0);
+    #if defined(CALYPSI)
+        failure(); // CALYPSI log10(100) is broken
+    #else
+        value = 100.0;
+        result = _log10(value);
+        expectCloseTo(result, 2.0);
+    #endif
 
     value = 0.1;
     result = _log10(value);
     expectCloseTo(result, -1.0);
-#else
-    begin("log10");
-    missing();
 #endif
 }
 
 static void test_pow(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("pow");
+    missing();
+#elif defined(__MATHH_POW_BROKEN)
+    begin("pow");
+    failure();
+#else
     float base, exponent;
     float result;
 
@@ -417,15 +463,18 @@ static void test_pow(void)
     exponent = -2.0;
     result = _pow(base, exponent);
     expectCloseTo(result, 0.25);
-#else
-    begin("pow");
-    missing();
 #endif
 }
 
 static void test_sqrt(void)
 {
-#if !defined(__MATHH_MISSING)
+#if defined(__MATHH_MISSING)
+    begin("sqrt");
+    missing();
+#elif defined(__MATHH_SQRT_BROKEN)
+    begin("sqrt");
+    failure();
+#else
     float value;
     float result;
 
@@ -454,9 +503,6 @@ static void test_sqrt(void)
     value = 2.0;
     result = _sqrt(value);
     expectCloseTo(result, 1.41421);
-#else
-    begin("sqrt");
-    missing();
 #endif
 }
 

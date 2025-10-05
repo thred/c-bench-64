@@ -67,8 +67,8 @@ void benchmark(void)
 
 void benchmark_name(void)
 {
-    print("crc8.c\n");
-    print("Calculates the CRC8 of the C64 Kernal\n");
+    print("crc8.c" NEWLINE);
+    print("Calculates the CRC8 of the C64 Kernal" NEWLINE);
 }
 
 #define EXPECTED 0xa2

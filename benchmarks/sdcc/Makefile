@@ -1,6 +1,9 @@
 CURDIR := $(shell pwd)
 BINDIR := $(CURDIR)/bin
 
+# Install a breakpoint to capture output
+VICETRAP = 0xc000
+
 SDCCDIR := $(CURDIR)/sdcc
 SDCCINCLUDEDIR := $(SDCCDIR)/share/sdcc/include
 SDCCLIBDIR := $(SDCCDIR)/share/sdcc/lib
@@ -8,12 +11,9 @@ SDAS = $(SDCCDIR)/bin/sdas6500
 SDCC = $(SDCCDIR)/bin/sdcc
 MAKEBIN = $(SDCCDIR)/bin/makebin
 SDCCTARGET = --no-std-crt0 --code-loc 0x7ff -mmos6502 -I"$(SDCCINCLUDEDIR)" --lib-path "$(SDCCLIBDIR)" \
-	-DSDCC -D__FILEIO_MISSING -D__DIV_MISSING -D__LDIV_MISSING 
+	-DSDCC -D__FILEIO_MISSING -D__DIV_MISSING -D__LDIV_MISSING -DVICETRAP=$(VICETRAP)
 SDCCPERFOPTS = --max-allocs-per-node 250000 --opt-code-speed --allow-unsafe-read
 SDCCSIZEOPTS = --max-allocs-per-node 250000 --opt-code-size --allow-unsafe-read
-
-# Install a breakpoint to capture output
-VICETRAP = 0xc000
 
 version:
 	@echo ""

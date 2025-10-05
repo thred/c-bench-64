@@ -1,0 +1,871 @@
+{
+  "key": "calypsi",
+  "name": "Calypsi",
+  "description": [
+    "Calypsi is a series of C compiler and assembly language cross compiler tool chains.",
+    "The current tool chains are aimed towards the retro and hobby communities."
+  ],
+  "homepage": "https://www.calypsi.cc/",
+  "license": "Free for personal use",
+  "pros": [
+    "ISO C 99 compiler. This is a freestanding implementation with many features you will typically find in a hosted compiler.",
+    "Fully re-entrant code model.",
+    "Support for all integer types up to 64 bits long long.",
+    "Floating point supported (32 and 64 bits IEEE-754).",
+    "Full support for struct, union, typedef and what you expect to find in C.",
+    "Support for (stack allocated) variable sized arrays.",
+    "Optimizing compiler that can output source level debugging information.",
+    "Source code debugger included.",
+    "Support for ELF/DWARF, hex output as well as various target specific output formats."
+  ],
+  "cons": [
+    "Issues with ASCII/PETSCII conversion (especially in mixed-case mode).",
+    "aes256 fails with internal error.",
+    "Complex memory situations."
+  ],
+  "features": {
+    "floatingPoint": "yes",
+    "inlineAssembly": "yes",
+    "overlays": "yes",
+    "fileIO": "unknown",
+    "printf": {
+      "supported": "yes",
+      "note": "ASCII/PETSCII conversion issues"
+    },
+    "recursiveFunctions": "yes",
+    "interruptSupport": "yes",
+    "maintained": "yes"
+  },
+  "runtimeSupport": [
+    "Commodore 64 (MOS 6502)",
+    "Mega 65 (MOS 6502)",
+    "Commander X16 (MOS 6502)",
+    "Foenix C256 (WDC 65816)",
+    "Foenix F256 (WDC 65816)",
+    "Amiga (Motorola 68000)",
+    "Foenix A2560U/K (Motorola 68000)"
+  ],
+  "configs": [
+    {
+      "key": "calypsip",
+      "name": "Calypsi - Perf.Opt.",
+      "description": "-O2 --speed",
+      "optimization": "performance",
+      "color": "#c46c71",
+      "compilerKey": "calypsi"
+    },
+    {
+      "key": "calypsis",
+      "name": "Calypsi - Size Opt.",
+      "description": "-O2 --space",
+      "optimization": "size",
+      "color": "#c46c71",
+      "compilerKey": "calypsi"
+    }
+  ],
+  "version": "5.12",
+  "date": "2025-10-07 20:29:44",
+  "results": {
+    "calypsip": {
+      "crc8": {
+        "prgName": "crc8-calypsip.prg",
+        "size": 4330,
+        "time": 2.1,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-calypsip\",8,1                 \n0518                                          \n0540  searching for crc8-calypsip             \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=a2 [OK]                            \n06f8  Total time: 2.1 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc8-calypsip.png"
+      },
+      "crc16": {
+        "prgName": "crc16-calypsip.prg",
+        "size": 4378,
+        "time": 2.5,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-calypsip\",8,1                \n0518                                          \n0540  searching for crc16-calypsip            \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=ffd0 [OK]                         \n06f8  Total time: 2.5 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc16-calypsip.png"
+      },
+      "crc32": {
+        "prgName": "crc32-calypsip.prg",
+        "size": 4486,
+        "time": 4.8,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-calypsip\",8,1                \n0518                                          \n0540  searching for crc32-calypsip            \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=e1fa84c6 [OK]                     \n06f8  Total time: 4.8 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc32-calypsip.png"
+      },
+      "dhrystone": {
+        "prgName": "dhrystone-calypsip.prg",
+        "size": 7163,
+        "time": 10.8,
+        "status": "pass",
+        "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  Int_Glob == 5 [OK]                      \n0568  Bool_Glob == 1 [OK]                     \n0590  Ch_1_Glob == 'A' [OK]                   \n05b8  Ch_2_Glob == 'B' [OK]                   \n05e0  Arr_1_Glob[8] == 7 [OK]                 \n0608  Arr_2_Glob[8][7] == NOR + 10 [OK]       \n0630  Discr == 0 [OK]                         \n0658  Enum_Comp == 2 [OK]                     \n0680  Int_Comp == 17 [OK]                     \n06a8  Str_Comp == DHRYSTONE... [OK]           \n06d0  Ptr_Comp == Ptr_Comp [OK]               \n06f8  Discr == 0 [OK]                         \n0720  Enum_Comp == 1 [OK]                     \n0748  Int_Comp == 18 [OK]                     \n0770                                          \n0798  Total time: 10.8 s                      \n07c0                                          \n",
+        "screenshot": "dhrystone-calypsip.png"
+      },
+      "fact": {
+        "prgName": "fact-calypsip.prg",
+        "size": 4748,
+        "time": 206.1,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-calypsip\",8,1                 \n0518                                          \n0540  searching for fact-calypsip             \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=188806544 [OK]                      \n06f8  Total time: 206.1 s                     \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "fact-calypsip.png"
+      },
+      "pi": {
+        "prgName": "pi-calypsip.prg",
+        "size": 4870,
+        "time": 121.4,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-calypsip\",8,1                   \n0518                                          \n0540  searching for pi-calypsip               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 121.4 s                     \n07c0                                          \n",
+        "screenshot": "pi-calypsip.png"
+      },
+      "pow": {
+        "prgName": "pow-calypsip.prg",
+        "size": 14096,
+        "time": 13.4,
+        "status": "pass",
+        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"pow-calypsip\",8,1                  \n04f0                                          \n0518  searching for pow-calypsip              \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0  Calibrating frequency: 50 Hz            \n0608                                          \n0630  POW.C                                   \n0658  cALCULATES FLOATING POINT EXPONENTIAL (1\n0680  0 ITERATIONS)                           \n06a8                                          \n06d0  RES      = 3.614010E+12                 \n06f8  EXPECTED = 3.614010E+12                 \n0720  EPSILON  = 1.000000E+07                 \n0748  DIFF     = 0.000000E+00 [ok]            \n0770                                          \n0798  Total time: 13.4 s                      \n07c0                                          \n",
+        "screenshot": "pow-calypsip.png"
+      },
+      "puff2": {
+        "prgName": "puff2-calypsip.prg",
+        "size": 12392,
+        "time": 25.1,
+        "status": "fail",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-calypsip\",8,1                \n0518                                          \n0540  searching for puff2-calypsip            \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  puff.c                                  \n0680  inflate compressed data                 \n06a8  RES=1                                   \n06d0  slen=3407 dlen=4096                     \n06f8                                          \n0720  CRC32=1caa3b65 [FAIL] - expected 28ed93c\n0748  7                                       \n0770  Total time: 25.1 s                      \n0798                                          \n07c0                                          \n",
+        "screenshot": "puff2-calypsip.png"
+      },
+      "sieve": {
+        "prgName": "sieve-calypsip.prg",
+        "size": 4367,
+        "time": 21.2,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-calypsip\",8,1                \n0518                                          \n0540  searching for sieve-calypsip            \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 [OK]                         \n0720  Total time: 21.2 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "sieve-calypsip.png"
+      },
+      "sieve_bit": {
+        "prgName": "sieve_bit-calypsip.prg",
+        "size": 4488,
+        "time": 27.6,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve_bit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 [OK]                         \n0720  Total time: 27.6 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "sieve_bit-calypsip.png"
+      },
+      "test_math": {
+        "prgName": "test_math-calypsip.prg",
+        "size": 32764,
+        "time": 26.4,
+        "status": "fail",
+        "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #FLOOR [ok] [ok] [ok]                   \n0590  #CEIL [ok] [ok] [ok]                    \n05b8  #COS [ok] [ok] [ok] [ok] [ok]           \n05e0  #SIN [ok] [ok] [ok] [ok] [ok]           \n0608  #TAN [ok] [ok] [ok] [ok]                \n0630  #ACOS [ok] [ok] [ok] [ok]               \n0658  #ASIN [ok] [ok] [ok] [ok]               \n0680  #ATAN [ok] [ok] [ok]                    \n06a8  #ATAN2 [ok] [ok] [ok] [ok] [ok]         \n06d0  #EXP [ok] [ok] [ok] [ok]                \n06f8  #LOG [ok] [ok] [ok] [ok]                \n0720  #LOG10 [fail]                           \n0748  #POW [ok] [ok] [ok] [ok] [ok]           \n0770  #SQRT [ok] [ok] [ok] [ok] [ok] [ok]     \n0798  tOTAL TIME: 26.4 S                      \n07c0                                          \n",
+        "screenshot": "test_math-calypsip.png"
+      },
+      "test_stdio_file": {
+        "prgName": "test_stdio_file-calypsip.prg",
+        "size": 13755,
+        "time": null,
+        "status": "fail",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #FPUTC [fail]                           \n0630  #FGETC [fail]                           \n0658  #FPUTS [fail]                           \n0680  #FGETS [fail]                           \n06a8  #FWRITE [fail]                          \n06d0  #FREAD [fail]                           \n06f8  tOTAL TIME: %01D.%01D S                 \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "test_stdio_file-calypsip.png"
+      },
+      "test_stdio_print": {
+        "prgName": "test_stdio_print-calypsip.prg",
+        "size": 8067,
+        "time": null,
+        "status": "fail",
+        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #PRINTF-C [ok]                          \n05e0  #PRINTF-S [ok]                          \n0608  #PRINTF-D [ok]                          \n0630  #PRINTF-LD [fail] (%LD!=1234567890)     \n0658  #PRINTF-I [ok]                          \n0680  #PRINTF-LI [fail] (%LI!=-1234567890)    \n06a8  #PRINTF-X [ok]                          \n06d0  #PRINTF-LX [fail] (%LX!=DEADBEEF)       \n06f8  #PRINTF-x [ok]                          \n0720  #PRINTF-Lx [fail] (%Lx!=deadbeef)       \n0748  #PRINTF-F [fail] (%.2F!=3.14)           \n0770  #PRINTF-E [fail] (%.2E!=1.23E+05)       \n0798  tOTAL TIME: %01D.%01D S                 \n07c0                                          \n",
+        "screenshot": "test_stdio_print-calypsip.png"
+      },
+      "test_stdio_scan": {
+        "prgName": "test_stdio_scan-calypsip.prg",
+        "size": 18616,
+        "time": null,
+        "status": "fail",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #SCANF-C [ok] [ok]                      \n0658  #SCANF-S [ok] [ok]                      \n0680  #SCANF-D [ok]                           \n06a8  #SCANF-I [ok]                           \n06d0  #SCANF-U [ok]                           \n06f8  #SCANF-X [ok]                           \n0720  #SCANF-x [ok]                           \n0748  #SCANF-F [fail] (*FLOAT*)               \n0770  #SCANF-E [fail] (*FLOAT*)               \n0798  tOTAL TIME: %01D.%01D S                 \n07c0                                          \n",
+        "screenshot": "test_stdio_scan-calypsip.png"
+      },
+      "test_stdlib": {
+        "prgName": "test_stdlib-calypsip.prg",
+        "size": 22250,
+        "time": null,
+        "status": "unknown",
+        "output": ""
+      },
+      "test_string": {
+        "prgName": "test_string-calypsip.prg",
+        "size": 10571,
+        "time": null,
+        "status": "pass",
+        "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #STRLEN [ok]                            \n0590  #STRCHR [ok]                            \n05b8  #STRRCHR [ok]                           \n05e0  #STRCMP [ok] [ok]                       \n0608  #STRNCMP [ok] [ok]                      \n0630  #STRCPY [ok]                            \n0658  #STRNCPY [ok]                           \n0680  #STRCAT [ok]                            \n06a8  #STRNCAT [ok] [ok]                      \n06d0  #STRSTR [ok]                            \n06f8  #MEMCHR [ok]                            \n0720  #MEMSET [ok]                            \n0748  #MEMCPY [ok]                            \n0770  #MEMMOVE [ok] [ok] [ok] [ok] [ok]       \n0798  tOTAL TIME: %01D.%01D S                 \n07c0                                          \n",
+        "screenshot": "test_string-calypsip.png"
+      }
+    },
+    "calypsis": {
+      "crc8": {
+        "prgName": "crc8-calypsis.prg",
+        "size": 4353,
+        "time": 2.1,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc8-calypsis\",8,1                 \n0518                                          \n0540  searching for crc8-calypsis             \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc8.c                                  \n0680  Calculates the CRC8 of the C64 Kernal   \n06a8                                          \n06d0  CRC8=a2 [OK]                            \n06f8  Total time: 2.1 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc8-calypsis.png"
+      },
+      "crc16": {
+        "prgName": "crc16-calypsis.prg",
+        "size": 4401,
+        "time": 2.5,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc16-calypsis\",8,1                \n0518                                          \n0540  searching for crc16-calypsis            \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc16.c                                 \n0680  Calculates the CRC16 of the C64 Kernal  \n06a8                                          \n06d0  CRC16=ffd0 [OK]                         \n06f8  Total time: 2.5 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc16-calypsis.png"
+      },
+      "crc32": {
+        "prgName": "crc32-calypsis.prg",
+        "size": 4509,
+        "time": 4.8,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"crc32-calypsis\",8,1                \n0518                                          \n0540  searching for crc32-calypsis            \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  crc32.c                                 \n0680  Calculates the CRC32 of the C64 Kernal  \n06a8                                          \n06d0  CRC32=e1fa84c6 [OK]                     \n06f8  Total time: 4.8 s                       \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "crc32-calypsis.png"
+      },
+      "dhrystone": {
+        "prgName": "dhrystone-calypsis.prg",
+        "size": 7147,
+        "time": 12.4,
+        "status": "pass",
+        "output": "0400  the classic dhrystone benchmark         \n0428                                          \n0450  Dhrystone Benchmark, Version 2.1 (Langua\n0478  ge: C)                                  \n04a0                                          \n04c8  Execution starts, 1000 runs through Dhry\n04f0  stone                                   \n0518                                          \n0540  Int_Glob == 5 [OK]                      \n0568  Bool_Glob == 1 [OK]                     \n0590  Ch_1_Glob == 'A' [OK]                   \n05b8  Ch_2_Glob == 'B' [OK]                   \n05e0  Arr_1_Glob[8] == 7 [OK]                 \n0608  Arr_2_Glob[8][7] == NOR + 10 [OK]       \n0630  Discr == 0 [OK]                         \n0658  Enum_Comp == 2 [OK]                     \n0680  Int_Comp == 17 [OK]                     \n06a8  Str_Comp == DHRYSTONE... [OK]           \n06d0  Ptr_Comp == Ptr_Comp [OK]               \n06f8  Discr == 0 [OK]                         \n0720  Enum_Comp == 1 [OK]                     \n0748  Int_Comp == 18 [OK]                     \n0770                                          \n0798  Total time: 12.4 s                      \n07c0                                          \n",
+        "screenshot": "dhrystone-calypsis.png"
+      },
+      "fact": {
+        "prgName": "fact-calypsis.prg",
+        "size": 4771,
+        "time": 206.1,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"fact-calypsis\",8,1                 \n0518                                          \n0540  searching for fact-calypsis             \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  fact.c                                  \n0680  Calculates factorials (1000 iterations) \n06a8                                          \n06d0  res=188806544 [OK]                      \n06f8  Total time: 206.1 s                     \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "fact-calypsis.png"
+      },
+      "pi": {
+        "prgName": "pi-calypsis.prg",
+        "size": 4893,
+        "time": 121.4,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"pi-calypsis\",8,1                   \n0518                                          \n0540  searching for pi-calypsis               \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  pi.c                                    \n0680  Calculates 160 digits of pi             \n06a8  3141592653589793238462643383279502884197\n06d0  1693993751058209749445923078164062862089\n06f8  9862803482534211706798214808651328230664\n0720  7093844609550582231725359408128481117450\n0748                                          \n0770  carry=2822 [OK]                         \n0798  Total time: 121.4 s                     \n07c0                                          \n",
+        "screenshot": "pi-calypsis.png"
+      },
+      "pow": {
+        "prgName": "pow-calypsis.prg",
+        "size": 14119,
+        "time": 13.3,
+        "status": "pass",
+        "output": "0400      **** commodore 64 basic v2 ****     \n0428                                          \n0450   64k ram system  38911 basic bytes free \n0478                                          \n04a0  ready.                                  \n04c8  load\"pow-calypsis\",8,1                  \n04f0                                          \n0518  searching for pow-calypsis              \n0540  loading                                 \n0568  ?load  error                            \n0590  ready.                                  \n05b8  run:                                    \n05e0  Calibrating frequency: 50 Hz            \n0608                                          \n0630  POW.C                                   \n0658  cALCULATES FLOATING POINT EXPONENTIAL (1\n0680  0 ITERATIONS)                           \n06a8                                          \n06d0  RES      = 3.614010E+12                 \n06f8  EXPECTED = 3.614010E+12                 \n0720  EPSILON  = 1.000000E+07                 \n0748  DIFF     = 0.000000E+00 [ok]            \n0770                                          \n0798  Total time: 13.3 s                      \n07c0                                          \n",
+        "screenshot": "pow-calypsis.png"
+      },
+      "puff2": {
+        "prgName": "puff2-calypsis.prg",
+        "size": 12415,
+        "time": 25.1,
+        "status": "fail",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"puff2-calypsis\",8,1                \n0518                                          \n0540  searching for puff2-calypsis            \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  puff.c                                  \n0680  inflate compressed data                 \n06a8  RES=1                                   \n06d0  slen=3407 dlen=4096                     \n06f8                                          \n0720  CRC32=1caa3b65 [FAIL] - expected 28ed93c\n0748  7                                       \n0770  Total time: 25.1 s                      \n0798                                          \n07c0                                          \n",
+        "screenshot": "puff2-calypsis.png"
+      },
+      "sieve": {
+        "prgName": "sieve-calypsis.prg",
+        "size": 4390,
+        "time": 21.4,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"sieve-calypsis\",8,1                \n0518                                          \n0540  searching for sieve-calypsis            \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve.c                                 \n0680  Calculates the primes from 1 to 16384 (1\n06a8  0 iterations)                           \n06d0                                          \n06f8  count=1900 [OK]                         \n0720  Total time: 21.4 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "sieve-calypsis.png"
+      },
+      "sieve_bit": {
+        "prgName": "sieve_bit-calypsis.prg",
+        "size": 4511,
+        "time": 27.6,
+        "status": "pass",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608  Calibrating frequency: 50 Hz            \n0630                                          \n0658  sieve_bit.c                             \n0680  Calculates the primes from 1 to 32002 (4\n06a8   iterations)                            \n06d0                                          \n06f8  count=3432 [OK]                         \n0720  Total time: 27.6 s                      \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "sieve_bit-calypsis.png"
+      },
+      "test_math": {
+        "prgName": "test_math-calypsis.prg",
+        "size": 32787,
+        "time": 26.4,
+        "status": "fail",
+        "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #FLOOR [ok] [ok] [ok]                   \n0590  #CEIL [ok] [ok] [ok]                    \n05b8  #COS [ok] [ok] [ok] [ok] [ok]           \n05e0  #SIN [ok] [ok] [ok] [ok] [ok]           \n0608  #TAN [ok] [ok] [ok] [ok]                \n0630  #ACOS [ok] [ok] [ok] [ok]               \n0658  #ASIN [ok] [ok] [ok] [ok]               \n0680  #ATAN [ok] [ok] [ok]                    \n06a8  #ATAN2 [ok] [ok] [ok] [ok] [ok]         \n06d0  #EXP [ok] [ok] [ok] [ok]                \n06f8  #LOG [ok] [ok] [ok] [ok]                \n0720  #LOG10 [fail]                           \n0748  #POW [ok] [ok] [ok] [ok] [ok]           \n0770  #SQRT [ok] [ok] [ok] [ok] [ok] [ok]     \n0798  tOTAL TIME: 26.4 S                      \n07c0                                          \n",
+        "screenshot": "test_math-calypsis.png"
+      },
+      "test_stdio_file": {
+        "prgName": "test_stdio_file-calypsis.prg",
+        "size": 13778,
+        "time": null,
+        "status": "fail",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #FPUTC [fail]                           \n0630  #FGETC [fail]                           \n0658  #FPUTS [fail]                           \n0680  #FGETS [fail]                           \n06a8  #FWRITE [fail]                          \n06d0  #FREAD [fail]                           \n06f8  tOTAL TIME: %01D.%01D S                 \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "screenshot": "test_stdio_file-calypsis.png"
+      },
+      "test_stdio_print": {
+        "prgName": "test_stdio_print-calypsis.prg",
+        "size": 8090,
+        "time": null,
+        "status": "fail",
+        "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #PRINTF-C [ok]                          \n05e0  #PRINTF-S [ok]                          \n0608  #PRINTF-D [ok]                          \n0630  #PRINTF-LD [fail] (%LD!=1234567890)     \n0658  #PRINTF-I [ok]                          \n0680  #PRINTF-LI [fail] (%LI!=-1234567890)    \n06a8  #PRINTF-X [ok]                          \n06d0  #PRINTF-LX [fail] (%LX!=DEADBEEF)       \n06f8  #PRINTF-x [ok]                          \n0720  #PRINTF-Lx [fail] (%Lx!=deadbeef)       \n0748  #PRINTF-F [fail] (%.2F!=3.14)           \n0770  #PRINTF-E [fail] (%.2E!=1.23E+05)       \n0798  tOTAL TIME: %01D.%01D S                 \n07c0                                          \n",
+        "screenshot": "test_stdio_print-calypsis.png"
+      },
+      "test_stdio_scan": {
+        "prgName": "test_stdio_scan-calypsis.prg",
+        "size": 18639,
+        "time": null,
+        "status": "fail",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #SCANF-C [ok] [ok]                      \n0658  #SCANF-S [ok] [ok]                      \n0680  #SCANF-D [ok]                           \n06a8  #SCANF-I [ok]                           \n06d0  #SCANF-U [ok]                           \n06f8  #SCANF-X [ok]                           \n0720  #SCANF-x [ok]                           \n0748  #SCANF-F [fail] (*FLOAT*)               \n0770  #SCANF-E [fail] (*FLOAT*)               \n0798  tOTAL TIME: %01D.%01D S                 \n07c0                                          \n",
+        "screenshot": "test_stdio_scan-calypsis.png"
+      },
+      "test_stdlib": {
+        "prgName": "test_stdlib-calypsis.prg",
+        "size": 23297,
+        "time": null,
+        "status": "fail",
+        "output": "0400                                          \n0428  ready.                                  \n0450  load\"*\",8,1                             \n0478                                          \n04a0  searching for *                         \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #RAND [fail] (-20546<0)                 \n05b8  #SRAND [ok]                             \n05e0  #ATOF [ok] [ok]                         \n0608  #ATOI [ok] [ok]                         \n0630  #ATOL [ok] [ok]                         \n0658  #MALLOC [ok]                            \n0680  #CALLOC [ok]                            \n06a8  #REALLOC [ok]                           \n06d0  #QSORT [ok]                             \n06f8  #ABS [ok] [ok]                          \n0720  #LABS [ok] [ok]                         \n0748  #DIV [ok] [ok] [ok] [ok]                \n0770  #LDIV [ok] [ok] [ok] [ok]               \n0798  tOTAL TIME: %01D.%01D S                 \n07c0                                          \n",
+        "screenshot": "test_stdlib-calypsis.png"
+      },
+      "test_string": {
+        "prgName": "test_string-calypsis.prg",
+        "size": 10594,
+        "time": null,
+        "status": "pass",
+        "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #STRLEN [ok]                            \n0590  #STRCHR [ok]                            \n05b8  #STRRCHR [ok]                           \n05e0  #STRCMP [ok] [ok]                       \n0608  #STRNCMP [ok] [ok]                      \n0630  #STRCPY [ok]                            \n0658  #STRNCPY [ok]                           \n0680  #STRCAT [ok]                            \n06a8  #STRNCAT [ok] [ok]                      \n06d0  #STRSTR [ok]                            \n06f8  #MEMCHR [ok]                            \n0720  #MEMSET [ok]                            \n0748  #MEMCPY [ok]                            \n0770  #MEMMOVE [ok] [ok] [ok] [ok] [ok]       \n0798  tOTAL TIME: %01D.%01D S                 \n07c0                                          \n",
+        "screenshot": "test_string-calypsis.png"
+      }
+    }
+  },
+  "tests": {
+    "calypsip": {
+      "math.h": {
+        "floor": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "ceil": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "sin": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "cos": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "tan": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "asin": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "acos": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "atan": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "atan2": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "exp": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "log": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "log10": {
+          "status": "fail",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "pow": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        },
+        "sqrt": {
+          "status": "pass",
+          "prgName": "test_math-calypsip.prg"
+        }
+      },
+      "stdio.h": {
+        "fputc": {
+          "status": "fail",
+          "prgName": "test_stdio_file-calypsip.prg"
+        },
+        "fgetc": {
+          "status": "fail",
+          "prgName": "test_stdio_file-calypsip.prg"
+        },
+        "fputs": {
+          "status": "fail",
+          "prgName": "test_stdio_file-calypsip.prg"
+        },
+        "fgets": {
+          "status": "fail",
+          "prgName": "test_stdio_file-calypsip.prg"
+        },
+        "fwrite": {
+          "status": "fail",
+          "prgName": "test_stdio_file-calypsip.prg"
+        },
+        "fread": {
+          "status": "fail",
+          "prgName": "test_stdio_file-calypsip.prg"
+        },
+        "printf-c": {
+          "status": "pass",
+          "prgName": "test_stdio_print-calypsip.prg"
+        },
+        "printf-s": {
+          "status": "pass",
+          "prgName": "test_stdio_print-calypsip.prg"
+        },
+        "printf-d": {
+          "status": "pass",
+          "prgName": "test_stdio_print-calypsip.prg"
+        },
+        "printf-ld": {
+          "status": "fail",
+          "prgName": "test_stdio_print-calypsip.prg"
+        },
+        "printf-i": {
+          "status": "pass",
+          "prgName": "test_stdio_print-calypsip.prg"
+        },
+        "printf-li": {
+          "status": "fail",
+          "prgName": "test_stdio_print-calypsip.prg"
+        },
+        "printf-x": {
+          "status": "pass",
+          "prgName": "test_stdio_print-calypsip.prg"
+        },
+        "printf-lx": {
+          "status": "fail",
+          "prgName": "test_stdio_print-calypsip.prg"
+        },
+        "printf-X": {
+          "status": "unknown",
+          "prgName": "test_stdio_print-calypsip.prg"
+        },
+        "printf-lX": {
+          "status": "unknown",
+          "prgName": "test_stdio_print-calypsip.prg"
+        },
+        "printf-f": {
+          "status": "fail",
+          "prgName": "test_stdio_print-calypsip.prg"
+        },
+        "printf-e": {
+          "status": "fail",
+          "prgName": "test_stdio_print-calypsip.prg"
+        },
+        "scanf-c": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-calypsip.prg"
+        },
+        "scanf-s": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-calypsip.prg"
+        },
+        "scanf-d": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-calypsip.prg"
+        },
+        "scanf-i": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-calypsip.prg"
+        },
+        "scanf-x": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-calypsip.prg"
+        },
+        "scanf-X": {
+          "status": "unknown",
+          "prgName": "test_stdio_scan-calypsip.prg"
+        },
+        "scanf-f": {
+          "status": "fail",
+          "prgName": "test_stdio_scan-calypsip.prg"
+        },
+        "scanf-e": {
+          "status": "fail",
+          "prgName": "test_stdio_scan-calypsip.prg"
+        }
+      },
+      "stdlib.h": {
+        "rand": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        },
+        "srand": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        },
+        "atof": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        },
+        "atoi": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        },
+        "atol": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        },
+        "malloc": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        },
+        "calloc": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        },
+        "realloc": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        },
+        "qsort": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        },
+        "abs": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        },
+        "labs": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        },
+        "div": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        },
+        "ldiv": {
+          "status": "unknown",
+          "prgName": "test_stdlib-calypsip.prg"
+        }
+      },
+      "string.h": {
+        "strlen": {
+          "status": "pass",
+          "prgName": "test_string-calypsip.prg"
+        },
+        "strchr": {
+          "status": "pass",
+          "prgName": "test_string-calypsip.prg"
+        },
+        "strrchr": {
+          "status": "pass",
+          "prgName": "test_string-calypsip.prg"
+        },
+        "strcmp": {
+          "status": "pass",
+          "prgName": "test_string-calypsip.prg"
+        },
+        "strncmp": {
+          "status": "pass",
+          "prgName": "test_string-calypsip.prg"
+        },
+        "strcat": {
+          "status": "pass",
+          "prgName": "test_string-calypsip.prg"
+        },
+        "strncat": {
+          "status": "pass",
+          "prgName": "test_string-calypsip.prg"
+        },
+        "strstr": {
+          "status": "pass",
+          "prgName": "test_string-calypsip.prg"
+        },
+        "memchr": {
+          "status": "pass",
+          "prgName": "test_string-calypsip.prg"
+        },
+        "memset": {
+          "status": "pass",
+          "prgName": "test_string-calypsip.prg"
+        },
+        "memcpy": {
+          "status": "pass",
+          "prgName": "test_string-calypsip.prg"
+        },
+        "memmove": {
+          "status": "pass",
+          "prgName": "test_string-calypsip.prg"
+        }
+      }
+    },
+    "calypsis": {
+      "math.h": {
+        "floor": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "ceil": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "sin": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "cos": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "tan": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "asin": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "acos": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "atan": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "atan2": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "exp": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "log": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "log10": {
+          "status": "fail",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "pow": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        },
+        "sqrt": {
+          "status": "pass",
+          "prgName": "test_math-calypsis.prg"
+        }
+      },
+      "stdio.h": {
+        "fputc": {
+          "status": "fail",
+          "prgName": "test_stdio_file-calypsis.prg"
+        },
+        "fgetc": {
+          "status": "fail",
+          "prgName": "test_stdio_file-calypsis.prg"
+        },
+        "fputs": {
+          "status": "fail",
+          "prgName": "test_stdio_file-calypsis.prg"
+        },
+        "fgets": {
+          "status": "fail",
+          "prgName": "test_stdio_file-calypsis.prg"
+        },
+        "fwrite": {
+          "status": "fail",
+          "prgName": "test_stdio_file-calypsis.prg"
+        },
+        "fread": {
+          "status": "fail",
+          "prgName": "test_stdio_file-calypsis.prg"
+        },
+        "printf-c": {
+          "status": "pass",
+          "prgName": "test_stdio_print-calypsis.prg"
+        },
+        "printf-s": {
+          "status": "pass",
+          "prgName": "test_stdio_print-calypsis.prg"
+        },
+        "printf-d": {
+          "status": "pass",
+          "prgName": "test_stdio_print-calypsis.prg"
+        },
+        "printf-ld": {
+          "status": "fail",
+          "prgName": "test_stdio_print-calypsis.prg"
+        },
+        "printf-i": {
+          "status": "pass",
+          "prgName": "test_stdio_print-calypsis.prg"
+        },
+        "printf-li": {
+          "status": "fail",
+          "prgName": "test_stdio_print-calypsis.prg"
+        },
+        "printf-x": {
+          "status": "pass",
+          "prgName": "test_stdio_print-calypsis.prg"
+        },
+        "printf-lx": {
+          "status": "fail",
+          "prgName": "test_stdio_print-calypsis.prg"
+        },
+        "printf-X": {
+          "status": "unknown",
+          "prgName": "test_stdio_print-calypsis.prg"
+        },
+        "printf-lX": {
+          "status": "unknown",
+          "prgName": "test_stdio_print-calypsis.prg"
+        },
+        "printf-f": {
+          "status": "fail",
+          "prgName": "test_stdio_print-calypsis.prg"
+        },
+        "printf-e": {
+          "status": "fail",
+          "prgName": "test_stdio_print-calypsis.prg"
+        },
+        "scanf-c": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-calypsis.prg"
+        },
+        "scanf-s": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-calypsis.prg"
+        },
+        "scanf-d": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-calypsis.prg"
+        },
+        "scanf-i": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-calypsis.prg"
+        },
+        "scanf-x": {
+          "status": "pass",
+          "prgName": "test_stdio_scan-calypsis.prg"
+        },
+        "scanf-X": {
+          "status": "unknown",
+          "prgName": "test_stdio_scan-calypsis.prg"
+        },
+        "scanf-f": {
+          "status": "fail",
+          "prgName": "test_stdio_scan-calypsis.prg"
+        },
+        "scanf-e": {
+          "status": "fail",
+          "prgName": "test_stdio_scan-calypsis.prg"
+        }
+      },
+      "stdlib.h": {
+        "rand": {
+          "status": "fail",
+          "prgName": "test_stdlib-calypsis.prg"
+        },
+        "srand": {
+          "status": "pass",
+          "prgName": "test_stdlib-calypsis.prg"
+        },
+        "atof": {
+          "status": "pass",
+          "prgName": "test_stdlib-calypsis.prg"
+        },
+        "atoi": {
+          "status": "pass",
+          "prgName": "test_stdlib-calypsis.prg"
+        },
+        "atol": {
+          "status": "pass",
+          "prgName": "test_stdlib-calypsis.prg"
+        },
+        "malloc": {
+          "status": "pass",
+          "prgName": "test_stdlib-calypsis.prg"
+        },
+        "calloc": {
+          "status": "pass",
+          "prgName": "test_stdlib-calypsis.prg"
+        },
+        "realloc": {
+          "status": "pass",
+          "prgName": "test_stdlib-calypsis.prg"
+        },
+        "qsort": {
+          "status": "pass",
+          "prgName": "test_stdlib-calypsis.prg"
+        },
+        "abs": {
+          "status": "pass",
+          "prgName": "test_stdlib-calypsis.prg"
+        },
+        "labs": {
+          "status": "pass",
+          "prgName": "test_stdlib-calypsis.prg"
+        },
+        "div": {
+          "status": "pass",
+          "prgName": "test_stdlib-calypsis.prg"
+        },
+        "ldiv": {
+          "status": "pass",
+          "prgName": "test_stdlib-calypsis.prg"
+        }
+      },
+      "string.h": {
+        "strlen": {
+          "status": "pass",
+          "prgName": "test_string-calypsis.prg"
+        },
+        "strchr": {
+          "status": "pass",
+          "prgName": "test_string-calypsis.prg"
+        },
+        "strrchr": {
+          "status": "pass",
+          "prgName": "test_string-calypsis.prg"
+        },
+        "strcmp": {
+          "status": "pass",
+          "prgName": "test_string-calypsis.prg"
+        },
+        "strncmp": {
+          "status": "pass",
+          "prgName": "test_string-calypsis.prg"
+        },
+        "strcat": {
+          "status": "pass",
+          "prgName": "test_string-calypsis.prg"
+        },
+        "strncat": {
+          "status": "pass",
+          "prgName": "test_string-calypsis.prg"
+        },
+        "strstr": {
+          "status": "pass",
+          "prgName": "test_string-calypsis.prg"
+        },
+        "memchr": {
+          "status": "pass",
+          "prgName": "test_string-calypsis.prg"
+        },
+        "memset": {
+          "status": "pass",
+          "prgName": "test_string-calypsis.prg"
+        },
+        "memcpy": {
+          "status": "pass",
+          "prgName": "test_string-calypsis.prg"
+        },
+        "memmove": {
+          "status": "pass",
+          "prgName": "test_string-calypsis.prg"
+        }
+      }
+    }
+  }
+}

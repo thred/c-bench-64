@@ -705,7 +705,7 @@ void benchmark(void)
 
 void benchmark_name(void)
 {
-    print("aes256.c\n");
+    print("aes256.c" NEWLINE);
     print("Encrypts the C64 kernel");
     memcpy(b, (void *)0xe000, 0x2000);
 }

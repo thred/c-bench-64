@@ -1,13 +1,13 @@
 CURDIR := $(shell pwd)
 BINDIR := $(CURDIR)/bin
 
-CLANG = "$(CURDIR)/llvm-mos/bin/mos-c64-clang"
-CLANGTARGET = -DLLVM -D__MATHH_MISSING
-CLANGPERFOPTS = -O2 -flto -fnonreentrant
-CLANGSIZEOPTS = -Os -flto -fnonreentrant
-
 # Trap at the end of the SYS call in $e147
 VICETRAP = 0xc000
+
+CLANG = "$(CURDIR)/llvm-mos/bin/mos-c64-clang"
+CLANGTARGET = -DLLVM -D__MATHH_MISSING -DVICETRAP=$(VICETRAP) 
+CLANGPERFOPTS = -O2 -flto -fnonreentrant
+CLANGSIZEOPTS = -Os -flto -fnonreentrant
 
 version:
 	@echo ""

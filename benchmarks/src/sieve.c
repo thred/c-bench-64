@@ -52,12 +52,12 @@ void benchmark(void)
 
 void benchmark_name(void)
 {
-    print("sieve.c\n");
+    print("sieve.c" NEWLINE);
     print("Calculates the primes from 1 to ");
     print_int(SIZE * 2 + 2, 0);
     print(" (");
     print_int(N_ITER, 0);
-    print(" iterations)\n");
+    print(" iterations)" NEWLINE);
 }
 
 unsigned char benchmark_check(void)

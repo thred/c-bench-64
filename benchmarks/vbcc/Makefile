@@ -1,14 +1,14 @@
 CURDIR := $(shell pwd)
 BINDIR := $(CURDIR)/bin
 
-export VBCC = $(CURDIR)/vbcc
-VC = vc
-VBCCTARGET = +c64 -lm -DVBCC -D__MATHH_MISSING
-VBCCPERFOPTS = -O4 -speed
-VBCCSIZEOPTS = -O4 -size
-
 # Install a breakpoint to capture output
 VICETRAP = 0xc000
+
+export VBCC = $(CURDIR)/vbcc
+VC = vc
+VBCCTARGET = +c64 -lm -DVBCC -D__MATHH_MISSING -DVICETRAP=$(VICETRAP)
+VBCCPERFOPTS = -O4 -speed
+VBCCSIZEOPTS = -O4 -size
 
 version:
 	@echo ""

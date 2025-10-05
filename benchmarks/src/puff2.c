@@ -4328,19 +4328,19 @@ void benchmark(void)
 
     print("RES=");
     print_int(r, 0);
-    print("\n");
+    print(NEWLINE);
 
     print("slen=");
     print_int(slen, 0);
     print(" dlen=");
     print_int(dlen, 0);
-    print("\n");
+    print(NEWLINE);
 }
 
 void benchmark_name(void)
 {
-    print("puff.c\n");
-    print("inflate compressed data\n");
+    print("puff.c" NEWLINE);
+    print("inflate compressed data" NEWLINE);
 }
 
 #define EXPECTED 0x28ed93c7

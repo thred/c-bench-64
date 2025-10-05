@@ -878,14 +878,14 @@ void benchmark(void)
              table,                   /* pointer to source data pointer */
              &slen);                  /* amount of input available */
 
-    printf("RES=%d\n", r);
-    printf("slen=%ld dlen=%ld\n", slen, dlen);
+    printf("RES=%d" NEWLINE, r);
+    printf("slen=%ld dlen=%ld" NEWLINE, slen, dlen);
 }
 
 void benchmark_name(void)
 {
-    printf("puff.c\n");
-    printf("inflate compressed data\n");
+    printf("puff.c" NEWLINE);
+    printf("inflate compressed data" NEWLINE);
 }
 
 unsigned char benchmark_check(void)

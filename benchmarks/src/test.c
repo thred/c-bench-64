@@ -22,8 +22,7 @@ void test(void);
 #define MAIN int main()
 #endif
 
-#if defined(LLVM) || defined(SDCC) || defined(VBCC)
-#define VICETRAP 0xc000
+#if defined(VICETRAP)
 static volatile unsigned char *viceTrapPtr = (unsigned char *)VICETRAP;
 static void (*viceTrap)(void) = (void (*)(void))VICETRAP;
 #endif
@@ -32,8 +31,12 @@ MAIN
 {
     unsigned int t;
 
-#ifdef OSCAR64
+#if defined(OSCAR64) || defined(CALYPSI)
     *(unsigned char *)0xd018 = 0x17; // Set VIC-II to lower case mode
+#endif
+
+#if defined(CALYPSI) 
+    *(unsigned char *)0x01 = 30; // Turn off BASIC ROM
 #endif
 
     tod_init(0);
@@ -42,7 +45,7 @@ MAIN
 
     t = tod_get10();
 
-    printf("\nTotal time: %01d.%01d s\n", t / 10, t % 10);
+    printf(NEWLINE "Total time: %01d.%01d s" NEWLINE, t / 10, t % 10);
 
 #if defined(LLVM) || defined(VBCC)
     fflush(stdout);
@@ -51,7 +54,7 @@ MAIN
     // Wait a bit to ensure a refresh before taking a screenshot
     tod_init(0);
 
-#if defined(LLVM) || defined(SDCC) || defined(VBCC)
+#if defined(VICETRAP)
     // Trigger the VICE monitor to exit
     *viceTrapPtr = 0x60; // RTS opcode
     viceTrap();
@@ -64,7 +67,7 @@ MAIN
 
 void begin(const char *test)
 {
-    printf("\n#%s", test);
+    printf(NEWLINE "#%s", test);
 }
 
 void success(void)
@@ -134,8 +137,6 @@ void randStr(const char *charset, char *str, size_t len)
 {
     size_t charsetLen = strlen(charset);
     size_t i;
-
-    assert(len > 0);
 
     for (i = 0; i < len - 1; i++)
     {

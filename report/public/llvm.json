@@ -77,7 +77,7 @@
     }
   ],
   "version": "22.0.0git",
-  "date": "2025-10-05 11:22:04",
+  "date": "2025-10-07 20:24:41",
   "results": {
     "llvmp": {
       "aes256": {
@@ -202,7 +202,7 @@
       },
       "test_stdlib": {
         "prgName": "test_stdlib-llvmp.prg",
-        "size": 32952,
+        "size": 32728,
         "time": 1.5,
         "status": "fail",
         "output": "0400                                          \n0428  ready.                                  \n0450  load\"*\",8,1                             \n0478                                          \n04a0  searching for *                         \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #rand [FAIL] (-32383<0)                 \n05b8  #srand [OK]                             \n05e0  #atof [MISS]                            \n0608  #atoi [OK] [OK]                         \n0630  #atol [OK] [OK]                         \n0658  #malloc [OK]                            \n0680  #calloc [OK]                            \n06a8  #realloc [OK]                           \n06d0  #qsort [OK]                             \n06f8  #abs [OK] [OK]                          \n0720  #labs [OK] [OK]                         \n0748  #div [OK] [OK] [OK] [OK]                \n0770  #ldiv [OK] [OK] [OK] [OK]               \n0798  Total time: 1.5 s                       \n07c0                                          \n",
@@ -340,7 +340,7 @@
       },
       "test_stdlib": {
         "prgName": "test_stdlib-llvms.prg",
-        "size": 20409,
+        "size": 20407,
         "time": 1.6,
         "status": "fail",
         "output": "0400                                          \n0428  ready.                                  \n0450  load\"*\",8,1                             \n0478                                          \n04a0  searching for *                         \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #rand [FAIL] (-32383<0)                 \n05b8  #srand [OK]                             \n05e0  #atof [MISS]                            \n0608  #atoi [OK] [OK]                         \n0630  #atol [OK] [OK]                         \n0658  #malloc [OK]                            \n0680  #calloc [OK]                            \n06a8  #realloc [OK]                           \n06d0  #qsort [OK]                             \n06f8  #abs [OK] [OK]                          \n0720  #labs [OK] [OK]                         \n0748  #div [OK] [OK] [OK] [OK]                \n0770  #ldiv [OK] [OK] [OK] [OK]               \n0798  Total time: 1.6 s                       \n07c0                                          \n",
@@ -348,7 +348,7 @@
       },
       "test_string": {
         "prgName": "test_string-llvms.prg",
-        "size": 19705,
+        "size": 19696,
         "time": 1.7,
         "status": "fail",
         "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen [OK]                            \n0590  #strchr [OK]                            \n05b8  #strrchr [OK]                           \n05e0  #strcmp [OK] [OK]                       \n0608  #strncmp [OK] [OK]                      \n0630  #strcpy [OK]                            \n0658  #strncpy [OK]                           \n0680  #strcat [OK]                            \n06a8  #strncat [OK] [FAIL]                    \n06d0  #strstr [OK]                            \n06f8  #memchr [OK]                            \n0720  #memset [OK]                            \n0748  #memcpy [OK]                            \n0770  #memmove [OK] [OK] [OK] [OK] [OK]       \n0798  Total time: 1.7 s                       \n07c0                                          \n",
@@ -474,11 +474,11 @@
           "prgName": "test_stdio_print-llvmp.prg"
         },
         "printf-X": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_print-llvmp.prg"
         },
         "printf-lX": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_print-llvmp.prg"
         },
         "printf-f": {
@@ -510,7 +510,7 @@
           "prgName": "test_stdio_scan-llvmp.prg"
         },
         "scanf-X": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_scan-llvmp.prg"
         },
         "scanf-f": {
@@ -744,11 +744,11 @@
           "prgName": "test_stdio_print-llvms.prg"
         },
         "printf-X": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_print-llvms.prg"
         },
         "printf-lX": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_print-llvms.prg"
         },
         "printf-f": {
@@ -780,7 +780,7 @@
           "prgName": "test_stdio_scan-llvms.prg"
         },
         "scanf-X": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_scan-llvms.prg"
         },
         "scanf-f": {

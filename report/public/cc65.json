@@ -77,7 +77,7 @@
       "name": "cc65 - Perf.Opt.",
       "description": "-Oisr --static-locals",
       "optimization": "performance",
-      "color": "#c46c71",
+      "color": "#eb7e3a",
       "compilerKey": "cc65"
     },
     {
@@ -85,12 +85,12 @@
       "name": "cc65 - Size Opt.",
       "description": "-Os --static-locals",
       "optimization": "size",
-      "color": "#c46c71",
+      "color": "#eb7e3a",
       "compilerKey": "cc65"
     }
   ],
   "version": "V2.19",
-  "date": "2025-10-05 11:07:02",
+  "date": "2025-10-07 20:26:45",
   "results": {
     "cc65p": {
       "aes256": {
@@ -175,7 +175,7 @@
       },
       "test_math": {
         "prgName": "test_math-cc65p.prg",
-        "size": 5317,
+        "size": 5011,
         "time": 1.2,
         "status": "unsupported",
         "output": "0400  ready.                                  \n0428  load\"test_math-cc65p\",8,1               \n0450                                          \n0478  searching for test_math-cc65p           \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #floor [MISS]                           \n0590  #ceil [MISS]                            \n05b8  #cos [MISS]                             \n05e0  #sin [MISS]                             \n0608  #tan [MISS]                             \n0630  #acos [MISS]                            \n0658  #asin [MISS]                            \n0680  #atan [MISS]                            \n06a8  #atan2 [MISS]                           \n06d0  #exp [MISS]                             \n06f8  #log [MISS]                             \n0720  #log10 [MISS]                           \n0748  #pow [MISS]                             \n0770  #sqrt [MISS]                            \n0798  Total time: 1.2 s                       \n07c0                                          \n",
@@ -183,15 +183,15 @@
       },
       "test_stdio_file": {
         "prgName": "test_stdio_file-cc65p.prg",
-        "size": 8402,
-        "time": 14.1,
+        "size": 8096,
+        "time": 14.2,
         "status": "pass",
-        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 14.1 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
+        "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 14.2 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
         "screenshot": "test_stdio_file-cc65p.png"
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-cc65p.prg",
-        "size": 7056,
+        "size": 6750,
         "time": 1.2,
         "status": "unsupported",
         "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [MISS]                        \n0770  #printf-e [MISS]                        \n0798  Total time: 1.2 s                       \n07c0                                          \n",
@@ -199,7 +199,7 @@
       },
       "test_stdio_scan": {
         "prgName": "test_stdio_scan-cc65p.prg",
-        "size": 8547,
+        "size": 8244,
         "time": 1.1,
         "status": "unsupported",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [MISS]                         \n0770  #scanf-e [MISS]                         \n0798  Total time: 1.1 s                       \n07c0                                          \n",
@@ -207,7 +207,7 @@
       },
       "test_stdlib": {
         "prgName": "test_stdlib-cc65p.prg",
-        "size": 12700,
+        "size": 12397,
         "time": 4.6,
         "status": "unsupported",
         "output": "0400                                          \n0428  ready.                                  \n0450  load\"*\",8,1                             \n0478                                          \n04a0  searching for *                         \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #rand [OK] [OK]                         \n05b8  #srand [OK]                             \n05e0  #atof [MISS]                            \n0608  #atoi [OK] [OK]                         \n0630  #atol [OK] [OK]                         \n0658  #malloc [OK]                            \n0680  #calloc [OK]                            \n06a8  #realloc [OK]                           \n06d0  #qsort [OK]                             \n06f8  #abs [OK] [OK]                          \n0720  #labs [OK] [OK]                         \n0748  #div [OK] [OK] [OK] [OK]                \n0770  #ldiv [MISS]                            \n0798  Total time: 4.6 s                       \n07c0                                          \n",
@@ -215,7 +215,7 @@
       },
       "test_string": {
         "prgName": "test_string-cc65p.prg",
-        "size": 8460,
+        "size": 8154,
         "time": 1.5,
         "status": "pass",
         "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen [OK]                            \n0590  #strchr [OK]                            \n05b8  #strrchr [OK]                           \n05e0  #strcmp [OK] [OK]                       \n0608  #strncmp [OK] [OK]                      \n0630  #strcpy [OK]                            \n0658  #strncpy [OK]                           \n0680  #strcat [OK]                            \n06a8  #strncat [OK] [OK]                      \n06d0  #strstr [OK]                            \n06f8  #memchr [OK]                            \n0720  #memset [OK]                            \n0748  #memcpy [OK]                            \n0770  #memmove [OK] [OK] [OK] [OK] [OK]       \n0798  Total time: 1.5 s                       \n07c0                                          \n",
@@ -305,7 +305,7 @@
       },
       "test_math": {
         "prgName": "test_math-cc65s.prg",
-        "size": 5272,
+        "size": 4966,
         "time": 1.2,
         "status": "unsupported",
         "output": "0400  ready.                                  \n0428  load\"test_math-cc65s\",8,1               \n0450                                          \n0478  searching for test_math-cc65s           \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #floor [MISS]                           \n0590  #ceil [MISS]                            \n05b8  #cos [MISS]                             \n05e0  #sin [MISS]                             \n0608  #tan [MISS]                             \n0630  #acos [MISS]                            \n0658  #asin [MISS]                            \n0680  #atan [MISS]                            \n06a8  #atan2 [MISS]                           \n06d0  #exp [MISS]                             \n06f8  #log [MISS]                             \n0720  #log10 [MISS]                           \n0748  #pow [MISS]                             \n0770  #sqrt [MISS]                            \n0798  Total time: 1.2 s                       \n07c0                                          \n",
@@ -313,7 +313,7 @@
       },
       "test_stdio_file": {
         "prgName": "test_stdio_file-cc65s.prg",
-        "size": 8383,
+        "size": 8077,
         "time": 14.2,
         "status": "pass",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ready.                                  \n05b8  run:                                    \n05e0                                          \n0608  #fputc [OK]                             \n0630  #fgetc [OK]                             \n0658  #fputs [OK]                             \n0680  #fgets [OK]                             \n06a8  #fwrite [OK]                            \n06d0  #fread [OK]                             \n06f8  Total time: 14.2 s                      \n0720                                          \n0748                                          \n0770                                          \n0798                                          \n07c0                                          \n",
@@ -321,7 +321,7 @@
       },
       "test_stdio_print": {
         "prgName": "test_stdio_print-cc65s.prg",
-        "size": 6844,
+        "size": 6538,
         "time": 1.2,
         "status": "unsupported",
         "output": "0400   64k ram system  38911 basic bytes free \n0428                                          \n0450  ready.                                  \n0478  load\"*\",8,1                             \n04a0                                          \n04c8  searching for *                         \n04f0  loading                                 \n0518  ?load  error                            \n0540  ready.                                  \n0568  run:                                    \n0590                                          \n05b8  #printf-c [OK]                          \n05e0  #printf-s [OK]                          \n0608  #printf-d [OK]                          \n0630  #printf-ld [OK]                         \n0658  #printf-i [OK]                          \n0680  #printf-li [OK]                         \n06a8  #printf-x [OK]                          \n06d0  #printf-lx [OK]                         \n06f8  #printf-X [OK]                          \n0720  #printf-lX [OK]                         \n0748  #printf-f [MISS]                        \n0770  #printf-e [MISS]                        \n0798  Total time: 1.2 s                       \n07c0                                          \n",
@@ -329,7 +329,7 @@
       },
       "test_stdio_scan": {
         "prgName": "test_stdio_scan-cc65s.prg",
-        "size": 8516,
+        "size": 8213,
         "time": 1.1,
         "status": "unsupported",
         "output": "0400                                          \n0428      **** commodore 64 basic v2 ****     \n0450                                          \n0478   64k ram system  38911 basic bytes free \n04a0                                          \n04c8  ready.                                  \n04f0  load\"*\",8,1                             \n0518                                          \n0540  searching for *                         \n0568  loading                                 \n0590  ?load  error                            \n05b8  ready.                                  \n05e0  run:                                    \n0608                                          \n0630  #scanf-c [OK] [OK]                      \n0658  #scanf-s [OK] [OK]                      \n0680  #scanf-d [OK]                           \n06a8  #scanf-i [OK]                           \n06d0  #scanf-u [OK]                           \n06f8  #scanf-x [OK]                           \n0720  #scanf-X [OK]                           \n0748  #scanf-f [MISS]                         \n0770  #scanf-e [MISS]                         \n0798  Total time: 1.1 s                       \n07c0                                          \n",
@@ -337,7 +337,7 @@
       },
       "test_stdlib": {
         "prgName": "test_stdlib-cc65s.prg",
-        "size": 12204,
+        "size": 11901,
         "time": 4.8,
         "status": "unsupported",
         "output": "0400                                          \n0428  ready.                                  \n0450  load\"*\",8,1                             \n0478                                          \n04a0  searching for *                         \n04c8  loading                                 \n04f0  ?load  error                            \n0518  ready.                                  \n0540  run:                                    \n0568                                          \n0590  #rand [OK] [OK]                         \n05b8  #srand [OK]                             \n05e0  #atof [MISS]                            \n0608  #atoi [OK] [OK]                         \n0630  #atol [OK] [OK]                         \n0658  #malloc [OK]                            \n0680  #calloc [OK]                            \n06a8  #realloc [OK]                           \n06d0  #qsort [OK]                             \n06f8  #abs [OK] [OK]                          \n0720  #labs [OK] [OK]                         \n0748  #div [OK] [OK] [OK] [OK]                \n0770  #ldiv [MISS]                            \n0798  Total time: 4.8 s                       \n07c0                                          \n",
@@ -345,7 +345,7 @@
       },
       "test_string": {
         "prgName": "test_string-cc65s.prg",
-        "size": 8219,
+        "size": 7913,
         "time": 1.5,
         "status": "pass",
         "output": "0400  ready.                                  \n0428  load\"*\",8,1                             \n0450                                          \n0478  searching for *                         \n04a0  loading                                 \n04c8  ?load  error                            \n04f0  ready.                                  \n0518  run:                                    \n0540                                          \n0568  #strlen [OK]                            \n0590  #strchr [OK]                            \n05b8  #strrchr [OK]                           \n05e0  #strcmp [OK] [OK]                       \n0608  #strncmp [OK] [OK]                      \n0630  #strcpy [OK]                            \n0658  #strncpy [OK]                           \n0680  #strcat [OK]                            \n06a8  #strncat [OK] [OK]                      \n06d0  #strstr [OK]                            \n06f8  #memchr [OK]                            \n0720  #memset [OK]                            \n0748  #memcpy [OK]                            \n0770  #memmove [OK] [OK] [OK] [OK] [OK]       \n0798  Total time: 1.5 s                       \n07c0                                          \n",
@@ -471,11 +471,11 @@
           "prgName": "test_stdio_print-cc65p.prg"
         },
         "printf-X": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_print-cc65p.prg"
         },
         "printf-lX": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_print-cc65p.prg"
         },
         "printf-f": {
@@ -507,7 +507,7 @@
           "prgName": "test_stdio_scan-cc65p.prg"
         },
         "scanf-X": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_scan-cc65p.prg"
         },
         "scanf-f": {
@@ -741,11 +741,11 @@
           "prgName": "test_stdio_print-cc65s.prg"
         },
         "printf-X": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_print-cc65s.prg"
         },
         "printf-lX": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_print-cc65s.prg"
         },
         "printf-f": {
@@ -777,7 +777,7 @@
           "prgName": "test_stdio_scan-cc65s.prg"
         },
         "scanf-X": {
-          "status": "pass",
+          "status": "unknown",
           "prgName": "test_stdio_scan-cc65s.prg"
         },
         "scanf-f": {

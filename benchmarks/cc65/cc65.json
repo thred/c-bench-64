@@ -77,14 +77,14 @@
             "name": "cc65 - Perf.Opt.",
             "description": "-Oisr --static-locals",
             "optimization": "performance",
-            "color": "#c46c71"
+            "color": "#eb7e3a"
         },
         {
             "key": "cc65s",
             "name": "cc65 - Size Opt.",
             "description": "-Os --static-locals",
             "optimization": "size",
-            "color": "#c46c71"
+            "color": "#eb7e3a"
         }
     ]
 }

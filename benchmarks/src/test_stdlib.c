@@ -130,14 +130,14 @@ static void test_atoi(void)
 
     if (!expect(atoi(str) == r))
     {
-        printf(" (%s!=%d)\n", str, r);
+        printf(" (%s!=%d)" NEWLINE, str, r);
     }
 
     sprintf(str, "-%d", r);
 
     if (!expect(atoi(str) == -r))
     {
-        printf(" (%s!=%d)\n", str, -r);
+        printf(" (%s!=%d)" NEWLINE, str, -r);
     }
 }
 
@@ -153,14 +153,14 @@ static void test_atol(void)
 
     if (!expect(atol(str) == r * 1000L))
     {
-        printf(" (%s!=%d000)\n", str, (int)r);
+        printf(" (%s!=%d000)" NEWLINE, str, (int)r);
     }
 
     sprintf(str, "%d000", (int)-r);
 
     if (!expect(atol(str) == -r * 1000L))
     {
-        printf(" (%s!=%d000)\n", str, (int)-r);
+        printf(" (%s!=%d000)" NEWLINE, str, (int)-r);
     }
 }
 
@@ -393,7 +393,7 @@ static void test_abs(void)
     begin("abs");
 
     expect(abs(r) == r);
-    expect(abs(negR) == r);
+expect(abs(negR) == r);
 }
 
 static void test_labs(void)
@@ -446,7 +446,11 @@ static void test_ldiv(void)
 
     begin("ldiv");
 
-#if !defined(__LDIV_MISSING)
+#if defined(__LDIV_MISSING)
+    missing();
+#elif defined(__LDIV_BROKEN)
+    failure();
+#else
     res = ldiv(r, d);
     expect(res.quot == r / d && res.rem == r % d);
 
@@ -458,8 +462,6 @@ static void test_ldiv(void)
 
     res = ldiv(negR, negD);
     expect(res.quot == negR / negD && res.rem == negR % negD);
-#else
-    missing();
 #endif
 }
 

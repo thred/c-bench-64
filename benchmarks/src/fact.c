@@ -48,10 +48,10 @@ void benchmark(void)
 
 void benchmark_name(void)
 {
-    print("fact.c\n");
+    print("fact.c" NEWLINE);
     print("Calculates factorials (");
     print_int(N_ITER, 0);
-    print(" iterations)\n");
+    print(" iterations)" NEWLINE);
 }
 
 const long expected = 188806544;

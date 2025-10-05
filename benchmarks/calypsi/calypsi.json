@@ -1,0 +1,64 @@
+{
+    "key": "calypsi",
+    "name": "Calypsi",
+    "description": [
+        "Calypsi is a series of C compiler and assembly language cross compiler tool chains.",
+        "The current tool chains are aimed towards the retro and hobby communities."
+    ],
+    "homepage": "https://www.calypsi.cc/",
+    "license": "Free for personal use",
+    "pros": [
+        "ISO C 99 compiler. This is a freestanding implementation with many features you will typically find in a hosted compiler.",
+        "Fully re-entrant code model.",
+        "Support for all integer types up to 64 bits long long.",
+        "Floating point supported (32 and 64 bits IEEE-754).",
+        "Full support for struct, union, typedef and what you expect to find in C.",
+        "Support for (stack allocated) variable sized arrays.",
+        "Optimizing compiler that can output source level debugging information.",
+        "Source code debugger included.",
+        "Support for ELF/DWARF, hex output as well as various target specific output formats."
+    ],
+    "cons": [
+        "Issues with ASCII/PETSCII conversion (especially in mixed-case mode).",
+        "aes256 fails with internal error.",
+        "Complex memory situations."
+    ],
+    "features": {
+        "floatingPoint": "yes",
+        "inlineAssembly": "yes",
+        "overlays": "yes",
+        "fileIO": "unknown",
+        "printf": {
+            "supported": "yes",
+            "note": "ASCII/PETSCII conversion issues"
+        },
+        "recursiveFunctions": "yes",
+        "interruptSupport": "yes",
+        "maintained": "yes"
+    },
+    "runtimeSupport": [
+        "Commodore 64 (MOS 6502)",
+        "Mega 65 (MOS 6502)",
+        "Commander X16 (MOS 6502)",
+        "Foenix C256 (WDC 65816)",
+        "Foenix F256 (WDC 65816)",
+        "Amiga (Motorola 68000)",
+        "Foenix A2560U/K (Motorola 68000)"
+    ],
+    "configs": [
+        {
+            "key": "calypsip",
+            "name": "Calypsi - Perf.Opt.",
+            "description": "-O2 --speed",
+            "optimization": "performance",
+            "color": "#c46c71"
+        },
+        {
+            "key": "calypsis",
+            "name": "Calypsi - Size Opt.",
+            "description": "-O2 --space",
+            "optimization": "size",
+            "color": "#c46c71"
+        }
+    ]
+}

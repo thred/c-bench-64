@@ -37,10 +37,10 @@ void benchmark(void)
 
 void benchmark_name(void)
 {
-    print("pi.c\n");
+    print("pi.c" NEWLINE);
     print("Calculates ");
     print_int(4 * NUM_DIG / 14, 0);
-    print(" digits of pi\n");
+    print(" digits of pi" NEWLINE);
 }
 
 #define EXPECTED 2822

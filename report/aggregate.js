@@ -53,6 +53,7 @@ const testDefs = {
 };
 
 const compilersKeys = {
+    calypsi: "calypsi",
     cc65: "cc65",
     kickc: "kickc",
     "llvm-mos": "llvm",
@@ -64,17 +65,21 @@ const compilersKeys = {
 const baseDir = path.resolve(__dirname, "../benchmarks");
 
 function getLogTime(log) {
-    const match = log.match(/Total time:\s*([\d.]+)/);
+    const match = log.toLowerCase().match(/total time:\s*([\d.]+)/);
 
     return match ? parseFloat(match[1]) : null;
 }
 
 function getStatus(log) {
     if (!log) return "unknown";
-    if (log.includes("[FAIL]")||log.includes(".FAIL.")) return "fail";
-    if (log.includes("[MISS]")||log.includes(".MISS.")) return "unsupported";
-    if (log.includes("[OFF]")||log.includes(".OFF.")) return "disabled";
-    if (log.includes("[OK]")||log.includes(".OK.")) return "pass";
+
+    log = log.toLowerCase();
+    
+    if (log.includes("[fail]") || log.includes(".fail.")) return "fail";
+    if (log.includes("[miss]") || log.includes(".miss.")) return "unsupported";
+    if (log.includes("[off]") || log.includes(".off.")) return "disabled";
+    if (log.includes("[ok]") || log.includes(".ok.")) return "pass";
+    
     return "unknown";
 }
 
@@ -157,7 +162,7 @@ function aggregateTests(configKey, dir) {
             continue;
         }
 
-        const log = fs.readFileSync(logPath, "utf8");
+        const log = fs.readFileSync(logPath, "utf8").toLowerCase();
 
         for (const test of testDef.tests) {
             const regex = new RegExp(`#${test}\\b.*`, "m");

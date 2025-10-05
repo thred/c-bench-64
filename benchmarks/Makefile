@@ -3,10 +3,10 @@ CURDIR := $(shell pwd)
 # Currently kickc is mostly incompatible and does not even recognize #ifdef.
 # It is not included in the default build.
 
-# INCLUDE = cc65,kickc,llvm,o64,sdcc,vbcc
+# INCLUDE = calypsi,cc65,kickc,llvm,o64,sdcc,vbcc
 
-INCLUDE_ALL = cc65,kickc,llvm,o64,sdcc,vbcc
-INCLUDE = cc65,llvm,o64,sdcc,vbcc
+INCLUDE_ALL = calypsi,cc65,kickc,llvm,o64,sdcc,vbcc
+INCLUDE = calypsi,cc65,llvm,o64,sdcc,vbcc
 
 export SRCDIR = $(CURDIR)/src
 
@@ -62,9 +62,9 @@ aes256:
 	$(MAKE) build-aes256
 	$(MAKE) exec-aes256
 build-aes256:
-	PRG=aes256 LIBS='$(BENCH_LIBS)' $(MAKE) build
+	PRG=aes256 LIBS='$(BENCH_LIBS)' EXCLUDE="calypsi" $(MAKE) build
 exec-aes256:
-	PRG=aes256 $(MAKE) exec
+	PRG=aes256 EXCLUDE="calypsi" $(MAKE) exec
 
 crc8:
 	$(MAKE) build-crc8
@@ -195,6 +195,10 @@ exec-test-string:
 	PRG=test_string $(MAKE) exec
 
 version:
+	@if echo "$(INCLUDE)" | grep -q "calypsi" && ! echo "$(EXCLUDE)" | grep -q "calypsi" ; then \
+		$(MAKE) -C calypsi version; \
+	fi
+
 	@if echo "$(INCLUDE)" | grep -q "cc65" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
 		$(MAKE) -C cc65 version; \
 	fi
@@ -220,6 +224,11 @@ version:
 	fi
 
 build:
+	@if echo "$(INCLUDE)" | grep -q "calypsi" && ! echo "$(EXCLUDE)" | grep -q "calypsi" ; then \
+		$(MAKE) -C calypsi build-perf; \
+		$(MAKE) -C calypsi build-size; \
+	fi
+
 	@if echo "$(INCLUDE)" | grep -q "cc65" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
 		$(MAKE) -C cc65 build-perf; \
 		$(MAKE) -C cc65 build-size; \
@@ -253,6 +262,10 @@ clean-all:
 	$(MAKE) INCLUDE=$(INCLUDE_ALL) clean
 	
 clean:
+	@if echo "$(INCLUDE)" | grep -q "calypsi" && ! echo "$(EXCLUDE)" | grep -q "calypsi" ; then \
+		$(MAKE) -C calypsi clean; \
+	fi
+
 	@if echo "$(INCLUDE)" | grep -q "cc65" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
 		$(MAKE) -C cc65 clean; \
 	fi
@@ -278,6 +291,11 @@ clean:
 	fi
 
 exec:
+	@if echo "$(INCLUDE)" | grep -q "calypsi" && ! echo "$(EXCLUDE)" | grep -q "calypsi" ; then \
+		$(MAKE) -C calypsi exec-perf; \
+		$(MAKE) -C calypsi exec-size; \
+	fi
+
 	@if echo "$(INCLUDE)" | grep -q "cc65" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
 		$(MAKE) -C cc65 exec-perf; \
 		$(MAKE) -C cc65 exec-size; \

@@ -3,6 +3,12 @@
 #ifndef TEST_H
 #define TEST_H
 
+#ifdef NEWLINE_CR
+#define NEWLINE "\r\n"
+#else
+#define NEWLINE "\n"
+#endif
+
 void begin(const char *test);
 
 void success(void);

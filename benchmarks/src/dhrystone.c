@@ -533,24 +533,24 @@ void init(void)
 
 void benchmark_name(void)
 {
-    print("dhrystone.c\n");
-    print("the classic dhrystone benchmark\n");
+    print("dhrystone.c" NEWLINE);
+    print("the classic dhrystone benchmark" NEWLINE);
 
-    print("\n");
-    print("Dhrystone Benchmark, Version 2.1 (Language: C)\n");
-    print("\n");
+    print(NEWLINE);
+    print("Dhrystone Benchmark, Version 2.1 (Language: C)" NEWLINE);
+    print(NEWLINE);
 
     Number_Of_Runs = 1000;
 
     print("Execution starts, ");
     print_int(Number_Of_Runs, 0);
-    print(" runs through Dhrystone\n");
+    print(" runs through Dhrystone" NEWLINE);
 }
 
 void assert(const char *exp, unsigned char condition)
 {
     print(exp);
-    print(condition ? " [OK]\n" : " [FAIL]\n");
+    print(condition ? " [OK]" NEWLINE : " [FAIL]" NEWLINE);
 }
 
 unsigned char benchmark_check(void)

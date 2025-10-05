@@ -9,6 +9,7 @@ Since the original web page is no longer accessible, I am attempting to preserve
 
 ## Included Compilers
 
+-   [Calypsi](https://www.calypsi.cc/)
 -   [CC65](https://cc65.github.io/)
 -   [KickC](https://gitlab.com/camelot/kickc)
 -   [llvm-mos](https://llvm-mos.org)
@@ -40,6 +41,7 @@ The benchmark for each compiler contains specific instructions to prepare the bu
 
 The compilers are usually installed into a subfolder to avoid problems with existing local installations.
 
+-   [README.md for Calypsi](benchmarks/calypsi/README.md)
 -   [README.md for CC65](benchmarks/cc65/README.md)
 -   [README.md for KickC](benchmarks/kickc/README.md)
 -   [README.md for llvm-mos](benchmarks/llvm-mos/README.md)
@@ -59,7 +61,7 @@ Run all benchmarks for a specific compiler:
 make -C benchmarks all INCLUDE=cc65
 ```
 
-The available keys are: `cc65`, `kickc`, `llvm`, `o64`, `sdcc`, `vbcc`.
+The available keys are: `calypsi`, `cc65`, `kickc`, `llvm`, `o64`, `sdcc`, `vbcc`.
 
 Run individual benchmarks by their name:
 

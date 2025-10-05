@@ -43,8 +43,8 @@ void benchmark(void)
 
 void benchmark_name(void)
 {
-    print("crc32.c\n");
-    print("Calculates the CRC32 of the C64 Kernal\n");
+    print("crc32.c" NEWLINE);
+    print("Calculates the CRC32 of the C64 Kernal" NEWLINE);
 }
 
 #define EXPECTED 0xe1fa84c6
