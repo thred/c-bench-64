@@ -1,0 +1,156 @@
+// CRC8 Benchmark for TRSE (Turbo Rascal Syntax Error)
+// Converted from C implementation
+// Calculates CRC-8/GSM-A of C64 Kernal ROM ($E000-$FFFF)
+
+Program CRC8Bench;
+
+var
+    benchmark_result : byte;
+
+const
+    ROM_START : integer = $e000;
+    ROM_LENGTH : integer = $2000;
+    EXPECTED : byte = $a2;
+
+// CRC-8/GSM-A implementation
+function CRC8(data_addr : integer; len : integer) : byte;
+var
+    crc_value : byte;
+    temp_byte : byte;
+    counter : integer;
+    bit_count : byte;
+    mem_ptr : pointer;
+begin
+    crc_value := 0;
+    mem_ptr := data_addr;
+    
+    // Main data processing loop
+    counter := 0;
+    while (counter < len) do
+    begin
+        temp_byte := mem_ptr[0];
+        crc_value := crc_value xor temp_byte;
+        
+        // Process 8 bits
+        bit_count := 8;
+        while (bit_count > 0) do
+        begin
+            if ((crc_value and $80) <> 0) then
+                crc_value := ((crc_value shl 1) xor $1d)
+            else
+                crc_value := crc_value shl 1;
+            dec(bit_count);
+        end;
+        
+        mem_ptr := mem_ptr + 1;
+        inc(counter);
+    end;
+    
+    // Set return value only once at the end
+    CRC8 := crc_value;
+end;
+
+// Output functions using C64 KERNAL routines
+procedure print(msg_ptr : pointer);
+var
+    current_char : byte;
+begin
+    while (msg_ptr[0] <> 0) do
+    begin
+        current_char := msg_ptr[0];
+        asm("
+            lda current_char
+            jsr $ffd2     ; CHROUT
+        ");
+        msg_ptr := msg_ptr + 1;
+    end;
+end;
+
+procedure print_newline();
+begin
+    asm("
+        lda #13
+        jsr $ffd2
+    ");
+end;
+
+procedure print_hex_byte(value : byte);
+var
+    hi_nibble, lo_nibble : byte;
+begin
+    hi_nibble := (value shr 4) and $0f;
+    lo_nibble := value and $0f;
+    
+    // Print high nibble
+    if (hi_nibble < 10) then
+        hi_nibble := hi_nibble + '0'
+    else
+        hi_nibble := hi_nibble - 10 + 'a';
+    
+    // Print low nibble
+    if (lo_nibble < 10) then  
+        lo_nibble := lo_nibble + '0'
+    else
+        lo_nibble := lo_nibble - 10 + 'a';
+        
+    asm("
+        lda hi_nibble
+        jsr $ffd2
+        lda lo_nibble
+        jsr $ffd2
+    ");
+end;
+
+// Static string data as byte arrays
+var
+    msg_crc8_name : string = "crc8.c";
+    msg_description : string = "Calculates the CRC8 of the C64 Kernal";
+    msg_crc8_label : string = "CRC8=";
+    msg_ok : string = " [OK]";
+    msg_fail : string = " [FAIL] - expected ";
+
+// Benchmark functions matching C interface
+procedure benchmark();
+begin
+    benchmark_result := CRC8(ROM_START, ROM_LENGTH);
+end;
+
+procedure benchmark_name();
+begin
+    print(#msg_crc8_name);
+    print_newline();
+    print(#msg_description);
+    print_newline();
+end;
+
+function benchmark_check() : byte;
+var
+    result : byte;
+begin
+    print(#msg_crc8_label);
+    print_hex_byte(benchmark_result);
+    
+    if (benchmark_result = EXPECTED) then
+    begin
+        print(#msg_ok);
+        print_newline();
+        result := 0;
+    end
+    else
+    begin
+        print(#msg_fail);
+        print_hex_byte(EXPECTED);
+        print_newline();
+        result := 1;
+    end;
+    
+    // Set return value only once at the end
+    benchmark_check := result;
+end;
+
+// Main execution
+begin
+    benchmark_name();
+    benchmark();
+    benchmark_check();
+end.
