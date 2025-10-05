@@ -10,4 +10,4 @@ Download the latest release from: https://github.com/drmortalwombat/oscar64/rele
 
 ### Linux
 
-You have to build the compiler by yourself. Clone the repository to `c-bench-64/benchmarks/oscar64/oscar64` by executing the command `git clone https://github.com/drmortalwombat/oscar64.git` in `c-bench-64/benchmarks/oscar64` and follow the instructions in the file `c-bench-64/benchmarks/oscar64/oscar64/oscar64.md`.
+You have to build the compiler by yourself. Clone the repository to `c-bench-64/benchmarks/oscar64/oscar64` by executing the command `git clone https://github.com/drmortalwombat/oscar64.git` in `c-bench-64/benchmarks/oscar64` and follow the instructions in the file `c-bench-64/benchmarks/oscar64/oscar64/oscar64.md` which is basically executing `make -C make` in the `c-bench-64/benchmarks/oscar64/oscar64` directory.
