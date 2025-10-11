@@ -6,14 +6,18 @@ Program CRC8Bench;
 
 var
     benchmark_result : byte;
+    scry : byte;
 
 const
     ROM_START : integer = $e000;
     ROM_LENGTH : integer = $2000;
     EXPECTED : byte = $a2;
 
+
+
+
 // CRC-8/GSM-A implementation
-function CRC8(data_addr : integer; len : integer) : byte;
+function CRC8(data_addr : pointer; len : integer) : byte;
 var
     crc_value : byte;
     temp_byte : byte;
@@ -42,7 +46,7 @@ begin
             dec(bit_count);
         end;
         
-        mem_ptr := mem_ptr + 1;
+        inc(mem_ptr);
         inc(counter);
     end;
     
@@ -50,64 +54,13 @@ begin
     CRC8 := crc_value;
 end;
 
-// Output functions using C64 KERNAL routines
-procedure print(msg_ptr : pointer);
-var
-    current_char : byte;
-begin
-    while (msg_ptr[0] <> 0) do
-    begin
-        current_char := msg_ptr[0];
-        asm("
-            lda current_char
-            jsr $ffd2     ; CHROUT
-        ");
-        msg_ptr := msg_ptr + 1;
-    end;
-end;
-
-procedure print_newline();
-begin
-    asm("
-        lda #13
-        jsr $ffd2
-    ");
-end;
-
-procedure print_hex_byte(value : byte);
-var
-    hi_nibble, lo_nibble : byte;
-begin
-    hi_nibble := (value shr 4) and $0f;
-    lo_nibble := value and $0f;
-    
-    // Print high nibble
-    if (hi_nibble < 10) then
-        hi_nibble := hi_nibble + '0'
-    else
-        hi_nibble := hi_nibble - 10 + 'a';
-    
-    // Print low nibble
-    if (lo_nibble < 10) then  
-        lo_nibble := lo_nibble + '0'
-    else
-        lo_nibble := lo_nibble - 10 + 'a';
-        
-    asm("
-        lda hi_nibble
-        jsr $ffd2
-        lda lo_nibble
-        jsr $ffd2
-    ");
-end;
-
 // Static string data as byte arrays
 var
-    msg_crc8_name : string = "crc8.c";
-    msg_description : string = "Calculates the CRC8 of the C64 Kernal";
-    msg_crc8_label : string = "CRC8=";
+    msg_crc8_name : string = "CRC8.RAS";
+    msg_description : string = "CALCULATES THE CRC8";
+    msg_crc8_label : string = "CRC8";
     msg_ok : string = " [OK]";
-    msg_fail : string = " [FAIL] - expected ";
+    msg_fail : string = " [FAIL]";
 
 // Benchmark functions matching C interface
 procedure benchmark();
@@ -117,30 +70,37 @@ end;
 
 procedure benchmark_name();
 begin
-    print(#msg_crc8_name);
-    print_newline();
-    print(#msg_description);
-    print_newline();
+    moveto(0,scry,hi(#screen_char_loc));
+    printstring(#msg_crc8_name, 0, 40); 
+    scry := scry +2;
+    moveto(0,scry,hi(#screen_char_loc));
+    printstring(#msg_description,0, 40);
+    scry := scry +2;
 end;
 
 function benchmark_check() : byte;
 var
     result : byte;
 begin
-    print(#msg_crc8_label);
-    print_hex_byte(benchmark_result);
+    moveto(0,scry,hi(#screen_char_loc));
+    printstring(#msg_crc8_label, 0, 40); 
+    scry := scry +1;
+    moveto(0,scry,hi(#screen_char_loc));
+    printnumber(benchmark_result);
+    scry := scry +1;
     
     if (benchmark_result = EXPECTED) then
     begin
-        print(#msg_ok);
-        print_newline();
+	    moveto(0,scry,hi(#screen_char_loc));
+	    printstring(#msg_ok, 0, 40); 
+	    scry := scry +1;
         result := 0;
     end
     else
     begin
-        print(#msg_fail);
-        print_hex_byte(EXPECTED);
-        print_newline();
+	    moveto(0,scry,hi(#screen_char_loc));
+	    printstring(#msg_fail, 0, 40); 
+	    scry := scry +1;
         result := 1;
     end;
     
@@ -150,7 +110,12 @@ end;
 
 // Main execution
 begin
+	
+	ClearScreen($20, ^$0400); // Clears screen bank 1 with a space character ($20)
+	scry := 0;
     benchmark_name();
     benchmark();
     benchmark_check();
+    
+    loop();
 end.
