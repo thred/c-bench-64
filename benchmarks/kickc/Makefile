@@ -54,6 +54,7 @@ exec:
 		-monlogname "$(BINDIR)/$(PRG)-kickc.log"
 
 	@if [ -f "$(BINDIR)/vice.png" ]; then mv "$(BINDIR)/vice.png" "$(BINDIR)/$(PRG)-$(SUFFIX).png"; fi
+	@if [ -f "$(BINDIR)/vice.scr" ]; then mv "$(BINDIR)/vice.scr" "$(BINDIR)/$(PRG)-$(SUFFIX).scr"; fi
 
 	cat "$(BINDIR)/$(PRG)-kickc.log" 
 

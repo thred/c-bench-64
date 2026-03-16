@@ -52,6 +52,17 @@ const testDefs = {
     }
 };
 
+const cbmScreenCodeToAscii = [
+    "@", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",
+    "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "[", "£", "]", "↑", "←",
+    " ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/",
+    "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", ";", "<", "=", ">", "?",
+    "─", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O",
+    "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "🮐", "🮐", "🮐", "🮐", "🮐",
+    "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", 
+    "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", 
+]
+
 const compilersKeys = {
     calypsi: "calypsi",
     cc65: "cc65",
@@ -64,32 +75,43 @@ const compilersKeys = {
 
 const baseDir = path.resolve(__dirname, "../benchmarks");
 
-function getLogTime(log) {
-    const match = log.toLowerCase().match(/total time:\s*([\d.]+)/);
+function getLogTime(screen) {
+    const match = screen.toLowerCase().match(/total time:\s*([\d.]+)/);
 
     return match ? parseFloat(match[1]) : null;
 }
 
-function getStatus(log) {
-    if (!log) return "unknown";
+function getStatus(screen) {
+    if (!screen) return "unknown";
 
-    log = log.toLowerCase();
+    screen = screen.toLowerCase();
     
-    if (log.includes("[fail]") || log.includes(".fail.")) return "fail";
-    if (log.includes("[miss]") || log.includes(".miss.")) return "unsupported";
-    if (log.includes("[off]") || log.includes(".off.")) return "disabled";
-    if (log.includes("[ok]") || log.includes(".ok.")) return "pass";
+    if (screen.includes("[fail]") || screen.includes(".fail.")) return "fail";
+    if (screen.includes("[miss]") || screen.includes(".miss.")) return "unsupported";
+    if (screen.includes("[off]") || screen.includes(".off.")) return "disabled";
+    if (screen.includes("[ok]") || screen.includes(".ok.")) return "pass";
     
     return "unknown";
 }
 
-function filterLog(log) {
-    const headline = "Displaying 40x25 screen at $0400:\n";
-    const displayIdx = log.indexOf(headline);
-    
-    log = displayIdx !== -1 ? log.slice(displayIdx + headline.length) : "";
+function filterLog(screen) {
+    return screen;
+}
 
-    return log;
+function cbmScreenToAscii(buffer) {
+    const lines = [];
+
+    for (let row = 0; row < 25; row++) {
+        let line = "";
+
+        for (let col = 0; col < 40; col++) {
+            line += cbmScreenCodeToAscii[buffer[row * 40 + col] % 128];
+        }
+
+        lines.push(line.trimEnd());
+    }
+
+    return lines.join('\n').trimEnd();
 }
 
 function aggregateResults(configKey, dir) {
@@ -106,21 +128,22 @@ function aggregateResults(configKey, dir) {
 
         const size = fs.statSync(prgPath).size;
 
-        const logPath = path.join(baseDir, dir, "bin", `${bench}-${configKey}.log`);
+        const screenName = `${bench}-${configKey}.scr`;
+        const screenPath = path.join(baseDir, dir, "bin", screenName);
 
-        if (!fs.existsSync(logPath)) {
-            console.error(`  Log file not found: ${logPath}`);
+        if (!fs.existsSync(screenPath)) {
+            console.warn(`  Screen dump file not found: ${screenPath}`);
             continue;
         }
 
-        const log = fs.readFileSync(logPath, "utf8");
+        const screen = cbmScreenToAscii(fs.readFileSync(screenPath));
 
         results[bench] = {
             prgName: prgName,
             size: size,
-            time: getLogTime(log),
-            status: getStatus(log),
-            output: filterLog(log),
+            time: getLogTime(screen),
+            status: getStatus(screen),
+            output: filterLog(screen),
         };
 
         const screenshotName = `${bench}-${configKey}.png`;
@@ -155,18 +178,18 @@ function aggregateTests(configKey, dir) {
 
         const size = fs.statSync(prgPath).size;
 
-        const logPath = path.join(baseDir, dir, "bin", `${testKey}-${configKey}.log`);
+        const screenPath = path.join(baseDir, dir, "bin", `${testKey}-${configKey}.scr`);
 
-        if (!fs.existsSync(logPath)) {
-            console.error(`  Log file not found for test ${testName}: ${logPath}`);
+        if (!fs.existsSync(screenPath)) {
+            console.warn(`  Screen dump file not found for test ${testName}: ${screenPath}`);
             continue;
         }
 
-        const log = fs.readFileSync(logPath, "utf8").toLowerCase();
+        const screen = cbmScreenToAscii(fs.readFileSync(screenPath));
 
         for (const test of testDef.tests) {
             const regex = new RegExp(`#${test}\\b.*`, "m");
-            const match = log.match(regex);
+            const match = screen.match(regex);
             
             tests[testName][test] = {
                 status: getStatus(match ? match[0] : null),
