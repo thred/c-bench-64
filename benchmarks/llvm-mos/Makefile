@@ -7,7 +7,7 @@ VICETRAP = 0xc000
 CLANG = "$(CURDIR)/llvm-mos/bin/mos-c64-clang"
 CLANGTARGET = -DLLVM -D__MATHH_MISSING -DVICETRAP=$(VICETRAP) 
 CLANGPERFOPTS = -O2 -flto -fnonreentrant
-CLANGSIZEOPTS = -Os -flto -fnonreentrant
+CLANGSIZEOPTS = -Oz -flto -fnonreentrant
 
 version:
 	@echo ""
