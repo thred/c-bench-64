@@ -91,6 +91,9 @@ function getStatus(screen) {
     if (screen.includes("[off]") || screen.includes("╋off┃")) return "disabled";
     if (screen.includes("[ok]") || screen.includes("╋ok┃")) return "pass";
     
+    console.log("Failed to parse status from screen:");
+    console.log(screen);
+    
     return "unknown";
 }
 

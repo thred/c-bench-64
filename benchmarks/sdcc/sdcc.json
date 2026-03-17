@@ -9,7 +9,6 @@
     "license": "different FOSS licenses (see homepage)",
     "pros": ["Mature compiler with a long history."],
     "cons": [
-        "Versions 4.4.0 and later fails to produce a working binary for the C64.",
         "Some benchmarks and tests do not complete normally, e.g. zlib.",
         "Complex build configuration.",
         "Sparse documentation for MOS 6502 targets."
