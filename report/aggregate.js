@@ -66,7 +66,6 @@ const cbmScreenCodeToAscii = [
 const compilersKeys = {
     calypsi: "calypsi",
     cc65: "cc65",
-    kickc: "kickc",
     "llvm-mos": "llvm",
     oscar64: "o64",
     sdcc: "sdcc",

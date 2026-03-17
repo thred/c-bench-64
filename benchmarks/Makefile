@@ -1,11 +1,8 @@
 CURDIR := $(shell pwd)
 
-# Currently kickc is mostly incompatible and does not even recognize #ifdef.
-# It is not included in the default build.
+# INCLUDE = calypsi,cc65,llvm,o64,sdcc,vbcc
 
-# INCLUDE = calypsi,cc65,kickc,llvm,o64,sdcc,vbcc
-
-INCLUDE_ALL = calypsi,cc65,kickc,llvm,o64,sdcc,vbcc
+INCLUDE_ALL = calypsi,cc65,llvm,o64,sdcc,vbcc
 INCLUDE = calypsi,cc65,llvm,o64,sdcc,vbcc
 
 export SRCDIR = $(CURDIR)/src
@@ -119,9 +116,9 @@ pow:
 	$(MAKE) build-pow
 	$(MAKE) exec-pow
 build-pow:
-	PRG=pow LIBS='$(BENCH_LIBS)' EXCLUDE="cc65 kickc" $(MAKE) build
+	PRG=pow LIBS='$(BENCH_LIBS)' EXCLUDE="cc65" $(MAKE) build
 exec-pow:
-	PRG=pow EXCLUDE="cc65 kickc" $(MAKE) exec
+	PRG=pow EXCLUDE="cc65" $(MAKE) exec
 
 puff2:
 	$(MAKE) build-puff2
@@ -204,10 +201,6 @@ version:
 		$(MAKE) -C cc65 version; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "kickc" && ! echo "$(EXCLUDE)" | grep -q "kickc" ; then \
-		$(MAKE) -C kickc version; \
-	fi
-
 	@if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
 		$(MAKE) -C llvm-mos version; \
 	fi
@@ -233,10 +226,6 @@ build:
 	@if echo "$(INCLUDE)" | grep -q "cc65" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
 		$(MAKE) -C cc65 build-perf; \
 		$(MAKE) -C cc65 build-size; \
-	fi
-
-	@if echo "$(INCLUDE)" | grep -q "kickc" && ! echo "$(EXCLUDE)" | grep -q "kickc" ; then \
-		$(MAKE) -C kickc build; \
 	fi
 
 	@if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
@@ -271,10 +260,6 @@ clean:
 		$(MAKE) -C cc65 clean; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "kickc" && ! echo "$(EXCLUDE)" | grep -q "kickc" ; then \
-		$(MAKE) -C kickc clean; \
-	fi
-
 	@if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
 		$(MAKE) -C llvm-mos clean; \
 	fi
@@ -300,10 +285,6 @@ exec:
 	@if echo "$(INCLUDE)" | grep -q "cc65" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
 		$(MAKE) -C cc65 exec-perf; \
 		$(MAKE) -C cc65 exec-size; \
-	fi
-
-	@if echo "$(INCLUDE)" | grep -q "kickc" && ! echo "$(EXCLUDE)" | grep -q "kickc" ; then \
-		$(MAKE) -C kickc exec; \
 	fi
 
 	@if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \

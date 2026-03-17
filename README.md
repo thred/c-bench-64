@@ -9,7 +9,6 @@ Submitted by GG on Sat, 03/12/2022 - 01:11
 
 - [Calypsi](https://www.calypsi.cc/)
 - [CC65](https://cc65.github.io/)
-- [KickC](https://gitlab.com/camelot/kickc)
 - [llvm-mos](https://llvm-mos.org)
 - [Oscar64](https://github.com/drmortalwombat/oscar64)
 - [sdcc](https://sdcc.sourceforge.net/)
@@ -39,7 +38,6 @@ The compilers are usually installed into a subfolder to avoid problems with exis
 
 - [README.md for Calypsi](benchmarks/calypsi/README.md)
 - [README.md for CC65](benchmarks/cc65/README.md)
-- [README.md for KickC](benchmarks/kickc/README.md)
 - [README.md for llvm-mos](benchmarks/llvm-mos/README.md)
 - [README.md for Oscar64](benchmarks/oscar64/README.md)
 - [README.md for sdcc](benchmarks/sdcc/README.md)
@@ -57,7 +55,7 @@ Run all benchmarks for a specific compiler:
 make -C benchmarks all INCLUDE=cc65
 ```
 
-The available keys are: `calypsi`, `cc65`, `kickc`, `llvm`, `o64`, `sdcc`, `vbcc`.
+The available keys are: `calypsi`, `cc65`, `llvm`, `o64`, `sdcc`, `vbcc`.
 
 Run individual benchmarks by their name:
 

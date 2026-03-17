@@ -41,9 +41,9 @@ export type TestKey = "math.h" | "stdio.h" | "stdlib.h" | "string.h";
 
 export const testKeys: readonly TestKey[] = ["math.h", "stdio.h", "stdlib.h", "string.h"];
 
-export type CompilerKey = "calypsi" | "cc65" | "kickc" | "llvm" | "o64" | "sdcc" | "vbcc";
+export type CompilerKey = "calypsi" | "cc65" | "llvm" | "o64" | "sdcc" | "vbcc";
 
-export const compilerKeys: readonly CompilerKey[] = ["calypsi", "cc65", "kickc", "llvm", "o64", "sdcc", "vbcc"];
+export const compilerKeys: readonly CompilerKey[] = ["calypsi", "cc65", "llvm", "o64", "sdcc", "vbcc"];
 
 export const activeCompilerKeys: readonly CompilerKey[] = ["calypsi", "cc65", "llvm", "o64", "sdcc", "vbcc"];
 
