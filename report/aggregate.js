@@ -58,9 +58,9 @@ const cbmScreenCodeToAscii = [
     " ", "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/",
     "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", ";", "<", "=", ">", "?",
     "─", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O",
-    "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "🮐", "🮐", "🮐", "🮐", "🮐",
-    "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", 
-    "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", "🮐", 
+    "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "╋", "▒", "┃", "▒", "▒",
+    " ", "▌", "▄", "▔", "▁", "▏", "▒", "▕", "▒", "▒", "▕", "┣", "▗", "┗", "┓", "▁", 
+    "┏", "┻", "┳", "┫", "▏", "▎", "▕", "▔", "▔", "▂", "✔", "▖", "▝", "┛", "▘", "▚", 
 ]
 
 const compilersKeys = {
@@ -86,10 +86,10 @@ function getStatus(screen) {
 
     screen = screen.toLowerCase();
     
-    if (screen.includes("[fail]") || screen.includes(".fail.")) return "fail";
-    if (screen.includes("[miss]") || screen.includes(".miss.")) return "unsupported";
-    if (screen.includes("[off]") || screen.includes(".off.")) return "disabled";
-    if (screen.includes("[ok]") || screen.includes(".ok.")) return "pass";
+    if (screen.includes("[fail]") || screen.includes("╋fail┃")) return "fail";
+    if (screen.includes("[miss]") || screen.includes("╋miss┃")) return "unsupported";
+    if (screen.includes("[off]") || screen.includes("╋off┃")) return "disabled";
+    if (screen.includes("[ok]") || screen.includes("╋ok┃")) return "pass";
     
     return "unknown";
 }
@@ -108,10 +108,10 @@ function cbmScreenToAscii(buffer) {
             line += cbmScreenCodeToAscii[buffer[row * 40 + col] % 128];
         }
 
-        lines.push(line.trimEnd());
+        lines.push(line);
     }
 
-    return lines.join('\n').trimEnd();
+    return lines.join('\n');
 }
 
 function aggregateResults(configKey, dir) {

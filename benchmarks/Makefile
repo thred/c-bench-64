@@ -13,8 +13,8 @@ export SRCDIR = $(CURDIR)/src
 BENCH_LIBS = "$(SRCDIR)/cia_timer.c" "$(SRCDIR)/out.c" "$(SRCDIR)/main.c"
 TEST_LIBS = "$(SRCDIR)/cia_timer.c" "$(SRCDIR)/test.c"
 
-# export VICEEXEC = flatpak run net.sf.VICE -config "$(SRCDIR)/vice.ini" -warp -jamaction 2
-export VICEEXEC = x64sc -config "$(SRCDIR)/vice.ini" -warp -jamaction 2
+export VICEEXEC = flatpak run net.sf.VICE -config "$(SRCDIR)/vice.ini" -warp -jamaction 2
+# export VICEEXEC = x64sc -config "$(SRCDIR)/vice.ini" -warp -jamaction 2
 
 all:
 	$(MAKE) version

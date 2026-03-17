@@ -3,25 +3,21 @@
 The source for the initial benchmarks comes from: https://web.archive.org/web/20250124180056/https://gglabs.us/node/2293  
 Submitted by GG on Sat, 03/12/2022 - 01:11
 
-> GG, please contact me to discuss licensing issues regarding your benchmarks!
-
-Since the original web page is no longer accessible, I am attempting to preserve the information and make the results reproducible and more accessible.
+[Thanks for sharing your benchmarks, GG!](https://github.com/thred/c-bench-64/issues/9) Without your work, this project would not have been possible.
 
 ## Included Compilers
 
--   [Calypsi](https://www.calypsi.cc/)
--   [CC65](https://cc65.github.io/)
--   [KickC](https://gitlab.com/camelot/kickc)
--   [llvm-mos](https://llvm-mos.org)
--   [Oscar64](https://github.com/drmortalwombat/oscar64)
--   [sdcc](https://sdcc.sourceforge.net/)
--   [vbcc](http://www.compilers.de/vbcc.html)
+- [Calypsi](https://www.calypsi.cc/)
+- [CC65](https://cc65.github.io/)
+- [KickC](https://gitlab.com/camelot/kickc)
+- [llvm-mos](https://llvm-mos.org)
+- [Oscar64](https://github.com/drmortalwombat/oscar64)
+- [sdcc](https://sdcc.sourceforge.net/)
+- [vbcc](http://www.compilers.de/vbcc.html)
 
 ## Benchmarks
 
-Documentation for Windows is coming, soon.
-
-### Prepare Your Envrionment
+### Prepare Environment
 
 #### Linux (RedHat)
 
@@ -41,13 +37,13 @@ The benchmark for each compiler contains specific instructions to prepare the bu
 
 The compilers are usually installed into a subfolder to avoid problems with existing local installations.
 
--   [README.md for Calypsi](benchmarks/calypsi/README.md)
--   [README.md for CC65](benchmarks/cc65/README.md)
--   [README.md for KickC](benchmarks/kickc/README.md)
--   [README.md for llvm-mos](benchmarks/llvm-mos/README.md)
--   [README.md for Oscar64](benchmarks/oscar64/README.md)
--   [README.md for sdcc](benchmarks/sdcc/README.md)
--   [README.md for vbcc](benchmarks/vbcc/README.md)
+- [README.md for Calypsi](benchmarks/calypsi/README.md)
+- [README.md for CC65](benchmarks/cc65/README.md)
+- [README.md for KickC](benchmarks/kickc/README.md)
+- [README.md for llvm-mos](benchmarks/llvm-mos/README.md)
+- [README.md for Oscar64](benchmarks/oscar64/README.md)
+- [README.md for sdcc](benchmarks/sdcc/README.md)
+- [README.md for vbcc](benchmarks/vbcc/README.md)
 
 Benchmarks can be built and executed using:
 

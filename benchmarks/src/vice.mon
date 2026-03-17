@@ -1,5 +1,5 @@
 sw
 screenshot "bin/vice" 2
-sc 0400
+bsave "bin/vice.scr" 0 0400 07E8
 quit
 
