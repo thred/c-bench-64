@@ -68,7 +68,7 @@
     }
   ],
   "version": "1.32.268",
-  "date": "2026-03-17 17:39:38",
+  "date": "2026-03-17 19:20:28",
   "results": {
     "o64p": {
       "aes256": {
@@ -137,10 +137,10 @@
       },
       "puff2": {
         "prgName": "puff2-o64p.prg",
-        "size": 14965,
-        "time": 0,
-        "status": "fail",
-        "output": "                                        \n    **** commodore 64 basic v2 ****     \n                                        \n 64k ram system  38911 basic bytes free \n                                        \nready.                                  \nload\"puff2-o64p\",8,1                    \n                                        \nsearching for puff2-o64p                \nloading                                 \n?load  error                            \nready.                                  \nrun                                     \nCalibrating frequency: 50 Hz            \n                                        \npuff.c                                  \ninflate compressed data                 \nRES=-2                                  \nslen=4 dlen=0                           \n                                        \nCRC32=FFFFFFFF [FAIL] - expected 28ED93C\n7                                       \nTotal time: 0.0 s                       \n                                        \n                                        ",
+        "size": 15831,
+        "time": 7.3,
+        "status": "pass",
+        "output": "                                        \n    **** commodore 64 basic v2 ****     \n                                        \n 64k ram system  38911 basic bytes free \n                                        \nready.                                  \nload\"puff2-o64p\",8,1                    \n                                        \nsearching for puff2-o64p                \nloading                                 \n?load  error                            \nready.                                  \nrun                                     \nCalibrating frequency: 50 Hz            \n                                        \npuff.c                                  \ninflate compressed data                 \nRES=0                                   \nslen=3407 dlen=4096                     \n                                        \nCRC32=28ED93C7 [OK]                     \nTotal time: 7.3 s                       \n                                        \n                                        \n                                        ",
         "screenshot": "puff2-o64p.png"
       },
       "sieve": {
