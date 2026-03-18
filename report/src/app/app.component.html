@@ -1,6 +1,8 @@
 <div class="header-wrapper">
     <app-toc>
         <app-toc-section label="Benchmarks">
+            <app-toc-item routerLink="benchmarks/-" label="Go To Page" />
+
             <app-toc-separator label="Summary" />
 
             <app-toc-item routerLink="benchmarks/timeSummary" label="Execution Times" />
@@ -16,6 +18,8 @@
         </app-toc-section>
 
         <app-toc-section href="#tests" label="Tests">
+            <app-toc-item routerLink="tests/-" label="Go To Page" />
+
             <app-toc-separator label="Test Results" />
 
             @for (key of testKeys; track key) {
@@ -32,6 +36,10 @@
         </app-toc-section>
 
         <app-toc-section label="Compilers">
+            <app-toc-item routerLink="compilers/-" label="Go To Page" />
+
+            <app-toc-separator label="Compilers" />
+
             @for (key of compilerKeys; track key) {
                 @if (compilers()[key]; as compiler) {
                     <app-toc-item
@@ -46,6 +54,10 @@
         </app-toc-section>
 
         <app-toc-section href="#notice" label="Legal Notice">
+            <app-toc-item routerLink="notice/-" label="Go To Page" />
+
+            <app-toc-separator label="Notes" />
+
             <app-toc-item routerLink="notice/impressum" label="Impressum" />
             <app-toc-item routerLink="notice/disclaimer" label="Disclaimer" />
             <app-toc-item routerLink="notice/contributing" label="Contributing" />
