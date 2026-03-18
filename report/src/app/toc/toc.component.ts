@@ -1,5 +1,5 @@
 import { Component, contentChildren, signal } from "@angular/core";
-import { lazyComputed } from "../lazy.signal";
+import { lazyComputed } from "../signals/lazy.signal";
 import { sizeOfSignal } from "../signals/size-of.signal";
 import { TOCSectionComponent } from "../toc-section/toc-section.component";
 

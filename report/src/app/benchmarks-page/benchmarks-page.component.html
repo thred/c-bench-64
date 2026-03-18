@@ -1,0 +1,33 @@
+<h1>C-Compiler Benchmarks for MOS Technology 6502 Cross Compilers</h1>
+
+<p>
+    This page provides benchmarks for various C compilers targeting the MOS Technology 6502 architecture. The benchmarks
+    not only measure the execution time of the compiled code but also the size of the resulting binaries which is often
+    more crucial for resource-constrained environments than the execution time.
+</p>
+
+@if (service.selectedCompilerKeys().length === 0) {
+    <p class="box">
+        No configurations selected. Please select one or more compilers from the menu.<span
+            class="blinking-cursor"
+        ></span>
+    </p>
+} @else {
+    <app-section>
+        <h2 id="summary" headline appSectionCollapser>Summary</h2>
+
+        <app-benchmark-summary />
+    </app-section>
+
+    <app-section>
+        <h2 id="benchmarks" headline appSectionCollapser>Details</h2>
+
+        @for (key of nonTestBenchmarkKeys; track key) {
+            @if (benchmarks[key]; as benchmark) {
+                <app-benchmark [id]="key" [key]="key" [chartWidth]="chartWidth()"></app-benchmark>
+            }
+        }
+    </app-section>
+}
+
+<p class="footer">Continue and examine the <a routerLink="/tests/-">test results</a>.</p>

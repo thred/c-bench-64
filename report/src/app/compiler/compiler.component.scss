@@ -9,4 +9,15 @@
             margin-bottom: 0.25em;
         }
     }
+
+    .headline {
+        border-top: 4px solid var(--headline-color);
+        border-bottom: 4px solid var(--headline-color);
+        margin: 2em 0 0.5em 0;
+
+        h2 {
+            border: none;
+            margin-top: 0;
+        }
+    }
 }

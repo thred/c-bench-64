@@ -1,6 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { Component, inject, input, model, output } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
 import { TOCComponent } from "../toc/toc.component";
 import { Utils } from "../utils";
 import { AbstractTocItemComponent } from "./abstract-toc-item.component";
@@ -14,8 +15,10 @@ import { AbstractTocItemComponent } from "./abstract-toc-item.component";
 })
 export class TOCItemComponent extends AbstractTocItemComponent {
     readonly toc = inject(TOCComponent);
+    readonly router = inject(Router);
 
     readonly href = input<string | undefined>(undefined);
+    readonly routerLink = input<string | undefined>(undefined);
 
     readonly label = input.required<string>();
 
@@ -40,6 +43,14 @@ export class TOCItemComponent extends AbstractTocItemComponent {
         }
 
         this.click.emit(event);
+
+        const routerLinkValue = this.routerLink();
+
+        if (routerLinkValue) {
+            this.router.navigate([routerLinkValue]);
+            this.toc.expanded.set(undefined);
+            return;
+        }
 
         let href = this.href();
 

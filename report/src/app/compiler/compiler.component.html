@@ -1,7 +1,19 @@
 <app-section>
-    <h3 id="compiler-{{ compiler().key }}" headline appSectionCollapser>
-        {{ compiler().name }}
-    </h3>
+    @let key = compiler().key;
+
+    <div id="compiler-{{ key }}" headline class="headline">
+        <h2 appSectionCollapser>{{ compiler().name }}</h2>
+
+        <p>
+            <input
+                [id]="'include-' + key"
+                type="checkbox"
+                [ngModel]="service.isCompilerSelected(key)"
+                (ngModelChange)="service.setCompilerSelected(key, $event)"
+            />
+            <label [for]="'include-' + key">Include {{ compiler().name }} in the benchmarks.</label>
+        </p>
+    </div>
 
     @if (compiler().warning) {
         <p class="box">{{ compiler().warning }}<span class="blinking-cursor"></span></p>

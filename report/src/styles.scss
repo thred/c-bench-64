@@ -452,6 +452,12 @@ ul {
     color: var(--highlight-color);
 }
 
+.footer {
+    margin: 2rem 0;
+    padding: 1rem 1rem;
+    border-top: 4px solid var(--highlight-color);
+}
+
 .no-gap {
     margin-top: 0rem;
     margin-bottom: 0rem;

@@ -1,0 +1,20 @@
+<h1>MOS Technology 6502 C-Compilers</h1>
+
+<p>
+    This page provides information about various C compilers targeting the MOS Technology 6502 architecture. Each
+    compiler has different characteristics, optimization strategies, and target platforms.
+</p>
+
+@for (key of compilerKeys; track key) {
+    @if (compilers()[key]; as compiler) {
+        <app-compiler [id]="'compiler-' + key" [compiler]="compiler"></app-compiler>
+    }
+}
+
+@if (service.selectedCompilerKeys().length === 0) {
+    <p class="box">
+        No compilers selected. Please select one or more compilers from the menu.<span class="blinking-cursor"></span>
+    </p>
+}
+
+<p class="footer">Go back to examine the <a routerLink="/benchmarks/-">benchmarks</a>.</p>

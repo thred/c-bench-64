@@ -1,0 +1,40 @@
+<h1>Tests for MOS Technology 6502 C-Compilers</h1>
+
+<p>
+    The tests cover some - not all - C library functions that are considered relevant for the 6502 architecture. The
+    tests are executed on a Commodore 64 emulator and you should be aware that other target platforms may not support
+    all of these functions (e.g. I/O functions using the CBM kernɇal).
+</p>
+
+@if (service.selectedCompilerKeys().length === 0) {
+    <p class="box">
+        No configurations selected. Please select one or more compilers from the menu.<span
+            class="blinking-cursor"
+        ></span>
+    </p>
+} @else {
+    <app-section>
+        <h2 headline appSectionCollapser>Tests</h2>
+
+        @for (key of testKeys; track key) {
+            <app-test [id]="key" [testKey]="key" [configKeys]="service.selectedConfigKeys()" />
+        }
+    </app-section>
+
+    <app-section>
+        <h2 id="benchmarks" headline appSectionCollapser>Test Benchmarks</h2>
+
+        <p class="box">
+            The tests are no real benchmarks but they provide some insights into the performance of the tested
+            functions.
+        </p>
+
+        @for (key of testBenchmarkKeys; track key) {
+            @if (benchmarks[key]; as benchmark) {
+                <app-benchmark [id]="key" [key]="key" [chartWidth]="chartWidth()"></app-benchmark>
+            }
+        }
+    </app-section>
+}
+
+<p class="footer">Continue and examine the <a routerLink="/compilers/-">compilers</a>.</p>
