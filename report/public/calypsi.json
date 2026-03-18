@@ -67,6 +67,14 @@
   "date": "2026-03-17 16:33:01",
   "results": {
     "calypsip": {
+      "aes256": {
+        "prgName": "aes256-calypsip.prg",
+        "size": 6757,
+        "time": null,
+        "status": "unknown",
+        "output": "                                        \n    **** commodore 64 basic v2 ****     \n                                        \n 64k ram system  38911 basic bytes frefL\n▕WCk▔*PS▕←▕┛ ▁rCD+▔m4rJ▔▁▕              \nready.  ↑▏▖]rCD+▔m4rJ▔▁▕                \nload\"aes256-calypsip\",8,1               \n                                        \nsearching for aes256-calypsip           \nloading                                 \n?load  error                            \nready.                                  \nrun                                     \nCalibrating frequency: 50 Hz            \n                                        \naes256.c                                \nEncrypts the C64 kernel                 \n                                        \n                                        \n                                        \n                                        \n                                        \n                                        \n                                        \n                                        ",
+        "screenshot": "aes256-calypsip.png"
+      },
       "crc8": {
         "prgName": "crc8-calypsip.prg",
         "size": 4229,
@@ -197,6 +205,14 @@
       }
     },
     "calypsis": {
+      "aes256": {
+        "prgName": "aes256-calypsis.prg",
+        "size": 6769,
+        "time": null,
+        "status": "unknown",
+        "output": "                                        \n    **** commodore 64 basic v2 ****     \n                                        \n 64k ram system  38911 basic bytes free \n                                        \nready.                                  \nload\"aes256-calypsis\",8,1               \n                                        \nsearching for aes256-calypsis           \nloading                                 \n?load  error                            \nready.                                  \nrun                                     \nCalibrating frequency: 50 Hz            \n                                        \naes256.c                                \nEncrypts the C64 kernel                 \n                                        \n                                        \n                                        \n                                        \n                                        \n                                        \n                                        \n                                        ",
+        "screenshot": "aes256-calypsis.png"
+      },
       "crc8": {
         "prgName": "crc8-calypsis.prg",
         "size": 4241,
@@ -323,199 +339,199 @@
     "calypsip": {
       "math.h": {
         "floor": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsip.prg"
         },
         "ceil": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsip.prg"
         },
         "sin": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsip.prg"
         },
         "cos": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsip.prg"
         },
         "tan": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsip.prg"
         },
         "asin": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsip.prg"
         },
         "acos": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsip.prg"
         },
         "atan": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsip.prg"
         },
         "atan2": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsip.prg"
         },
         "exp": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsip.prg"
         },
         "log": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_math-calypsip.prg"
         },
         "log10": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_math-calypsip.prg"
         },
         "pow": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_math-calypsip.prg"
         },
         "sqrt": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsip.prg"
         }
       },
       "stdio.h": {
         "fputc": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_file-calypsip.prg"
         },
         "fgetc": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_file-calypsip.prg"
         },
         "fputs": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_file-calypsip.prg"
         },
         "fgets": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_file-calypsip.prg"
         },
         "fwrite": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_file-calypsip.prg"
         },
         "fread": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_file-calypsip.prg"
         },
         "printf-c": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_print-calypsip.prg"
         },
         "printf-s": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_print-calypsip.prg"
         },
         "printf-d": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_print-calypsip.prg"
         },
         "printf-ld": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_print-calypsip.prg"
         },
         "printf-i": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_print-calypsip.prg"
         },
         "printf-li": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_print-calypsip.prg"
         },
         "printf-x": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_print-calypsip.prg"
         },
         "printf-lx": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_print-calypsip.prg"
         },
         "printf-X": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_print-calypsip.prg"
         },
         "printf-lX": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_print-calypsip.prg"
         },
         "printf-f": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_print-calypsip.prg"
         },
         "printf-e": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_print-calypsip.prg"
         },
         "scanf-c": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_scan-calypsip.prg"
         },
         "scanf-s": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_scan-calypsip.prg"
         },
         "scanf-d": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_scan-calypsip.prg"
         },
         "scanf-i": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_scan-calypsip.prg"
         },
         "scanf-x": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_scan-calypsip.prg"
         },
         "scanf-X": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_scan-calypsip.prg"
         },
         "scanf-f": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_scan-calypsip.prg"
         },
         "scanf-e": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_scan-calypsip.prg"
         }
       },
       "stdlib.h": {
         "rand": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdlib-calypsip.prg"
         },
         "srand": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdlib-calypsip.prg"
         },
         "atof": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdlib-calypsip.prg"
         },
         "atoi": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdlib-calypsip.prg"
         },
         "atol": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdlib-calypsip.prg"
         },
         "malloc": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdlib-calypsip.prg"
         },
         "calloc": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdlib-calypsip.prg"
         },
         "realloc": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdlib-calypsip.prg"
         },
         "qsort": {
@@ -541,51 +557,51 @@
       },
       "string.h": {
         "strlen": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsip.prg"
         },
         "strchr": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsip.prg"
         },
         "strrchr": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsip.prg"
         },
         "strcmp": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsip.prg"
         },
         "strncmp": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsip.prg"
         },
         "strcat": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsip.prg"
         },
         "strncat": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsip.prg"
         },
         "strstr": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsip.prg"
         },
         "memchr": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsip.prg"
         },
         "memset": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsip.prg"
         },
         "memcpy": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsip.prg"
         },
         "memmove": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsip.prg"
         }
       }
@@ -593,216 +609,216 @@
     "calypsis": {
       "math.h": {
         "floor": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsis.prg"
         },
         "ceil": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsis.prg"
         },
         "sin": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsis.prg"
         },
         "cos": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsis.prg"
         },
         "tan": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsis.prg"
         },
         "asin": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsis.prg"
         },
         "acos": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsis.prg"
         },
         "atan": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsis.prg"
         },
         "atan2": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsis.prg"
         },
         "exp": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsis.prg"
         },
         "log": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_math-calypsis.prg"
         },
         "log10": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_math-calypsis.prg"
         },
         "pow": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_math-calypsis.prg"
         },
         "sqrt": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_math-calypsis.prg"
         }
       },
       "stdio.h": {
         "fputc": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_file-calypsis.prg"
         },
         "fgetc": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_file-calypsis.prg"
         },
         "fputs": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_file-calypsis.prg"
         },
         "fgets": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_file-calypsis.prg"
         },
         "fwrite": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_file-calypsis.prg"
         },
         "fread": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_file-calypsis.prg"
         },
         "printf-c": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_print-calypsis.prg"
         },
         "printf-s": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_print-calypsis.prg"
         },
         "printf-d": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_print-calypsis.prg"
         },
         "printf-ld": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_print-calypsis.prg"
         },
         "printf-i": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_print-calypsis.prg"
         },
         "printf-li": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_print-calypsis.prg"
         },
         "printf-x": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_print-calypsis.prg"
         },
         "printf-lx": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_print-calypsis.prg"
         },
         "printf-X": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_print-calypsis.prg"
         },
         "printf-lX": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_print-calypsis.prg"
         },
         "printf-f": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_print-calypsis.prg"
         },
         "printf-e": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_print-calypsis.prg"
         },
         "scanf-c": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_scan-calypsis.prg"
         },
         "scanf-s": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_scan-calypsis.prg"
         },
         "scanf-d": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_scan-calypsis.prg"
         },
         "scanf-i": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_scan-calypsis.prg"
         },
         "scanf-x": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_scan-calypsis.prg"
         },
         "scanf-X": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_stdio_scan-calypsis.prg"
         },
         "scanf-f": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_scan-calypsis.prg"
         },
         "scanf-e": {
-          "status": "unknown",
+          "status": "fail",
           "prgName": "test_stdio_scan-calypsis.prg"
         }
       },
       "stdlib.h": {},
       "string.h": {
         "strlen": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsis.prg"
         },
         "strchr": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsis.prg"
         },
         "strrchr": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsis.prg"
         },
         "strcmp": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsis.prg"
         },
         "strncmp": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsis.prg"
         },
         "strcat": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsis.prg"
         },
         "strncat": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsis.prg"
         },
         "strstr": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsis.prg"
         },
         "memchr": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsis.prg"
         },
         "memset": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsis.prg"
         },
         "memcpy": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsis.prg"
         },
         "memmove": {
-          "status": "unknown",
+          "status": "pass",
           "prgName": "test_string-calypsis.prg"
         }
       }

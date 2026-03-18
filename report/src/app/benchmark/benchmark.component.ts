@@ -41,11 +41,11 @@ export class BenchmarkComponent {
             const result = this.service.findConfigResultByBenchmarkAndConfigKey(this.key(), configKey);
             const config = this.service.findConfigByKey(configKey);
 
-            if (result && result.time !== null && result.size !== null) {
+            if (result) {
                 results[configKey] = Object.assign(
                     {
-                        time: result.time,
-                        size: result.size,
+                        time: result.time ?? NaN,
+                        size: result.size ?? NaN,
                         status: result.status ?? "unknown",
                         output: result.output ?? undefined,
                         screenshot: result.screenshot ?? undefined,
@@ -65,6 +65,7 @@ export class BenchmarkComponent {
             url: benchmarks[key].url,
             footnotes: benchmarks[key].footnotes,
             results,
+            resultKeys: Object.keys(results),
         };
     });
 

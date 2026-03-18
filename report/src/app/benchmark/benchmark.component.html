@@ -54,7 +54,7 @@
 
         <div class="output do-not-print">
             <ul class="tabs">
-                @for (configKey of configKeys(); track configKey) {
+                @for (configKey of benchmark().resultKeys; track configKey) {
                     <li>
                         <a
                             class="tab"

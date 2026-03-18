@@ -178,8 +178,6 @@ function aggregateTests(configKey, dir) {
             continue;
         }
 
-        const size = fs.statSync(prgPath).size;
-
         const screenPath = path.join(baseDir, dir, "bin", `${testKey}-${configKey}.scr`);
 
         if (!fs.existsSync(screenPath)) {
@@ -190,8 +188,8 @@ function aggregateTests(configKey, dir) {
         const screen = cbmScreenToAscii(fs.readFileSync(screenPath));
 
         for (const test of testDef.tests) {
-            const regex = new RegExp(`#${test}\\b.*`, "m");
-            const match = screen.match(regex);
+            const regex = new RegExp(`#${test.toLowerCase()}\\b.*`, "m");
+            const match = screen.toLowerCase().match(regex);
             
             tests[testName][test] = {
                 status: getStatus(match ? match[0] : null),
