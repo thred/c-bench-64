@@ -74,14 +74,14 @@
     "configs": [
         {
             "key": "cc65p",
-            "name": "cc65 - Perf.Opt.",
+            "name": "cc65 Perf.",
             "description": "-Oisr --static-locals",
             "optimization": "performance",
             "color": "#eb7e3a"
         },
         {
             "key": "cc65s",
-            "name": "cc65 - Size Opt.",
+            "name": "cc65 Size",
             "description": "-Os --static-locals",
             "optimization": "size",
             "color": "#eb7e3a"

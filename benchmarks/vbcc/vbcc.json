@@ -27,14 +27,14 @@
     "configs": [
         {
             "key": "vbccp",
-            "name": "VBCC - Perf.Opt.",
+            "name": "VBCC Perf.",
             "description": "-O4 -speed",
             "optimization": "performance",
             "color": "#706deb"
         },
         {
             "key": "vbccs",
-            "name": "VBCC - Size Opt.",
+            "name": "VBCC Size",
             "description": "-O4 -size",
             "optimization": "size",
             "color": "#706deb"

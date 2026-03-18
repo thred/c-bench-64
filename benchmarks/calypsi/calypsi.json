@@ -48,14 +48,14 @@
     "configs": [
         {
             "key": "calypsip",
-            "name": "Calypsi - Perf.Opt.",
+            "name": "Calypsi Perf.",
             "description": "-O2 --speed",
             "optimization": "performance",
             "color": "#c46c71"
         },
         {
             "key": "calypsis",
-            "name": "Calypsi - Size Opt.",
+            "name": "Calypsi Size",
             "description": "-O2 --space",
             "optimization": "size",
             "color": "#c46c71"

@@ -30,14 +30,14 @@
     "configs": [
         {
             "key": "sdccp",
-            "name": "SDCC - Perf.Opt.",
+            "name": "SDCC Perf.",
             "description": "--max-allocs-per-node 250000 --opt-code-speed --allow-unsafe-read",
             "optimization": "performance",
             "color": "#75cec8"
         },
         {
             "key": "sdccs",
-            "name": "SDCC - Size Opt.",
+            "name": "SDCC Size",
             "description": "--max-allocs-per-node 250000 --opt-code-size --allow-unsafe-read",
             "optimization": "size",
             "color": "#75cec8"

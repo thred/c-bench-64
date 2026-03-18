@@ -296,7 +296,6 @@ export class AppService {
                         font: {
                             family: "Oxanium",
                             size: 12,
-                            weight: "bold",
                         },
                     },
                     ticks: {
@@ -304,7 +303,6 @@ export class AppService {
                         font: {
                             family: "Oxanium",
                             size: 12,
-                            weight: "bold",
                         },
                     },
                     border: {
@@ -321,7 +319,6 @@ export class AppService {
                         font: {
                             family: "Oxanium",
                             size: 12,
-                            weight: "bold",
                         },
                     },
                     border: {
@@ -336,7 +333,6 @@ export class AppService {
                         font: {
                             family: "Oxanium",
                             size: 12,
-                            weight: "bold",
                         },
                     },
                 },

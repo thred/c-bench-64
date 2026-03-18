@@ -61,14 +61,14 @@
     "configs": [
         {
             "key": "llvmp",
-            "name": "LLVM-mos - Perf.Opt.",
+            "name": "LLVM-mos Perf.",
             "description": "-O2 -flto -fnonreentrant",
             "optimization": "performance",
             "color": "#edf171"
         },
         {
             "key": "llvms",
-            "name": "LLVM-mos - Size Opt.",
+            "name": "LLVM-mos Size",
             "description": "-Os -flto -fnonreentrant",
             "optimization": "size",
             "color": "#edf171"
