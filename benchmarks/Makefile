@@ -1,7 +1,5 @@
 CURDIR := $(shell pwd)
 
-# INCLUDE = calypsi,cc65,llvm,o64,sdcc,vbcc
-
 INCLUDE_ALL = calypsi,cc65,llvm,o64,sdcc,vbcc
 INCLUDE = calypsi,cc65,llvm,o64,sdcc,vbcc
 
@@ -60,9 +58,9 @@ aes256:
 	$(MAKE) build-aes256
 	$(MAKE) exec-aes256
 build-aes256:
-	PRG=aes256 LIBS='$(BENCH_LIBS)' EXCLUDE="calypsi" $(MAKE) build
+	PRG=aes256 LIBS='$(BENCH_LIBS)' $(MAKE) build
 exec-aes256:
-	PRG=aes256 EXCLUDE="calypsi" $(MAKE) exec
+	PRG=aes256 $(MAKE) exec
 
 crc8:
 	$(MAKE) build-crc8
@@ -193,57 +191,57 @@ exec-test-string:
 	PRG=test_string $(MAKE) exec
 
 version:
-	@if echo "$(INCLUDE)" | grep -q "calypsi" && ! echo "$(EXCLUDE)" | grep -q "calypsi" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "calypsi|all" && ! echo "$(EXCLUDE)" | grep -Eq "calypsi|all" ; then \
 		$(MAKE) -C calypsi version; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "cc65" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "cc65|all" && ! echo "$(EXCLUDE)" | grep -Eq "cc65|all" ; then \
 		$(MAKE) -C cc65 version; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "llvm|all" && ! echo "$(EXCLUDE)" | grep -Eq "llvm|all" ; then \
 		$(MAKE) -C llvm-mos version; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "o64" && ! echo "$(EXCLUDE)" | grep -q "o64" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "o64|all" && ! echo "$(EXCLUDE)" | grep -Eq "o64|all" ; then \
 		$(MAKE) -C oscar64 version; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "sdcc" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "sdcc|all" && ! echo "$(EXCLUDE)" | grep -Eq "sdcc|all" ; then \
 		$(MAKE) -C sdcc version; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "vbcc" && ! echo "$(EXCLUDE)" | grep -q "vbcc" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "vbcc|all" && ! echo "$(EXCLUDE)" | grep -Eq "vbcc|all" ; then \
 		$(MAKE) -C vbcc version; \
 	fi
 
 build:
-	@if echo "$(INCLUDE)" | grep -q "calypsi" && ! echo "$(EXCLUDE)" | grep -q "calypsi" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "calypsi|all" && ! echo "$(EXCLUDE)" | grep -q "calypsi" ; then \
 		$(MAKE) -C calypsi build-perf; \
 		$(MAKE) -C calypsi build-size; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "cc65" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "cc65|all" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
 		$(MAKE) -C cc65 build-perf; \
 		$(MAKE) -C cc65 build-size; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "llvm|all" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
 		$(MAKE) -C llvm-mos build-perf; \
 		$(MAKE) -C llvm-mos build-size; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "o64" && ! echo "$(EXCLUDE)" | grep -q "o64" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "o64|all" && ! echo "$(EXCLUDE)" | grep -q "o64" ; then \
 		$(MAKE) -C oscar64 build-perf; \
 		$(MAKE) -C oscar64 build-size; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "sdcc" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "sdcc|all" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
 		$(MAKE) -C sdcc build-perf; \
 		$(MAKE) -C sdcc build-size; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "vbcc" && ! echo "$(EXCLUDE)" | grep -q "vbcc" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "vbcc|all" && ! echo "$(EXCLUDE)" | grep -q "vbcc" ; then \
 		$(MAKE) -C vbcc build-perf; \
 		$(MAKE) -C vbcc build-size; \
 	fi
@@ -252,57 +250,57 @@ clean-all:
 	$(MAKE) INCLUDE=$(INCLUDE_ALL) clean
 	
 clean:
-	@if echo "$(INCLUDE)" | grep -q "calypsi" && ! echo "$(EXCLUDE)" | grep -q "calypsi" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "calypsi|all" && ! echo "$(EXCLUDE)" | grep -q "calypsi" ; then \
 		$(MAKE) -C calypsi clean; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "cc65" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "cc65|all" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
 		$(MAKE) -C cc65 clean; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "llvm|all" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
 		$(MAKE) -C llvm-mos clean; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "o64" && ! echo "$(EXCLUDE)" | grep -q "o64" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "o64|all" && ! echo "$(EXCLUDE)" | grep -q "o64" ; then \
 		$(MAKE) -C oscar64 clean; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "sdcc" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "sdcc|all" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
 		$(MAKE) -C sdcc clean; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "vbcc" && ! echo "$(EXCLUDE)" | grep -q "vbcc" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "vbcc|all" && ! echo "$(EXCLUDE)" | grep -q "vbcc" ; then \
 		$(MAKE) -C vbcc clean; \
 	fi
 
 exec:
-	@if echo "$(INCLUDE)" | grep -q "calypsi" && ! echo "$(EXCLUDE)" | grep -q "calypsi" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "calypsi|all" && ! echo "$(EXCLUDE)" | grep -q "calypsi" ; then \
 		$(MAKE) -C calypsi exec-perf; \
 		$(MAKE) -C calypsi exec-size; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "cc65" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "cc65|all" && ! echo "$(EXCLUDE)" | grep -q "cc65" ; then \
 		$(MAKE) -C cc65 exec-perf; \
 		$(MAKE) -C cc65 exec-size; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "llvm" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "llvm|all" && ! echo "$(EXCLUDE)" | grep -q "llvm" ; then \
 		$(MAKE) -C llvm-mos exec-perf; \
 		$(MAKE) -C llvm-mos exec-size; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "o64" && ! echo "$(EXCLUDE)" | grep -q "o64" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "o64|all" && ! echo "$(EXCLUDE)" | grep -q "o64" ; then \
 		$(MAKE) -C oscar64 exec-perf; \
 		$(MAKE) -C oscar64 exec-size; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "sdcc" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "sdcc|all" && ! echo "$(EXCLUDE)" | grep -q "sdcc" ; then \
 		$(MAKE) -C sdcc exec-perf; \
 		$(MAKE) -C sdcc exec-size; \
 	fi
 
-	@if echo "$(INCLUDE)" | grep -q "vbcc" && ! echo "$(EXCLUDE)" | grep -q "vbcc" ; then \
+	@if echo "$(INCLUDE)" | grep -Eq "vbcc|all" && ! echo "$(EXCLUDE)" | grep -q "vbcc" ; then \
 		$(MAKE) -C vbcc exec-perf; \
 		$(MAKE) -C vbcc exec-size; \
 	fi

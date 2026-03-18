@@ -1,0 +1,95 @@
+{
+    // For more information, visit: https://go.microsoft.com/fwlink/?LinkId=733558
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "script": "start",
+            "options": {
+                "cwd": "${workspaceFolder}/report"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "typescript",
+                "pattern": "$tsc",
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": {
+                        "regexp": "(.*?)"
+                    },
+                    "endsPattern": {
+                        "regexp": "bundle generation complete"
+                    }
+                }
+            }
+        },
+        {
+            "type": "npm",
+            "script": "test",
+            "options": {
+                "cwd": "${workspaceFolder}/report"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "typescript",
+                "pattern": "$tsc",
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": {
+                        "regexp": "(.*?)"
+                    },
+                    "endsPattern": {
+                        "regexp": "bundle generation complete"
+                    }
+                }
+            }
+        },
+        {
+            "label": "make benchmarks",
+            "type": "shell",
+            "command": "make -C benchmarks all INCLUDE=${input:compiler}",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "group": "Benchmarks"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "aggregate results",
+            "type": "npm",
+            "script": "aggregate",
+            "options": {
+                "cwd": "${workspaceFolder}/report"
+            },
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "group": "Benchmarks"
+            },
+            "problemMatcher": []
+        }
+    ],
+    "inputs": [
+        {
+            "id": "compiler",
+            "type": "pickString",
+            "description": "Select compiler to benchmark",
+            "options": [
+                "all",
+                "calypsi",
+                "cc65",
+                "llvm",
+                "o64",
+                "sdcc",
+                "vbcc"
+            ],
+            "default": "all"
+        }
+    ]
+}
