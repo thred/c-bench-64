@@ -38,6 +38,9 @@ jobs:
                   cd report
                   npm run build:gh-pages
 
+            - name: Copy index.html to 404.html
+              run: cp report/dist/cbench64/browser/index.html report/dist/cbench64/browser/404.html
+
             - name: Setup Pages
               uses: actions/configure-pages@v4
 
